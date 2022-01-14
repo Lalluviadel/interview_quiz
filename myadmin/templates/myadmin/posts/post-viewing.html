@@ -1,0 +1,30 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4">Посты</h1>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <ul class="text-left">
+                            <li>Для редактирования клик на посте</li>
+                            <li>Для удаления (деактивации) - кнопка в графе Активен</li>
+                        </ul>
+                    </div>
+                    <div id="update_post_catcher" class="card-body">
+                        {% include 'myadmin/includes/table-posts.html' %}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'myadmin:admins_post_create'%}">
+                            <button class="btn btn-outline-dark btn-orange">Создать статью</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-responsive center-block" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4 oranged">{{ post.title }}</h1>
+                <div class="row text-justify mt-4">
+                    <div class="col-4 border">
+                        <div class="col-12">
+                            Категория: <b><a
+                                href="{% url 'questions:start_test' post.category.id %}">{{ post.category }}
+                        </a></b>
+                        </div>
+                        <div class="col-12">
+                            Автор: <b><a href="#">{{ post.author }}</a></b>
+                        </div>
+                        <div class="col-12">
+                            Тег: <b><a href="#">{{ post.tag }}</a></b>
+                        </div>
+                        <div class="col-12">
+                            Дата создания: <b><a href="#">{{ post.created_on | date }}</a></b>
+                        </div>
+                        <div class="thumbnail border img-left">
+                            <img class="img-fluid img-rounded img-responsive img-thumbnail "
+                                 src="{{ post.image_url }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-8 d-flex border align-items-center">
+                        {{ post.body }}
+                    </div>
+                    <div class="col-6">
+                        <a class='btn btn-outline-dark btn-orange btn-block ml-3 mr-1 mb-1'
+                           href='{% url 'posts:all' %}'>К статьям</a>
+                    </div>
+                    {% if user.is_staff %}
+                        <div class="col-6">
+                            <a class='btn btn-outline-dark btn-block btn-orange ml-3 mb-1'
+                               href='{% url 'myadmin:admins_post_update' post.id %}'>Редактировать статью</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+    {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

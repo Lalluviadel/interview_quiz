@@ -1,0 +1,50 @@
+<div class="table-responsive">
+    <table class="table table-bordered wigth-100 text-center" id="dataTable">
+        <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Категория</th>
+            <th>Создана</th>
+            <th>Автор</th>
+            <th>Тэг</th>
+            <th>Активна</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Заголовок</th>
+            <th>Категория</th>
+            <th>Создана</th>
+            <th>Автор</th>
+            <th>Тэг</th>
+            <th>Активна</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        {% for post in posts %}
+            <tr{% if not post.available %} class="no-active" {% endif %}>
+                <td class="col-3 text-left">
+                    <a href="{% url 'myadmin:admins_post_update' post.id %}"
+                       class="admin-link">{{ post.title }}</a>
+                </td>
+                <td class="col-2 text-left">{{ post.category }}</td>
+                <td class="col-2 text-left">{{ post.created_on }}</td>
+                <td class="col-2 text-left">{{ post.author }}</td>
+                <td class="col-2 text-left">{{ post.tag }}</td>
+                <td class="col-1">
+                    <form id="update_post_btn">
+                        {% csrf_token %}
+                        {% if post.available %}
+                            <button name="{{ post.id }}" type="submit" class="btn btn-outline-dark btn-orange"><i
+                                    class='fas fa-check-circle blacked'></i></button>
+                        {% else %}
+                            <button name="{{ post.id }}" type="submit" class="btn btn-outline-dark"><i
+                                    class="fas fa-times-circle"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

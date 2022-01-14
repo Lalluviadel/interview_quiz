@@ -1,0 +1,41 @@
+<div class="table-responsive">
+    <table class="table table-bordered wigth-100 text-center" id="dataTable">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Активен</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Активен</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        {% for category in categories %}
+            <tr{% if not category.available %} class="no-active" {% endif %}>
+                <td class="col-2 text-left">
+                    <a href="{% url 'myadmin:admins_category_update' category.id %}"
+                       class="admin-link">{{ category.name }}</a>
+                </td>
+                <td class="col-9 text-left">{{ category.description }}</td>
+                <td class="col-1">
+                    <form id="update_cat_btn">
+                        {% csrf_token %}
+                        {% if category.available %}
+                            <button name="{{ category.id }}" type="submit" class="btn btn-outline-dark btn-orange"><i
+                                    class='fas fa-check-circle blacked'></i></button>
+                        {% else %}
+                            <button name="{{ category.id }}" type="submit" class="btn btn-outline-dark"><i
+                                    class="fas fa-times-circle"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

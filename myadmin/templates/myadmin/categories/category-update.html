@@ -1,0 +1,80 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Редактирование категории <b class="oranged">{{ questioncategory.name }}</b>
+                </h1>
+                <div class="card-body">
+                    <form action="{% url 'myadmin:admins_category_update' questioncategory.id %}" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.name.id_for_label }}">Название</label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="custom-file">
+                                    {{ form.image }}
+                                </div>
+                                <div class="text-center">
+                                    <img width="400" height="400"
+                                         src="{% if questioncategory.image %} {{ questioncategory.image.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                         class="img-thumbnail" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.description.id_for_label }}">Описание</label>
+                                    {{ form.description }}
+                                </div>
+                                <div class="form-row mt-lg-5">
+                                    <div class="col-4">
+                                        <input type="button"
+                                               class="btn btn-secondary btn-block"
+                                               onclick="window.location.href = '{% url 'myadmin:admins_categories' %}';"
+                                               value="Отмена"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                               value="Сохранить">
+                                    </div>
+                                    <div class="col-4">
+                                        {% if questioncategory.available %}
+                                            <form action="{% url 'myadmin:admins_category_delete' questioncategory.id %}"
+                                                  method="post">
+                                            </form>
+                                            <form action="{% url 'myadmin:admins_category_delete' questioncategory.id %}"
+                                                  method="post">
+                                                {% csrf_token %}
+                                                <input class="btn btn-dark form-control btn-block"
+                                                       value="Удалить"
+                                                       type="submit">
+                                            </form>
+                                        {% else %}
+                                            <form action="{% url 'myadmin:admins_category_delete' questioncategory.id %}"
+                                                  method="post">
+                                            </form>
+                                            <form action="{% url 'myadmin:admins_category_delete' questioncategory.id %}"
+                                                  method="post">
+                                                {% csrf_token %}
+                                                <input class="btn btn-outline-dark form-control btn-block"
+                                                       value="Активировать"
+                                                       type="submit">
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

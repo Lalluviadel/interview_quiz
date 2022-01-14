@@ -1,0 +1,32 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4">Административная панель</h1>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form action="{% url 'myadmin:admins_users' %}">
+                            <button type="submit" class="mt-1 big-admin-button container-fluid height-33"><i class="fas fa-users oranged fa-5x"></i></button>
+                        </form>
+                        <form action="{% url 'myadmin:admins_categories' %}">
+                            <button type="submit" class="mt-1 big-admin-button container-fluid height-33"><i class="fas fa-boxes oranged fa-5x"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="{% url 'myadmin:admins_questions' %}">
+                            <button type="submit" class="mt-1 big-admin-button container-fluid height-33"><i class="fa fa-question oranged fa-5x"></i></button>
+                        </form>
+                        <form action="{% url 'myadmin:admins_posts' %}">
+                            <button type="submit" class="mt-1 big-admin-button container-fluid height-33"><i class="far fa-file-alt oranged fa-5x"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

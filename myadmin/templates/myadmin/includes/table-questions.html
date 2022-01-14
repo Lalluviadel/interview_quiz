@@ -1,0 +1,50 @@
+<div class="table-responsive">
+    <table class="table table-bordered wigth-100 dtBasicExample" id="example">
+        <thead>
+        <tr>
+            <th>Вопрос</th>
+            <th>Категория</th>
+            <th>Уровень</th>
+            <th>Правильный ответ</th>
+            <th>Тег</th>
+            <th>Активен</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Вопрос</th>
+            <th>Категория</th>
+            <th>Уровень</th>
+            <th>Правильный ответ</th>
+            <th>Тег</th>
+            <th>Активен</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        {% for question in questions %}
+            <tr {% if not question.available %} class="no-active" {% endif %}>
+                <td class="text-left"><a href="{% url 'myadmin:admins_question_update' question.id %}"
+                       class="admin-link">
+                    {{ question.question }}</a>
+                </td>
+                <td>{{ question.subject }}</td>
+                <td>{{ question.difficulty_level }}</td>
+                <td class="text-left">{{ question.right_answer }}</td>
+                <td>{{ question.tag }}</td>
+                <td class="text-center">
+                    <form id="update_que_btn">
+                        {% csrf_token %}
+                        {% if question.available %}
+                            <button name="{{ question.id }}" type="submit" class="btn btn-outline-dark btn-orange"><i
+                                    class='fas fa-check-circle blacked'></i></button>
+                        {% else %}
+                            <button name="{{ question.id }}" type="submit" class="btn btn-outline-dark"><i
+                                    class="fas fa-times-circle"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

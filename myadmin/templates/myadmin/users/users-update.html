@@ -1,0 +1,86 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Редактирование пользователя <b class="oranged">{{ myuser.username }}</b>
+                </h1>
+                <div class="card-body">
+                    <form action="{% url 'myadmin:admins_user_update' myuser.id %}" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.first_name.id_for_label }}">Имя</label>
+                                    {{ form.first_name }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col-lg-6">
+                                <img width="270" height="270"
+                                     src="{% if myuser.img %} {{ myuser.img.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     class="img-thumbnail" alt="">
+                                {{ form.img }}
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="small mb-1" for="{{ form.username.id_for_label }}">Никнейм</label>
+                                {{ form.username }}
+                                <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной
+                                    почты</label>
+                                {{ form.email }}
+                                <label class="small mb-1" for="{{ form.score.id_for_label }}">Счет</label>
+                                {{ form.score }}
+                            </div>
+                        </div>
+                        <div class="form-row mt-lg-5">
+                            <div class="col-lg-4">
+                                <input type="button" class="btn btn-secondary btn-block"
+                                       onclick="window.location.href = '{% url 'myadmin:admins_users' %}';"
+                                       value="Отмена"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                       value="Сохранить">
+                            </div>
+                            <div class="col-lg-4">
+                                {% if myuser.is_active %}
+                                    <form action="{% url 'myadmin:admins_user_delete' myuser.id %}"
+                                          method="post">
+                                    </form>
+                                    <form action="{% url 'myadmin:admins_user_delete' myuser.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <input class="btn btn-dark btn-block"
+                                               value="Удалить"
+                                               type="submit">
+                                    </form>
+                                    </div>
+                                {% else %}
+                                    <form action="{% url 'myadmin:admins_user_delete' myuser.id %}"
+                                          method="post">
+                                    </form>
+                                    <form action="{% url 'myadmin:admins_user_delete' myuser.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <input class="btn btn-outline-dark btn-block"
+                                               value="Активировать"
+                                               type="submit">
+                                    </form>
+                                {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

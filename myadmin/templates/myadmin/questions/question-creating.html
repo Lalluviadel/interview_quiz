@@ -1,0 +1,111 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Новый вопрос</h1>
+                <div class="card-body">
+                    <form action="{% url 'myadmin:admins_question_create'%}" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.question.id_for_label }}">Текст
+                                        вопроса</label>
+                                    {{ form.question }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1"
+                                           for="{{ form.subject.id_for_label }}">Категория</label>
+                                    {{ form.subject }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1"
+                                           for="{{ form.difficulty_level.id_for_label }}">Сложность</label>
+                                    {{ form.difficulty_level }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.right_answer.id_for_label }}">Правильный
+                                        ответ</label>
+                                    {{ form.right_answer }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.tag.id_for_label }}">Тег</label>
+                                    {{ form.tag }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.answer_01.id_for_label }}">Ответ
+                                        1</label>
+                                    {{ form.answer_01 }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.answer_03.id_for_label }}">Ответ
+                                        3</label>
+                                    {{ form.answer_03 }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.answer_02.id_for_label }}">Ответ
+                                        2</label>
+                                    {{ form.answer_02 }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.answer_04.id_for_label }}">Ответ
+                                        4</label>
+                                    {{ form.answer_04 }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col-lg-4">
+                                <p class="text-center">Картинка для вопроса</p>
+                                    {{ form.image_01 }}
+                            </div>
+                            <div class="col-lg-4">
+                                <p class="text-center">Картинка 1 для пояснения ответа</p>
+                                    {{ form.image_02 }}
+                            </div>
+                            <div class="col-lg-4">
+                                <p class="text-center">Картинка 2 для пояснения ответа</p>
+                                    {{ form.image_03 }}
+                            </div>
+                        </div>
+                        <div class="form-row mt-lg-5">
+                            <div class="col-lg-6">
+                                <input type="button" class="btn btn-dark btn-block"
+                                       onclick="window.location.href = '{% url 'myadmin:admins_questions' %}';"
+                                       value="Отмена"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                       value="Сохранить">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

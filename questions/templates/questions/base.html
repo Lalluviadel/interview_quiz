@@ -1,0 +1,329 @@
+{#{% load static %}#}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{##}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#    <meta name="description" content="">#}
+{#    <meta name="author" content="">#}
+{#    <title>{{ title|title }}</title>#}
+{##}
+{#    <!-- Bootstrap core CSS -->#}
+{#    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">#}
+{#    {% block css %}#}
+{#        <link href="{% static 'css/base.css' %}" rel="stylesheet">#}
+{#        <link href="{% static 'css/auth-admin.css' %}" rel="stylesheet"/>#}
+{#        <link href="{% static 'css/admin.css' %}" rel="stylesheet"/>#}
+{#    {% endblock %}#}
+{#</head>#}
+
+{#<body class="sb-nav-fixed">#}
+{#<!-- Navigation -->#}
+{#<nav class="navbar navbar-default navbar-fixed-top navbar-dark">#}
+{#    <a class="navbar-brand" href="#"><i class="fa fa-pagelines"></i></a>#}
+{#    <a class="nav-item nav-link" href="{% url 'questions:index' %}">Главная<span class="sr-only">(current)</span></a>#}
+{#    <a class="nav-item nav-link" href="{% url 'questions:tests' %}">Тесты</a>#}
+{#    <a class="nav-item nav-link" href="{% url 'posts:all' %}">Статьи</a>#}
+{#    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"#}
+{#       aria-haspopup="true" aria-expanded="false">#}
+{#        Dropdown link#}
+{#    </a>#}
+{#    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+{#        <a class="dropdown-item" href="{% url 'myadmin:index' %}">Админка</a>#}
+{#        <a class="dropdown-item" href="#">Another action</a>#}
+{#        <a class="dropdown-item" href="#">Something else here</a>#}
+{#    </div>#}
+{#    <div class="navbar-text font-italic">Даже маленький шаг вперед приближает к цели</div>#}
+{#</nav>#}
+{#<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">#}
+{#    <a class="navbar-brand oranged" href="{% url 'questions:index' %}">Главная</a>#}
+{#    <button class="btn btn-link btn-md m-2 order-1 order-lg-0 btn-orange blacked" id="sidebarToggle"><i#}
+{#            class="fas fa-bars"></i>#}
+{#    </button>#}
+{#    <!-- Navbar Search-->#}
+{#    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">#}
+{#        <div class="input-group">#}
+{#            <input class="form-control" type="text" placeholder="Поиск..." aria-label="Search"#}
+{#                   aria-describedby="basic-addon2"/>#}
+{#            <div class="input-group-append">#}
+{#                <button class="btn btn-primary" type="button"><i class="fas fa-search oranged"></i></button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </form>#}
+{#    <!-- Navbar-->#}
+{#    <ul class="navbar-nav ml-auto ml-md-0">#}
+{#        <li class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle rounded btn-orange blacked" id="userDropdown" role="button"#}
+{#               data-toggle="dropdown"#}
+{#               aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw blacked"></i></a>#}
+{#            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">#}
+{#                <a class="dropdown-item" href="{% url 'myadmin:admins_user_update' user.id %}">Редактировать свой#}
+{#                    профиль</a>#}
+{#                <a class="dropdown-item" href="{% url 'users:logout' %}">Выйти из профиля</a>#}
+{#            </div>#}
+{#        </li>#}
+{#    </ul>#}
+{#</nav>#}
+{##}
+{#<div id="layoutSidenav">#}
+{#    <div id="layoutSidenav_nav">#}
+{#        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">#}
+{#            <div class="sb-sidenav-menu">#}
+{#                <div class="nav">#}
+{#                    <div class="sb-sidenav-menu-heading">Приложения</div>#}
+{#                    <a class="nav-link" href="{% url 'questions:tests' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="fas fa-users oranged"></i>#}
+{#                        </div>#}
+{#                        Тестирование#}
+{#                    </a>#}
+{#                    <a class="nav-link" href="{% url 'posts:all' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="fas fa-boxes oranged"></i>#}
+{#                        </div>#}
+{#                        Статьи#}
+{#                    </a>#}
+{#                    {% if user.is_authentificated %}#}
+{#                        <a class="nav-link" href="{% url 'users:profile' user.id %}">#}
+{#                            <div class="sb-nav-link-icon">#}
+{#                                <i class="fa fa-question oranged"></i>#}
+{#                            </div>#}
+{#                            Мой профиль#}
+{#                        </a>#}
+{#                    {% endif %}#}
+{#                    <a class="nav-link" href="{% url 'myadmin:admins_posts' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="far fa-file-alt oranged"></i>#}
+{#                        </div>#}
+{#                        Статьи#}
+{#                    </a>#}
+{#                    <input type="button" class="btn btn-block btn-orange blacked"#}
+{#                           onclick="window.location.href = '{% url 'questions:index' %}';"#}
+{#                           value="В каталог"/>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="sb-sidenav-footer"></div>#}
+{#        </nav>#}
+{#    </div>#}
+{#    {% block content %}#}
+{#    {% endblock %}#}
+{#</div>#}
+{##}
+{#{% block footer %}#}
+{#    {% include 'includes/footer.html' %}#}
+{#{% endblock %}#}
+{##}
+{#<!-- Bootstrap core JavaScript -->#}
+{#<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>#}
+{#<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>#}
+{##}
+{#<!-- FontAwesome script -->#}
+{#<script src="{% static 'vendor/fontawesome/fontawesome-icons.js' %}" crossorigin="anonymous"></script>#}
+{#<script src="{% static 'js/tests.js' %}"></script>#}
+{#<script src="{% static 'js/csrf.js' %}"></script>#}
+{#<script src="{% static 'js/questions.js' %}"></script>#}
+{#<script src="{% static 'js/auth-admin.js' %}"></script>#}
+{##}
+{#</body>#}
+{#<body class="sb-nav-fixed">#}
+{#<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">#}
+{#    <a class="navbar-brand oranged" href="{% url 'myadmin:index' %}">Админка</a>#}
+{#    <button class="btn btn-link btn-md m-2 order-1 order-lg-0 btn-orange blacked" id="sidebarToggle"><i#}
+{#            class="fas fa-bars"></i>#}
+{#    </button>#}
+{#    <!-- Navbar Search-->#}
+{#    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">#}
+{#        <div class="input-group">#}
+{#            <input class="form-control" type="text" placeholder="Поиск..." aria-label="Search"#}
+{#                   aria-describedby="basic-addon2"/>#}
+{#            <div class="input-group-append">#}
+{#                <button class="btn btn-primary" type="button"><i class="fas fa-search oranged"></i></button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </form>#}
+{#    <!-- Navbar-->#}
+{#    <ul class="navbar-nav ml-auto ml-md-0">#}
+{#        <li class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle rounded btn-orange blacked" id="userDropdown" role="button"#}
+{#               data-toggle="dropdown"#}
+{#               aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw blacked"></i></a>#}
+{#            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">#}
+{#                <a class="dropdown-item" href="{% url 'myadmin:admins_user_update' user.id %}">Редактировать свой#}
+{#                    профиль</a>#}
+{#                <a class="dropdown-item" href="{% url 'users:logout' %}">Выйти из профиля</a>#}
+{#            </div>#}
+{#        </li>#}
+{#    </ul>#}
+{#</nav>#}
+{##}
+{#<div id="layoutSidenav">#}
+{#    <div id="layoutSidenav_nav">#}
+{#        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">#}
+{#            <div class="sb-sidenav-menu">#}
+{#                <div class="nav">#}
+{#                    <div class="sb-sidenav-menu-heading">Приложения</div>#}
+{#                    <a class="nav-link" href="{% url 'myadmin:admins_users' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="fas fa-users oranged"></i>#}
+{#                        </div>#}
+{#                        Пользователи#}
+{#                    </a>#}
+{#                    <a class="nav-link" href="{% url 'myadmin:admins_categories' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="fas fa-boxes oranged"></i>#}
+{#                        </div>#}
+{#                        Категории вопросов#}
+{#                    </a>#}
+{#                    <a class="nav-link" href="{% url 'myadmin:admins_questions' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="fa fa-question oranged"></i>#}
+{#                        </div>#}
+{#                        Вопросы#}
+{#                    </a>#}
+{#                    <a class="nav-link" href="{% url 'myadmin:admins_posts' %}">#}
+{#                        <div class="sb-nav-link-icon">#}
+{#                            <i class="far fa-file-alt oranged"></i>#}
+{#                        </div>#}
+{#                        Статьи#}
+{#                    </a>#}
+{#                    <input type="button" class="btn btn-block btn-orange blacked"#}
+{#                           onclick="window.location.href = '{% url 'questions:index' %}';"#}
+{#                           value="В каталог"/>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="sb-sidenav-footer"></div>#}
+{#        </nav>#}
+{#    </div>#}
+{#    {% block content %}#}
+{#    {% endblock %}#}
+{#</div>#}
+{##}
+{##}
+{#<!-- Bootstrap core JavaScript -->#}
+{#<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>#}
+{#<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>#}
+{##}
+{#<script src="{% static 'js/csrf.js' %}"></script>#}
+{#<script src="{% static 'js/admins.js' %}"></script>#}
+{#<script src="https://kit.fontawesome.com/2b537a4c3e.js" crossorigin="anonymous"></script>#}
+{#<script src="{% static 'vendor/fontawesome/fontawesome-icons.js' %}"></script>#}
+{#<script src="{% static 'js/auth-admin.js' %}"></script>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>{{ title|title }}</title>
+    <link href="{% static 'css/auth-admin.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/admin.css' %}" rel="stylesheet"/>
+</head>
+
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand oranged" href="{% url 'index' %}">Главная</a>
+    <button class="btn btn-link btn-md m-2 order-1 order-lg-0 btn-orange blacked" id="sidebarToggle"><i
+            class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Поиск..." aria-label="Search"
+                   aria-describedby="basic-addon2"/>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button"><i class="fas fa-search oranged"></i></button>
+            </div>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle rounded btn-orange blacked" id="userDropdown" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw blacked"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+
+                {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'users:logout' %}">Выйти из профиля</a>
+                {% else %}
+                    <a class="dropdown-item" href="{% url 'users:register' %}">Регистрация</a>
+                    <a class="dropdown-item" href="{% url 'users:login' %}">Авторизация</a>
+                {% endif %}
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Приложения</div>
+                    <a class="nav-link" href="{% url 'questions:categories' %}">
+                        <div class="sb-nav-link-icon">
+                            <i class="fas fa-boxes oranged"></i>
+                        </div>
+                        Категории тестов
+                    </a>
+                    <a class="nav-link" href="{% url 'posts:all' %}">
+                        <div class="sb-nav-link-icon">
+                            <i class="fas fa-file-alt oranged"></i>
+                        </div>
+                        Статьи
+                    </a>
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'users:profile' %}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa fa-user oranged"></i>
+                            </div>
+                            Мой профиль
+                        </a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'users:login' %}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa fa-user oranged"></i>
+                            </div>
+                            Авторизация на сайте
+                        </a>
+                    {% endif %}
+                    {% if user.is_staff %}
+                        <input type="button" class="btn btn-block btn-orange blacked"
+                               onclick="window.location.href = '{% url 'myadmin:index' %}';"
+                               value="К админке"/>
+                    {% endif %}
+                    <button onClick="javascript:history.go(-1);" type="submit" class="btn btn-block btn-orange blacked">
+                        <i class="fa fa-undo"></i> Назад
+                    </button>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer"></div>
+        </nav>
+    </div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'js/csrf.js' %}"></script>
+<script src="{% static 'js/admins.js' %}"></script>
+<script src="https://kit.fontawesome.com/2b537a4c3e.js" crossorigin="anonymous"></script>
+<script src="{% static 'vendor/fontawesome/fontawesome-icons.js' %}"></script>
+<script src="{% static 'js/auth-admin.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'questions/includes/modal.html' %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center" id="test-catcher">
+                <h1 class="mt-4">Тема: <b class="oranged">{{ item.subject }}</b></h1>
+                <div class="container-fluid mb-5">
+                    <div class="row flex-md-row pt-2 pb-2 justify-content-center">
+                        <h2>Вопрос № {{ item.id }}</h2>
+                    </div>
+                    <div class="row main p-3 border border-grey mt-1 ">
+                        <div class="col-md-3 thumbnail">
+                            <img class="card-img-top img-thumbnail"
+                                 src="
+                                         {% if item.image_01 %}{{ item.image_01.url }}{% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
+                                 alt="">
+                        </div>
+                        <div class="col-md-9 mt-3">
+                            <div class="container-fluid text-wrap text-justify text-break">
+                                {{ item.question }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row main p-3 border border-grey mt-1">
+                        <form id="listofiles" method="post" value="{{ item.id }}"
+                              action="{% url 'questions:answers' item.id %}"
+                              class="answer_catcher w-100">
+                            {% csrf_token %}
+                            <div class="row main p-3 mt-1 text-wrap text-justify text-break">
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="answers" type="radio" id="answer_01"
+                                               value="{{ item.answer_01 }}" checked>
+                                        <label class="form-check-label" for="answer_01">
+                                            {{ item.answer_01 }}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="answers" id="answer_02"
+                                               value="{{ item.answer_02 }}">
+                                        <label class="form-check-label" for="answer_02">
+                                            {{ item.answer_02 }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="answers" id="answer_03"
+                                               value="{{ item.answer_03 }}">
+                                        <label class="form-check-label" for="answer_03">
+                                            {{ item.answer_03 }}
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="answers" id="answer_04"
+                                               value="{{ item.answer_04 }}">
+                                        <label class="form-check-label" for="answer_04">
+                                            {{ item.answer_04 }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 in-center mt-3">
+                                    <button id="mybtn" type="submit" class="btn-block btn-lg btn-orange"
+                                    >Отвечаю!
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}
+

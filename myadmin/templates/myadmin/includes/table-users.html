@@ -1,0 +1,67 @@
+<div class="table-responsive">
+    <table class="table table-bordered wigth-100 dtBasicExample" id="example">
+        <thead>
+        <tr>
+            <th>Никнейм</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Счет</th>
+            <th>Персонал</th>
+            <th>Активен</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Никнейм</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Счет</th>
+            <th>Персонал</th>
+            <th>Активен</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        {% for user in users %}
+            <tr {% if not user.is_active %} class="no-active"
+            {% elif user.is_staff %} class="staff" {% endif %}>
+                <td><a href="{% url 'myadmin:admins_user_update' user.id %}"
+                       class="admin-link">
+                    {% if user.is_staff %}<i class="fa fa-star"></i>{% endif %}
+                    {{ user.username }}</a>
+                </td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.score }}</td>
+                <td class="text-center">
+                    <form id="give_me_a_crown_btn">
+                        {% csrf_token %}
+                        {% if user.is_staff %}
+                            <button name="{{ user.id }}" type="submit" class="btn btn-outline-dark btn-orange"><i
+                                    class='fas fa-check-circle blacked'></i></button>
+                        {% else %}
+                            <button name="{{ user.id }}" type="submit" class="btn btn-outline-dark"><i
+                                    class="fas fa-times-circle"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
+
+                <td class="text-center">
+                    <form id="update_user_btn">
+                        {% csrf_token %}
+                        {% if user.is_active %}
+                            <button name="{{ user.id }}" type="submit" class="btn btn-outline-dark btn-orange"><i
+                                    class='fas fa-check-circle blacked'></i></button>
+                        {% else %}
+                            <button name="{{ user.id }}" type="submit" class="btn btn-outline-dark"><i
+                                    class="fas fa-times-circle"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

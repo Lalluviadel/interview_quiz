@@ -1,0 +1,50 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Новая категория <b class="oranged">{{ questioncategory.name }}</b>
+                </h1>
+                <div class="card-body">
+                    <form action="{% url 'myadmin:admins_category_create'%}" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.name.id_for_label }}">Название</label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="custom-file">
+                                    {{ form.image }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="{{ form.description.id_for_label }}">Описание</label>
+                                    {{ form.description }}
+                                </div>
+                                <div class="form-row mt-lg-5 justify-content-center">
+                                    <div class="col-4">
+                                        <input type="button"
+                                               class="btn btn-secondary btn-block"
+                                               onclick="window.location.href = '{% url 'myadmin:admins_categories' %}';"
+                                               value="Отмена"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                               value="Сохранить">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

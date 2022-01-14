@@ -1,0 +1,84 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Редактировать статью</h1>
+                <form action="{% url 'myadmin:admins_post_update' post.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-lg-8">
+                            <label class="small mb-1" for="{{ form.title.id_for_label }}">Заголовок</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="small mb-1" for="{{ form.tag.id_for_label }}">Тег</label>
+                            {{ form.tag }}
+                        </div>
+                    </div>
+                    <div class="form-row mb-2 text-center">
+                        <div class="col-lg-3 mt-3">
+                                <img width="270" height="270"
+                                     src="{% if post.image %} {{ post.image.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     class="img-thumbnail" alt="">
+                        </div>
+                        <div class="col-lg-9">
+                            <label class="small mb-1" for="{{ form.author.id_for_label }}">Автор</label>
+                            {{ form.author }}
+                            <label class="small mb-1"
+                                   for="{{ form.category.id_for_label }}">Категория</label>
+                            {{ form.category }}
+                            <div class="mt-lg-4">{{ form.image }}</div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="col-lg-12">
+                            <label class="small mb-1" for="{{ form.body.id_for_label }}">Текст статьи</label>
+                            {{ form.body }}
+                        </div>
+                    </div>
+                    <div class="form-row mt-lg-5">
+                            <div class="col-lg-4">
+                                <input type="button" class="btn btn-secondary btn-block"
+                                       onclick="window.location.href = '{% url 'myadmin:admins_posts' %}';"
+                                       value="Отмена"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                       value="Сохранить">
+                            </div>
+                            <div class="col-lg-4">
+                                {% if myuser.is_active %}
+                                    <form action="{% url 'myadmin:admins_post_delete' post.id %}"
+                                          method="post">
+                                    </form>
+                                    <form action="{% url 'myadmin:admins_post_delete' post.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <input class="btn btn-dark btn-block"
+                                               value="Удалить"
+                                               type="submit">
+                                    </form>
+                                    </div>
+                                {% else %}
+                                    <form action="{% url 'myadmin:admins_post_delete' post.id %}"
+                                          method="post">
+                                    </form>
+                                    <form action="{% url 'myadmin:admins_post_delete' post.id %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <input class="btn btn-outline-dark btn-block"
+                                               value="Активировать"
+                                               type="submit">
+                                    </form>
+                                {% endif %}
+                        </div>
+                </form>
+            </div>
+        </main>
+        {% include 'myadmin/includes/footer.html' %}
+    </div>
+{% endblock %}

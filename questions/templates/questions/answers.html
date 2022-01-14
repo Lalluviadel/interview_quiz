@@ -1,0 +1,82 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'questions/includes/modal.html' %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center" id="test-catcher">
+                <h1 class="mt-4">Тема: <b class="oranged">{{ item.subject }}</b></h1>
+                <div class="row main p-1 mt-1 justify-content-center">
+                    <h2>Ответ на вопрос {{ item.id }}</h2>
+                </div>
+                <div class="row main p-1 mt-1 justify-content-center">
+                    {% if guessed %}
+                        <div class="col-lg-12 m-1 guessed">
+                            <h3>Верно!</h3>
+                        </div>
+                    {% else %}
+                        <div class="col-lg-12 m-1 wrong">
+                            <h3>Ошибка!</h3>
+                        </div>
+                    {% endif %}
+                    <div class="col-md-6 border border-grey">
+                        <div class="text-center">Ваш ответ:</div>
+                        <div class="text-wrap text-justify text-break font-xl">
+                            {{ chosen_answer }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 border border-grey">
+                        <div class="text-center">Правильный ответ:</div>
+                        <div class="text-wrap text-justify text-break font-xl">
+                            {{ item.right_answer }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row main p-1 mt-1 justify-content-center">
+                    <div class="col-md-3 border border-grey">
+                        {% include 'questions/includes/carousel.html' %}
+                    </div>
+                    <div class="col-md-7 border border-grey">
+                        {% if posts %}
+                            <div>Посты на эту тему:</div>
+                            {% for post in posts %}
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        {% else %}
+                            <p>Постов на эту тему пока нет</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-2 border border-greyr">
+                        <div class="text-center w-100">Ваш счет:</div>
+                        <div class="w-100">
+                            <h3 class="oranged">{{ user.score }}</h3>
+                        </div>
+                        {% if user.is_staff %}
+                            <div>
+                                <a class='btn btn-outline-dark btn-orange btn-block m-1'
+                                   href='{% url 'myadmin:admins_question_update' item.id %}'>Редактировать вопрос</a>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="row main p-1 mt-1 justify-content-center">
+                    <div class="col-md-6">
+                        <a class='btn btn-primary btn-block m-1' href='{% url 'questions:categories' %}'>Закончить</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class='btn btn-outline-dark btn-orange  btn-block m-1'
+                           href='{% url 'questions:test_body' item.subject.id %}'>Дальше!</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}
