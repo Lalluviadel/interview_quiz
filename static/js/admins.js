@@ -84,4 +84,36 @@ window.addEventListener('load', (e) => {
         $("#image-modal").modal('hide')
     });
 
+    $('#update_profile_catcher').on('click', '#profile_edit', (e) => {
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: '/users/profile_edit/',
+            success: (data) => {
+                if (data) {
+                    $('#profile_catcher').html(data.result)
+                }
+            },
+        });
+        e.preventDefault();
+    });
+
+    $('#profile_catcher').on('click', '#profile_submit', (e) => {
+        let $data = {};
+        $('#profile_form').find('input, textarea, select').each(function () {
+            $data[this.name] = $(this).val();
+        });
+        $.ajax({
+            type: 'POST',
+            data: $data,
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: '/users/profile_edit/',
+            success: (data) => {
+                if (data) {
+                    $('#profile_catcher').html(data.result)
+                }
+            },
+        });
+        e.preventDefault();
+    });
+
 });

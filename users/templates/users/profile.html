@@ -16,15 +16,12 @@
                             <span class="font-weight-bold font-large">{{ user.username }}</span>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5" id="update_profile_catcher">
                         <div class="header-h2 card-header">
                             <h3 class="text-right">Обо мне</h3>
                         </div>
-                        <div class="profile_catcher text-left mt-4">
+                        <div class="text-left mt-4" id="profile_catcher">
                             {% include "includes/profile_data.html" %}
-                            <button class="btn mt-4 btn-primary gradient btn-block" id="profile_edit">
-                                Редактировать
-                            </button>
                         </div>
                     </div>
                     <div class="col-md-4">

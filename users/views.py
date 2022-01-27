@@ -1,8 +1,13 @@
 from django.contrib import auth, messages
-from django.shortcuts import render, HttpResponseRedirect
-from django.urls import reverse
+from django.http import JsonResponse
+from django.shortcuts import render, HttpResponseRedirect, redirect
+from django.template.loader import render_to_string
+from django.urls import reverse, reverse_lazy
+from django.views.generic import UpdateView
 
-from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
+from interview_quiz.mixin import UserDispatchMixin
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm
+from users.models import MyUser
 
 
 def login(request):
@@ -51,3 +56,24 @@ def profile(request):
         'form': UserProfileForm(),
     }
     return render(request, 'users/profile.html', context)
+
+
+class UserEdit(UpdateView, UserDispatchMixin):
+    model = MyUser
+    template_name = 'includes/profile_edit.html'
+    success_url = reverse_lazy('users:profile')
+
+    def post(self, request, *args, **kwargs):
+        form = UserChangeProfileForm(data=request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            result = render_to_string('./includes/profile_data.html', request=request)
+            return JsonResponse({'result': result})
+        return redirect(self.success_url)
+
+    def get(self, request, *args, **kwargs):
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            context = {'form': UserChangeProfileForm(instance=request.user)}
+            result = render_to_string('./includes/profile_edit.html', request=request, context=context)
+            return JsonResponse({'result': result})

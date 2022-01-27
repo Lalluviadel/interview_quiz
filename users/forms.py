@@ -49,3 +49,16 @@ class UserProfileForm(UserChangeForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control py-4'
         self.fields['img'].widget.attrs['class'] = 'custom-file-input'
+
+
+class UserChangeProfileForm(UserChangeForm):
+
+    class Meta:
+        model = MyUser
+        fields = ('first_name', 'last_name')
+
+    def __init__(self, *args, **kwargs):
+        super(UserChangeProfileForm, self).__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control py-4'
