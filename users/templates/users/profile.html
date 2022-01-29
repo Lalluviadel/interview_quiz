@@ -8,12 +8,9 @@
             <div class="container-fluid text-center">
                 <h1 class="mt-4">Профиль <b class="oranged">{{ user.username }}</b></h1>
                 <div class="row justify-content-center mt-4">
-                    <div class="col-md-3">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                            <img class="rounded-circle mt-5" width="150px"
-                                 src="{% if user.img %} {{ user.img.url }} {% else %} {% static 'vendor/img/users/default.png' %} {% endif %}"
-                                 alt="">
-                            <span class="font-weight-bold font-large">{{ user.username }}</span>
+                    <div class="col-md-3" id="update_img_catcher">
+                        <div id="img_catcher">
+                        {% include "includes/profile_img.html" %}
                         </div>
                     </div>
                     <div class="col-md-5" id="update_profile_catcher">

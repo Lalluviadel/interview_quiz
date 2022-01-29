@@ -55,10 +55,24 @@ class UserChangeProfileForm(UserChangeForm):
 
     class Meta:
         model = MyUser
-        fields = ('first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'img')
 
     def __init__(self, *args, **kwargs):
         super(UserChangeProfileForm, self).__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control py-4'
+
+
+class UserImgChangeProfileForm(UserChangeForm):
+    img = forms.ImageField(widget=forms.FileInput(), required=False)
+
+    class Meta:
+        model = MyUser
+        fields = ('img',)
+
+    def __init__(self, *args, **kwargs):
+        super(UserImgChangeProfileForm, self).__init__(*args, **kwargs)
+
+        self.fields['img'].widget.attrs['class'] = 'form-control'
+        self.fields['img'].widget.attrs['id'] = 'avatar'

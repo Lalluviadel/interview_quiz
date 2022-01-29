@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import register, login, profile, logout, UserEdit
+from .views import register, login, profile, logout, UserEdit, UserImgEdit
 
 app_name = 'users'
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('logout/', logout, name='logout'),
     path('profile_edit/', UserEdit.as_view(), name='profile_edit'),
+    path('profile_img_edit/', UserImgEdit.as_view(), name='profile_img_edit'),
 ]

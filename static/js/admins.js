@@ -116,4 +116,37 @@ window.addEventListener('load', (e) => {
         e.preventDefault();
     });
 
+    $('#update_img_catcher').on('click', '#profile_img_edit', (e) => {
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: '/users/profile_img_edit/',
+            success: (data) => {
+                if (data) {
+                    $('#img_catcher').html(data.result)
+                }
+            },
+        });
+        e.preventDefault();
+    });
+
+    $('#img_catcher').on('click', '#profile_img_submit', (e) => {
+        let img_dict = new FormData();
+        img_dict.append("image",document.getElementById('avatar').files[0]);
+        $.ajax({
+            type: 'POST',
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: '/users/profile_img_edit/',
+            data: img_dict,
+            processData: false,
+            contentType: false,
+            dataType:'JSON',
+            success: (data) => {
+                if (data) {
+                    $('#img_catcher').html(data.result)
+                }
+            },
+        });
+        e.preventDefault();
+    });
+
 });

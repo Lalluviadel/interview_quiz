@@ -6,7 +6,8 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView
 
 from interview_quiz.mixin import UserDispatchMixin
-from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm, \
+    UserImgChangeProfileForm
 from users.models import MyUser
 
 
@@ -76,4 +77,26 @@ class UserEdit(UpdateView, UserDispatchMixin):
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             context = {'form': UserChangeProfileForm(instance=request.user)}
             result = render_to_string('./includes/profile_edit.html', request=request, context=context)
+            return JsonResponse({'result': result})
+
+
+class UserImgEdit(UpdateView, UserDispatchMixin):
+    model = MyUser
+    template_name = 'includes/profile_img_edit.html'
+    success_url = reverse_lazy('users:profile')
+
+    def post(self, request, *args, **kwargs):
+        user = MyUser.objects.get(id=request.user.id)
+        user.img = request.FILES.get('image')
+        user.save()
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            context = {'user': user}
+            result = render_to_string('./includes/profile_img.html', request=request, context=context)
+            return JsonResponse({'result': result})
+        return redirect(self.success_url)
+
+    def get(self, request, *args, **kwargs):
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            context = {'form': UserImgChangeProfileForm(instance=request.user)}
+            result = render_to_string('./includes/profile_img_edit.html', request=request, context=context)
             return JsonResponse({'result': result})
