@@ -131,7 +131,7 @@ window.addEventListener('load', (e) => {
 
     $('#img_catcher').on('click', '#profile_img_submit', (e) => {
         let img_dict = new FormData();
-        img_dict.append("image",document.getElementById('avatar').files[0]);
+        img_dict.append("image", document.getElementById('avatar').files[0]);
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
@@ -139,7 +139,7 @@ window.addEventListener('load', (e) => {
             data: img_dict,
             processData: false,
             contentType: false,
-            dataType:'JSON',
+            dataType: 'JSON',
             success: (data) => {
                 if (data) {
                     $('#img_catcher').html(data.result)
@@ -149,4 +149,19 @@ window.addEventListener('load', (e) => {
         e.preventDefault();
     });
 
+
+    if (location.pathname === '/users/profile/') {
+        let element = document.querySelector('#my_profile')
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: '/questions/profile_buttons/',
+            success: (data) => {
+                if (data) {
+                    $(element).html(data.result)
+                }
+            },
+        });
+        e.preventDefault();
+
+    }
 });

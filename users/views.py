@@ -3,9 +3,12 @@ from django.http import JsonResponse
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, CreateView, ListView
 
-from interview_quiz.mixin import UserDispatchMixin
+from interview_quiz.mixin import UserDispatchMixin, TitleMixin
+from myadmin.forms import PostForm, QuestionForm
+from posts.models import Post
+from questions.models import QuestionCategory, Question
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm, \
     UserImgChangeProfileForm
 from users.models import MyUser
@@ -52,9 +55,12 @@ def logout(request):
 
 
 def profile(request):
+    user = MyUser.objects.get(id=request.user.id)
+    index = MyUser.objects.order_by('-score').filter(score__gte=user.score).count()
     context = {
         'title': 'Мой профиль',
         'form': UserProfileForm(),
+        'index': index
     }
     return render(request, 'users/profile.html', context)
 
@@ -100,3 +106,37 @@ class UserImgEdit(UpdateView, UserDispatchMixin):
             context = {'form': UserImgChangeProfileForm(instance=request.user)}
             result = render_to_string('./includes/profile_img_edit.html', request=request, context=context)
             return JsonResponse({'result': result})
+
+
+class UserPostCreateView(CreateView, TitleMixin):
+    model = Post
+    template_name = 'user_activities/add_post.html'
+    form_class = PostForm
+    success_url = reverse_lazy('users:profile')
+    title = 'Написать свою статью'
+
+    def post(self, request, *args, **kwargs):
+        category = QuestionCategory.objects.get(id=request.POST['category'])
+        image = request.FILES.get('image')
+        title, tag, body = request.POST['title'], request.POST['tag'], request.POST['body']
+        Post.objects.create(author=request.user, title=title, tag=tag,
+                            category=category, image=image, body=body)
+        return redirect(self.success_url)
+
+
+class UserQuestionCreateView(CreateView, TitleMixin):
+    model = Question
+    template_name = 'user_activities/add_question.html'
+    form_class = QuestionForm
+    success_url = reverse_lazy('users:profile')
+    title = 'Предложить свой вопрос'
+
+
+class TopUsers(ListView, TitleMixin):
+    model = MyUser
+    template_name = 'user_activities/top_users.html'
+    title = 'Топ-5 участников'
+    context_object_name = 'top_users'
+
+    def get_queryset(self):
+        return MyUser.objects.order_by('-score')[:5]

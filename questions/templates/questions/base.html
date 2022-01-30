@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>{{ title|title }}</title>
+    <title>{{ title }}</title>
     <link href="{% static 'css/auth-admin.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/admin.css' %}" rel="stylesheet"/>
 </head>
@@ -73,6 +73,7 @@
                             </div>
                             Мой профиль
                         </a>
+                        <a id="my_profile"></a>
                     {% else %}
                         <a class="nav-link" href="{% url 'users:login' %}">
                             <div class="sb-nav-link-icon">

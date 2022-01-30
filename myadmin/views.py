@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
+from interview_quiz.mixin import TitleMixin
 from myadmin.forms import UserAdminRegisterForm, UserAdminProfileForm, CategoryForm, QuestionForm, PostForm
 from posts.models import Post
 from questions.models import QuestionCategory, Question
@@ -19,39 +20,27 @@ def index(request):
     return render(request, 'myadmin/admin.html', context)
 
 
-class UserListView(ListView):  # , CustomDispatchMixin):
+class UserListView(ListView, TitleMixin):  # , CustomDispatchMixin):
     model = MyUser
     template_name = 'myadmin/users/users-viewing.html'
     context_object_name = 'users'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Просмотр пользователей'
-        return context
+    title = 'Просмотр пользователей'
 
 
-class UserCreateView(CreateView):
+class UserCreateView(CreateView, TitleMixin):
     model = MyUser
     template_name = 'myadmin/users/users-creating.html'
     form_class = UserAdminRegisterForm
     success_url = reverse_lazy('myadmin:admins_users')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавить пользователя'
-        return context
+    title = 'Добавить пользователя'
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(UpdateView, TitleMixin):
     model = MyUser
     template_name = 'myadmin/users/users-update.html'
     form_class = UserAdminProfileForm
     success_url = reverse_lazy('myadmin:admins_users')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Изменить пользователя'
-        return context
+    title = 'Изменить пользователя'
 
 
 class UserDeleteView(DeleteView):
@@ -89,40 +78,32 @@ def user_is_staff(request, pk):
     return JsonResponse({'result': result})
 
 
-class CategoriesListView(ListView):
+class CategoriesListView(ListView, TitleMixin):
     model = QuestionCategory
     template_name = 'myadmin/categories/category-viewing.html'
     context_object_name = 'categories'
+    title = 'Просмотр категорий'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Просмотр категорий'
         context['objects']: QuestionCategory.objects.all().select_related()
         return context
 
 
-class CategoriesUpdateView(UpdateView):
+class CategoriesUpdateView(UpdateView, TitleMixin):
     model = QuestionCategory
     template_name = 'myadmin/categories/category-update.html'
     form_class = CategoryForm
     success_url = reverse_lazy('myadmin:admins_categories')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Изменить категорию'
-        return context
+    title = 'Изменить категорию'
 
 
-class CategoriesCreateView(CreateView):
+class CategoriesCreateView(CreateView, TitleMixin):
     model = QuestionCategory
     template_name = 'myadmin/categories/category-creating.html'
     form_class = CategoryForm
     success_url = reverse_lazy('myadmin:admins_categories')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавить категорию'
-        return context
+    title = 'Добавить категорию'
 
 
 class CategoriesDeleteView(DeleteView):
@@ -149,40 +130,33 @@ class CategoriesDeleteView(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class QuestionListView(ListView):
+class QuestionListView(ListView, TitleMixin):
     model = Question
     template_name = 'myadmin/questions/question-viewing.html'
     context_object_name = 'questions'
+    title = 'Просмотр вопросов'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Просмотр вопросов'
+        ####????
         context['questions']: Question.objects.all().select_related()
         return context
 
 
-class QuestionCreateView(CreateView):
+class QuestionCreateView(CreateView, TitleMixin):
     model = Question
     template_name = 'myadmin/questions/question-creating.html'
     form_class = QuestionForm
     success_url = reverse_lazy('myadmin:admins_questions')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавить вопрос'
-        return context
+    title = 'Добавить вопрос'
 
 
-class QuestionUpdateView(UpdateView):
+class QuestionUpdateView(UpdateView, TitleMixin):
     model = Question
     template_name = 'myadmin/questions/question-update.html'
     form_class = QuestionForm
     success_url = reverse_lazy('myadmin:admins_questions')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Изменить вопрос'
-        return context
+    title = 'Изменить вопрос'
 
 
 class QuestionDeleteView(DeleteView):
@@ -203,40 +177,32 @@ class QuestionDeleteView(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class PostListView(ListView):
+class PostListView(ListView, TitleMixin):
     model = Post
     template_name = 'myadmin/posts/post-viewing.html'
     context_object_name = 'posts'
+    title = 'Просмотр статей'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Просмотр статей'
         context['posts'] = Post.objects.all().select_related()
         return context
 
 
-class PostCreateView(CreateView):
+class PostCreateView(CreateView, TitleMixin):
     model = Post
     template_name = 'myadmin/posts/post-creating.html'
     form_class = PostForm
     success_url = reverse_lazy('myadmin:admins_posts')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавить статью'
-        return context
+    title = 'Добавить статью'
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(UpdateView, TitleMixin):
     model = Post
     template_name = 'myadmin/posts/post-update.html'
     form_class = PostForm
     success_url = reverse_lazy('myadmin:admins_posts')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Изменить статью'
-        return context
+    title = 'Изменить статью'
 
 
 class PostDeleteView(DeleteView):

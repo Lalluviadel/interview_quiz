@@ -59,7 +59,7 @@ class Question(models.Model):
 
     difficulty_level = models.CharField(choices=DIFFICULTY_LEVEL_CHOICES, verbose_name='уровень', max_length=2,
                                         default=NEWBIE)
-    available = models.BooleanField(default=True)
+    available = models.BooleanField(default=False)
     tag = models.CharField(max_length=250, default='IT')
 
     image_01 = models.ImageField(upload_to=question_image_path, blank=True)
