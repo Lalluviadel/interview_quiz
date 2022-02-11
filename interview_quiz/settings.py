@@ -1,3 +1,4 @@
+from .keys import secret, key
 """
 Django settings for interview_quiz project.
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'myadmin',
     'posts',
     'django_cleanup',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'interview_quiz.urls'
@@ -71,6 +74,8 @@ TEMPLATES = [
                 'questions.context_processors.categories',
                 'questions.context_processors.users',
                 'questions.context_processors.questions',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -139,9 +144,35 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'users.MyUser'
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL = '/'
 
 SITE_ID = 1
 
 DATETIME_INPUT_FORMATS = ['H%:i% d%.m%.%Y', ]
 DATE_FORMAT = 'd%.m%.%Y'
 DATETIME_FORMAT = 'H%:i% d%.m%.%Y'
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = key
+SOCIAL_AUTH_VK_OAUTH2_SECRET = secret
+SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
+SOCIAL_AUTH_VK_OAUTH2_IGNORE_DEFAULT_SCOPE = True
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.create_user',
+    'users.pipeline.save_new_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
