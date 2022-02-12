@@ -1,4 +1,5 @@
 .idea
 Thumbs.db
 123.py
-keys.py
+.env
+*.simple

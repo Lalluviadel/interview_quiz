@@ -3,10 +3,14 @@ from datetime import datetime
 from urllib.parse import urlunparse, urlencode
 
 import requests
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.utils import timezone
 from social_core.exceptions import AuthForbidden
 
 from users.models import MyUser
+
+USER_FIELDS = ['username', 'email']
 
 
 def save_new_user(backend, user, response, *args, **kwargs):
@@ -46,4 +50,23 @@ def save_new_user(backend, user, response, *args, **kwargs):
     if age < 10:
         user.delete()
         raise AuthForbidden('social_core.backends.vk.VK0Auth2')
+    user.is_active = True
     user.save()
+
+
+def if_user_exists_pipeline(details, backend, **kwargs):
+    fields = {name: kwargs.get(name, details.get(name))
+              for name in backend.setting('USER_FIELDS', USER_FIELDS)}
+    if fields['email']:
+        try:
+            MyUser.objects.get(email=fields['email'])
+            msg = 'Пользователь с таким email уже зарегистрирован'
+            return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
+        except Exception as e:
+            pass
+    else:
+        msg = 'Ваш профиль VK создан с использованием номера телефона, а не email в ' \
+              'качестве логина. К сожалению, политика VK не предоставляет в данном случае ' \
+              'email пользователя, поэтому вы не сможете залогиниться на сайте, используя ' \
+              'профиль VK'
+        return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))

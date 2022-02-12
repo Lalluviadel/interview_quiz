@@ -1,10 +1,12 @@
 from django.contrib import auth, messages
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, CreateView, ListView
 
+from interview_quiz import settings
 from interview_quiz.mixin import UserDispatchMixin, TitleMixin
 from myadmin.forms import PostForm, QuestionForm
 from posts.models import Post
@@ -37,9 +39,12 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Вы успешно зарегистрировались')
-            return HttpResponseRedirect(reverse('users:login'))
+            user = form.save()
+            if send_verify_link(user):
+                messages.success(request, 'Для завершения регистрации используйте ссылку из письма, отправленного '
+                                          'на email, указанный при регистрации.')
+            return HttpResponseRedirect(reverse('users:register'))
+
     else:
         form = UserRegisterForm()
     context = {
@@ -109,6 +114,7 @@ class UserImgEdit(UpdateView, UserDispatchMixin):
 
 
 class UserPostCreateView(CreateView, TitleMixin):
+    """Creating a new post by a user"""
     model = Post
     template_name = 'user_activities/add_post.html'
     form_class = PostForm
@@ -125,6 +131,7 @@ class UserPostCreateView(CreateView, TitleMixin):
 
 
 class UserQuestionCreateView(CreateView, TitleMixin):
+    """Creating a new question by a user"""
     model = Question
     template_name = 'user_activities/add_question.html'
     form_class = QuestionForm
@@ -133,6 +140,7 @@ class UserQuestionCreateView(CreateView, TitleMixin):
 
 
 class TopUsers(ListView, TitleMixin):
+    """Shows users top-5"""
     model = MyUser
     template_name = 'user_activities/top_users.html'
     title = 'Топ-5 участников'
@@ -140,3 +148,48 @@ class TopUsers(ListView, TitleMixin):
 
     def get_queryset(self):
         return MyUser.objects.order_by('-score')[:5]
+
+
+def verify(request, email, activation_key):
+    """New user activation and authorization"""
+    try:
+        user = MyUser.objects.get(email=email)
+
+        if user.is_activation_key_expired():
+            send_verify_link(user)
+            msg = 'Ваш ключ активации устарел. Мы направили на вашу почту письмо с новым ключом активации'
+            return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
+
+        elif user and user.activation_key == activation_key:
+            user.activation_key = ''
+            user.activation_key_created = None
+            user.is_active = True
+            auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            user.save()
+            return render(request, 'users/verification.html')
+    except TypeError:
+        msg = 'Сбой активации. Попробуйте использовать ссылку, полученную в письме, повторно'
+        return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
+
+
+def send_verify_link(user):
+    """Send to user an email with verification link"""
+    verify_link = reverse('users:verify', args=[user.email, user.activation_key])
+    subject = f"Подтверждение регистрации на сайте {settings.DOMAIN_NAME}"
+    context = {
+        'my_user': user.username,
+        'my_site_name': settings.DOMAIN_NAME,
+        'my_link': f'{settings.DOMAIN_NAME}{verify_link}',
+    }
+    message = render_to_string('users/activation_msg.html', context)
+    return send_mail(subject, message, settings.EMAIL_HOST_USER, [user.email],
+                     html_message=message, fail_silently=False)
+
+
+def failed_attempt(request, error):
+    """If activation user's profile or VK-authentication is failed, the user will be redirected with an error message"""
+    context = {
+        'title': 'Interview challenge',
+        'error': error,
+    }
+    return render(request, 'users/attempt_failed.html', context)

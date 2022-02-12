@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import register, login, logout, UserEdit, UserImgEdit, \
-    UserPostCreateView, UserQuestionCreateView, TopUsers, profile
+    UserPostCreateView, UserQuestionCreateView, TopUsers, profile, verify, failed_attempt
 
 app_name = 'users'
 urlpatterns = [
@@ -16,4 +16,8 @@ urlpatterns = [
     path('posts_create/', UserPostCreateView.as_view(), name='user_post_create'),
     path('question_create/', UserQuestionCreateView.as_view(), name='user_question_create'),
     path('top_users/', TopUsers.as_view(), name='top_users'),
+
+    path('verify/<str:email>/<str:activation_key>/', verify, name='verify'),
+
+    path('attempt_failed/<str:error>', failed_attempt, name='failed'),
 ]
