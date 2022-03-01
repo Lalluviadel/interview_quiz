@@ -1,6 +1,12 @@
-from django.db import models
-from users.models import MyUser
 from PIL import Image
+from django.core.mail import send_mail
+from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.template.loader import render_to_string
+
+from interview_quiz.settings import ADMIN_USERNAME, DOMAIN_NAME, EMAIL_HOST_USER
+from users.models import MyUser
 
 
 def question_image_path(instance, filename):
@@ -50,7 +56,7 @@ class Question(models.Model):
 
     question = models.CharField(max_length=250)
     subject = models.ForeignKey(QuestionCategory, on_delete=models.CASCADE, default='1')
-
+    author = models.ForeignKey(MyUser, to_field='username', on_delete=models.CASCADE)
     right_answer = models.CharField(max_length=150, default='default')
     answer_01 = models.CharField(max_length=150, default='default')
     answer_02 = models.CharField(max_length=150, default='default')
@@ -80,3 +86,17 @@ class Question(models.Model):
                     img.save(i.path)
             except ValueError:
                 pass
+
+
+@receiver(pre_save, sender=Question)
+def new_post_info(sender, instance, **kwargs):
+    if not instance.pk and instance.author.username not in ADMIN_USERNAME:
+        subject = f"Предложен новый вопрос"
+        context = {
+            'user': instance.author.username,
+            'my_site_name': DOMAIN_NAME,
+            'subject': instance.subject,
+        }
+        message = render_to_string('emails/new_question.html', context)
+        send_mail(subject, message, EMAIL_HOST_USER, [EMAIL_HOST_USER],
+                  html_message=message, fail_silently=False)

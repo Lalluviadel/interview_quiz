@@ -169,3 +169,6 @@ EMAIL_USE_TLS = False
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_FILE_PATH = 'tmp/emails'
+
+# ADMINS = [('drf', 'smthn@smthnsmthnsmthn.com')]
+ADMIN_USERNAME = os.getenv('ADMIN_USERNAME')

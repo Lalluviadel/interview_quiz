@@ -1,4 +1,5 @@
 from datetime import timedelta
+from uuid import uuid4
 
 from PIL import Image
 from django.contrib.auth.models import AbstractUser
@@ -11,6 +12,7 @@ def users_image_path(instance, filename):
 
 
 class MyUser(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     img = models.ImageField(blank=True, upload_to=users_image_path)
     email = models.EmailField(unique=True)
     score = models.PositiveIntegerField(default=0)
