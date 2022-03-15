@@ -2,7 +2,8 @@ from django.urls import path, reverse_lazy
 
 from .views import register, login, logout, UserEdit, UserImgEdit, \
     UserPostCreateView, UserQuestionCreateView, TopUsers, profile, verify, \
-    failed_attempt, write_to_admin, password_reset, MyPasswordResetCompleteView, MyPasswordResetConfirmView
+    failed_attempt, write_to_admin, password_reset, MyPasswordResetCompleteView, MyPasswordResetConfirmView, \
+    give_me_my_buttons
 
 app_name = 'users'
 urlpatterns = [
@@ -27,4 +28,6 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', MyPasswordResetConfirmView.as_view(success_url=reverse_lazy(
         'users:password_reset_complete')), name='password_reset_confirm'),
     path('reset/done/', MyPasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    path('profile_buttons/', give_me_my_buttons, name='give_me_my_buttons'),
 ]

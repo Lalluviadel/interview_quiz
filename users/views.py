@@ -139,23 +139,6 @@ class UserQuestionCreateView(CreateView, TitleMixin):
     success_url = reverse_lazy('users:profile')
     title = 'Предложить свой вопрос'
 
-    def post(self, request, *args, **kwargs):
-        subject = QuestionCategory.objects.get(id=request.POST['subject'])
-        image_01, image_02, image_03 = request.FILES.get('image_01'), request.FILES.get('image_02'), \
-                                       request.FILES.get('image_03')
-
-        right_answer, question, tag = request.POST['right_answer'], request.POST['question'], request.POST['tag']
-        difficulty_level = request.POST['difficulty_level']
-        answer_01, answer_02, answer_03, answer_04 = request.POST['answer_01'], request.POST['answer_02'], \
-                                                     request.POST['answer_03'], request.POST['answer_04']
-
-        Question.objects.create(author=request.user, subject=subject, tag=tag, image_01=image_01, image_02=image_02,
-                                image_03=image_03, difficulty_level=difficulty_level, answer_01=answer_01,
-                                answer_02=answer_02, answer_03=answer_03, answer_04=answer_04, question=question,
-                                right_answer=right_answer)
-
-        return redirect(self.success_url)
-
 
 class TopUsers(ListView, TitleMixin):
     """Shows users top-5"""
@@ -262,6 +245,7 @@ def password_reset(request):
                       from_email=EMAIL_HOST_USER, extra_email_context=context)
 
             return render(request, 'registration/password_reset_email_sended.html')
+
     else:
         form = MyPasswordResetForm()
     context = {
@@ -279,3 +263,8 @@ class MyPasswordResetConfirmView(PasswordResetConfirmView):
 class MyPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'registration/password_res_complete.html'
     title = 'Пароль успешно изменен'
+
+def give_me_my_buttons(request):
+    if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        result = render_to_string('includes/profile_buttons.html', request=request)
+        return JsonResponse({'result': result})

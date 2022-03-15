@@ -82,8 +82,3 @@ def answers(request, item_id, guessed=False):
         return render(request, 'questions/answers.html', context)
     return render(request, 'questions/answers.html')
 
-
-def give_me_my_buttons(request):
-    if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-        result = render_to_string('questions/includes/profile_buttons.html', request=request)
-        return JsonResponse({'result': result})

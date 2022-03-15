@@ -1,11 +1,12 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 
 from posts.models import Post
 from questions.models import QuestionCategory, Question
 from users.forms import UserRegisterForm, UserProfileForm
 from users.models import MyUser
-
+from django.utils.translation import gettext_lazy as _
 
 class UserAdminRegisterForm(UserRegisterForm):
     img = forms.ImageField(widget=forms.FileInput, required=False)
@@ -53,6 +54,11 @@ class CategoryForm(ModelForm):
 
 
 class QuestionForm(ModelForm):
+    error_messages = {
+        'invalid_answer': _('Вы указали %(value)s как правильный ответ, но он не совпадает ни с одним '
+                            'из предлагаемых вариантов ответа на вопрос'),
+    }
+
     subject = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
                                      empty_label=None)
     image_01 = forms.ImageField(widget=forms.FileInput, required=False)
@@ -78,6 +84,19 @@ class QuestionForm(ModelForm):
             else:
                 field.widget.attrs['class'] = 'form-control py-4'
 
+    def clean(self):
+        answer = self.cleaned_data.get('right_answer')
+        a1 = self.cleaned_data.get('answer_01')
+        a2 = self.cleaned_data.get('answer_02')
+        a3 = self.cleaned_data.get('answer_03')
+        a4 = self.cleaned_data.get('answer_04')
+        if answer != a1 and answer != a2 and answer != a3 and answer != a4:
+            msg = ValidationError(self.error_messages['invalid_answer'],
+                              code=f'invalid_answer',
+                              params={'value': answer})
+            self.add_error('right_answer', msg)
+        return self.cleaned_data
+
 
 class PostForm(ModelForm):
     category = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
@@ -98,3 +117,7 @@ class PostForm(ModelForm):
                 field.widget.attrs['class'] = 'form-control'
             else:
                 field.widget.attrs['class'] = 'form-control py-4'
+
+    def clean(self):
+        a = self.cleaned_data
+        return self.cleaned_data

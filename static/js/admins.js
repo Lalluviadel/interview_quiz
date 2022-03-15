@@ -203,9 +203,10 @@ window.addEventListener('load', (e) => {
 
     if (location.pathname === '/users/profile/') {
         let element = document.querySelector('#my_profile')
+        console.log(element)
         $.ajax({
             headers: {'X-CSRF-TOKEN': csrftoken},
-            url: '/questions/profile_buttons/',
+            url: '/users/profile_buttons/',
             success: (data) => {
                 if (data) {
                     $(element).html(data.result)

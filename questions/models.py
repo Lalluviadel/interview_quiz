@@ -89,7 +89,7 @@ class Question(models.Model):
 
 
 @receiver(pre_save, sender=Question)
-def new_post_info(sender, instance, **kwargs):
+def new_question_info(sender, instance, **kwargs):
     if not instance.pk and instance.author.username not in ADMIN_USERNAME:
         subject = f"Предложен новый вопрос"
         context = {
