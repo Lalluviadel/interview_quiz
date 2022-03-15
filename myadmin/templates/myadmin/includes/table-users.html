@@ -23,10 +23,11 @@
         </tr>
         </tfoot>
         <tbody>
-        {% for user in users %}
+        {% for user in page_obj %}
             <tr {% if not user.is_active %} class="no-active"
             {% elif user.is_staff %} class="staff" {% endif %}>
-                <td><a href="{% url 'myadmin:admins_user_update' user.id %}"
+                <td class="text-left item-on-page" value="{{ user.id }}">
+                    <a href="{% url 'myadmin:admins_user_update' user.id %}"
                        class="admin-link">
                     {% if user.is_staff %}<i class="fa fa-star"></i>{% endif %}
                     {{ user.username }}</a>

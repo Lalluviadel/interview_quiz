@@ -1,0 +1,28 @@
+{% extends 'questions/base.html' %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header text-center">
+                    <h1 class="mt-4">Активация профиля</h1>
+                </div>
+                <div class="card-body text-center">
+                    {% if user.is_authenticated %}
+                        <h3>Поздравляем!</h3>
+                        <br>
+                        <h4>Пользователь <b class="oranged"> {{ user.username }} </b>подтвержден.</h4>
+                    {% else %}
+                        <h3>Верификация не пройдена.</h3>
+                    {% endif %}
+                    <br>
+                    <button class="btn btn-orange btn-outline-info btn-lg"
+                            onclick="window.location.href='{% url 'index' %}'">
+                        На главную
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}

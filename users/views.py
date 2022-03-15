@@ -1,4 +1,5 @@
 from django.contrib import auth, messages
+from django.contrib.auth.views import PasswordResetConfirmView, PasswordResetCompleteView
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponseRedirect, redirect
@@ -6,13 +7,13 @@ from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, CreateView, ListView
 
-from interview_quiz import settings
 from interview_quiz.mixin import UserDispatchMixin, TitleMixin
+from interview_quiz.settings import DOMAIN_NAME, EMAIL_HOST_USER
 from myadmin.forms import PostForm, QuestionForm
 from posts.models import Post
 from questions.models import QuestionCategory, Question
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm, \
-    UserImgChangeProfileForm
+    UserImgChangeProfileForm, WriteAdminForm, MyPasswordResetForm
 from users.models import MyUser
 
 
@@ -32,7 +33,7 @@ def login(request):
         'title': 'Авторизация',
         'form': form,
     }
-    return render(request, 'users/login.html', context)
+    return render(request, 'registration/login.html', context)
 
 
 def register(request):
@@ -51,7 +52,7 @@ def register(request):
         'title': 'Регистрация',
         'form': form,
     }
-    return render(request, 'users/register.html', context)
+    return render(request, 'registration/register.html', context)
 
 
 def logout(request):
@@ -140,7 +141,7 @@ class UserQuestionCreateView(CreateView, TitleMixin):
 
     def post(self, request, *args, **kwargs):
         subject = QuestionCategory.objects.get(id=request.POST['subject'])
-        image_01, image_02, image_03 = request.FILES.get('image_01'), request.FILES.get('image_02'),\
+        image_01, image_02, image_03 = request.FILES.get('image_01'), request.FILES.get('image_02'), \
                                        request.FILES.get('image_03')
 
         right_answer, question, tag = request.POST['right_answer'], request.POST['question'], request.POST['tag']
@@ -183,7 +184,7 @@ def verify(request, email, activation_key):
             user.is_active = True
             auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             user.save()
-            return render(request, 'users/verification.html')
+            return render(request, 'registration/verification.html')
     except TypeError:
         msg = 'Сбой активации. Попробуйте использовать ссылку, полученную в письме, повторно'
         return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
@@ -192,14 +193,14 @@ def verify(request, email, activation_key):
 def send_verify_link(user):
     """Send to user an email with verification link"""
     verify_link = reverse('users:verify', args=[user.email, user.activation_key])
-    subject = f"Подтверждение регистрации на сайте {settings.DOMAIN_NAME}"
+    subject = f"Подтверждение регистрации на сайте {DOMAIN_NAME}"
     context = {
         'my_user': user.username,
-        'my_site_name': settings.DOMAIN_NAME,
-        'my_link': f'{settings.DOMAIN_NAME}{verify_link}',
+        'my_site_name': DOMAIN_NAME,
+        'my_link': f'{DOMAIN_NAME}{verify_link}',
     }
-    message = render_to_string('users/activation_msg.html', context)
-    return send_mail(subject, message, settings.EMAIL_HOST_USER, [user.email],
+    message = render_to_string('registration/activation_msg.html', context)
+    return send_mail(subject, message, EMAIL_HOST_USER, [user.email],
                      html_message=message, fail_silently=False)
 
 
@@ -209,4 +210,72 @@ def failed_attempt(request, error):
         'title': 'Interview challenge',
         'error': error,
     }
-    return render(request, 'users/attempt_failed.html', context)
+    return render(request, 'registration/attempt_failed.html', context)
+
+
+def write_to_admin(request):
+    user = request.user.username
+    email = request.user.email
+
+    if request.method == 'POST':
+        form = WriteAdminForm(request.POST)
+        if form.is_valid():
+            try:
+                subject = f"Пользователь {user} написал вам сообщение"
+                context = {
+                    'user': user,
+                    'my_site_name': DOMAIN_NAME,
+                    'title': request.POST['title'],
+                    'content': request.POST['content'],
+                    'grade': request.POST['grade'],
+                    'email': email,
+                }
+                message = render_to_string('emails/new_email.html', context)
+                send_mail(subject, message, EMAIL_HOST_USER, [EMAIL_HOST_USER],
+                          html_message=message, fail_silently=False)
+                return redirect(reverse_lazy('users:profile'))
+            except Exception:
+                form.add_error(None, 'Ошибка отправки сообщения')
+    else:
+        form = WriteAdminForm()
+
+    context = {
+        'title': 'Написать письмо',
+        'form': form,
+        'user': user,
+        'email': email,
+    }
+    return render(request, 'user_activities/write_to_admin.html', context)
+
+
+def password_reset(request):
+    if request.method == 'POST':
+        form = MyPasswordResetForm(data=request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            context = {
+                'email': email,
+                'domain': DOMAIN_NAME,
+            }
+            form.save(DOMAIN_NAME, subject_template_name='registration/pass_reset_subject.txt',
+                      email_template_name='registration/pass_reset_email.html',
+                      from_email=EMAIL_HOST_USER, extra_email_context=context)
+
+            return render(request, 'registration/password_reset_email_sended.html')
+    else:
+        form = MyPasswordResetForm()
+    context = {
+        'title': 'Восстановление пароля',
+        'form': form,
+    }
+    return render(request, 'registration/password_reset.html', context)
+
+
+class MyPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'registration/password_res_confirm.html'
+    title = 'Создание нового пароля'
+
+
+class MyPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'registration/password_res_complete.html'
+    title = 'Пароль успешно изменен'

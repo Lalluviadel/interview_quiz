@@ -1,9 +1,19 @@
 window.addEventListener('load', (e) => {
     $('#update_cat_catcher').on('click', '#update_cat_btn', (e) => {
         let t_href = e.target;
+        let checkBox = document.getElementById("option2");
+
+        let arr = [];
+        let elements = document.getElementsByClassName('item-on-page')
+        for (let i = 0; i < elements.length; i++) {
+            arr[i] = elements[i].attributes['value'].value
+        }
+
+        let flag = checkBox.checked;
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
+            data: {'flag': flag, 'elements': arr},
             url: '/myadmin/categories-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data) {
@@ -16,9 +26,20 @@ window.addEventListener('load', (e) => {
 
     $('#update_que_catcher').on('click', '#update_que_btn', (e) => {
         let t_href = e.target;
+        let checkBox = document.getElementById("option2");
+
+        let arr = [];
+        let elements = document.getElementsByClassName('item-on-page')
+        for (let i = 0; i < elements.length; i++) {
+            arr[i] = elements[i].attributes['value'].value
+        }
+
+        let flag = checkBox.checked;
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
+            data: {'flag': flag,
+                   'elements': arr},
             url: '/myadmin/questions-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data) {
@@ -31,9 +52,20 @@ window.addEventListener('load', (e) => {
 
     $('#update_users_catcher').on('click', '#update_user_btn', (e) => {
         let t_href = e.target;
+        let checkBox = document.getElementById("option2");
+
+        let arr = [];
+        let elements = document.getElementsByClassName('item-on-page')
+        for (let i = 0; i < elements.length; i++) {
+            arr[i] = elements[i].attributes['value'].value
+        }
+
+        let flag = checkBox.checked;
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
+            data: {'flag': flag,
+                  'elements': arr},
             url: '/myadmin/users-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data.result) {
@@ -46,9 +78,20 @@ window.addEventListener('load', (e) => {
 
     $('#update_post_catcher').on('click', '#update_post_btn', (e) => {
         let t_href = e.target;
+        let checkBox = document.getElementById("option2");
+
+        let arr = [];
+        let elements = document.getElementsByClassName('item-on-page')
+        for (let i = 0; i < elements.length; i++) {
+            arr[i] = elements[i].attributes['value'].value
+        }
+
+        let flag = checkBox.checked;
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
+            data: {'flag': flag,
+                   'elements': arr},
             url: '/myadmin/posts-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data.result) {
@@ -61,9 +104,17 @@ window.addEventListener('load', (e) => {
 
     $('#give_me_a_crown').on('click', '#give_me_a_crown_btn', (e) => {
         let t_href = e.target;
+
+        let arr = [];
+        let elements = document.getElementsByClassName('item-on-page')
+        for (let i = 0; i < elements.length; i++) {
+            arr[i] = elements[i].attributes['value'].value
+        }
+
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
+            data: {'elements': arr},
             url: '/myadmin/users-is-staff/' + t_href.name + '/',
             success: (data) => {
                 if (data.result) {
@@ -162,6 +213,16 @@ window.addEventListener('load', (e) => {
             },
         });
         e.preventDefault();
-
     }
+
+    $('#deact_delete').click(function (e) {
+        let checkBox = document.getElementById("option2");
+        let text = document.getElementById("text");
+        if (checkBox.checked === true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    })
+
 });

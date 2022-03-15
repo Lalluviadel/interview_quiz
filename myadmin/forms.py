@@ -53,7 +53,7 @@ class CategoryForm(ModelForm):
 
 
 class QuestionForm(ModelForm):
-    subject = forms.ModelChoiceField(queryset=QuestionCategory.objects.all().select_related(),
+    subject = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
                                      empty_label=None)
     image_01 = forms.ImageField(widget=forms.FileInput, required=False)
     image_02 = forms.ImageField(widget=forms.FileInput, required=False)
@@ -80,6 +80,8 @@ class QuestionForm(ModelForm):
 
 
 class PostForm(ModelForm):
+    category = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
+                                     empty_label=None)
     image = forms.ImageField(widget=forms.FileInput, required=False)
 
     class Meta:

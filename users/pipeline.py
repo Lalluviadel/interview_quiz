@@ -3,6 +3,7 @@ from datetime import datetime
 from urllib.parse import urlunparse, urlencode
 
 import requests
+from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
@@ -20,7 +21,7 @@ def save_new_user(backend, user, response, *args, **kwargs):
         return
 
     api_url = urlunparse(('http', 'api.vk.com', '/method/users.get', None, urlencode(
-        OrderedDict(fields=','.join(('bdate', 'first_name', 'last_name', 'photo')),
+        OrderedDict(fields=','.join(('bdate', 'first_name', 'last_name', 'photo_max')),
                     access_token=response['access_token'],
                     v=5.131)), None))
 
@@ -31,11 +32,10 @@ def save_new_user(backend, user, response, *args, **kwargs):
     data = resp.json()['response'][0]
     user.last_name = data['last_name']
     user.first_name = data['first_name']
-    if data['photo']:
-        photo_link = data['photo']
+    if data['photo_max']:
+        photo_link = data['photo_max']
         photo_requests = requests.get(photo_link)
 
-        user.username = user.first_name
         path_photo = f'user_images/vk_{user.first_name}_{user.last_name}.jpg'
         with open(f'media/{path_photo}', 'wb') as photo:
             photo.write(photo_requests.content)
@@ -54,14 +54,19 @@ def save_new_user(backend, user, response, *args, **kwargs):
     user.save()
 
 
-def if_user_exists_pipeline(details, backend, **kwargs):
+def if_user_exists_pipeline(request, details, backend, **kwargs):
     fields = {name: kwargs.get(name, details.get(name))
               for name in backend.setting('USER_FIELDS', USER_FIELDS)}
     if fields['email']:
         try:
-            MyUser.objects.get(email=fields['email'])
-            msg = 'Пользователь с таким email уже зарегистрирован'
-            return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
+            user = MyUser.objects.get(email=fields['email'])
+            if user.first_name == details['first_name'] and user.last_name == details['last_name'] and \
+                    user.username == details['username']:
+                auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                msg = 'Пользователь с таким email уже зарегистрирован'
+                return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
         except Exception as e:
             pass
     else:

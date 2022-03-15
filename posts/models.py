@@ -1,7 +1,7 @@
 from PIL import Image
 from django.core.mail import send_mail
 from django.db import models
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 
@@ -43,6 +43,7 @@ class Post(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
+
 @receiver(pre_save, sender=Post)
 def new_post_info(sender, instance, **kwargs):
     if not instance.pk and instance.author.username not in ADMIN_USERNAME:
@@ -55,4 +56,4 @@ def new_post_info(sender, instance, **kwargs):
         }
         message = render_to_string('emails/new_post.html', context)
         send_mail(subject, message, EMAIL_HOST_USER, [EMAIL_HOST_USER],
-                                 html_message=message, fail_silently=False)
+                  html_message=message, fail_silently=False)

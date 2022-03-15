@@ -56,7 +56,7 @@ class Question(models.Model):
 
     question = models.CharField(max_length=250)
     subject = models.ForeignKey(QuestionCategory, on_delete=models.CASCADE, default='1')
-    author = models.ForeignKey(MyUser, to_field='username', on_delete=models.CASCADE)
+    author = models.ForeignKey(MyUser, to_field='username', on_delete=models.CASCADE, default='drf')
     right_answer = models.CharField(max_length=150, default='default')
     answer_01 = models.CharField(max_length=150, default='default')
     answer_02 = models.CharField(max_length=150, default='default')

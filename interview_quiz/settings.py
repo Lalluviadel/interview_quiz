@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'users',
     'myadmin',
     'posts',
-    'django_cleanup',
     'social_django',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -155,7 +155,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
-DOMAIN_NAME = 'http:/127.0.0.1:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 
 EMAIL_HOST = 'smtp.yandex.ru'

@@ -2,7 +2,7 @@ import hashlib
 from random import random
 
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm, PasswordResetForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
@@ -133,3 +133,39 @@ class UserImgChangeProfileForm(UserChangeForm):
 
         self.fields['img'].widget.attrs['class'] = 'form-control'
         self.fields['img'].widget.attrs['id'] = 'avatar'
+
+
+class WriteAdminForm(forms.Form):
+    title = forms.CharField(max_length=255, label='Заголовок сообщения')
+    content = forms.CharField(widget=forms.Textarea(attrs={'cols': 60, 'rows': 10}), label='Текст сообщения')
+    grade = forms.IntegerField(min_value=1, max_value=10, label='Поставьте оценку нашему сайту от 1 до 10')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control py-4'
+
+
+class MyPasswordResetForm(PasswordResetForm):
+    error_messages = {
+        'invalid_email': _('Пожалуйста, введите верный email. Введенный вами email не связан с аккаунтом'),
+    }
+
+    class Meta:
+        model = MyUser
+        fields = ('email',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['email'].widget.attrs['placeholder'] = 'Введите ваш email'
+        self.fields['email'].widget.attrs['class'] = 'form-control py-4'
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        try:
+            MyUser.objects.get(email=email)
+        except Exception:
+            msg = ValidationError(self.error_messages['invalid_email'], code=f'invalid_email')
+            self.add_error('email', msg)
+        return email
