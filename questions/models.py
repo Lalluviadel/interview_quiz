@@ -1,3 +1,5 @@
+import logging
+
 from PIL import Image
 from django.core.mail import send_mail
 from django.db import models
@@ -7,6 +9,8 @@ from django.template.loader import render_to_string
 
 from interview_quiz.settings import ADMIN_USERNAME, DOMAIN_NAME, EMAIL_HOST_USER
 from users.models import MyUser
+
+logger = logging.getLogger(__name__)
 
 
 def question_image_path(instance, filename):
@@ -84,7 +88,8 @@ class Question(models.Model):
                     output_size = (600, 600)
                     img.thumbnail(output_size)
                     img.save(i.path)
-            except ValueError:
+            except ValueError as e:
+                logger.error(f'Ошибка обработки фото для нового вопроса {e}')
                 pass
 
 

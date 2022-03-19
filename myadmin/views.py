@@ -1,10 +1,9 @@
-from django.contrib.auth.decorators import user_passes_test
+from django.db.models import Q
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 
 from interview_quiz.mixin import TitleMixin, UserDispatchMixin
 from myadmin.forms import UserAdminRegisterForm, UserAdminProfileForm, CategoryForm, QuestionForm, PostForm
@@ -13,11 +12,9 @@ from questions.models import QuestionCategory, Question
 from users.models import MyUser
 
 
-def index(request):
-    context = {
-        'title': 'Админка',
-    }
-    return render(request, 'myadmin/admin.html', context)
+class AdminPanelView(TemplateView, TitleMixin, UserDispatchMixin):
+    template_name = 'myadmin/admin.html'
+    title = 'Админка'
 
 
 class UserListView(ListView, TitleMixin, UserDispatchMixin):
@@ -49,10 +46,6 @@ class UserDeleteView(DeleteView, UserDispatchMixin):
     template_name = 'myadmin/users/users-update.html'
     success_url = reverse_lazy('myadmin:admins_users')
 
-    @method_decorator(user_passes_test(lambda u: u.is_superuser))
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
-
     def delete(self, request, flag='false', *args, **kwargs):
         # что из этого лучше - можно поковырять
         # self.object = MyUser.objects.get(pk=self.kwargs['pk'])
@@ -79,19 +72,23 @@ class UserDeleteView(DeleteView, UserDispatchMixin):
         return HttpResponseRedirect(self.get_success_url())
 
 
-def user_is_staff(request, pk):
-    user = get_object_or_404(MyUser, pk=pk)
-    if request.user.id != pk:
-        user.is_staff = False if user.is_staff is True else True
-        user.save()
+class UserIsStaff(UpdateView, UserDispatchMixin):
+    model = MyUser
+    template_name = 'myadmin/includes/table-users.html'
 
-    uuids = request.POST.getlist('elements[]')
+    def post(self, request, *args, **kwargs):
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            user = get_object_or_404(MyUser, pk=kwargs['pk'])
+            if self.request.user != user:
+                user.is_staff = False if user.is_staff is True else True
+                user.save()
+            uuids = request.POST.getlist('elements[]')
 
-    page_obj = MyUser.objects.filter(id__in=uuids)
-    context = {'page_obj': page_obj}
+            page_obj = MyUser.objects.filter(id__in=uuids)
+            context = {'page_obj': page_obj}
 
-    result = render_to_string('myadmin/includes/table-users.html', request=request, context=context)
-    return JsonResponse({'result': result})
+            result = render_to_string('myadmin/includes/table-users.html', request=request, context=context)
+            return JsonResponse({'result': result})
 
 
 class CategoriesListView(ListView, TitleMixin, UserDispatchMixin):
@@ -168,9 +165,31 @@ class QuestionListView(ListView, TitleMixin, UserDispatchMixin):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # ###????
         context['questions']: Question.objects.all().select_related()
+        context['categories'] = QuestionCategory.objects.all()
+        if self.request.GET.get('filter'):
+            if self.request.GET.get('filter') == 'all':
+                self.request.session['current_category'] = None
+                return context
+            context['current_category'] = QuestionCategory.objects.get(id=self.request.GET.get('filter')).name
+            self.request.session['current_category'] = context['current_category']
+        elif 'current_category' in self.request.session:
+            context['current_category'] = self.request.session['current_category']
         return context
+
+    def get_queryset(self, filter_val=None):
+        if self.request.GET.get('filter'):
+            if self.request.GET.get('filter') == 'all':
+                self.request.session['filter'] = None
+                return Question.objects.all()
+            filter_val = self.request.GET.get('filter')
+            self.request.session['filter'] = filter_val
+        elif 'filter' in self.request.session:
+            filter_val = self.request.session['filter']
+        if filter_val:
+            filtered_queryset = Question.objects.filter(subject=filter_val)
+            return filtered_queryset
+        return Question.objects.all()
 
 
 class QuestionCreateView(CreateView, TitleMixin, UserDispatchMixin):
@@ -226,7 +245,30 @@ class PostListView(ListView, TitleMixin, UserDispatchMixin):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.all().select_related()
+        context['categories'] = QuestionCategory.objects.all()
+        if self.request.GET.get('filter'):
+            if self.request.GET.get('filter') == 'all':
+                self.request.session['current_category'] = None
+                return context
+            context['current_category'] = QuestionCategory.objects.get(id=self.request.GET.get('filter')).name
+            self.request.session['current_category'] = context['current_category']
+        elif 'current_category' in self.request.session:
+            context['current_category'] = self.request.session['current_category']
         return context
+
+    def get_queryset(self, filter_val=None):
+        if self.request.GET.get('filter'):
+            if self.request.GET.get('filter') == 'all':
+                self.request.session['filter'] = None
+                return Post.objects.all()
+            filter_val = self.request.GET.get('filter')
+            self.request.session['filter'] = filter_val
+        elif 'filter' in self.request.session:
+            filter_val = self.request.session['filter']
+        if filter_val:
+            filtered_queryset = Post.objects.filter(category=filter_val)
+            return filtered_queryset
+        return Post.objects.all()
 
 
 class PostCreateView(CreateView, TitleMixin, UserDispatchMixin):
@@ -269,3 +311,53 @@ class PostDeleteView(DeleteView, UserDispatchMixin):
             result = render_to_string('myadmin/includes/table-posts.html', request=request, context=context)
             return JsonResponse({'result': result})
         return HttpResponseRedirect(self.get_success_url())
+
+
+class AdminsSearchQuestionView(ListView, TitleMixin):
+    model = Question
+    template_name = 'myadmin/questions/search_results_question.html'
+    title = 'Поиск вопроса'
+
+    def get_queryset(self):
+        query = self.request.GET.get('admins_search_panel')
+        if query:
+            object_list = Question.objects.filter(Q(question__icontains=query) | Q(tag__icontains=query))
+            return object_list
+
+
+class AdminsSearchPostView(ListView, TitleMixin):
+    model = Post
+    template_name = 'myadmin/posts/search_results_post.html'
+    title = 'Поиск статьи'
+
+    def get_queryset(self):
+        query = self.request.GET.get('admins_search_panel')
+        if query:
+            object_list = Post.objects.filter(Q(title__icontains=query) | Q(tag__icontains=query))
+            return object_list
+
+
+class AdminsSearchUserView(ListView, TitleMixin):
+    model = MyUser
+    template_name = 'myadmin/users/search_results_user.html'
+    title = 'Поиск пользователя'
+
+    def get_queryset(self):
+        query = self.request.GET.get('admins_search_panel')
+        if query:
+            object_list = MyUser.objects.filter(Q(username__icontains=query) |
+                                                Q(last_name__icontains=query) |
+                                                Q(first_name__contains=query))
+            return object_list
+
+
+class AdminsSearchCategoryView(ListView, TitleMixin):
+    model = QuestionCategory
+    template_name = 'myadmin/categories/search_results_category.html'
+    title = 'Поиск категории'
+
+    def get_queryset(self):
+        query = self.request.GET.get('admins_search_panel')
+        if query:
+            object_list = QuestionCategory.objects.filter(name__icontains=query)
+            return object_list

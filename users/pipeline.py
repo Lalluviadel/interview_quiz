@@ -11,6 +11,10 @@ from social_core.exceptions import AuthForbidden
 
 from users.models import MyUser
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 USER_FIELDS = ['username', 'email']
 
 
@@ -49,6 +53,7 @@ def save_new_user(backend, user, response, *args, **kwargs):
     age = timezone.now().date().year - bdate.year
     if age < 10:
         user.delete()
+        logger.warning('VK - Попытка регистрации ребенка младше 10 лет')
         raise AuthForbidden('social_core.backends.vk.VK0Auth2')
     user.is_active = True
     user.save()
@@ -65,11 +70,13 @@ def if_user_exists_pipeline(request, details, backend, **kwargs):
                 auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return HttpResponseRedirect(reverse('index'))
             else:
+                logger.warning(f'VK - Попытка повторной регистрации на тот же email {fields["email"]}')
                 msg = 'Пользователь с таким email уже зарегистрирован'
                 return HttpResponseRedirect(reverse('users:failed', kwargs={'error': msg}))
         except Exception as e:
-            pass
+            logger.error(f'VK - Ошибка проверки пользователя - {e}')
     else:
+        logger.warning(f'VK - Попытка авторизации с аккаунтом без email')
         msg = 'Ваш профиль VK создан с использованием номера телефона, а не email в ' \
               'качестве логина. К сожалению, политика VK не предоставляет в данном случае ' \
               'email пользователя, поэтому вы не сможете залогиниться на сайте, используя ' \

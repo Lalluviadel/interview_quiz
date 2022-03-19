@@ -9,7 +9,7 @@
                     <h1 class="mt-4">Неудачная попытка активации профиля</h1>
                 </div>
                 <div class="card-body text-center">
-                        <h5>{{ error }}</h5>
+                    <h5>{{ error }}</h5>
                     <p class="mb-3">Попробуйте использовать другие данные и еще раз пройти регистрацию</p>
                     <br>
                     <button class="btn btn-orange btn-outline-info btn-lg"
@@ -19,5 +19,6 @@
                 </div>
             </div>
         </main>
+        {% include 'questions/includes/footer.html' %}
     </div>
 {% endblock %}

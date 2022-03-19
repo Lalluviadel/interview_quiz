@@ -2,10 +2,24 @@
 {% load static %}
 
 {% block content %}
-        <div id="layoutSidenav_content">
-            <main>
-
-            </main>
-        {% include 'questions/includes/footer.html' %}
-        </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4" id="index-title">Проверь себя</h1>
+                <div class="row main p-3 border border-grey mt-1">
+                    <div class="col-6">
+                       <img class="img-fluid img-rounded" width="100%"
+                         src="{% static 'vendor/img/other/index.jpg' %}" alt=""/>
+                    </div>
+                    <div class="col-6 mt-5 font-xl">
+                        Этот сайт был создан для тренировки теоретических основ
+                        некоторых областей IT. Память способна со временем терять
+                        нейронные связи и хранимую в ней информацию. Освежая свои
+                        знания регулярно, вы избежите этого.
+                    </div>
+                </div>
+            </div>
+    </main>
+    {% include 'questions/includes/footer.html' %}
+    </div>
 {% endblock %}

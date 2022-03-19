@@ -1,0 +1,49 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center mb-1">
+                {% if category_posts %}
+
+                    <h1 class="mt-4">Все статьи категории <b class="oranged">{{ category }}</b></h1>
+                    <div class="text-justify mt-4">
+
+                        {% for post in category_posts %}
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+                    <h1 class="mt-4">Статей категории <b class="oranged">{{ category }}</b> пока нет.</h1>
+                    <h3 class="mt-4">Вы можете это исправить! Напишите статью на эту тему.</h3>
+                    <div class="row mt-5">
+                        <div class="col-12 mt-4">
+                            <img width="100px"
+                                 src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'posts:all' %}">
+                                К постам</a>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1'
+                               href="{% url 'users:user_post_create' %}">
+                                Написать статью</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

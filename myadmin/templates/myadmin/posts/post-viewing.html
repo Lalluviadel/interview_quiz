@@ -6,13 +6,32 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center">
-                <h1 class="mt-4">Посты</h1>
+                <h1 class="mt-4">Статьи {% if current_category %}категории {{ current_category }} {% endif %}</h1>
                 <div class="card mb-4">
                     <div class="card-header">
-                        <ul class="text-left">
-                            <li>Для редактирования клик на посте</li>
-                            <li>Для удаления (деактивации) - кнопка в графе Активен</li>
-                        </ul>
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="text-left">
+                                    <li>Для редактирования клик на статье</li>
+                                    <li>Для удаления (деактивации) - кнопка в графе Активен</li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <form method="get" action="{% url 'myadmin:admins_posts' %}">
+                                    <div class="row">
+                                        <div class="col-3"><label for="filter">Фильтр по категориям: </label></div>
+                                        <div class="col-6"><select name="filter" class="form-control" id="filter">
+                                            <option value="all" selected name="filter">Все категории</option>
+                                            {% for category in categories %}
+                                                <option value="{{ category.id }}" name="filter">{{ category }}</option>
+                                            {% endfor %}
+                                        </select></div>
+                                        <div class="col-3"><input class="btn btn-outline-dark btn-orange" type="submit"
+                                                                  value="Ок"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div id="update_post_catcher" class="card-body">
 

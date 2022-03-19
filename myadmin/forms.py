@@ -1,12 +1,13 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
+from django.utils.translation import gettext_lazy as _
 
 from posts.models import Post
 from questions.models import QuestionCategory, Question
 from users.forms import UserRegisterForm, UserProfileForm
 from users.models import MyUser
-from django.utils.translation import gettext_lazy as _
+
 
 class UserAdminRegisterForm(UserRegisterForm):
     img = forms.ImageField(widget=forms.FileInput, required=False)
@@ -92,15 +93,15 @@ class QuestionForm(ModelForm):
         a4 = self.cleaned_data.get('answer_04')
         if answer != a1 and answer != a2 and answer != a3 and answer != a4:
             msg = ValidationError(self.error_messages['invalid_answer'],
-                              code=f'invalid_answer',
-                              params={'value': answer})
+                                  code=f'invalid_answer',
+                                  params={'value': answer})
             self.add_error('right_answer', msg)
         return self.cleaned_data
 
 
 class PostForm(ModelForm):
     category = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
-                                     empty_label=None)
+                                      empty_label=None)
     image = forms.ImageField(widget=forms.FileInput, required=False)
 
     class Meta:
@@ -117,7 +118,3 @@ class PostForm(ModelForm):
                 field.widget.attrs['class'] = 'form-control'
             else:
                 field.widget.attrs['class'] = 'form-control py-4'
-
-    def clean(self):
-        a = self.cleaned_data
-        return self.cleaned_data

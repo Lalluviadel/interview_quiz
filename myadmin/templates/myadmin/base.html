@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>{{ title|title }}</title>
+    <title>{{ title }}</title>
     <link href="{% static 'css/auth-admin.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/admin.css' %}" rel="stylesheet"/>
 </head>
@@ -20,12 +20,15 @@
             class="fas fa-bars"></i>
     </button>
     <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"
+          action="{% url 'myadmin:admins_search_results_question' %}" method="get"
+    id="catcher_admins_search_panel">
         <div class="input-group">
-            <input class="form-control" type="text" placeholder="Поиск..." aria-label="Search"
-                   aria-describedby="basic-addon2"/>
+            <input class="form-control" type="text" placeholder="Поиск по вопросам"
+                   aria-label="Search" name="admins_search_panel"
+                   aria-describedby="basic-addon2" id="admins_search_panel"/>
             <div class="input-group-append">
-                <button class="btn btn-primary" type="button"><i class="fas fa-search oranged"></i></button>
+                <button class="btn btn-primary" type="submit"><i class="fas fa-search oranged"></i></button>
             </div>
         </div>
     </form>
@@ -95,7 +98,7 @@
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 <script src="{% static 'js/csrf.js' %}"></script>
-<script src="{% static 'js/admins.js' %}"></script>
+<script src="{% static 'js/site_actions.js' %}"></script>
 <script src="https://kit.fontawesome.com/2b537a4c3e.js" crossorigin="anonymous"></script>
 <script src="{% static 'vendor/fontawesome/fontawesome-icons.js' %}"></script>
 <script src="{% static 'js/auth-admin.js' %}"></script>

@@ -1,4 +1,5 @@
 import hashlib
+import logging
 from random import random
 
 from django import forms
@@ -7,6 +8,8 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from users.models import MyUser
+
+logger = logging.getLogger(__name__)
 
 
 def len_validation(obj, field, field_name):
@@ -166,6 +169,7 @@ class MyPasswordResetForm(PasswordResetForm):
         try:
             MyUser.objects.get(email=email)
         except Exception:
-            msg = ValidationError(self.error_messages['invalid_email'], code=f'invalid_email')
+            logger.warning('Попытка восстановления пароля на незарегистрированный email')
+            msg = ValidationError(self.error_messages['invalid_email'], code='invalid_email')
             self.add_error('email', msg)
         return email

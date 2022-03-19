@@ -1,33 +1,31 @@
 from django.urls import path, reverse_lazy
 
-from .views import register, login, logout, UserEdit, UserImgEdit, \
-    UserPostCreateView, UserQuestionCreateView, TopUsers, profile, verify, \
-    failed_attempt, write_to_admin, password_reset, MyPasswordResetCompleteView, MyPasswordResetConfirmView, \
-    give_me_my_buttons
+from .views import UserLoginView, RegisterView, UserLogoutView, UserEdit, UserImgEdit, \
+    UserPostCreateView, UserQuestionCreateView, TopUsers, ProfileView, Verify, \
+    FailedAuthenticationView, WriteToAdmin, UserPasswordResetView, MyPasswordResetCompleteView, \
+    MyPasswordResetConfirmView, GiveMeMyButtons
 
 app_name = 'users'
 urlpatterns = [
-    path('login/', login, name='login'),
-    path('register/', register, name='register'),
-    path('profile/', profile, name='profile'),
-    path('logout/', logout, name='logout'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', UserLogoutView.as_view(), name='logout'),
 
+    path('register/', RegisterView.as_view(), name='register'),
+    path('verify/<str:email>/<str:activation_key>/', Verify.as_view(), name='verify'),
+    path('attempt_failed/<str:error>', FailedAuthenticationView.as_view(), name='failed'),
+
+    path('password_reset/', UserPasswordResetView.as_view(), name='password_reset'),
+    path('password_reset_confirm/<uidb64>/<token>/', MyPasswordResetConfirmView.as_view(success_url=reverse_lazy(
+        'users:password_reset_complete')), name='password_reset_confirm'),
+    path('reset/done/', MyPasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    path('profile/', ProfileView.as_view(), name='profile'),
     path('profile_edit/', UserEdit.as_view(), name='profile_edit'),
     path('profile_img_edit/', UserImgEdit.as_view(), name='profile_img_edit'),
+    path('profile_buttons/', GiveMeMyButtons.as_view(), name='give_me_my_buttons'),
 
     path('posts_create/', UserPostCreateView.as_view(), name='user_post_create'),
     path('question_create/', UserQuestionCreateView.as_view(), name='user_question_create'),
     path('top_users/', TopUsers.as_view(), name='top_users'),
-
-    path('verify/<str:email>/<str:activation_key>/', verify, name='verify'),
-
-    path('attempt_failed/<str:error>', failed_attempt, name='failed'),
-    path('write_to_admin/', write_to_admin, name='write_to_admin'),
-
-    path('password_reset/', password_reset, name='password_reset'),
-    path('reset/<uidb64>/<token>/', MyPasswordResetConfirmView.as_view(success_url=reverse_lazy(
-        'users:password_reset_complete')), name='password_reset_confirm'),
-    path('reset/done/', MyPasswordResetCompleteView.as_view(), name='password_reset_complete'),
-
-    path('profile_buttons/', give_me_my_buttons, name='give_me_my_buttons'),
+    path('write_to_admin/', WriteToAdmin.as_view(), name='write_to_admin'),
 ]

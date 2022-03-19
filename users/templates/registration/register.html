@@ -7,7 +7,6 @@
             <form action="{% url 'users:register' %}" method="post">
                 {% csrf_token %}
 
-{#                <div class="staff">{{ form.non_field_errors }}</div>#}
                 <div class="staff">
                     <ul class="errorlist">
                         {% if messages %}

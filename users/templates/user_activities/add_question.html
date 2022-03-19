@@ -8,42 +8,42 @@
             <div class="container-fluid">
                 <h1 class="mt-4 text-center">Новый вопрос</h1>
                 <div class="card-body">
-                    <form action="{% url 'users:user_question_create'%}" method="post"
-                          enctype="multipart/form-data">
+                    <form action="{% url 'users:user_question_create' %}" method="post"
+                          enctype="multipart/form-data" class="user-action">
                         {% csrf_token %}
 
                         <div class="staff">
-                    <ul class="errorlist">
-                        {% if messages %}
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert"
-                                 style="margin-top: 50px;">
-                                {% for message in messages %}
-                                    <div{% if message.tags %}
-                                        class="{{ message.tags }}"{% endif %}>{{ message|escape }}</div>
-                                {% endfor %}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        {% endif %}
-
-                        {% if form.non_field_errors %}
-                            <li>{{ form.non_field_errors }}</li>
-                        {% endif %}
-                        {% for field in form %}
-                            {% if field.errors %}
-                                <li>
-                                    {{ field.label }}
-                                    <ul class="errorlist">
-                                        {% for error in field.errors %}
-                                            <li>{{ error }}</li>
+                            <ul class="errorlist">
+                                {% if messages %}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                                         style="margin-top: 50px;">
+                                        {% for message in messages %}
+                                            <div{% if message.tags %}
+                                                class="{{ message.tags }}"{% endif %}>{{ message|escape }}</div>
                                         {% endfor %}
-                                    </ul>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endif %}
+
+                                {% if form.non_field_errors %}
+                                    <li>{{ form.non_field_errors }}</li>
+                                {% endif %}
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                        <li>
+                                            {{ field.label }}
+                                            <ul class="errorlist">
+                                                {% for error in field.errors %}
+                                                    <li>{{ error }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
 
                         <div class="form-row">
                             <div class="col-lg-12">
@@ -114,17 +114,20 @@
                         <div class="form-row text-center">
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка для вопроса</p>
-                                    {{ form.image_01 }}
+                                {{ form.image_01 }}
                             </div>
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка 1 для пояснения ответа</p>
-                                    {{ form.image_02 }}
+                                {{ form.image_02 }}
                             </div>
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка 2 для пояснения ответа</p>
-                                    {{ form.image_03 }}
+                                {{ form.image_03 }}
                             </div>
                         </div>
+
+                        {% include 'includes/modal.html' %}
+
                         <div class="form-row mt-lg-5">
                             <div class="col-lg-6">
                                 <input type="button" class="btn btn-dark btn-block"
@@ -132,7 +135,7 @@
                                        value="Отмена"/>
                             </div>
                             <div class="col-lg-6">
-                                <input class="btn btn-outline-dark btn-orange btn-block" type="submit"
+                                <input class="btn btn-outline-dark btn-orange btn-block confirm-action" type="submit"
                                        value="Сохранить">
                             </div>
                         </div>

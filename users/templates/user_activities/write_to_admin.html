@@ -6,8 +6,8 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid">
-                <h1 class="mt-4 text-center">Сообщение админу от <b class="oranged">{{ user }}</b></h1>
-                <form action="{% url 'users:write_to_admin' %}" method="post">
+                <h1 class="mt-4 text-center">Сообщение админу от <b class="oranged">{{ username }}</b></h1>
+                <form action="{% url 'users:write_to_admin' %}" method="post" class="user-letter">
                     {% csrf_token %}
 
                     <div class="staff">{{ form.non_field_errors }}</div>
@@ -20,6 +20,7 @@
                             <div class="form-error">{{ form.title.errors }}</div>
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="col-lg-12">
                             <label class="small mb-1"
@@ -40,6 +41,9 @@
                             <p class="text-lg-center oranged"><strong>{{ email }}</strong></p>
                         </div>
                     </div>
+
+                    {% include 'includes/modal_letter.html' %}
+
                     <div class="form-row ">
                         <div class="col-lg-6">
                             <input type="button" class="btn btn-dark btn-block"
@@ -47,7 +51,7 @@
                                    value="Отмена"/>
                         </div>
                         <div class="col-lg-6">
-                            <input class="btn btn-outline-dark btn-orange btn-block" type="submit" value="Отправить">
+                            <input class="btn btn-outline-dark btn-orange btn-block confirm-action-letter" type="submit" value="Отправить">
                         </div>
                     </div>
                 </form>

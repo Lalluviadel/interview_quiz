@@ -6,7 +6,14 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center">
-                <h1 class="mt-4">Профиль <b class="oranged">{{ user.username }}</b></h1>
+                <h1 class="mt-4">Профиль
+                    <b class="oranged">
+                        <a href="{% url 'posts:user_posts' user.id %}"
+                           data-toggle="tooltip" title="Показать все мои статьи">
+                            {{ user.username }}
+                        </a>
+                    </b>
+                </h1>
                 <div class="row justify-content-center mt-4">
                     <div class="col-md-3" id="update_img_catcher">
                         <div id="img_catcher">
@@ -32,18 +39,18 @@
                             </div>
                             <div class="col-md-auto m-2 oranged">
                                 <h5><b>{{ user.score }}</b></h5>
-                                <h5><b>{{ index }}</b></h5>
+                                <h5><b>{% if user.score > 0 %}{{ index }}{% else %} - {% endif %}</b></h5>
                             </div>
                         </div>
                         <img width="150px"
                              src="{% if user.score < 10 %}
-                                {% static 'achievements/baby.png' %}
+                                {% static 'vendor/img/achievements/baby.png' %}
                             {% elif user.score >= 10 and user.score < 50 %}
-                                {% static 'achievements/first_steps.png' %}
+                                {% static 'vendor/img/achievements/first_steps.png' %}
                             {% elif user.score >= 50 and user.score < 100 %}
-                                {% static 'achievements/book.png' %}
+                                {% static 'vendor/img/achievements/book.png' %}
                             {% else %}
-                                {% static 'achievements/smarty.png' %}
+                                {% static 'vendor/img/achievements/smarty.png' %}
                             {% endif %}" alt="">
                     </div>
                 </div>

@@ -21,23 +21,41 @@
                 <div class="row text-justify mt-4">
                     <div class="col-4 border">
                         <div class="col-12">
-                            Категория: <b><a
-                                href="{% url 'questions:start_test' post.category.id %}">{{ post.category }}
-                        </a></b>
+                            Категория:
+                            <b>
+                                <a href="{% url 'posts:category_posts' post.category.id %}" data-toggle="tooltip"
+                                   title="Показать все статьи категории">
+                                    {{ post.category }}
+                                </a>
+                            </b>
                         </div>
                         <div class="col-12">
-                            Автор: <b><a href="#">{{ post.author }}</a></b>
+                            Автор:
+                            <b>
+                                <a href="{% url 'posts:user_posts' post.author.id %}" data-toggle="tooltip"
+                                   title="Показать все статьи автора">
+                                    {{ post.author }}
+                                </a>
+                            </b>
                         </div>
                         <div class="col-12">
-                            Тег: <b><a href="#">{{ post.tag }}</a></b>
+                            Тег:
+                            <b>
+                                <a href="{% url 'posts:tag_posts' post.tag %}" data-toggle="tooltip"
+                                   title="Показать все статьи по тегу">
+                                    {{ post.tag }}
+                                </a>
+                            </b>
                         </div>
                         <div class="col-12">
                             Дата создания: <b><a href="#">{{ post.created_on | date }}</a></b>
                         </div>
+
                         <div class="thumbnail border img-left">
                             <img class="img-fluid img-rounded img-responsive img-thumbnail "
                                  src="{{ post.image_url }}" alt="">
                         </div>
+
                     </div>
                     <div class="col-8 d-flex border align-items-center">
                         {{ post.body | safe }}
@@ -55,6 +73,6 @@
                 </div>
             </div>
         </main>
-    {% include 'questions/includes/footer.html' %}
+        {% include 'questions/includes/footer.html' %}
     </div>
 {% endblock %}

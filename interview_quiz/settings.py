@@ -1,6 +1,8 @@
-from dotenv import load_dotenv
 import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
 # from .keys import secret, key
 
 load_dotenv()
@@ -30,6 +32,10 @@ INSTALLED_APPS = [
     'posts',
     'social_django',
     'django_cleanup.apps.CleanupConfig',
+
+    # 'dbbackup',
+    # 'scraper',
+    # 'vacancies',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Europe/Moscow'
@@ -106,7 +111,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR / 'static',)
@@ -157,7 +161,6 @@ SOCIAL_AUTH_PIPELINE = (
 
 DOMAIN_NAME = 'http://127.0.0.1:8000'
 
-
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
@@ -170,5 +173,54 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_FILE_PATH = 'tmp/emails'
 
-# ADMINS = [('drf', 'smthn@smthnsmthnsmthn.com')]
 ADMIN_USERNAME = os.getenv('ADMIN_USERNAME')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        },
+        "rich": {"datefmt": "[%X]"}
+    },
+    'handlers': {
+        'console': {
+            'class': 'rich.logging.RichHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': 'debug.log'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'file'],
+            'propagate': True
+        },
+        'django.request': {
+            'level': 'WARNING',
+            'handlers': ['console', 'file']
+        },
+        'django.security.*': {
+            'level': 'WARNING',
+            'handlers': ['console', 'file']
+        },
+        'django.security.csrf': {
+            'level': 'WARNING',
+            'handlers': ['console', 'file']
+        },
+        'loggers.users': {
+            'level': 'ERROR',
+            'handlers': ['file'],
+            'propagate': True
+        },
+    }
+}

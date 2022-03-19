@@ -38,8 +38,10 @@ window.addEventListener('load', (e) => {
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
-            data: {'flag': flag,
-                   'elements': arr},
+            data: {
+                'flag': flag,
+                'elements': arr
+            },
             url: '/myadmin/questions-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data) {
@@ -64,8 +66,10 @@ window.addEventListener('load', (e) => {
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
-            data: {'flag': flag,
-                  'elements': arr},
+            data: {
+                'flag': flag,
+                'elements': arr
+            },
             url: '/myadmin/users-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data.result) {
@@ -90,8 +94,10 @@ window.addEventListener('load', (e) => {
         $.ajax({
             type: 'POST',
             headers: {'X-CSRF-TOKEN': csrftoken},
-            data: {'flag': flag,
-                   'elements': arr},
+            data: {
+                'flag': flag,
+                'elements': arr
+            },
             url: '/myadmin/posts-delete/' + t_href.name + '/',
             success: (data) => {
                 if (data.result) {
@@ -133,6 +139,28 @@ window.addEventListener('load', (e) => {
     });
     $('#image-modal .modal-body img').on('click', function () {
         $("#image-modal").modal('hide')
+    });
+
+    $('input.confirm-action').click(function (e) {
+        e.preventDefault();
+        $("#user-action-modal").modal('show');
+        document.getElementById("user-activity-type").innerHTML = (location.pathname.includes('posts'))
+            ? 'Ваша статья отправлена на премодерацию'
+            : 'Ваш вопрос отправлен на премодерацию'
+    });
+    $('#user-action-modal').on('click', function () {
+        $("#user-action-modal").modal('hide')
+        $(".user-action").submit();
+    });
+
+    $('input.confirm-action-letter').click(function (e) {
+
+        e.preventDefault();
+        $("#user-letter-modal").modal('show');
+    });
+    $('#user-letter-modal').on('click', function () {
+        $("#user-letter-modal").modal('hide')
+        $(".user-letter").submit();
     });
 
     $('#update_profile_catcher').on('click', '#profile_edit', (e) => {
@@ -203,7 +231,6 @@ window.addEventListener('load', (e) => {
 
     if (location.pathname === '/users/profile/') {
         let element = document.querySelector('#my_profile')
-        console.log(element)
         $.ajax({
             headers: {'X-CSRF-TOKEN': csrftoken},
             url: '/users/profile_buttons/',
@@ -226,4 +253,45 @@ window.addEventListener('load', (e) => {
         }
     })
 
+
+    if ($("#time_counter").length > 0) {
+        time_limit = 15
+        setInterval(function () {
+            document.getElementById("time_counter").innerHTML = time_limit
+            if (time_limit === 0) {
+                window.location.href = '/questions/time_is_up/';
+            }
+            time_limit = time_limit - 1
+        }, 1000);
+    }
+
+    if (location.pathname === '/') {
+        let elem = $('#index-title')
+        setTimeout(function () {
+            elem.attr('style', 'opacity: 0; transition: opacity 3s;')
+        }, 3000);
+        setTimeout(function () {
+            elem.text('Верь в себя');
+            elem.attr('class', 'mt-4 oranged')
+        }, 6000);
+        setTimeout(function () {
+            elem.attr('style', 'opacity: 1; transition: opacity 4s;')
+        }, 6500);
+        e.preventDefault();
+    }
+
+    if ((location.pathname === '/myadmin/posts/') || (location.pathname === '/myadmin/search/post/')) {
+        $('#admins_search_panel').attr('placeholder', 'Поиск по статьям')
+        $('#catcher_admins_search_panel').attr('action', '/myadmin/search/post/')
+    }
+
+    if ((location.pathname === '/myadmin/users/') || (location.pathname === '/myadmin/search/user/')) {
+        $('#admins_search_panel').attr('placeholder', 'Поиск пользователей')
+        $('#catcher_admins_search_panel').attr('action', '/myadmin/search/user/')
+    }
+
+    if ((location.pathname === '/myadmin/categories/') || (location.pathname === '/myadmin/search/cat/')) {
+        $('#admins_search_panel').attr('placeholder', 'Поиск по категориям')
+        $('#catcher_admins_search_panel').attr('action', '/myadmin/search/cat/')
+    }
 });

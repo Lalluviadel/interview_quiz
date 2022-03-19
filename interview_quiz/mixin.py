@@ -8,6 +8,7 @@ class UserDispatchMixin(View):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
+
 class TitleMixin(ContextMixin):
     title = ''
 
@@ -15,3 +16,9 @@ class TitleMixin(ContextMixin):
         context = super().get_context_data(**kwargs)
         context['title'] = self.title
         return context
+
+
+class AuthorizedOnlyDispatchMixin(View):
+    @method_decorator(user_passes_test(lambda u: u.is_authenticated))
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)

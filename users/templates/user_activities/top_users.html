@@ -33,7 +33,9 @@
                                     {% for user in top_users %}
                                         <tr>
                                             <td class="oranged font-xl"><b>{{ user.score }}</b></td>
-                                            <td>{{ user.username }}</td>
+                                            <td><a href="{% url 'posts:user_posts' user.id %}"
+                                                   class="oranged font-xl" data-toggle="tooltip"
+                                                   title="Все статьи {{ user.username }}">{{ user.username }}</a></td>
                                             <td>{{ user.first_name }}</td>
                                             <td>{{ user.last_name }}</td>
                                             <td>{{ user.date_joined }}</td>

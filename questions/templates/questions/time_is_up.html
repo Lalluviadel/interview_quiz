@@ -1,0 +1,33 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'questions/includes/modal.html' %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4 oranged">Время вышло!</h1>
+                <h3 class="mt-4">К сожалению, вы&nbsp;не&nbsp;успели&nbsp;дать&nbsp;ответ и&nbsp;время&nbsp;вышло.
+                    В&nbsp;следующий&nbsp;раз&nbsp;у&nbsp;вас&nbsp;получится лучше!</h3>
+                <div class="row mt-5">
+                    <div class="col-12 mt-4">
+                        <img width="100px"
+                             src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-6 mt-4">
+                        <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'questions:categories' %}">
+                            Выбор категорий</a>
+                    </div>
+                    <div class="col-6 mt-4">
+                        <a class='btn btn-primary btn-block mt-3 mb-1'
+                           href="{% url 'index' %}">
+                            На главную </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

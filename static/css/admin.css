@@ -124,3 +124,7 @@ a:hover, .oranged {
 div.thumbnail {
     cursor: pointer;
 }
+
+.grey-background{
+    background-color: #c2aa8d;
+}
