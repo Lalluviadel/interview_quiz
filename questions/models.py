@@ -26,7 +26,7 @@ class QuestionCategory(models.Model):
     name = models.CharField(max_length=64)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to=category_image_path, blank=True)
-    available = models.BooleanField(default=True)
+    available = models.BooleanField(default=True, db_index=True)
 
     def __str__(self):
         return self.name
@@ -68,8 +68,8 @@ class Question(models.Model):
     answer_04 = models.CharField(max_length=150, default='default')
 
     difficulty_level = models.CharField(choices=DIFFICULTY_LEVEL_CHOICES, verbose_name='уровень', max_length=2,
-                                        default=NEWBIE)
-    available = models.BooleanField(default=False)
+                                        default=NEWBIE, db_index=True)
+    available = models.BooleanField(default=False, db_index=True)
     tag = models.CharField(max_length=250, default='IT')
 
     image_01 = models.ImageField(upload_to=question_image_path, blank=True)

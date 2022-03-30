@@ -113,6 +113,12 @@ class UserProfileForm(UserChangeForm):
 
 
 class UserChangeProfileForm(UserChangeForm):
+    error_messages = {
+        'invalid_last_name': _('Фамилия должна быть длиннее 3 символов - вы ввели %(value)s'),
+        'invalid_first_name': _('Имя должно быть длиннее 3 символов - вы ввели %(value)s'),
+        'only_digits': _('Имя, никнейм и фамилия не могут являться числом'),
+    }
+
     class Meta:
         model = MyUser
         fields = ('first_name', 'last_name', 'img')
@@ -122,6 +128,14 @@ class UserChangeProfileForm(UserChangeForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control py-4'
+
+    def clean_first_name(self):
+        first_name = len_validation(self, self.cleaned_data.get('first_name'), 'first_name')
+        return first_name
+
+    def clean_last_name(self):
+        last_name = len_validation(self, self.cleaned_data.get('last_name'), 'last_name')
+        return last_name
 
 
 class UserImgChangeProfileForm(UserChangeForm):

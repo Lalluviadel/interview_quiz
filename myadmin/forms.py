@@ -71,7 +71,7 @@ class QuestionForm(ModelForm):
 
         fields = ['question', 'subject', 'right_answer', 'answer_01', 'answer_02',
                   'answer_03', 'answer_04', 'difficulty_level', 'tag', 'image_01',
-                  'image_02', 'image_03']
+                  'image_02', 'image_03', 'author']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

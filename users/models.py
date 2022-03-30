@@ -16,7 +16,7 @@ class MyUser(AbstractUser):
     img = models.ImageField(blank=True, upload_to=users_image_path)
     email = models.EmailField(unique=True)
     score = models.PositiveIntegerField(default=0)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False, db_index=True)
     activation_key = models.CharField(max_length=128, blank=True, null=True)
     activation_key_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
@@ -24,14 +24,17 @@ class MyUser(AbstractUser):
         return f'{self.first_name} "{self.username}"'
 
     def save(self, **kwargs):
-        super().save()
-        if self.img:
-            img = Image.open(self.img.path)
+        if 'update_fields' in kwargs:
+            super().save(update_fields=kwargs['update_fields'])
+            if self.img and 'img' in kwargs['update_fields']:
+                img = Image.open(self.img.path)
 
-            if img.height > 300 or img.width > 300:
-                output_size = (300, 300)
-                img.thumbnail(output_size)
-                img.save(self.img.path)
+                if img.height > 300 or img.width > 300:
+                    output_size = (300, 300)
+                    img.thumbnail(output_size)
+                    img.save(self.img.path)
+        else:
+            super().save()
 
     def is_activation_key_expired(self):
         """The activation key is issued for 48 hours"""

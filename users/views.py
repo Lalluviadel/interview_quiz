@@ -98,7 +98,10 @@ class Verify(TemplateView, TitleMixin):
                 user.save()
                 return render(request, 'registration/verification.html')
 
-        except TypeError as e:
+            else:
+                raise ValueError('Несовпадение ключа активации из письма с присвоенным пользователю')
+
+        except Exception as e:
             logger.error(f'Сбой активации нового пользователя - {e}')
             msg = f'Сбой активации. Попробуйте использовать ссылку, полученную в письме, повторною. ' \
                   f'В случае неудачи напишите на адрес {EMAIL_HOST_USER}, указав причину обращения.'
@@ -165,7 +168,7 @@ class UserImgEdit(UpdateView, AuthorizedOnlyDispatchMixin):
         img = request.FILES.get('image')
         if img:
             user.img = img
-            user.save()
+            user.save(update_fields=['img'])
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             context = {'user': user}
             result = render_to_string('./includes/profile_img.html', request=request, context=context)
@@ -203,6 +206,16 @@ class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin
     form_class = QuestionForm
     success_url = reverse_lazy('users:profile')
     title = 'Предложить свой вопрос'
+
+    def post(self, request, *args, **kwargs):
+        data = request.POST.copy()
+        data['author'] = request.user.username
+        form = self.form_class(data=data)
+        if form.is_valid():
+            form.save()
+            return redirect(self.success_url)
+        else:
+            return render(request, 'user_activities/add_question.html', context={'form': form, })
 
 
 class TopUsers(ListView, TitleMixin, AuthorizedOnlyDispatchMixin):

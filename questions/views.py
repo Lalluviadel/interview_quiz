@@ -55,6 +55,7 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
 
         context = {'dif_points': POINTS_LEVEL[difficulty_level],
                    'title': f'Тест по категории {current_category.name}',
+                   'current_category': current_category.name,
                    'limit': self.request.session['limit'],
                    'dif': difficulty_level,
                    'quantity': len(id_list),
@@ -89,12 +90,14 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
     @staticmethod
     def get_question_set(category, diff_level):
         question_set = Question.objects.filter(Q(subject=category), Q(difficulty_level=diff_level), Q(available=True))
-        if question_set.count() < 20:
+        question_set_count = question_set.count()
+        if question_set_count < 20:
             return question_set
         result_set = list()
         while len(result_set) < 20:
             try:
-                result_set.append(question_set[randint(1, (len(question_set)) - 1)])
+                result_set.append(question_set[randint(1, (question_set_count - 1))])
+                # result_set.append(question_set[randint(1, (len(question_set)) - 1)])
             except ValueError:
                 logger.error('Ошибка запроса вопроса из базы')
                 return None
@@ -109,7 +112,7 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
         difficult_level = self.request.session['dif']
         chosen_answer = list(request.GET.values())[1]
         item = Question.objects.get(id=kwargs['item_id'])
-        posts = Post.objects.filter(tag=item.tag)[:4]
+        posts = Post.objects.filter(Q(tag=item.tag) | Q(available=True))[:4].defer('author', 'category', 'body', 'image', 'created_on')
         user = MyUser.objects.get(id=request.user.id)
 
         if chosen_answer == item.right_answer:
@@ -121,7 +124,8 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
             if user.score > 0:
                 user.score -= POINTS_LEVEL[difficult_level]
         request.session.modified = True
-        user.save()
+        # user.save()
+        user.save(update_fields=['score'])
         context = {
             'title': f'Ответ на вопрос {item}',
             'item': item,

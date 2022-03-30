@@ -47,8 +47,6 @@ class UserDeleteView(DeleteView, UserDispatchMixin):
     success_url = reverse_lazy('myadmin:admins_users')
 
     def delete(self, request, flag='false', *args, **kwargs):
-        # что из этого лучше - можно поковырять
-        # self.object = MyUser.objects.get(pk=self.kwargs['pk'])
         self.object = self.get_object()
         if 'flag' in request.POST:
             flag = request.POST['flag']
@@ -165,7 +163,6 @@ class QuestionListView(ListView, TitleMixin, UserDispatchMixin):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['questions']: Question.objects.all().select_related()
         context['categories'] = QuestionCategory.objects.all()
         if self.request.GET.get('filter'):
             if self.request.GET.get('filter') == 'all':
@@ -181,15 +178,15 @@ class QuestionListView(ListView, TitleMixin, UserDispatchMixin):
         if self.request.GET.get('filter'):
             if self.request.GET.get('filter') == 'all':
                 self.request.session['filter'] = None
-                return Question.objects.all()
+                return Question.objects.select_related('subject').prefetch_related('author')
             filter_val = self.request.GET.get('filter')
             self.request.session['filter'] = filter_val
         elif 'filter' in self.request.session:
             filter_val = self.request.session['filter']
         if filter_val:
-            filtered_queryset = Question.objects.filter(subject=filter_val)
+            filtered_queryset = Question.objects.filter(subject=filter_val).select_related('subject').prefetch_related('author')
             return filtered_queryset
-        return Question.objects.all()
+        return Question.objects.select_related('subject').prefetch_related('author')
 
 
 class QuestionCreateView(CreateView, TitleMixin, UserDispatchMixin):
@@ -244,7 +241,6 @@ class PostListView(ListView, TitleMixin, UserDispatchMixin):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.all().select_related()
         context['categories'] = QuestionCategory.objects.all()
         if self.request.GET.get('filter'):
             if self.request.GET.get('filter') == 'all':
@@ -260,15 +256,15 @@ class PostListView(ListView, TitleMixin, UserDispatchMixin):
         if self.request.GET.get('filter'):
             if self.request.GET.get('filter') == 'all':
                 self.request.session['filter'] = None
-                return Post.objects.all()
+                return Post.objects.select_related('category').prefetch_related('author')
             filter_val = self.request.GET.get('filter')
             self.request.session['filter'] = filter_val
         elif 'filter' in self.request.session:
             filter_val = self.request.session['filter']
         if filter_val:
-            filtered_queryset = Post.objects.filter(category=filter_val)
+            filtered_queryset = Post.objects.filter(category=filter_val).select_related('category').prefetch_related('author')
             return filtered_queryset
-        return Post.objects.all()
+        return Post.objects.select_related('category').prefetch_related('author')
 
 
 class PostCreateView(CreateView, TitleMixin, UserDispatchMixin):
