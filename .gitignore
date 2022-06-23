@@ -5,3 +5,7 @@ Thumbs.db
 *.simple
 *.png
 *.jpg
+/static/
+*.json
+*.log
+_trial_temp

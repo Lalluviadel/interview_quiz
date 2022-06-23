@@ -9,20 +9,24 @@ from users.models import MyUser
 
 
 class PostsCategoryView(ListView, TitleMixin):
+    """View for displaying all posts by category (only active categories)"""
     model = QuestionCategory
     template_name = 'posts/all.html'
     context_object_name = 'posts_categories'
     title = 'Посты'
 
     def get_queryset(self):
+        """Displaying all active categories"""
         return QuestionCategory.objects.filter(available=True)
 
 
 class PostView(DetailView):
+    """View for the output of a separate post"""
     model = Post
     template_name = 'posts/read.html'
 
     def get_context_data(self, *args, **kwargs):
+        """Getting a specific post and its title and passing it to the context"""
         context = super().get_context_data(**kwargs)
         post = get_object_or_404(Post, pk=self.kwargs.get('pk'))
         context['title'] = post.title
@@ -31,10 +35,14 @@ class PostView(DetailView):
 
 
 class UserPostView(ListView, AuthorizedOnlyDispatchMixin):
+    """View for displaying posts of a specific user.
+    It is triggered when you click on the author's nickname when you are
+    on the page of a particular post"""
     model = Post
     template_name = 'posts/user_posts.html'
 
     def get_context_data(self, *args, **kwargs):
+        """Retrieves a specific user and a queryset of his posts and transfers to the context"""
         context = super().get_context_data(**kwargs)
         user = MyUser.objects.get(id=self.kwargs.get('pk'))
         user_posts = Post.objects.filter(Q(author=user), Q(available=True)).defer('category', 'body',
@@ -46,10 +54,13 @@ class UserPostView(ListView, AuthorizedOnlyDispatchMixin):
 
 
 class TagPostView(ListView):
+    """View to display posts with a specific tag.
+    It is triggered when you click on the tag when you are on the page of a certain post"""
     model = Post
     template_name = 'posts/tag_posts.html'
 
     def get_context_data(self, *args, **kwargs):
+        """Retrieves a specific tag and a queryset of posts with this tag and passes it to the context"""
         context = super().get_context_data(**kwargs)
         tag = self.kwargs.get('tag')
         context['tag_posts'] = Post.objects.filter(Q(tag=tag), Q(available=True)).defer('author', 'category',
@@ -60,10 +71,13 @@ class TagPostView(ListView):
 
 
 class CategoryPostView(ListView):
+    """View to display posts of a specific category.
+    It is triggered when you click on the category when you are on the page of a certain post"""
     model = Post
     template_name = 'posts/category_posts.html'
 
     def get_context_data(self, *args, **kwargs):
+        """Retrieves a specific category and a queryset of posts of this category and passes it to the context"""
         context = super().get_context_data(**kwargs)
         category = QuestionCategory.objects.get(id=self.kwargs.get('pk'))
         context['category_posts'] = Post.objects.filter(Q(category=category),
@@ -75,12 +89,21 @@ class CategoryPostView(ListView):
 
 
 class SearchPostView(ListView, TitleMixin):
+    """View to display the search result posts.
+    It is triggered when you use the search bar at the top of the page.
+    The search is performed using the following options:
+    - by tag;
+    - by the title;
+    - by the part of tag or of title;
+    """
     model = Post
     template_name = 'posts/search_results_post.html'
     title = 'Поиск статьи'
 
     def get_queryset(self):
+        """Retrieves the search mask specified by the user and
+        returns a queryset of posts according to the filter by this mask"""
         query = self.request.GET.get('search_panel')
-        object_list = Post.objects.filter(Q(title__icontains=query) | Q(tag__icontains=query)).defer('author', 'body',
-                                                                                 'image', 'created_on', 'category')
+        object_list = Post.objects.filter(Q(title__icontains=query) | Q(tag__icontains=query)).\
+            filter(available=True).defer('author', 'body', 'image', 'created_on', 'category')
         return object_list

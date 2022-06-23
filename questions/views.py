@@ -34,8 +34,15 @@ class CategoryView(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
+        user = MyUser.objects.get(id=self.request.user.id)
         current_category = get_object_or_404(QuestionCategory, pk=self.kwargs.get('pk'))
         context['category'] = current_category
+
+        # проработать исключение
+        try:
+            context['user_info'] = int(user.info)
+        except Exception:
+            pass
         context['title'] = f'Категория {current_category.name}'
         return context
 
@@ -66,8 +73,9 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
 
         context_upd = context.copy()
         context_upd['category'] = current_category
-        context_upd['item'] = Question.objects.get(id=id_list.pop())
-        context['question_set'] = id_list
+        if id_list:
+            context_upd['item'] = Question.objects.get(id=id_list.pop())
+            context['question_set'] = id_list
         context_upd['user_points'] = self.request.user.score
 
         return render(request, 'questions/test_body.html', context=context_upd)
@@ -112,7 +120,9 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
         difficult_level = self.request.session['dif']
         chosen_answer = list(request.GET.values())[1]
         item = Question.objects.get(id=kwargs['item_id'])
-        posts = Post.objects.filter(Q(tag=item.tag) | Q(available=True))[:4].defer('author', 'category', 'body', 'image', 'created_on')
+        posts = Post.objects.filter(Q(tag=item.tag) & Q(available=True))[:4].defer('author',
+                                                                                   'category', 'body', 'image',
+                                                                                   'created_on')
         user = MyUser.objects.get(id=request.user.id)
 
         if chosen_answer == item.right_answer:

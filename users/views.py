@@ -305,3 +305,16 @@ class GiveMeMyButtons(TemplateView):
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             result = render_to_string('includes/profile_buttons.html', request=request)
             return JsonResponse({'result': result})
+
+
+class UserNoInfo(TemplateView):
+    template_name = 'includes/no_info_success.html'
+
+    def post(self, request, *args, **kwargs):
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest' \
+                and request.POST['flag'] == 'true':
+            user = MyUser.objects.get(id=request.user.id)
+            user.info = False
+            user.save()
+            result = render_to_string(self.template_name, request=request)
+            return JsonResponse({'result': result})

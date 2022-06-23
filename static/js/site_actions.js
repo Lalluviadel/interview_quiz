@@ -1,4 +1,5 @@
 window.addEventListener('load', (e) => {
+
     $('#update_cat_catcher').on('click', '#update_cat_btn', (e) => {
         let t_href = e.target;
         let checkBox = document.getElementById("option2");
@@ -141,6 +142,40 @@ window.addEventListener('load', (e) => {
         $("#image-modal").modal('hide')
     });
 
+    if (typeof user_info !== "undefined") {
+        if (user_info === 1) {
+            e.preventDefault();
+            $("#info-modal").modal('show');
+        }
+    }
+
+    $('#info-modal #info-close').on('click', function () {
+        let checkBox = document.getElementById("no-info");
+        let flag = checkBox.checked;
+        let element = document.querySelector('.modal-content')
+
+        if (flag === true) {
+            $.ajax({
+                type: 'POST',
+                headers: {'X-CSRF-TOKEN': csrftoken},
+                data: {'flag': flag},
+                url: '/users/no_info/',
+                success: (data) => {
+                    if (data.result) {
+                        $(element).html(data.result)
+                    }
+                },
+            });
+            setTimeout(function () {
+                $("#info-modal").modal('hide')
+            }, 3000);
+        }
+        else {
+            $("#info-modal").modal('hide');
+        }
+        $("#form-start-test").submit();
+    });
+
     $('input.confirm-action').click(function (e) {
         e.preventDefault();
         $("#user-action-modal").modal('show');
@@ -154,7 +189,6 @@ window.addEventListener('load', (e) => {
     });
 
     $('input.confirm-action-letter').click(function (e) {
-
         e.preventDefault();
         $("#user-letter-modal").modal('show');
     });
@@ -228,7 +262,6 @@ window.addEventListener('load', (e) => {
         e.preventDefault();
     });
 
-
     if (location.pathname === '/users/profile/') {
         let element = document.querySelector('#my_profile')
         $.ajax({
@@ -252,7 +285,6 @@ window.addEventListener('load', (e) => {
             text.style.display = "none";
         }
     })
-
 
     if ($("#time_counter").length > 0) {
         time_limit = 15

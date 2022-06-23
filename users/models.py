@@ -19,6 +19,7 @@ class MyUser(AbstractUser):
     is_active = models.BooleanField(default=False, db_index=True)
     activation_key = models.CharField(max_length=128, blank=True, null=True)
     activation_key_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    info = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.first_name} "{self.username}"'

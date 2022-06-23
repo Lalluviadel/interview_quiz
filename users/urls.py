@@ -3,7 +3,7 @@ from django.urls import path, reverse_lazy
 from .views import UserLoginView, RegisterView, UserLogoutView, UserEdit, UserImgEdit, \
     UserPostCreateView, UserQuestionCreateView, TopUsers, ProfileView, Verify, \
     FailedAuthenticationView, WriteToAdmin, UserPasswordResetView, MyPasswordResetCompleteView, \
-    MyPasswordResetConfirmView, GiveMeMyButtons
+    MyPasswordResetConfirmView, GiveMeMyButtons, UserNoInfo
 
 app_name = 'users'
 urlpatterns = [
@@ -28,4 +28,6 @@ urlpatterns = [
     path('question_create/', UserQuestionCreateView.as_view(), name='user_question_create'),
     path('top_users/', TopUsers.as_view(), name='top_users'),
     path('write_to_admin/', WriteToAdmin.as_view(), name='write_to_admin'),
+
+    path('no_info/', UserNoInfo.as_view(), name='no_info'),
 ]
