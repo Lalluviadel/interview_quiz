@@ -148,7 +148,6 @@ window.addEventListener('load', (e) => {
             $("#info-modal").modal('show');
         }
     }
-
     $('#info-modal #info-close').on('click', function () {
         let checkBox = document.getElementById("no-info");
         let flag = checkBox.checked;
@@ -209,7 +208,6 @@ window.addEventListener('load', (e) => {
         });
         e.preventDefault();
     });
-
     $('#profile_catcher').on('click', '#profile_submit', (e) => {
         let $data = {};
         $('#profile_form').find('input, textarea, select').each(function () {
@@ -241,7 +239,6 @@ window.addEventListener('load', (e) => {
         });
         e.preventDefault();
     });
-
     $('#img_catcher').on('click', '#profile_img_submit', (e) => {
         let img_dict = new FormData();
         img_dict.append("image", document.getElementById('avatar').files[0]);

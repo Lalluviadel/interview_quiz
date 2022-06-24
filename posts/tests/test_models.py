@@ -1,15 +1,23 @@
+import logging
+import sys
+
+from django.test import TestCase
+
 from questions.models import QuestionCategory
 from users.models import MyUser
 from ..models import Post
-from django.test import TestCase
 
-class PostModelTest(TestCase):
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
+    logging.disable(logging.CRITICAL)
+
+
+class TestPostModel(TestCase):
     """Test class for the Post model"""
 
     @classmethod
     def setUpTestData(cls):
         MyUser.objects.create(first_name='Quentin', last_name='Tarantino', username='QweenTeen',
-                                     email='queenteen@mail.ru', is_active=True)
+                              email='queenteen@mail.ru', is_active=True)
         QuestionCategory.objects.create(name='TestCategory')
         author = MyUser.objects.first()
         category = QuestionCategory.objects.first()

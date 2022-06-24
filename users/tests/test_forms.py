@@ -1,11 +1,17 @@
+import logging
+import sys
+
 from django.test import SimpleTestCase, TestCase
 
 from ..forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserImgChangeProfileForm, WriteAdminForm, \
     MyPasswordResetForm
 from ..models import MyUser
 
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
+    logging.disable(logging.CRITICAL)
 
-class UserLoginFormTest(SimpleTestCase):
+
+class TestUserLoginForm(SimpleTestCase):
 
     def test_login_form_fields_placeholders(self):
         form = UserLoginForm()
@@ -13,7 +19,7 @@ class UserLoginFormTest(SimpleTestCase):
         self.assertTrue(form.fields['password'].widget.attrs['placeholder'] == 'Введите пароль')
 
 
-class UserRegisterFormTest(TestCase):
+class TestUserRegisterForm(TestCase):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -79,8 +85,17 @@ class UserRegisterFormTest(TestCase):
         user = MyUser.objects.get(username=form_data['username'])
         self.assertTrue(user.activation_key)
 
+    def test_one_user_created(self):
+        """Form health test and verification of the creation of a new record"""
+        data = self.form_data
+        data['email'] = 'new_unique_email@example.ru'
+        form = UserRegisterForm(data=self.form_data)
+        form.is_valid()
+        form.save()
+        assert MyUser.objects.filter(email=self.form_data['email']).count() == 1
 
-class UserProfileFormTest(SimpleTestCase):
+
+class TestUserProfileForm(SimpleTestCase):
 
     def test_user_profile_form_fields_readonly(self):
         form = UserProfileForm()
@@ -92,14 +107,14 @@ class UserProfileFormTest(SimpleTestCase):
         self.assertTrue(form.fields['img'].widget.attrs['class'] == 'custom-file-input')
 
 
-class UserImgChangeProfileFormTest(SimpleTestCase):
+class TestUserImgChangeProfileForm(SimpleTestCase):
 
     def test_user_change_profile_form_img_field_id_assigned(self):
         form = UserImgChangeProfileForm()
         self.assertTrue(form.fields['img'].widget.attrs['id'] == 'avatar')
 
 
-class WriteAdminFormTest(SimpleTestCase):
+class TestWriteAdminForm(SimpleTestCase):
 
     def test_write_admin_form_fields_labels(self):
         form = WriteAdminForm()
@@ -117,7 +132,7 @@ class WriteAdminFormTest(SimpleTestCase):
         self.assertEquals(form.fields['grade'].max_value, 10)
 
 
-class MyPasswordResetFormTest(SimpleTestCase):
+class TestMyPasswordResetForm(SimpleTestCase):
 
     def test_password_reset_form_email_placeholder(self):
         form = MyPasswordResetForm()

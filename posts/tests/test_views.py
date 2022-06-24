@@ -1,3 +1,6 @@
+import logging
+import sys
+
 from django.db.models import Q
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -5,6 +8,9 @@ from django.urls import reverse
 from questions.models import QuestionCategory
 from users.models import MyUser
 from ..models import Post
+
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
+    logging.disable(logging.CRITICAL)
 
 
 class TestPostBase(TestCase):

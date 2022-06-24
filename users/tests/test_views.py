@@ -1,3 +1,5 @@
+import logging
+import sys
 from datetime import timedelta
 
 from django.test import TestCase, Client, SimpleTestCase
@@ -10,8 +12,22 @@ from questions.models import QuestionCategory, Question
 from ..forms import UserLoginForm, UserRegisterForm
 from ..models import MyUser
 
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
+    logging.disable(logging.CRITICAL)
 
-class TestAnonimousAndAuthorizedUser(TestCase):
+
+class TestUserBase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
+        self.test_user.set_password('laLA12')
+        self.test_user.is_active = True
+        self.test_user.save()
+        self.client.login(username=self.test_user.username, password='laLA12')
+
+
+class TestAnonymousAndAuthorizedUser(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -273,15 +289,10 @@ class TestMyPasswordResetCompleteView(SimpleTestCase):
         self.assertTemplateUsed(response, 'registration/password_res_complete.html')
 
 
-class TestProfileView(TestCase):
+class TestProfileView(TestUserBase):
 
     def setUp(self):
-        self.client = Client()
-        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
-        self.test_user.set_password('laLA12')
-        self.test_user.is_active = True
-        self.test_user.save()
-        self.client.login(username=self.test_user.username, password='laLA12')
+        super().setUp()
 
     def test_profile_user(self):
         response = self.client.get('/users/profile/')
@@ -290,15 +301,10 @@ class TestProfileView(TestCase):
         self.assertEqual(response.context['title'], 'Мой профиль')
 
 
-class TestUserEdit(TestCase):
+class TestUserEdit(TestUserBase):
 
     def setUp(self):
-        self.client = Client()
-        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
-        self.test_user.set_password('laLA12')
-        self.test_user.is_active = True
-        self.test_user.save()
-        self.client.login(username=self.test_user.username, password='laLA12')
+        super().setUp()
         self.client.get(reverse('users:profile'))
 
     def test_user_edit_ok(self):
@@ -342,19 +348,19 @@ class TestUserEdit(TestCase):
         self.assertNotEqual(user.first_name, 'Roland')
 
 
-class TestUserPostCreateView(TestCase):
+class TestUserCreateBase(TestUserBase):
 
     def setUp(self):
-        self.client = Client()
-        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
-        self.test_user.set_password('laLA12')
-        self.test_user.is_active = True
-        self.test_user.save()
-        self.client.login(username=self.test_user.username, password='laLA12')
-
+        super().setUp()
         self.category = QuestionCategory.objects.create(name='TestCategory', description='test')
         self.category.available = True
         self.category.save()
+
+
+class TestUserPostCreateView(TestUserCreateBase):
+
+    def setUp(self):
+        super().setUp()
 
         self.data = {
             'title': 'Test',
@@ -370,19 +376,10 @@ class TestUserPostCreateView(TestCase):
         self.assertEqual(self.test_user, Post.objects.get(title=self.data['title']).author)
 
 
-class TestUserQuestionCreateView(TestCase):
+class TestUserQuestionCreateView(TestUserCreateBase):
 
     def setUp(self):
-        self.client = Client()
-        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
-        self.test_user.set_password('laLA12')
-        self.test_user.is_active = True
-        self.test_user.save()
-        self.client.login(username=self.test_user.username, password='laLA12')
-
-        self.category = QuestionCategory.objects.create(name='TestCategory', description='test')
-        self.category.available = True
-        self.category.save()
+        super().setUp()
 
         self.data = {
             'question': 'Test',
@@ -411,15 +408,10 @@ class TestUserQuestionCreateView(TestCase):
                                                                'вариантов ответа на вопрос')
 
 
-class TestWriteToAdmin(TestCase):
+class TestWriteToAdmin(TestUserBase):
 
     def setUp(self):
-        self.client = Client()
-        self.test_user = MyUser.objects.create_user(username='test', email=EMAIL_HOST_USER)
-        self.test_user.set_password('laLA12')
-        self.test_user.is_active = True
-        self.test_user.save()
-        self.client.login(username=self.test_user.username, password='laLA12')
+        super().setUp()
 
         self.data = {
             'title': 'Привет',

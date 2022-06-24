@@ -1,15 +1,21 @@
+import logging
+import sys
 from datetime import timedelta
 
 from django.test import TestCase
 
 from ..models import MyUser
 
+if len(sys.argv) > 1 and sys.argv[1] == 'test':
+    logging.disable(logging.CRITICAL)
 
-class UserModelTest(TestCase):
+
+class TestUserModel(TestCase):
     """Test class for the MyUser model"""
 
     @classmethod
     def setUpTestData(cls):
+        """Set up non-modified MyUser object used by all test methods"""
         MyUser.objects.create(first_name='Quentin', last_name='Tarantino', email='queenteen@mail.ru')
 
     def test_first_name_label(self):
@@ -57,7 +63,6 @@ class UserModelTest(TestCase):
     def test_activation_key_expired_false(self):
         """MyUser model test initial state of the field activation_key_created - not expired"""
         user = MyUser.objects.first()
-        print(user.activation_key_created)
         self.assertFalse(user.is_activation_key_expired())
 
     def test_activation_key_expired_true(self):
