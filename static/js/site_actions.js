@@ -168,8 +168,7 @@ window.addEventListener('load', (e) => {
             setTimeout(function () {
                 $("#info-modal").modal('hide')
             }, 3000);
-        }
-        else {
+        } else {
             $("#info-modal").modal('hide');
         }
         $("#form-start-test").submit();
@@ -177,11 +176,31 @@ window.addEventListener('load', (e) => {
 
     $('input.confirm-action').click(function (e) {
         e.preventDefault();
-        $("#user-action-modal").modal('show');
-        document.getElementById("user-activity-type").innerHTML = (location.pathname.includes('posts'))
-            ? 'Ваша статья отправлена на премодерацию'
-            : 'Ваш вопрос отправлен на премодерацию'
+        let data = {};
+        $('.user-action').find('input, textarea, select').each(function () {
+            data[this.name] = $(this).val();
+        });
+        url = (location.pathname.includes('posts'))
+            ? '/users/posts_create/'
+            : '/users/question_create/'
+        $.ajax({
+            type: 'POST',
+            data: data,
+            headers: {'X-CSRF-TOKEN': csrftoken},
+            url: url,
+            success: (data) => {
+                if (data.result) {
+                    $('.user-activity').html(data.result)
+                } else {
+                    $("#user-action-modal").modal('show');
+                    document.getElementById("user-activity-type").innerHTML = (location.pathname.includes('posts'))
+                        ? 'Ваша статья отправлена на премодерацию'
+                        : 'Ваш вопрос отправлен на премодерацию'
+                }
+            }
+        });
     });
+
     $('#user-action-modal').on('click', function () {
         $("#user-action-modal").modal('hide')
         $(".user-action").submit();

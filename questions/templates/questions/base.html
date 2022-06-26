@@ -88,7 +88,7 @@
                     {% endif %}
                     {% if user.is_staff %}
                         <input type="button" class="btn btn-block btn-orange blacked"
-                               onclick="window.location.href = '{% url 'myadmin:index' %}';"
+                               onclick="window.location.href = '{% url 'myadmin:admins_index' %}';"
                                value="К админке"/>
                     {% endif %}
                     <button onClick="javascript:history.go(-1);" type="submit" class="btn btn-block btn-orange blacked">

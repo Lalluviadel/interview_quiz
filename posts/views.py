@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
@@ -16,8 +16,11 @@ class PostsCategoryView(ListView, TitleMixin):
     title = 'Посты'
 
     def get_queryset(self):
-        """Displaying all active categories"""
-        return QuestionCategory.objects.filter(available=True)
+        """Displaying all active categories.
+        A category is displayed only if it has at least one active post.
+        At the same time, the template displays the number of active posts in this category."""
+        return QuestionCategory.objects.filter(available=True).\
+            annotate(posts_count=Count('post', distinct=True)).filter(post__available=True)
 
 
 class PostView(DetailView):

@@ -1,0 +1,118 @@
+<form action="{% url 'users:user_question_create' %}" method="post"
+      enctype="multipart/form-data" class="user-action">
+    {% csrf_token %}
+
+    <div class="staff">
+        <ul class="errorlist">
+            {% if messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                     style="margin-top: 50px;">
+                    {% for message in messages %}
+                        <div{% if message.tags %}
+                            class="{{ message.tags }}"{% endif %}>{{ message|escape }}</div>
+                    {% endfor %}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+                <li>{{ form.non_field_errors }}</li>
+            {% endif %}
+            {% for field in form %}
+                {% if field.errors %}
+                    <li>
+                        {{ field.label }}
+                        <ul class="errorlist">
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="form-row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.question.id_for_label }}">Текст
+                    вопроса</label>
+                {{ form.question }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1"
+                       for="{{ form.subject.id_for_label }}">Категория</label>
+                {{ form.subject }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1"
+                       for="{{ form.difficulty_level.id_for_label }}">Сложность</label>
+                {{ form.difficulty_level }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.right_answer.id_for_label }}">Правильный
+                    ответ</label>
+                {{ form.right_answer }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.tag.id_for_label }}">Тег</label>
+                {{ form.tag }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.answer_01.id_for_label }}">Ответ
+                    1</label>
+                {{ form.answer_01 }}
+            </div>
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.answer_03.id_for_label }}">Ответ
+                    3</label>
+                {{ form.answer_03 }}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.answer_02.id_for_label }}">Ответ
+                    2</label>
+                {{ form.answer_02 }}
+            </div>
+            <div class="form-group">
+                <label class="small mb-1" for="{{ form.answer_04.id_for_label }}">Ответ
+                    4</label>
+                {{ form.answer_04 }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row text-center">
+        <div class="col-lg-4">
+            <p class="text-center">Картинка для вопроса</p>
+            {{ form.image_01 }}
+        </div>
+        <div class="col-lg-4">
+            <p class="text-center">Картинка 1 для пояснения ответа</p>
+            {{ form.image_02 }}
+        </div>
+        <div class="col-lg-4">
+            <p class="text-center">Картинка 2 для пояснения ответа</p>
+            {{ form.image_03 }}
+        </div>
+    </div>
+</form>

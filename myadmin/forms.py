@@ -10,6 +10,7 @@ from users.models import MyUser
 
 
 class UserAdminRegisterForm(UserRegisterForm):
+    """Form for creating a user from the admin panel"""
     img = forms.ImageField(widget=forms.FileInput, required=False)
 
     class Meta:
@@ -27,6 +28,7 @@ class UserAdminRegisterForm(UserRegisterForm):
 
 
 class UserAdminProfileForm(UserProfileForm):
+    """Form for editing a user profile from the admin panel"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -41,6 +43,7 @@ class UserAdminProfileForm(UserProfileForm):
 
 
 class CategoryForm(ModelForm):
+    """Form for creating and editing categories in the admin panel"""
     image = forms.ImageField(widget=forms.FileInput, required=False)
 
     class Meta:
@@ -55,6 +58,7 @@ class CategoryForm(ModelForm):
 
 
 class QuestionForm(ModelForm):
+    """Form for creating and editing questions in the admin panel"""
     error_messages = {
         'invalid_answer': _('Вы указали %(value)s как правильный ответ, но он не совпадает ни с одним '
                             'из предлагаемых вариантов ответа на вопрос'),
@@ -71,21 +75,19 @@ class QuestionForm(ModelForm):
 
         fields = ['question', 'subject', 'right_answer', 'answer_01', 'answer_02',
                   'answer_03', 'answer_04', 'difficulty_level', 'tag', 'image_01',
-                  'image_02', 'image_03', 'author']
+                  'image_02', 'image_03']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            if field_name == 'image_01' \
-                    or field_name == 'image_02' \
-                    or field_name == 'image_03' \
-                    or field_name == 'subject' \
-                    or field_name == 'difficulty_level':
+            if field_name in ['image_01', 'image_02', 'image_03', 'subject', 'difficulty_level']:
                 field.widget.attrs['class'] = 'form-control'
             else:
                 field.widget.attrs['class'] = 'form-control py-4'
 
     def clean(self):
+        """Checks whether the correct answer matches one of the 4 options
+        for user responses, if not, adds an error message"""
         answer = self.cleaned_data.get('right_answer')
         a1 = self.cleaned_data.get('answer_01')
         a2 = self.cleaned_data.get('answer_02')
@@ -100,21 +102,20 @@ class QuestionForm(ModelForm):
 
 
 class PostForm(ModelForm):
+    """Form for creating and editing posts in the admin panel"""
     category = forms.ModelChoiceField(queryset=QuestionCategory.objects.filter(available=True).select_related(),
                                       empty_label=None)
     image = forms.ImageField(widget=forms.FileInput, required=False)
 
     class Meta:
         model = Post
-        fields = ['title', 'author', 'category', 'body', 'image',
+        fields = ['title', 'category', 'body', 'image',
                   'available', 'tag']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            if field_name == 'image' \
-                    or field_name == 'category' \
-                    or field_name == 'author':
+            if field_name == 'image' or field_name == 'category':
                 field.widget.attrs['class'] = 'form-control'
             else:
                 field.widget.attrs['class'] = 'form-control py-4'

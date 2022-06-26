@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.test import TestCase, Client
 from django.urls import reverse
 
+from interview_quiz import settings
 from interview_quiz.variabls import POINTS_LEVEL
 from posts.models import Post
 from users.models import MyUser
@@ -590,3 +591,21 @@ class TestTimeIsUp(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'questions/time_is_up.html')
         self.assertEqual(response.context['title'], 'Время вышло')
+
+
+if settings.DEBUG:
+
+    class Test404Page(TestCase):
+        """Custom handler404 test"""
+
+        def test_view_url_exists_at_desired_location(self):
+            """Checks that the view URL exists in the desired location"""
+            response = self.client.get('/404/')
+            self.assertEqual(response.status_code, 404)
+
+        def test_view_uses_correct_template_and_title(self):
+            """Checks that the view uses the correct template and title"""
+            response = self.client.get('/404/')
+            self.assertEqual(response.status_code, 404)
+            self.assertTemplateUsed(response, 'questions/page_not_found.html')
+            self.assertEqual(response.context['title'], '404: Страница не существует')

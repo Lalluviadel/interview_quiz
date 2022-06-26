@@ -13,7 +13,9 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
+# ALLOWED_HOSTS = ['127.0.0.1']
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -62,9 +64,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'questions.context_processors.categories',
-                # 'questions.context_processors.users',
-                # 'questions.context_processors.questions',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],

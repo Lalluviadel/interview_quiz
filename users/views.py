@@ -15,7 +15,7 @@ from interview_quiz.mixin import TitleMixin, AuthorizedOnlyDispatchMixin
 from interview_quiz.settings import DOMAIN_NAME, EMAIL_HOST_USER
 from myadmin.forms import PostForm, QuestionForm
 from posts.models import Post
-from questions.models import QuestionCategory, Question
+from questions.models import Question
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserChangeProfileForm, \
     UserImgChangeProfileForm, WriteAdminForm, MyPasswordResetForm
 from users.models import MyUser
@@ -191,12 +191,20 @@ class UserPostCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
     title = 'Написать свою статью'
 
     def post(self, request, *args, **kwargs):
-        category = QuestionCategory.objects.get(id=request.POST['category'])
-        image = request.FILES.get('image')
-        title, tag, body = request.POST['title'], request.POST['tag'], request.POST['body']
-        Post.objects.create(author=request.user, title=title, tag=tag,
-                            category=category, image=image, body=body)
-        return redirect(self.success_url)
+        data = request.POST.copy()
+        form = self.form_class(data=data)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                return JsonResponse({'is_valid': True})
+            return redirect(self.success_url)
+        else:
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                result = render_to_string('includes/post_form.html', request=request, context={'form': form, })
+                return JsonResponse({'result': result})
+            return render(request, 'user_activities/add_post.html', context={'form': form, })
 
 
 class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
@@ -209,12 +217,18 @@ class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin
 
     def post(self, request, *args, **kwargs):
         data = request.POST.copy()
-        data['author'] = request.user.username
         form = self.form_class(data=data)
         if form.is_valid():
-            form.save()
+            question = form.save(commit=False)
+            question.author = request.user
+            question.save()
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                return JsonResponse({'is_valid': True})
             return redirect(self.success_url)
         else:
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                result = render_to_string('includes/question_form.html', request=request, context={'form': form, })
+                return JsonResponse({'result': result})
             return render(request, 'user_activities/add_question.html', context={'form': form, })
 
 

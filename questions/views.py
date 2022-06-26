@@ -14,6 +14,15 @@ from users.models import MyUser
 logger = logging.getLogger(__name__)
 
 
+def my_handler404(request, exception):
+    """View for the 404 page"""
+    context = dict()
+    context['title'] = '404: Страница не существует'
+    response = render(request, 'questions/page_not_found.html', context=context)
+    response.status_code = 404
+    return response
+
+
 class MainView(TemplateView, TitleMixin):
     """View for the main page"""
     template_name = 'questions/index.html'
