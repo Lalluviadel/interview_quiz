@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>questions package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="questions.templatetags package" href="questions.templatetags.html" />
+    <link rel="prev" title="questions" href="modules.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="questions-package">
+<h1>questions package<a class="headerlink" href="#questions-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="questions.templatetags.html">questions.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="questions.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.templatetags.html#module-questions.templatetags.question_methods">questions.templatetags.question_methods module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.templatetags.html#module-questions.templatetags">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="questions.tests.html">questions.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="questions.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.tests.html#module-questions.tests.test_models">questions.tests.test_models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.tests.html#module-questions.tests.test_views">questions.tests.test_views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.tests.html#module-questions.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<section id="module-questions.admin">
+<span id="questions-admin-module"></span><h3>questions.admin module<a class="headerlink" href="#module-questions.admin" title="Permalink to this heading">¶</a></h3>
+<p>Provides package integration into the admin panel.</p>
+</section>
+<section id="module-questions.apps">
+<span id="questions-apps-module"></span><h3>questions.apps module<a class="headerlink" href="#module-questions.apps" title="Permalink to this heading">¶</a></h3>
+<p>Automatically created by Django to configure the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.apps.QuestionsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.apps.</span></span><span class="sig-name descname"><span class="pre">QuestionsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.apps.QuestionsConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Questions app configuration, automatically created Django class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.apps.QuestionsConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#questions.apps.QuestionsConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.apps.QuestionsConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions'</span></em><a class="headerlink" href="#questions.apps.QuestionsConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="questions-forms-module">
+<h3>questions.forms module<a class="headerlink" href="#questions-forms-module" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="module-questions.models">
+<span id="questions-models-module"></span><h3>questions.models module<a class="headerlink" href="#module-questions.models" title="Permalink to this heading">¶</a></h3>
+<p>Stores category and question models that are necessary for the main process of the application - user testing.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.models.Question">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.models.</span></span><span class="sig-name descname"><span class="pre">Question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.Question" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The model for the category.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.AVERAGE">
+<span class="sig-name descname"><span class="pre">AVERAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AV'</span></em><a class="headerlink" href="#questions.models.Question.AVERAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.DIFFICULTY_LEVEL_CHOICES">
+<span class="sig-name descname"><span class="pre">DIFFICULTY_LEVEL_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(('NB',</span> <span class="pre">'новичок'),</span> <span class="pre">('AV',</span> <span class="pre">'середнячок'),</span> <span class="pre">('SP',</span> <span class="pre">'умник'))</span></em><a class="headerlink" href="#questions.models.Question.DIFFICULTY_LEVEL_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>options for the level of difficulty of the question, on which the number of points received / lost depends</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="questions.models.Question.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#questions.models.Question.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="questions.models.Question.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#questions.models.Question.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.NEWBIE">
+<span class="sig-name descname"><span class="pre">NEWBIE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NB'</span></em><a class="headerlink" href="#questions.models.Question.NEWBIE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.SMARTYPANTS">
+<span class="sig-name descname"><span class="pre">SMARTYPANTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SP'</span></em><a class="headerlink" href="#questions.models.Question.SMARTYPANTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.answer_01">
+<span class="sig-name descname"><span class="pre">answer_01</span></span><a class="headerlink" href="#questions.models.Question.answer_01" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.answer_02">
+<span class="sig-name descname"><span class="pre">answer_02</span></span><a class="headerlink" href="#questions.models.Question.answer_02" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.answer_03">
+<span class="sig-name descname"><span class="pre">answer_03</span></span><a class="headerlink" href="#questions.models.Question.answer_03" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.answer_04">
+<span class="sig-name descname"><span class="pre">answer_04</span></span><a class="headerlink" href="#questions.models.Question.answer_04" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#questions.models.Question.author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.author_id">
+<span class="sig-name descname"><span class="pre">author_id</span></span><a class="headerlink" href="#questions.models.Question.author_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.available">
+<span class="sig-name descname"><span class="pre">available</span></span><a class="headerlink" href="#questions.models.Question.available" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.models.Question.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.Question.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>When deleting a category, it also deletes the image belonging to it, if it existed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.difficulty_level">
+<span class="sig-name descname"><span class="pre">difficulty_level</span></span><a class="headerlink" href="#questions.models.Question.difficulty_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.models.Question.get_difficulty_level_display">
+<span class="sig-name descname"><span class="pre">get_difficulty_level_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">difficulty_level&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.Question.get_difficulty_level_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#questions.models.Question.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.image_01">
+<span class="sig-name descname"><span class="pre">image_01</span></span><a class="headerlink" href="#questions.models.Question.image_01" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.image_02">
+<span class="sig-name descname"><span class="pre">image_02</span></span><a class="headerlink" href="#questions.models.Question.image_02" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.image_03">
+<span class="sig-name descname"><span class="pre">image_03</span></span><a class="headerlink" href="#questions.models.Question.image_03" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#questions.models.Question.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.question">
+<span class="sig-name descname"><span class="pre">question</span></span><a class="headerlink" href="#questions.models.Question.question" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.right_answer">
+<span class="sig-name descname"><span class="pre">right_answer</span></span><a class="headerlink" href="#questions.models.Question.right_answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.models.Question.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.Question.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the object and if it has images, reduces them to a size of 600x600,
+forms a path to the images and saves them.</p>
+<dl class="simple">
+<dt>The following path to the image will be assigned:</dt><dd><p>que_images/{category name}/{question content}_{name of the source image file}</p>
+</dd>
+<dt>Example:</dt><dd><ul class="simple">
+<li><p>category name - <em>Python</em></p></li>
+<li><p>question content - <em>“What is a list?”</em></p></li>
+<li><p>image file name - <em>my_image_file.jpg</em></p></li>
+<li><p>path - <strong>que_images/Python/What_is_a_list_my_image_file.jpg</strong></p></li>
+</ul>
+</dd>
+<dt>Note:</dt><dd><p>it is assumed that the images will have a horizontal orientation,
+the vertical orientation images will be processed incorrectly and should not be used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><a class="headerlink" href="#questions.models.Question.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.subject_id">
+<span class="sig-name descname"><span class="pre">subject_id</span></span><a class="headerlink" href="#questions.models.Question.subject_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.Question.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><a class="headerlink" href="#questions.models.Question.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.models.</span></span><span class="sig-name descname"><span class="pre">QuestionCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.QuestionCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The model for the category.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#questions.models.QuestionCategory.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#questions.models.QuestionCategory.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.available">
+<span class="sig-name descname"><span class="pre">available</span></span><a class="headerlink" href="#questions.models.QuestionCategory.available" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.QuestionCategory.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>When deleting a category, it also deletes the image belonging to it, if it existed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#questions.models.QuestionCategory.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#questions.models.QuestionCategory.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#questions.models.QuestionCategory.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.image_url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">image_url</span></span><a class="headerlink" href="#questions.models.QuestionCategory.image_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>If there is an image for this category and a path to it, it returns this path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#questions.models.QuestionCategory.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#questions.models.QuestionCategory.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.post_set">
+<span class="sig-name descname"><span class="pre">post_set</span></span><a class="headerlink" href="#questions.models.QuestionCategory.post_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.question_set">
+<span class="sig-name descname"><span class="pre">question_set</span></span><a class="headerlink" href="#questions.models.QuestionCategory.question_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.models.QuestionCategory.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.QuestionCategory.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the object and if it has images, reduces them to a size of 600x300,
+forms a path to the images and saves them.</p>
+<dl class="simple">
+<dt>The following path to the image will be assigned:</dt><dd><p>cat_images/{category name}_{name of the source image file}</p>
+</dd>
+<dt>Example:</dt><dd><ul class="simple">
+<li><p>category name - <em>Python</em></p></li>
+<li><p>image file name - <em>my_image_file.jpg</em></p></li>
+<li><p>path - <strong>cat_images/Python_my_image_file.jpg</strong></p></li>
+</ul>
+</dd>
+<dt>Note:</dt><dd><p>it is assumed that the images will have a horizontal orientation,
+the vertical orientation images will be processed incorrectly and should not be used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="questions.models.category_image_path">
+<span class="sig-prename descclassname"><span class="pre">questions.models.</span></span><span class="sig-name descname"><span class="pre">category_image_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.category_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and returns the path for the saved images of the category.
+It is necessary for the orderly storage of images.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>instance (<cite>QuestionCategory</cite>): an instance of a category being created or modified.</p></li>
+<li><p>filename (<cite>str</cite>): the name under which the image to the category will be stored.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>str: the path to the saved file.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="questions.models.new_question_info">
+<span class="sig-prename descclassname"><span class="pre">questions.models.</span></span><span class="sig-name descname"><span class="pre">new_question_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.new_question_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an email to the admin if the site user has suggested their own question.</p>
+<p>Questions are initially inactive when they are created. The admin, having received the message,
+can go to the admin panel and consider the proposed question.
+With a positive decision, the question can be activated, and it will replenish the collection of the site.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sender (<cite>Question</cite>): an instance of a question that a site user creates.</p></li>
+<li><p>instance (<cite>Question</cite>): an instance of a question that a site user creates.</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Note:</dt><dd><p>When creating a new question by the admin, an email notification is not sent to him.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="questions.models.question_image_path">
+<span class="sig-prename descclassname"><span class="pre">questions.models.</span></span><span class="sig-name descname"><span class="pre">question_image_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.models.question_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and returns the path for the saved images of the question.
+It is necessary for the orderly storage of images.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>instance (<cite>Question</cite>): an instance of a question being created or modified.</p></li>
+<li><p>filename (<cite>str</cite>): the name under which the image to the question will be stored.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>str: the path to the saved file.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-questions.urls">
+<span id="questions-urls-module"></span><h3>questions.urls module<a class="headerlink" href="#module-questions.urls" title="Permalink to this heading">¶</a></h3>
+<p>Sets associations of questions application urls with their views.</p>
+<p>Attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>app_name (str): the name of a specific web application used in different parts of the overall structure.</p></li>
+<li><dl class="simple">
+<dt>urlpatterns(list): a list of paths that determine the behavior of a web application</dt><dd><p>when using the urls specified in the list.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="module-questions.views">
+<span id="questions-views-module"></span><h3>questions.views module<a class="headerlink" href="#module-questions.views" title="Permalink to this heading">¶</a></h3>
+<p>The submodule contains views for working with objects of questions and categories.
+Within this submodule, the main actions of the entire project take place:
+the formation of a set of test questions, ensuring its passage by the user, accrual or withdrawal of points.</p>
+<p>Here are views:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>to display the main page of the site;</p></li>
+<li><p>to intercept the 404 error code;</p></li>
+<li><p>to display all categories;</p></li>
+<li><p>to display the initial page of the text, for the process; ; its passage and getting the result;</p></li>
+<li><p>when passing a test with a time limit - for the end of the test after the expiration of time;</p></li>
+</ul>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.AllCategoriesView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">AllCategoriesView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.AllCategoriesView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>View for the categories of questions page.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.AllCategoriesView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.AllCategoriesView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns queryset of only available categories.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.AllCategoriesView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#questions.views.AllCategoriesView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.AllCategoriesView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/categories.html'</span></em><a class="headerlink" href="#questions.views.AllCategoriesView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.AllCategoriesView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Категории</span> <span class="pre">тестов'</span></em><a class="headerlink" href="#questions.views.AllCategoriesView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.AnswerQuestion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">AnswerQuestion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.AnswerQuestion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View to check the correctness of the answer and increase/decrease the player’s score
+and the number of his correct and incorrect answers stored in the session.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.AnswerQuestion.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guessed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.AnswerQuestion.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of this answer and increases/decreases the player’s score
+and the number of his correct and incorrect answers stored in the session.
+If the player’s score is less than or equal to the number of points for the answer,
+his score will be zero.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>request: standard parameter.</p></li>
+<li><p>guessed(bool): information about whether the question has been guessed;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: standard parameter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: standard parameter.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.AnswerQuestion.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#questions.views.AnswerQuestion.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.AnswerQuestion.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/answers.html'</span></em><a class="headerlink" href="#questions.views.AnswerQuestion.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.CategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">CategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.CategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View for a specific category page.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.CategoryView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.CategoryView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and returns the context for the correct substitution of data on the category page.</p>
+<p>Adds ‘user_info’ to the context - it depends on whether the user will be shown a modal window
+with testing information. Initially, such an alert is shown to all users, but if the user
+wants to no longer see this window, he puts a check mark in the checkbox, changing the data
+in the ‘user_info’ field of his instance of the MyUser model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.CategoryView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#questions.views.CategoryView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.CategoryView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/start_test.html'</span></em><a class="headerlink" href="#questions.views.CategoryView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.MainView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">MainView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.MainView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>View for the main page.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.MainView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/index.html'</span></em><a class="headerlink" href="#questions.views.MainView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.MainView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Interview</span> <span class="pre">challenge'</span></em><a class="headerlink" href="#questions.views.MainView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.QuestionView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">QuestionView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.QuestionView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View for the testing process.
+Generates a pseudo-random list of questions of the specified category and complexity.
+Stores a queryset of questions, the number of correct and incorrect answers, and source data during testing.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.QuestionView.create_random_queryset">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_random_queryset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_set_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.QuestionView.create_random_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a pseudo-random queryset of questions in an amount equal to the specified limit and returns it.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>question_set(Queryset of Question objects): queryset of all questions of the selected category,</dt><dd><p>difficulty level and available for use;</p>
+</dd>
+</dl>
+</li>
+<li><p>question_set_count(int): the number of questions in this queryset;</p></li>
+<li><dl class="simple">
+<dt>limit(int, optional): the default value is 20. Limits the number of questions per test.</dt><dd><p>If less than 20 questions belong to the selected category and
+difficulty level, the limit value will be equal to their number.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>result_set(list): a pseudo-random list of Question objects - questions of the selected category</p></li>
+</ul>
+<p>and difficulty level, are available for use.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.QuestionView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.QuestionView.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides continuation and termination of user testing.
+Performs a reduction in the number of questions in the queryset stored in the session,
+ensures the change of the current question, completes testing when the queryset of questions is exhausted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.QuestionView.get_question_set">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_question_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diff_level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.QuestionView.get_question_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a queryset of all available questions of the desired category and level of complexity;
+receives and returns a pseudo-random queryset of 20 questions if the original queryset was more than 20,
+or in an amount equal to the number of questions of the original queryset.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>category(QuestionCategory): user-selected question category;</p></li>
+<li><p>diff_level(Question.difficulty_level): user-selected difficulty level;</p></li>
+</ul>
+</div></blockquote>
+<p>Return:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>result_set(list): a pseudo-random list of Question objects - questions of the selected category</p></li>
+</ul>
+<p>and difficulty level, are available for use.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.QuestionView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#questions.views.QuestionView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.views.QuestionView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.QuestionView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives and generates the starting data:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the selected difficulty level;</p></li>
+<li><p>the presence or absence of a time limit for the answer;</p></li>
+<li><p>the selected category;</p></li>
+<li><p>a set of questions.</p></li>
+</ul>
+</div></blockquote>
+<p>Data is saved both to the current presentation context and
+to the session for storing and updating them during the test process
+(MemCached (PyMemcacheCache) is used as a cache.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.QuestionView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/test_body.html'</span></em><a class="headerlink" href="#questions.views.QuestionView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.views.TimeIsUp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">TimeIsUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.TimeIsUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>A view for the page of the end of the time for reflection,
+if the user has chosen a time limit for each response.
+The test is interrupted regardless of whether there are unanswered questions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.TimeIsUp.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions/time_is_up.html'</span></em><a class="headerlink" href="#questions.views.TimeIsUp.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="questions.views.TimeIsUp.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Время</span> <span class="pre">вышло'</span></em><a class="headerlink" href="#questions.views.TimeIsUp.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="questions.views.my_handler404">
+<span class="sig-prename descclassname"><span class="pre">questions.views.</span></span><span class="sig-name descname"><span class="pre">my_handler404</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.views.my_handler404" title="Permalink to this definition">¶</a></dt>
+<dd><p>View for the 404 page.</p>
+</dd></dl>
+
+</section>
+<section id="module-questions">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-questions" title="Permalink to this heading">¶</a></h3>
+<p>The <strong>questions</strong> package is designed to interact with the entities of questions and categories,
+their processing, creation, deletion and storage.
+It provides the main workflow of the entire system: the formation of a set of questions
+of the selected category, user testing, accrual or withdrawal of points.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">questions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">questions package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">questions</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">questions</a></li>
+      <li>Next: <a href="questions.templatetags.html" title="next chapter">questions.templatetags package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/questions/questions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

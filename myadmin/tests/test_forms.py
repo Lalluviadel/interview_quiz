@@ -1,3 +1,7 @@
+"""
+Contains unit and integration tests for checking the forms of the web application.
+"""
+
 import logging
 import sys
 
@@ -13,10 +17,10 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 
 
 class TestUserAdminRegisterForm(TestCase):
-    """Test for the UserAdminRegisterForm form"""
+    """Test for the UserAdminRegisterForm form."""
 
     def setUp(self):
-        """Initializing data for the form"""
+        """Initializing data for the form."""
         self.form_data = {
             'username': 'PyQT',
             'first_name': 'Quentin',
@@ -27,7 +31,7 @@ class TestUserAdminRegisterForm(TestCase):
         }
 
     def test_admin_user_register_form_fields_class(self):
-        """Checks the classes and the composition of form fields for their correct display in HTML"""
+        """Checks the classes and the composition of form fields for their correct display in HTML."""
         form = UserAdminRegisterForm()
         fields = []
         for field_name, field in form.fields.items():
@@ -40,17 +44,17 @@ class TestUserAdminRegisterForm(TestCase):
                                       'password1', 'password2', 'img', ])
 
     def test_admin_user_create(self):
-        """Form health test and verification of the creation of a new record"""
+        """Form health test and verification of the creation of a new record."""
         form = UserAdminRegisterForm(data=self.form_data)
         form.is_valid()
         form.save()
         self.assertTrue(MyUser.objects.filter(email=self.form_data['email']).count() == 1)
 
     class TestUserAdminRegisterForm(TestCase):
-        """Test for the UserAdminRegisterForm form"""
+        """Test for the UserAdminRegisterForm form."""
 
         def setUp(self):
-            """Initializing data for the form"""
+            """Initializing data for the form."""
             self.form_data = {
                 'username': 'PyQT',
                 'first_name': 'Quentin',
@@ -61,7 +65,7 @@ class TestUserAdminRegisterForm(TestCase):
             }
 
         def test_user_admin_register_form_fields_class(self):
-            """Checking the classes of form fields for their correct display in HTML"""
+            """Checking the classes of form fields for their correct display in HTML."""
             form = UserAdminRegisterForm()
             for field_name, field in form.fields.items():
                 if field_name == 'img':
@@ -70,7 +74,7 @@ class TestUserAdminRegisterForm(TestCase):
                     self.assertTrue(field.widget.attrs['class'], 'form-control py-4')
 
         def test_admin_user_created(self):
-            """Form health test and verification of the creation of a new record"""
+            """Form health test and verification of the creation of a new record."""
             form = UserAdminRegisterForm(data=self.form_data)
             form.is_valid()
             form.save()
@@ -78,15 +82,15 @@ class TestUserAdminRegisterForm(TestCase):
 
 
 class TestUserAdminProfileForm(SimpleTestCase):
-    """Test for the UserAdminProfileForm form"""
+    """Test for the UserAdminProfileForm form."""
     def test_admin_user_profile_form_fields_readonly(self):
-        """Checks that individual not editable fields are editable in the admin panel"""
+        """Checks that individual not editable fields are editable in the admin panel."""
         form = UserAdminProfileForm()
         self.assertFalse(form.fields['username'].widget.attrs['readonly'])
         self.assertFalse(form.fields['email'].widget.attrs['readonly'])
 
     def test_admin_user_profile_form_fields_class(self):
-        """Checks the classes of form fields for their correct display in HTML"""
+        """Checks the classes of form fields for their correct display in HTML."""
         form = UserAdminProfileForm()
         for field_name, field in form.fields.items():
             if field_name == 'img':
@@ -96,17 +100,17 @@ class TestUserAdminProfileForm(SimpleTestCase):
 
 
 class TestCategoryForm(TestCase):
-    """Test for the CategoryForm form"""
+    """Test for the CategoryForm form."""
 
     def setUp(self):
-        """Initializing data for the form"""
+        """Initializing data for the form."""
         self.form_data = {
             'name': 'Python',
             'description': 'some text',
         }
 
     def test_admin_category_form_fields_class(self):
-        """Checks the classes and the composition of form fields for their correct display in HTML"""
+        """Checks the classes and the composition of form fields for their correct display in HTML."""
         form = CategoryForm()
         fields = []
         for field_name, field in form.fields.items():
@@ -118,7 +122,7 @@ class TestCategoryForm(TestCase):
         self.assertListEqual(fields, ['name', 'description', 'image'])
 
     def test_admin_category_create(self):
-        """Form health test and verification of the creation of a new record"""
+        """Form health test and verification of the creation of a new record."""
         form = CategoryForm(data=self.form_data)
         form.is_valid()
         form.save()
@@ -126,10 +130,10 @@ class TestCategoryForm(TestCase):
 
 
 class TestQuestionForm(TestCase):
-    """Test for the QuestionForm form"""
+    """Test for the QuestionForm form."""
 
     def setUp(self):
-        """Initializing data for the form"""
+        """Initializing data for the form."""
         self.test_user = MyUser.objects.create_user(username='drf',
                                                     first_name='Roland',
                                                     last_name='Emmerich',
@@ -150,7 +154,7 @@ class TestQuestionForm(TestCase):
         }
 
     def test_admin_question_form_fields_class(self):
-        """Checks the classes and the composition of form fields for their correct display in HTML"""
+        """Checks the classes and the composition of form fields for their correct display in HTML."""
         form = QuestionForm()
         fields = []
         for field_name, field in form.fields.items():
@@ -174,7 +178,7 @@ class TestQuestionForm(TestCase):
 
     def test_admin_question_create_no_right_answer_error(self):
         """A test to check the transmission of an error to the form that the correct answer
-        does not match any of the answer options"""
+        does not match any of the answer options."""
 
         no_right_answer_data = self.form_data
         no_right_answer_data['right_answer'] = "text that doesn't match any of answers"
@@ -186,10 +190,10 @@ class TestQuestionForm(TestCase):
 
 
 class TestPostForm(TestCase):
-    """Test for the PostForm form"""
+    """Test for the PostForm form."""
 
     def setUp(self):
-        """Initializing data for the form"""
+        """Initializing data for the form."""
         self.test_user = MyUser.objects.create_user(username='drf',
                                                     first_name='Roland',
                                                     last_name='Emmerich',
@@ -206,7 +210,7 @@ class TestPostForm(TestCase):
         }
 
     def test_admin_post_form_fields_class(self):
-        """Checks the classes and the composition of form fields for their correct display in HTML"""
+        """Checks the classes and the composition of form fields for their correct display in HTML."""
         form = PostForm()
         fields = []
         for field_name, field in form.fields.items():

@@ -1,0 +1,37 @@
+users.tests package
+===================
+
+Submodules
+----------
+
+users.tests.test\_forms module
+------------------------------
+
+.. automodule:: users.tests.test_forms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+users.tests.test\_models module
+-------------------------------
+
+.. automodule:: users.tests.test_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+users.tests.test\_views module
+------------------------------
+
+.. automodule:: users.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: users.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+users.management.commands package
+=================================
+
+Submodules
+----------
+
+users.management.commands.cr\_su module
+---------------------------------------
+
+.. automodule:: users.management.commands.cr_su
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: users.management.commands
+   :members:
+   :undoc-members:
+   :show-inheritance:

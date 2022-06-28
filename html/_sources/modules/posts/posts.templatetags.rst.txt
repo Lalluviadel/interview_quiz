@@ -1,0 +1,21 @@
+posts.templatetags package
+==========================
+
+Submodules
+----------
+
+posts.templatetags.post\_methods module
+---------------------------------------
+
+.. automodule:: posts.templatetags.post_methods
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: posts.templatetags
+   :members:
+   :undoc-members:
+   :show-inheritance:

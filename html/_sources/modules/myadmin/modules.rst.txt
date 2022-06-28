@@ -1,0 +1,7 @@
+myadmin
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   myadmin

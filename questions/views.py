@@ -1,3 +1,18 @@
+"""The submodule contains views for working with objects of questions and categories.
+Within this submodule, the main actions of the entire project take place:
+the formation of a set of test questions, ensuring its passage by the user, accrual or withdrawal of points.
+
+Here are views:
+
+    * to display the main page of the site;
+    * to intercept the 404 error code;
+    * to display all categories;
+    * to display the initial page of the text, for the process; ; its passage and getting the result;
+    * when passing a test with a time limit - for the end of the test after the expiration of time;
+
+"""
+
+
 import logging
 from random import randint
 
@@ -15,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 
 def my_handler404(request, exception):
-    """View for the 404 page"""
+    """View for the 404 page."""
     context = dict()
     context['title'] = '404: Страница не существует'
     response = render(request, 'questions/page_not_found.html', context=context)
@@ -24,28 +39,36 @@ def my_handler404(request, exception):
 
 
 class MainView(TemplateView, TitleMixin):
-    """View for the main page"""
+    """View for the main page."""
     template_name = 'questions/index.html'
     title = 'Interview challenge'
 
 
 class AllCategoriesView(ListView, TitleMixin):
-    """View for the categories of questions page"""
+    """View for the categories of questions page."""
     model = QuestionCategory
     template_name = 'questions/categories.html'
     title = 'Категории тестов'
 
     def get_queryset(self):
-        """Returns queryset of only available categories"""
+        """Returns queryset of only available categories."""
         return QuestionCategory.objects.filter(available=True)
 
 
 class CategoryView(DetailView, AuthorizedOnlyDispatchMixin):
-    """View for a specific category page"""
+    """View for a specific category page."""
     model = QuestionCategory
     template_name = 'questions/start_test.html'
 
     def get_context_data(self, *args, **kwargs):
+        """
+        Generates and returns the context for the correct substitution of data on the category page.
+
+        Adds 'user_info' to the context - it depends on whether the user will be shown a modal window
+        with testing information. Initially, such an alert is shown to all users, but if the user
+        wants to no longer see this window, he puts a check mark in the checkbox, changing the data
+        in the 'user_info' field of his instance of the MyUser model.
+        """
         context = super().get_context_data(**kwargs)
         user = MyUser.objects.get(id=self.request.user.id)
         current_category = get_object_or_404(QuestionCategory, pk=self.kwargs.get('pk'))
@@ -69,10 +92,16 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
 
     def post(self, request, *args, **kwargs):
         """Receives and generates the starting data:
-        - the selected difficulty level;
-        - the presence or absence of a time limit for the answer;
-        - the selected category;
-        - a set of questions;"""
+
+            * the selected difficulty level;
+            * the presence or absence of a time limit for the answer;
+            * the selected category;
+            * a set of questions.
+
+        Data is saved both to the current presentation context and
+        to the session for storing and updating them during the test process
+        (MemCached (PyMemcacheCache) is used as a cache.
+            """
         data = list(request.POST.values())
         self.request.session['dif'] = difficulty_level = data[1]
         self.request.session['limit'] = data[2]
@@ -103,7 +132,7 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
     def get(self, request, *args, **kwargs):
         """Provides continuation and termination of user testing.
         Performs a reduction in the number of questions in the queryset stored in the session,
-        ensures the change of the current question, completes testing when the queryset of questions is exhausted"""
+        ensures the change of the current question, completes testing when the queryset of questions is exhausted."""
         current_category = get_object_or_404(QuestionCategory, pk=self.kwargs.get('pk'))
         context = self.request.session['context']
         context_current = context.copy()
@@ -122,7 +151,19 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
     def get_question_set(category, diff_level):
         """Generates a queryset of all available questions of the desired category and level of complexity;
         receives and returns a pseudo-random queryset of 20 questions if the original queryset was more than 20,
-        or in an amount equal to the number of questions of the original queryset """
+        or in an amount equal to the number of questions of the original queryset.
+
+        Args:
+
+            * category(QuestionCategory): user-selected question category;
+            * diff_level(Question.difficulty_level): user-selected difficulty level;
+
+        Return:
+
+            * result_set(list): a pseudo-random list of Question objects - questions of the selected category
+            and difficulty level, are available for use.
+
+        """
         question_set = Question.objects.filter(Q(subject=category), Q(difficulty_level=diff_level), Q(available=True))
         question_set_count = question_set.count()
         if question_set_count < 20:
@@ -131,7 +172,22 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
 
     @staticmethod
     def create_random_queryset(question_set, question_set_count, limit=20):
-        """Generates a pseudo-random queryset of questions in an amount equal to the specified limit and returns it"""
+        """Generates a pseudo-random queryset of questions in an amount equal to the specified limit and returns it.
+
+        Args:
+
+            * question_set(Queryset of Question objects): queryset of all questions of the selected category,
+                                                          difficulty level and available for use;
+            * question_set_count(int): the number of questions in this queryset;
+            * limit(int, optional): the default value is 20. Limits the number of questions per test.
+                                    If less than 20 questions belong to the selected category and
+                                    difficulty level, the limit value will be equal to their number.
+
+        Return:
+
+            * result_set(list): a pseudo-random list of Question objects - questions of the selected category
+            and difficulty level, are available for use.
+        """
         result_set = list()
         while len(result_set) < limit:
             try:
@@ -154,7 +210,16 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
         """Checks the correctness of this answer and increases/decreases the player's score
         and the number of his correct and incorrect answers stored in the session.
         If the player's score is less than or equal to the number of points for the answer,
-        his score will be zero"""
+        his score will be zero.
+
+        Args:
+
+            * request: standard parameter.
+            * guessed(bool): information about whether the question has been guessed;
+            * ``*args``: standard parameter.
+            * ``**kwargs``: standard parameter.
+
+        """
         difficult_level = self.request.session['dif']
         chosen_answer = list(request.GET.values())[1]
         item = Question.objects.get(id=kwargs['item_id'])
@@ -188,5 +253,8 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
 
 
 class TimeIsUp(TemplateView, TitleMixin, AuthorizedOnlyDispatchMixin):
+    """A view for the page of the end of the time for reflection,
+    if the user has chosen a time limit for each response.
+    The test is interrupted regardless of whether there are unanswered questions."""
     template_name = 'questions/time_is_up.html'
     title = 'Время вышло'

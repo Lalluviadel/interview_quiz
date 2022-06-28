@@ -1,3 +1,17 @@
+"""The submodule contains views for working with objects of posts.
+Within the framework of this submodule, interaction with the additional
+essence of the project is implemented - small articles, which I call posts.
+They are designed to supplement the knowledge of the test taker, quickly
+remind him of the forgotten material and better reveal the topic of the question.
+
+Here are views:
+
+    * to view all posts grouped into categories;
+    * to view a separate post;
+    * to view the results of filtering by tag, author, or category;
+    * to view the search results by the mask specified by the user.
+
+"""
 from django.db.models import Q, Count
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
@@ -9,7 +23,7 @@ from users.models import MyUser
 
 
 class PostsCategoryView(ListView, TitleMixin):
-    """View for displaying all posts by category (only active categories)"""
+    """View for displaying all posts by category (only active categories)."""
     model = QuestionCategory
     template_name = 'posts/all.html'
     context_object_name = 'posts_categories'
@@ -24,12 +38,12 @@ class PostsCategoryView(ListView, TitleMixin):
 
 
 class PostView(DetailView):
-    """View for the output of a separate post"""
+    """View for the output of a separate post."""
     model = Post
     template_name = 'posts/read.html'
 
     def get_context_data(self, *args, **kwargs):
-        """Getting a specific post and its title and passing it to the context"""
+        """Getting a specific post and its title and passing it to the context."""
         context = super().get_context_data(**kwargs)
         post = get_object_or_404(Post, pk=self.kwargs.get('pk'))
         context['title'] = post.title
@@ -40,12 +54,12 @@ class PostView(DetailView):
 class UserPostView(ListView, AuthorizedOnlyDispatchMixin):
     """View for displaying posts of a specific user.
     It is triggered when you click on the author's nickname when you are
-    on the page of a particular post"""
+    on the page of a particular post."""
     model = Post
     template_name = 'posts/user_posts.html'
 
     def get_context_data(self, *args, **kwargs):
-        """Retrieves a specific user and a queryset of his posts and transfers to the context"""
+        """Retrieves a specific user and a queryset of his posts and transfers to the context."""
         context = super().get_context_data(**kwargs)
         user = MyUser.objects.get(id=self.kwargs.get('pk'))
         user_posts = Post.objects.filter(Q(author=user), Q(available=True)).defer('category', 'body',
@@ -58,12 +72,12 @@ class UserPostView(ListView, AuthorizedOnlyDispatchMixin):
 
 class TagPostView(ListView):
     """View to display posts with a specific tag.
-    It is triggered when you click on the tag when you are on the page of a certain post"""
+    It is triggered when you click on the tag when you are on the page of a certain post."""
     model = Post
     template_name = 'posts/tag_posts.html'
 
     def get_context_data(self, *args, **kwargs):
-        """Retrieves a specific tag and a queryset of posts with this tag and passes it to the context"""
+        """Retrieves a specific tag and a queryset of posts with this tag and passes it to the context."""
         context = super().get_context_data(**kwargs)
         tag = self.kwargs.get('tag')
         context['tag_posts'] = Post.objects.filter(Q(tag=tag), Q(available=True)).defer('author', 'category',
@@ -75,12 +89,12 @@ class TagPostView(ListView):
 
 class CategoryPostView(ListView):
     """View to display posts of a specific category.
-    It is triggered when you click on the category when you are on the page of a certain post"""
+    It is triggered when you click on the category when you are on the page of a certain post."""
     model = Post
     template_name = 'posts/category_posts.html'
 
     def get_context_data(self, *args, **kwargs):
-        """Retrieves a specific category and a queryset of posts of this category and passes it to the context"""
+        """Retrieves a specific category and a queryset of posts of this category and passes it to the context."""
         context = super().get_context_data(**kwargs)
         category = QuestionCategory.objects.get(id=self.kwargs.get('pk'))
         context['category_posts'] = Post.objects.filter(Q(category=category),
@@ -95,9 +109,9 @@ class SearchPostView(ListView, TitleMixin):
     """View to display the search result posts.
     It is triggered when you use the search bar at the top of the page.
     The search is performed using the following options:
-    - by tag;
-    - by the title;
-    - by the part of tag or of title;
+    * by tag;
+    * by the title;
+    * by the part of tag or of title.
     """
     model = Post
     template_name = 'posts/search_results_post.html'
@@ -105,7 +119,7 @@ class SearchPostView(ListView, TitleMixin):
 
     def get_queryset(self):
         """Retrieves the search mask specified by the user and
-        returns a queryset of posts according to the filter by this mask"""
+        returns a queryset of posts according to the filter by this mask."""
         query = self.request.GET.get('search_panel')
         object_list = Post.objects.filter(Q(title__icontains=query) | Q(tag__icontains=query)).\
             filter(available=True).defer('author', 'body', 'image', 'created_on', 'category')

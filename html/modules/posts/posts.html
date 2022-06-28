@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>posts package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="posts.templatetags package" href="posts.templatetags.html" />
+    <link rel="prev" title="posts" href="modules.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="posts-package">
+<h1>posts package<a class="headerlink" href="#posts-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="posts.templatetags.html">posts.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="posts.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.templatetags.html#module-posts.templatetags.post_methods">posts.templatetags.post_methods module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.templatetags.html#module-posts.templatetags">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="posts.tests.html">posts.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="posts.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.tests.html#module-posts.tests.test_models">posts.tests.test_models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.tests.html#module-posts.tests.test_views">posts.tests.test_views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.tests.html#module-posts.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<section id="module-posts.admin">
+<span id="posts-admin-module"></span><h3>posts.admin module<a class="headerlink" href="#module-posts.admin" title="Permalink to this heading">¶</a></h3>
+<p>Provides package integration into the admin panel.</p>
+</section>
+<section id="module-posts.apps">
+<span id="posts-apps-module"></span><h3>posts.apps module<a class="headerlink" href="#module-posts.apps" title="Permalink to this heading">¶</a></h3>
+<p>Automatically created by Django to configure the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.apps.</span></span><span class="sig-name descname"><span class="pre">PostsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.apps.PostsConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Users app configuration, automatically created Django class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.models">
+<span id="posts-models-module"></span><h3>posts.models module<a class="headerlink" href="#module-posts.models" title="Permalink to this heading">¶</a></h3>
+<p>Stores the post model, which is necessary to provide additional functionality
+of the site - small articles for better disclosure of the topic of questions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.models.Post">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.models.</span></span><span class="sig-name descname"><span class="pre">Post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>The model for the post.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="posts.models.Post.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#posts.models.Post.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="posts.models.Post.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#posts.models.Post.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#posts.models.Post.author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.author_id">
+<span class="sig-name descname"><span class="pre">author_id</span></span><a class="headerlink" href="#posts.models.Post.author_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.available">
+<span class="sig-name descname"><span class="pre">available</span></span><a class="headerlink" href="#posts.models.Post.available" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.body">
+<span class="sig-name descname"><span class="pre">body</span></span><a class="headerlink" href="#posts.models.Post.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#posts.models.Post.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><a class="headerlink" href="#posts.models.Post.category_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.created_on">
+<span class="sig-name descname"><span class="pre">created_on</span></span><a class="headerlink" href="#posts.models.Post.created_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Post.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>When deleting a post, it also deletes the image belonging to it, if it existed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Post.get_next_by_created_on">
+<span class="sig-name descname"><span class="pre">get_next_by_created_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_on&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_next_by_created_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Post.get_previous_by_created_on">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_on&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_previous_by_created_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#posts.models.Post.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#posts.models.Post.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="posts.models.Post.image_url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">image_url</span></span><a class="headerlink" href="#posts.models.Post.image_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>If there is an image for this post and a path to it, it returns this path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#posts.models.Post.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Post.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the object. If a post is being created or edited
+and a image is added for it, the selected image will be reduced
+to a certain size of 300x300 (if it is initially larger) and
+will be saved along the generated path.</p>
+<dl class="simple">
+<dt>The following path to the image will be assigned:</dt><dd><p>post_images/{title of post}_{name of the source image file}</p>
+</dd>
+<dt>Example:</dt><dd><ul class="simple">
+<li><p>title of post - <em>A little about generators</em></p></li>
+<li><p>name of the source image file - <em>my_image_file.jpg</em></p></li>
+<li><p>path - <strong>post_images/A little about generators_my_image_file.jpg</strong></p></li>
+</ul>
+</dd>
+<dt>Note:</dt><dd><p>it is assumed that the images will have a horizontal orientation,
+the vertical orientation images will be processed incorrectly and should not be used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><a class="headerlink" href="#posts.models.Post.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Post.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#posts.models.Post.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.models.new_post_info">
+<span class="sig-prename descclassname"><span class="pre">posts.models.</span></span><span class="sig-name descname"><span class="pre">new_post_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.new_post_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an email to the admin if the site user has suggested their own post.</p>
+<p>Posts are initially inactive when they are created. The admin, having received the message,
+can go to the admin panel and consider the proposed post.
+With a positive decision, the post can be activated, and it will replenish the collection of the site.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sender (<cite>Post</cite>): an instance of a post that a site user creates.</p></li>
+<li><p>instance (<cite>Post</cite>): an instance of a post that a site user creates.</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Note:</dt><dd><p>When creating a new post by the admin, an email notification is not sent to him.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.models.post_image_path">
+<span class="sig-prename descclassname"><span class="pre">posts.models.</span></span><span class="sig-name descname"><span class="pre">post_image_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.post_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and returns the path for the saved image of the post.
+It is necessary for the orderly storage of images.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>instance (<cite>Post</cite>): an instance of a post being created or modified.</p></li>
+<li><p>filename (<cite>str</cite>): the name under which the post’s image will be stored.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>str: the path to the saved file.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-posts.urls">
+<span id="posts-urls-module"></span><h3>posts.urls module<a class="headerlink" href="#module-posts.urls" title="Permalink to this heading">¶</a></h3>
+<p>Sets associations of posts application urls with their views.</p>
+<p>Attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>app_name (str): the name of a specific web application used in different parts of the overall structure.</p></li>
+<li><dl class="simple">
+<dt>urlpatterns(list): a list of paths that determine the behavior of a web application</dt><dd><p>when using the urls specified in the list.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="module-posts.views">
+<span id="posts-views-module"></span><h3>posts.views module<a class="headerlink" href="#module-posts.views" title="Permalink to this heading">¶</a></h3>
+<p>The submodule contains views for working with objects of posts.
+Within the framework of this submodule, interaction with the additional
+essence of the project is implemented - small articles, which I call posts.
+They are designed to supplement the knowledge of the test taker, quickly
+remind him of the forgotten material and better reveal the topic of the question.</p>
+<p>Here are views:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>to view all posts grouped into categories;</p></li>
+<li><p>to view a separate post;</p></li>
+<li><p>to view the results of filtering by tag, author, or category;</p></li>
+<li><p>to view the search results by the mask specified by the user.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.CategoryPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">CategoryPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.CategoryPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>View to display posts of a specific category.
+It is triggered when you click on the category when you are on the page of a certain post.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.CategoryPostView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.CategoryPostView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a specific category and a queryset of posts of this category and passes it to the context.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.CategoryPostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.CategoryPostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.CategoryPostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/category_posts.html'</span></em><a class="headerlink" href="#posts.views.CategoryPostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.PostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">PostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.PostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code></p>
+<p>View for the output of a separate post.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.PostView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.PostView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting a specific post and its title and passing it to the context.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.PostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/read.html'</span></em><a class="headerlink" href="#posts.views.PostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">PostsCategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.PostsCategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>View for displaying all posts by category (only active categories).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts_categories'</span></em><a class="headerlink" href="#posts.views.PostsCategoryView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.PostsCategoryView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displaying all active categories.
+A category is displayed only if it has at least one active post.
+At the same time, the template displays the number of active posts in this category.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.PostsCategoryView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/all.html'</span></em><a class="headerlink" href="#posts.views.PostsCategoryView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostsCategoryView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Посты'</span></em><a class="headerlink" href="#posts.views.PostsCategoryView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.SearchPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">SearchPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.SearchPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>View to display the search result posts.
+It is triggered when you use the search bar at the top of the page.
+The search is performed using the following options:
+* by tag;
+* by the title;
+* by the part of tag or of title.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.SearchPostView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.SearchPostView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the search mask specified by the user and
+returns a queryset of posts according to the filter by this mask.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.SearchPostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.SearchPostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.SearchPostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/search_results_post.html'</span></em><a class="headerlink" href="#posts.views.SearchPostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.SearchPostView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Поиск</span> <span class="pre">статьи'</span></em><a class="headerlink" href="#posts.views.SearchPostView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.TagPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">TagPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.TagPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>View to display posts with a specific tag.
+It is triggered when you click on the tag when you are on the page of a certain post.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.TagPostView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.TagPostView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a specific tag and a queryset of posts with this tag and passes it to the context.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.TagPostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.TagPostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.TagPostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/tag_posts.html'</span></em><a class="headerlink" href="#posts.views.TagPostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.UserPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">UserPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.UserPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View for displaying posts of a specific user.
+It is triggered when you click on the author’s nickname when you are
+on the page of a particular post.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.views.UserPostView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.views.UserPostView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a specific user and a queryset of his posts and transfers to the context.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.UserPostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.UserPostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.UserPostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts/user_posts.html'</span></em><a class="headerlink" href="#posts.views.UserPostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-posts" title="Permalink to this heading">¶</a></h3>
+<p>The <strong>posts</strong> package is designed to implement an additional mechanism of the project:
+small articles that supplement theoretical knowledge or briefly disclose the topic of the issue.</p>
+<p>I decided to call <em>posts</em> these small articles within the framework of the project,
+since they have too small a volume for an article. Rather, these are small notes
+than a full-fledged training text.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">posts</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">posts package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">posts</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">posts</a></li>
+      <li>Next: <a href="posts.templatetags.html" title="next chapter">posts.templatetags package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/posts/posts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,3 +1,6 @@
+"""
+Contains unit and integration tests for checking the views of the web application.
+"""
 import logging
 import sys
 
@@ -14,9 +17,10 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 
 
 class TestPostBase(TestCase):
-    """Basic test class for a single setUp and keeping the DRY principle"""
+    """Basic test class for a single setUp and keeping the DRY principle."""
 
     def setUp(self):
+        """Creating and preparing a user, categories and posts test objects."""
         self.client = Client()
         self.test_user_01 = MyUser.objects.create_user(username='test_01',
                                                        first_name='Roland',
@@ -71,14 +75,15 @@ class TestPostBase(TestCase):
 
 
 class TestPostsCategoryView(TestPostBase):
-    """Testing PostsCategoryView"""
+    """Testing PostsCategoryView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_queryset_only_available_categories(self):
         """Tests PostsCategoryView view that only categories with the available field with the value True
-        gets into the queryset"""
+        gets into the queryset."""
         response = self.client.get(reverse('posts:all'))
         categories = QuestionCategory.objects.filter(available=True)
         for categories_set in zip(response.context['posts_categories'], categories):
@@ -87,20 +92,21 @@ class TestPostsCategoryView(TestPostBase):
         self.assertTemplateUsed(response, 'posts/all.html')
 
     def test_no_inactive_categories_in_queryset(self):
-        """Checks that inactive categories do not fall into the queryset"""
+        """Checks that inactive categories do not fall into the queryset."""
         response = self.client.get(reverse('posts:all'))
         category = self.test_category_03
         self.assertNotIn(category, response.context['posts_categories'])
 
 
 class TestPostView(TestPostBase):
-    """Testing PostView"""
+    """Testing PostView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_displaying_desired_post(self):
-        """Tests PostsView view to get the correct requested post"""
+        """Tests PostsView view to get the correct requested post."""
         response = self.client.get(path='/posts/post/2/')
         current_post = Post.objects.get(id=2)
         self.assertEqual(current_post, response.context['post'])
@@ -109,20 +115,21 @@ class TestPostView(TestPostBase):
 
 
 class TestUserPostView(TestPostBase):
-    """Testing UserPostView"""
+    """Testing UserPostView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_displays_authors_posts_only_for_authorized_users(self):
-        """Checks that UserPostView view and relevant site page are only available to authorized users"""
+        """Checks that UserPostView view and relevant site page are only available to authorized users."""
         current_user_id = self.test_user_02.id
         response = self.client.get(path=f'/posts/user_posts/{current_user_id}/')
         self.assertEqual(response.url, f'/users/login/?next=/posts/user_posts/{current_user_id}/')
         self.assertEqual(response.status_code, 302)
 
     def test_displays_authors_posts(self):
-        """Checks UserPostView view to get the correct user and a list of posts where he is the author"""
+        """Checks UserPostView view to get the correct user and a list of posts where he is the author."""
         self.client.login(username=self.test_user_01.username, password='laLA12')
         current_user_id = self.test_user_02.id
 
@@ -136,7 +143,7 @@ class TestUserPostView(TestPostBase):
         self.assertTemplateUsed(response, 'posts/user_posts.html')
 
     def test_no_inactive_posts_in_queryset_author(self):
-        """Checks that inactive posts do not fall into the queryset even if they belong to this author"""
+        """Checks that inactive posts do not fall into the queryset even if they belong to this author."""
         self.client.login(username=self.test_user_01.username, password='laLA12')
         current_user_id = self.test_user_02.id
         response = self.client.get(path=f'/posts/user_posts/{current_user_id}/')
@@ -146,13 +153,14 @@ class TestUserPostView(TestPostBase):
 
 
 class TestTagPostView(TestPostBase):
-    """Testing TagPostView"""
+    """Testing TagPostView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_displays_tag_posts(self):
-        """Checks TagPostView view to get the correct tag and a list of posts with this tag"""
+        """Checks TagPostView view to get the correct tag and a list of posts with this tag."""
         current_tag = 'drama'
         response = self.client.get(path='/posts/tag_posts/drama/')
         tag_posts = Post.objects.filter(Q(tag=current_tag), Q(available=True))
@@ -161,20 +169,21 @@ class TestTagPostView(TestPostBase):
         self.assertTemplateUsed(response, 'posts/tag_posts.html')
 
     def test_no_inactive_posts_in_queryset_tag(self):
-        """Checks that inactive posts do not fall into the queryset even if they belong to this tag"""
+        """Checks that inactive posts do not fall into the queryset even if they belong to this tag."""
         response = self.client.get(path='/posts/tag_posts/action%20movie/')
         post = self.test_post_05
         self.assertNotIn(post, response.context['tag_posts'])
 
 
 class TestCategoryPostView(TestPostBase):
-    """Testing CategoryPostView"""
+    """Testing CategoryPostView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_displays_category_posts(self):
-        """Checks CategoryPostView view to get the correct category and a list of posts of this category"""
+        """Checks CategoryPostView view to get the correct category and a list of posts of this category."""
         current_category_id = self.test_category_02.id
         response = self.client.get(path=f'/posts/category_posts/{current_category_id}/')
         category_posts = Post.objects.filter(Q(category=current_category_id), Q(available=True))
@@ -184,7 +193,7 @@ class TestCategoryPostView(TestPostBase):
 
     def test_no_inactive_posts_in_queryset_category(self):
         """Checks that inactive posts do not fall into the queryset
-        if they belong to an inactive category or the post itself is inactive"""
+        if they belong to an inactive category or the post itself is inactive."""
         current_category_id = self.test_category_03.id
         response = self.client.get(path=f'/posts/category_posts/{current_category_id}/')
         post = self.test_post_05
@@ -204,16 +213,18 @@ class TestCategoryPostView(TestPostBase):
 
 
 class TestSearchPostView(TestPostBase):
-    """Testing SearchPostView"""
+    """Testing SearchPostView."""
 
     def setUp(self):
+        """Creating and preparing data for testing."""
         super().setUp()
 
     def test_displays_search_posts(self):
         """Checks SearchPostView view to get the correct queryset of posts, according to the search options:
-            - by tag;
-            - by the title;
-            - by the part of tag or of title;"""
+            * by tag;
+            * by the title;
+            * by the part of tag or of title.
+        """
         searchable_tag = 'post-apocalypse'
         searchable_title = 'Django'
         searchable_part = 'a'
@@ -229,7 +240,7 @@ class TestSearchPostView(TestPostBase):
         self.assertTemplateUsed(response, 'posts/search_results_post.html')
 
     def test_no_inactive_posts_in_queryset_search(self):
-        """Checks that inactive posts do not fall into the search queryset"""
+        """Checks that inactive posts do not fall into the search queryset."""
         searchable_part = 'i'
         response = self.client.get(f'/posts/search/?search_panel={searchable_part}/',
                                    {'search_panel': searchable_part})

@@ -1,3 +1,12 @@
+"""Sets associations of questions application urls with their views.
+
+Attributes:
+
+    * app_name (str): the name of a specific web application used in different parts of the overall structure.
+    * urlpatterns(list): a list of paths that determine the behavior of a web application
+                         when using the urls specified in the list.
+"""
+
 from django.urls import path
 
 from questions.views import CategoryView, QuestionView, AllCategoriesView, \

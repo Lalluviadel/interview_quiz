@@ -1,0 +1,8 @@
+########
+About me
+########
+
+I’m **Marina Marmalykova**, a Django-beginner who finds pleasure in solving interesting problems and developing
+in the direction of development.
+
+my email: inspiracion@yandex.ru

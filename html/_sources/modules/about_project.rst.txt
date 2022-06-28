@@ -1,0 +1,9 @@
+#############
+About project
+#############
+
+Interview quiz is my first project. I worked on it to consolidate the basics of Django I had learned, as well as to gain new knowledge.
+
+The project allows you to train and improve your level of theoretical preparedness. The user can take small tests (no more than 20 questions of the same category) and score points. In order to quickly refresh your knowledge, small articles (posts) are provided. Also, the user can offer his question or post.
+
+All the images used in my project are taken from free stock images or created by me.

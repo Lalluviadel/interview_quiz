@@ -1,0 +1,61 @@
+questions.migrations package
+============================
+
+Submodules
+----------
+
+questions.migrations.0001\_initial module
+-----------------------------------------
+
+.. automodule:: questions.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+questions.migrations.0002\_alter\_question\_available module
+------------------------------------------------------------
+
+.. automodule:: questions.migrations.0002_alter_question_available
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+questions.migrations.0003\_question\_author module
+--------------------------------------------------
+
+.. automodule:: questions.migrations.0003_question_author
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+questions.migrations.0004\_alter\_question\_author module
+---------------------------------------------------------
+
+.. automodule:: questions.migrations.0004_alter_question_author
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+questions.migrations.0005\_alter\_question\_author module
+---------------------------------------------------------
+
+.. automodule:: questions.migrations.0005_alter_question_author
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+questions.migrations.0006\_auto\_20220326\_2307 module
+------------------------------------------------------
+
+.. automodule:: questions.migrations.0006_auto_20220326_2307
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: questions.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:

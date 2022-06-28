@@ -1,0 +1,21 @@
+questions.templatetags package
+==============================
+
+Submodules
+----------
+
+questions.templatetags.question\_methods module
+-----------------------------------------------
+
+.. automodule:: questions.templatetags.question_methods
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: questions.templatetags
+   :members:
+   :undoc-members:
+   :show-inheritance:

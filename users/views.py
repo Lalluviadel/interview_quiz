@@ -1,3 +1,18 @@
+"""
+The submodule contains views for a full-fledged user interaction with the content of the site.
+
+Here are the views:
+
+    * to register a new user and verify a registration of a profile;
+    * to log in and log out of the profile;
+    * to view and edit the user's profile;
+    * to create a user's own post, question, or a message for the admin;
+    * to recover forgotten password;
+    * to view the Top-5 participants of the site;
+    * to refuse to view information about the testing procedure;
+    * for profile menu buttons;
+
+"""
 import logging
 
 from django.contrib import auth, messages
@@ -24,11 +39,14 @@ logger = logging.getLogger(__name__)
 
 
 class UserLoginView(LoginView, TitleMixin):
+    """A view for authorization."""
     template_name = 'registration/login.html'
     title = 'Авторизация'
     form_class = UserLoginForm
 
     def post(self, request, *args, **kwargs):
+        """Performs user authorization. Authorization is performed only for active users
+        (who have verified their profile with a link received by email)."""
         form = self.form_class(data=request.POST)
         if form.is_valid():
             user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
@@ -40,11 +58,16 @@ class UserLoginView(LoginView, TitleMixin):
 
 
 class RegisterView(FormView, TitleMixin):
+    """A view for registering a new user."""
     template_name = 'registration/register.html'
     title = 'Регистрация нового пользователя'
     form_class = UserRegisterForm
 
     def post(self, request, *args, **kwargs):
+        """Performs registration of a new user.
+        Both in case of success and in case of failure, a message is generated
+        that shows the user the result of registration.
+        Starts the verification process of the new profile."""
         form = self.form_class(data=request.POST)
         if form.is_valid():
             user = form.save()
@@ -63,7 +86,13 @@ class RegisterView(FormView, TitleMixin):
 
     @staticmethod
     def send_verify_link(user):
-        """Send to user an email with verification link"""
+        """Send to user an email with verification link.
+
+        Args:
+
+            * user(MyUser): the user object that was created during registration;
+
+        """
         verify_link = reverse('users:verify', args=[user.email, user.activation_key])
         subject = f"Подтверждение регистрации на сайте {DOMAIN_NAME}"
         context = {
@@ -77,10 +106,15 @@ class RegisterView(FormView, TitleMixin):
 
 
 class Verify(TemplateView, TitleMixin):
-    """New user activation and authorization"""
+    """A view for activating and authorizing a new user.."""
     title = 'Успешная активация профиля'
 
     def get(self, request, *args, **kwargs):
+        """Checks the validity period of the activation key and its
+        compliance with the one that is in the activation link sent
+        to the user. If successful, the user becomes active and logs in.
+        In case of failure, an appropriate message is generated to inform the user
+        about this and further options for action."""
         try:
             user = MyUser.objects.get(email=kwargs['email'])
 
@@ -109,19 +143,24 @@ class Verify(TemplateView, TitleMixin):
 
 
 class FailedAuthenticationView(TemplateView):
-    """If activation user's profile or VK-authentication is failed, the user will be redirected with an error message"""
+    """View for failed authorization completion.
+    If activation user's profile or VK-authentication is failed,
+    the user will be redirected with an error message."""
 
     def get(self, request, *args, **kwargs):
+        """Receives an error message that was made during authorization and passes it to the context."""
         return render(request, 'registration/attempt_failed.html', context={
             'error': kwargs['error'], 'title': 'Неудачная авторизация',
         })
 
 
 class UserLogoutView(LogoutView):
+    """A view for the user to log out of the profile."""
     next_page = 'index'
 
 
 class ProfileView(TemplateView, TitleMixin, AuthorizedOnlyDispatchMixin):
+    """A view for the user to view their profile."""
     model = MyUser
     template_name = 'users/profile.html'
     success_url = reverse_lazy('users:profile')
@@ -129,6 +168,8 @@ class ProfileView(TemplateView, TitleMixin, AuthorizedOnlyDispatchMixin):
     title = 'Мой профиль'
 
     def get_context_data(self, **kwargs):
+        """Gets data about where the user is in the rating and transmits it to the context.
+        The template displays the rating only when the user's score is greater than 0."""
         context = super().get_context_data(**kwargs)
         user = MyUser.objects.get(id=self.request.user.id)
         index = MyUser.objects.order_by('-score').filter(score__gte=user.score).count()
@@ -137,12 +178,15 @@ class ProfileView(TemplateView, TitleMixin, AuthorizedOnlyDispatchMixin):
 
 
 class UserEdit(UpdateView, AuthorizedOnlyDispatchMixin):
+    """A view for the user to edit their profile."""
     model = MyUser
     template_name = 'includes/profile_edit.html'
     success_url = reverse_lazy('users:profile')
     form_class = UserChangeProfileForm
 
     def post(self, request, *args, **kwargs):
+        """Retrieves data from the profile editing form and, if valid, saves new user profile data.
+        When using AJAX, it allows you to update data without completely reloading the page."""
         form = self.form_class(data=request.POST, instance=request.user)
         if form.is_valid():
             form.save()
@@ -152,6 +196,7 @@ class UserEdit(UpdateView, AuthorizedOnlyDispatchMixin):
         return redirect(self.success_url)
 
     def get(self, request, *args, **kwargs):
+        """Retrieves data from the profile editing form using AJAX."""
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             context = {'form': self.form_class(instance=request.user)}
             result = render_to_string('./includes/profile_edit.html', request=request, context=context)
@@ -159,11 +204,14 @@ class UserEdit(UpdateView, AuthorizedOnlyDispatchMixin):
 
 
 class UserImgEdit(UpdateView, AuthorizedOnlyDispatchMixin):
+    """A view for the user to edit their avatar."""
     model = MyUser
     template_name = 'includes/profile_img_edit.html'
     success_url = reverse_lazy('users:profile')
 
     def post(self, request, *args, **kwargs):
+        """Saves the new avatar selected by the user.
+        When using AJAX, data is updated without reloading the entire page."""
         user = MyUser.objects.get(id=request.user.id)
         img = request.FILES.get('image')
         if img:
@@ -176,6 +224,7 @@ class UserImgEdit(UpdateView, AuthorizedOnlyDispatchMixin):
         return redirect(self.success_url)
 
     def get(self, request, *args, **kwargs):
+        """Retrieves data from the image editing form using AJAX."""
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             context = {'form': UserImgChangeProfileForm(instance=request.user)}
             result = render_to_string('./includes/profile_img_edit.html', request=request, context=context)
@@ -183,7 +232,7 @@ class UserImgEdit(UpdateView, AuthorizedOnlyDispatchMixin):
 
 
 class UserPostCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
-    """Creating a new post by a user"""
+    """A view for creating a new post by a user."""
     model = Post
     template_name = 'user_activities/add_post.html'
     form_class = PostForm
@@ -191,11 +240,19 @@ class UserPostCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
     title = 'Написать свою статью'
 
     def post(self, request, *args, **kwargs):
+        """Receives data from the user's post creation form,
+        with their validity, the post is saved, but is inactive.
+        If the creation of the post is successful, an email is sent notifying
+        the admin about it, and the user sees a modal window with information
+        about success. In case of failure, the user sees a form with the data
+        filled in by him and an indication of the error. AJAX is involved in both cases."""
         data = request.POST.copy()
         form = self.form_class(data=data)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            if request.FILES.get('image'):
+                post.image = request.FILES.get('image')
             post.save()
             if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
                 return JsonResponse({'is_valid': True})
@@ -208,7 +265,7 @@ class UserPostCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
 
 
 class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin):
-    """Creating a new question by a user"""
+    """A view for creating a new question by a user."""
     model = Question
     template_name = 'user_activities/add_question.html'
     form_class = QuestionForm
@@ -216,11 +273,19 @@ class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin
     title = 'Предложить свой вопрос'
 
     def post(self, request, *args, **kwargs):
+        """Receives data from the user's question creation form,
+           with their validity, the question is saved, but is inactive.
+           If the creation of the question is successful, an email is sent notifying
+           the admin about it, and the user sees a modal window with information
+           about success. In case of failure, the user sees a form with the data
+           filled in by him and an indication of the error. AJAX is involved in both cases."""
         data = request.POST.copy()
         form = self.form_class(data=data)
         if form.is_valid():
             question = form.save(commit=False)
             question.author = request.user
+            for image in ('image_01', 'image_02', 'image_03'):
+                setattr(question, image, request.FILES.get(image))
             question.save()
             if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
                 return JsonResponse({'is_valid': True})
@@ -233,22 +298,28 @@ class UserQuestionCreateView(CreateView, AuthorizedOnlyDispatchMixin, TitleMixin
 
 
 class TopUsers(ListView, TitleMixin, AuthorizedOnlyDispatchMixin):
-    """Shows users top-5"""
+    """View to display users top-5."""
     model = MyUser
     template_name = 'user_activities/top_users.html'
     title = 'Топ-5 участников'
     context_object_name = 'top_users'
 
     def get_queryset(self):
+        """Returns a sorted queryset of 5 participants with the highest total score."""
         return MyUser.objects.filter(Q(is_active=True) & Q(score__gt=0)).order_by('-score')[:5]
 
 
 class WriteToAdmin(FormView, TitleMixin, AuthorizedOnlyDispatchMixin):
+    """View for writing a message to the admin on his email."""
     template_name = 'user_activities/write_to_admin.html'
     title = 'Написать письмо'
     form_class = WriteAdminForm
 
     def post(self, request, *args, **kwargs):
+        """Generates an email for the admin and starts form validation.
+        If successful, the message is sent and the user is redirected to his profile page.
+        In case of failure, the user sees a form with the data entered by him and an indication of the error.
+        Additionally, a pop-up modular window informs him about the progress of sending a message."""
         username, email = request.user.username, request.user.email
         form = self.form_class(request.POST)
         if form.is_valid():
@@ -265,6 +336,9 @@ class WriteToAdmin(FormView, TitleMixin, AuthorizedOnlyDispatchMixin):
                 message = render_to_string('emails/new_email.html', context)
                 send_mail(subject, message, EMAIL_HOST_USER, [EMAIL_HOST_USER],
                           html_message=message, fail_silently=False)
+                if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                    return JsonResponse({'is_valid': True})
+
                 return redirect(reverse_lazy('users:profile'))
             except Exception as e:
                 logger.error(f'Ошибка отправки сообщения - {e}')
@@ -275,10 +349,14 @@ class WriteToAdmin(FormView, TitleMixin, AuthorizedOnlyDispatchMixin):
                 'username': username,
                 'email': email,
             }
-            return render(request, 'user_activities/write_to_admin.html', context)
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                result = render_to_string('includes/letter_form.html', request=request, context=context)
+                return JsonResponse({'result': result})
+            return render(request, 'user_activities/write_to_admin.html', context=context)
 
 
 class UserPasswordResetView(PasswordResetView, TitleMixin):
+    """A view to request password recovery."""
     form_class = MyPasswordResetForm
     title = 'Восстановление пароля'
     template_name = 'registration/password_reset.html'
@@ -287,6 +365,7 @@ class UserPasswordResetView(PasswordResetView, TitleMixin):
     from_email = EMAIL_HOST_USER
 
     def post(self, request, *args, **kwargs):
+        """Generates and sends the user an email with a link to restore the password."""
         form = self.form_class(data=request.POST)
         if form.is_valid():
             email = request.POST['email']
@@ -303,28 +382,39 @@ class UserPasswordResetView(PasswordResetView, TitleMixin):
 
 
 class MyPasswordResetConfirmView(PasswordResetConfirmView, TitleMixin):
+    """A view for creating and saving a new password in case the previous password was lost by the user."""
     template_name = 'registration/password_res_confirm.html'
     title = 'Создание нового пароля'
 
 
 class MyPasswordResetCompleteView(PasswordResetCompleteView, TitleMixin):
+    """A view to inform the user about the successful change (recovery) of the password."""
     template_name = 'registration/password_res_complete.html'
     title = 'Пароль успешно изменен'
 
 
 class GiveMeMyButtons(TemplateView):
+    """A view for displaying user menu buttons when visiting your profile. AJAX is used."""
     template_name = 'includes/profile_buttons.html'
 
     def get(self, request, *args, **kwargs):
+        """Returns json with the prepared html code of the user menu buttons."""
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             result = render_to_string('includes/profile_buttons.html', request=request)
             return JsonResponse({'result': result})
 
 
 class UserNoInfo(TemplateView):
+    """A view to refuse further viewing of a pop-up modal window with information
+    about the order of testing at its start. If the user no longer wants to see it,
+    he can tick the checkbox of this modular window. A change will be made to the
+    entry in the database corresponding to his profile, and the window with information
+    for him will no longer appear."""
     template_name = 'includes/no_info_success.html'
 
     def post(self, request, *args, **kwargs):
+        """Receives data on the need to stop the appearance of an
+        information window for this user and makes appropriate changes."""
         if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest' \
                 and request.POST['flag'] == 'true':
             user = MyUser.objects.get(id=request.user.id)

@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>users.tests package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="users package" href="users.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="users-tests-package">
+<h1>users.tests package<a class="headerlink" href="#users-tests-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-users.tests.test_forms">
+<span id="users-tests-test-forms-module"></span><h2>users.tests.test_forms module<a class="headerlink" href="#module-users.tests.test_forms" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the forms of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestMyPasswordResetForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestMyPasswordResetForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestMyPasswordResetForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the password recovery form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestMyPasswordResetForm.test_no_reset_password_for_an_unregistered_email">
+<span class="sig-name descname"><span class="pre">test_no_reset_password_for_an_unregistered_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestMyPasswordResetForm.test_no_reset_password_for_an_unregistered_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validation of the password recovery form when specifying
+an email that was not used during registration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestMyPasswordResetForm.test_password_reset_form_email_placeholder">
+<span class="sig-name descname"><span class="pre">test_password_reset_form_email_placeholder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestMyPasswordResetForm.test_password_reset_form_email_placeholder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the placeholder of the email field of the password recovery form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserImgChangeProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserImgChangeProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserImgChangeProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the user profile editing form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserImgChangeProfileForm.test_user_change_profile_form_img_field_id_assigned">
+<span class="sig-name descname"><span class="pre">test_user_change_profile_form_img_field_id_assigned</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserImgChangeProfileForm.test_user_change_profile_form_img_field_id_assigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the association of the id of the img field of the user profile editing form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserLoginForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserLoginForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserLoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the user authorization form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserLoginForm.test_login_form_fields_placeholders">
+<span class="sig-name descname"><span class="pre">test_login_form_fields_placeholders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserLoginForm.test_login_form_fields_placeholders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing of placeholders filling in the user authorization form fields.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the user profile form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserProfileForm.test_user_profile_form_fields_readonly">
+<span class="sig-name descname"><span class="pre">test_user_profile_form_fields_readonly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserProfileForm.test_user_profile_form_fields_readonly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the read-only fields of the user profile form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserProfileForm.test_user_profile_form_img_field_class">
+<span class="sig-name descname"><span class="pre">test_user_profile_form_img_field_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserProfileForm.test_user_profile_form_img_field_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the user profile form img field class.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserRegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the new user registration form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_form_valid_activation_key_being_created">
+<span class="sig-name descname"><span class="pre">test_form_valid_activation_key_being_created</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_form_valid_activation_key_being_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the creation of an activation key during the registration of a new user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_num_first_name">
+<span class="sig-name descname"><span class="pre">test_num_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_num_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the firstname consists only of digits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_num_last_name">
+<span class="sig-name descname"><span class="pre">test_num_last_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_num_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the lastname consists only of digits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_num_username">
+<span class="sig-name descname"><span class="pre">test_num_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_num_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the username consists only of digits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_one_user_created">
+<span class="sig-name descname"><span class="pre">test_one_user_created</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_one_user_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_register_form_fields_placeholders">
+<span class="sig-name descname"><span class="pre">test_register_form_fields_placeholders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_register_form_fields_placeholders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing of placeholders filling in the user registration form fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_too_short_first_name">
+<span class="sig-name descname"><span class="pre">test_too_short_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_too_short_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the firstname is too short.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_too_short_last_name">
+<span class="sig-name descname"><span class="pre">test_too_short_last_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_too_short_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the lasname is too short.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestUserRegisterForm.test_too_short_username">
+<span class="sig-name descname"><span class="pre">test_too_short_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestUserRegisterForm.test_too_short_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the lack of validity of the form if the username is too short.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestWriteAdminForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestWriteAdminForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestWriteAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the form of writing a message to the admin.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestWriteAdminForm.test_grade_min_max_value">
+<span class="sig-name descname"><span class="pre">test_grade_min_max_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestWriteAdminForm.test_grade_min_max_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the maximum and minimum values of the grade
+field of the form of writing a message to the administrator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestWriteAdminForm.test_title_max_length">
+<span class="sig-name descname"><span class="pre">test_title_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestWriteAdminForm.test_title_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the set maximum length of the title field of the message writing form to the admin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_forms.TestWriteAdminForm.test_write_admin_form_fields_labels">
+<span class="sig-name descname"><span class="pre">test_write_admin_form_fields_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_forms.TestWriteAdminForm.test_write_admin_form_fields_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the labels of the fields of the message writing form to the admin.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-users.tests.test_models">
+<span id="users-tests-test-models-module"></span><h2>users.tests.test_models module<a class="headerlink" href="#module-users.tests.test_models" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the models of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_models.</span></span><span class="sig-name descname"><span class="pre">TestUserModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test class for the MyUser model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.setUpTestData">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.setUpTestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up non-modified MyUser object used by all test methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_activation_key_expired_false">
+<span class="sig-name descname"><span class="pre">test_activation_key_expired_false</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_activation_key_expired_false" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model test initial state of the field activation_key_created - not expired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_activation_key_expired_true">
+<span class="sig-name descname"><span class="pre">test_activation_key_expired_true</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_activation_key_expired_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model test state of the field activation_key_created after 48 hours - expired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_first_name_label">
+<span class="sig-name descname"><span class="pre">test_first_name_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_first_name_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model first name field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_first_name_max_length">
+<span class="sig-name descname"><span class="pre">test_first_name_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_first_name_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model first name field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_last_name_label">
+<span class="sig-name descname"><span class="pre">test_last_name_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_last_name_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model last name field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_last_name_max_length">
+<span class="sig-name descname"><span class="pre">test_last_name_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_last_name_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model last name field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_string_output_of_the_model">
+<span class="sig-name descname"><span class="pre">test_string_output_of_the_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_string_output_of_the_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model string output text test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_username_label">
+<span class="sig-name descname"><span class="pre">test_username_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_username_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model username field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_models.TestUserModel.test_username_max_length">
+<span class="sig-name descname"><span class="pre">test_username_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_models.TestUserModel.test_username_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>MyUser model username field max length test.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-users.tests.test_views">
+<span id="users-tests-test-views-module"></span><h2>users.tests.test_views module<a class="headerlink" href="#module-users.tests.test_views" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the views of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAnonymousAndAuthorizedUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing access only for authorized users.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user test object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_post_create_login_redirect">
+<span class="sig-name descname"><span class="pre">test_post_create_login_redirect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_post_create_login_redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the unavailability of the post creation page without user authorization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_post_create_ok">
+<span class="sig-name descname"><span class="pre">test_post_create_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_post_create_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the availability of the post creation page when the user is logged in.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_profile_login_redirect">
+<span class="sig-name descname"><span class="pre">test_profile_login_redirect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_profile_login_redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the unavailability of the profile page without user authorization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_profile_ok">
+<span class="sig-name descname"><span class="pre">test_profile_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_profile_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the availability of the profile page when the user is logged in.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_question_create_login_redirect">
+<span class="sig-name descname"><span class="pre">test_question_create_login_redirect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_question_create_login_redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the unavailability of the question creation page without user authorization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_question_create_ok">
+<span class="sig-name descname"><span class="pre">test_question_create_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_question_create_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the availability of the question creation page when the user is logged in.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_top_users_login_redirect">
+<span class="sig-name descname"><span class="pre">test_top_users_login_redirect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_top_users_login_redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the unavailability of the Top 5 participants’ page without user authorization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_top_users_ok">
+<span class="sig-name descname"><span class="pre">test_top_users_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_top_users_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the availability of the Top 5 participants’ page when the user is logged in.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_write_to_admin_login_redirect">
+<span class="sig-name descname"><span class="pre">test_write_to_admin_login_redirect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_write_to_admin_login_redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the inaccessibility of the page for sending a message to the admin without user authorization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestAnonymousAndAuthorizedUser.test_write_to_admin_ok">
+<span class="sig-name descname"><span class="pre">test_write_to_admin_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestAnonymousAndAuthorizedUser.test_write_to_admin_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the availability of the page for sending a message to the admin when the user is logged in.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestFailedAuthenticationView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestFailedAuthenticationView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestFailedAuthenticationView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the view of the notification page about unsuccessful profile verification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestFailedAuthenticationView.test_failed_auth_transition">
+<span class="sig-name descname"><span class="pre">test_failed_auth_transition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestFailedAuthenticationView.test_failed_auth_transition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the view of the notification page about unsuccessful profile verification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestMyPasswordResetCompleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestMyPasswordResetCompleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestMyPasswordResetCompleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Testing the completion of the password recovery process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestMyPasswordResetCompleteView.test_password_reset_complete_ok">
+<span class="sig-name descname"><span class="pre">test_password_reset_complete_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestMyPasswordResetCompleteView.test_password_reset_complete_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful completion of the password recovery process.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestMyPasswordResetConfirmView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestMyPasswordResetConfirmView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestMyPasswordResetConfirmView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the password change process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestMyPasswordResetConfirmView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestMyPasswordResetConfirmView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user text object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestMyPasswordResetConfirmView.test_password_reset_confirm_ok">
+<span class="sig-name descname"><span class="pre">test_password_reset_confirm_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestMyPasswordResetConfirmView.test_password_reset_confirm_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful completion of the password change process.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestProfileView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestProfileView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestProfileView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserBase" title="users.tests.test_views.TestUserBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserBase</span></code></a></p>
+<p>Testing the view to display the user profile.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestProfileView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestProfileView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user text object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestProfileView.test_profile_user">
+<span class="sig-name descname"><span class="pre">test_profile_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestProfileView.test_profile_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing access to the user profile page.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestTopUsers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestTopUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestTopUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the view to view the Top 5 participants of the site.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestTopUsers.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestTopUsers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparing data for tests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestTopUsers.test_top_users_both_are_visible">
+<span class="sig-name descname"><span class="pre">test_top_users_both_are_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestTopUsers.test_top_users_both_are_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing of viewing the Top 5 participants of the site:
+users with the highest total score are visible in the top.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestTopUsers.test_top_users_no_one_is_visible">
+<span class="sig-name descname"><span class="pre">test_top_users_no_one_is_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestTopUsers.test_top_users_no_one_is_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the viewing of the Top 5 participants of the site: let the top
+of the site be if all participants have a total score of 0.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestTopUsers.test_top_users_one_is_visible">
+<span class="sig-name descname"><span class="pre">test_top_users_one_is_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestTopUsers.test_top_users_one_is_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing of viewing the Top 5 participants of the site: only users with a
+rating greater than 0 are visible in the top.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class for preparing data for testing and observing the DRY pattern.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserBase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user test object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserCategoryBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserCategoryBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserCategoryBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserBase" title="users.tests.test_views.TestUserBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserBase</span></code></a></p>
+<p>Parent class for test classes that require a prepared test category.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserCategoryBase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserCategoryBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a test category.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserEdit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserBase" title="users.tests.test_views.TestUserBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserBase</span></code></a></p>
+<p>Testing the user profile editing process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user text object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.test_user_edit_ok">
+<span class="sig-name descname"><span class="pre">test_user_edit_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.test_user_edit_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a successful user profile editing process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.test_user_edit_wrong_first_name_length">
+<span class="sig-name descname"><span class="pre">test_user_edit_wrong_first_name_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.test_user_edit_wrong_first_name_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing an unsuccessful user profile editing process: the firstname is too short (less than 4 characters).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.test_user_edit_wrong_first_name_num">
+<span class="sig-name descname"><span class="pre">test_user_edit_wrong_first_name_num</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.test_user_edit_wrong_first_name_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing an unsuccessful user profile editing process: the firstname consists only of digits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.test_user_edit_wrong_last_name_length">
+<span class="sig-name descname"><span class="pre">test_user_edit_wrong_last_name_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.test_user_edit_wrong_last_name_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing an unsuccessful user profile editing process: the lastname is too short (less than 4 characters).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserEdit.test_user_edit_wrong_last_name_num">
+<span class="sig-name descname"><span class="pre">test_user_edit_wrong_last_name_num</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserEdit.test_user_edit_wrong_last_name_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing an unsuccessful user profile editing process: the lastname consists only of digits.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserLoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLoginView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the user authorization process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLoginView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLoginView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user test object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLoginView.test_login_ok">
+<span class="sig-name descname"><span class="pre">test_login_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLoginView.test_login_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a successful authorization attempt.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLoginView.test_login_unsuccessful">
+<span class="sig-name descname"><span class="pre">test_login_unsuccessful</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLoginView.test_login_unsuccessful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed authorization attempt.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLogoutView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserLogoutView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLogoutView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the user’s logout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLogoutView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLogoutView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user text object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserLogoutView.test_logout">
+<span class="sig-name descname"><span class="pre">test_logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserLogoutView.test_logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the process of logging out of the user profile.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPasswordResetView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserPasswordResetView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPasswordResetView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the process of requesting a new password.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPasswordResetView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPasswordResetView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user text object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPasswordResetView.test__password_reset_wrong_email">
+<span class="sig-name descname"><span class="pre">test__password_reset_wrong_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPasswordResetView.test__password_reset_wrong_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the unsuccessful completion of the process of requesting a new password: incorrect email.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPasswordResetView.test_password_reset_ok">
+<span class="sig-name descname"><span class="pre">test_password_reset_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPasswordResetView.test_password_reset_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful completion of the process of requesting a new password.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPostCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserPostCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPostCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserCategoryBase" title="users.tests.test_views.TestUserCategoryBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserCategoryBase</span></code></a></p>
+<p>Testing the creation of a new post by the user.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPostCreateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPostCreateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparing data for tests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserPostCreateView.test_user_post_create_ok">
+<span class="sig-name descname"><span class="pre">test_user_post_create_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserPostCreateView.test_user_post_create_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful creation of a new post by the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserQuestionCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserQuestionCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserQuestionCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserCategoryBase" title="users.tests.test_views.TestUserCategoryBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserCategoryBase</span></code></a></p>
+<p>Testing the creation of a new question by the user.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserQuestionCreateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserQuestionCreateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparing data for tests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserQuestionCreateView.test_user_question_create_no_right_answer">
+<span class="sig-name descname"><span class="pre">test_user_question_create_no_right_answer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserQuestionCreateView.test_user_question_create_no_right_answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the user’s unsuccessful creation of a new question:
+the correct answer does not match any answer option.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserQuestionCreateView.test_user_question_create_ok">
+<span class="sig-name descname"><span class="pre">test_user_question_create_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserQuestionCreateView.test_user_question_create_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful creation of a new question by the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserRegisterView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the process of registering a new user.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparation of data for testing registration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_ok">
+<span class="sig-name descname"><span class="pre">test_register_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful registration process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_num_first_name">
+<span class="sig-name descname"><span class="pre">test_register_unsuccessful_num_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_num_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed registration process: the firstname consists only of digits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_passwords">
+<span class="sig-name descname"><span class="pre">test_register_unsuccessful_passwords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_passwords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing an unsuccessful registration process: mismatch of the entered passwords.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_first_name">
+<span class="sig-name descname"><span class="pre">test_register_unsuccessful_short_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed registration process: the firstname is too short (less than 4 characters).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_last_name">
+<span class="sig-name descname"><span class="pre">test_register_unsuccessful_short_last_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed registration process: the lastname is too short (less than 4 characters).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_username">
+<span class="sig-name descname"><span class="pre">test_register_unsuccessful_short_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestUserRegisterView.test_register_unsuccessful_short_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed registration process: the username is too short (less than 4 characters).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestVerifyView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Testing the verification of a new profile.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user test object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView.test_verify_activation_key_is_expired">
+<span class="sig-name descname"><span class="pre">test_verify_activation_key_is_expired</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView.test_verify_activation_key_is_expired" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed verification process for a new profile: the activation key has expired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView.test_verify_ok">
+<span class="sig-name descname"><span class="pre">test_verify_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView.test_verify_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful verification process of the new profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView.test_verify_wrong_activation_key">
+<span class="sig-name descname"><span class="pre">test_verify_wrong_activation_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView.test_verify_wrong_activation_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed verification process for a new profile: incorrect activation key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestVerifyView.test_verify_wrong_email">
+<span class="sig-name descname"><span class="pre">test_verify_wrong_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestVerifyView.test_verify_wrong_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing a failed verification process for a new profile: incorrect email.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.tests.test_views.TestWriteToAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestWriteToAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestWriteToAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#users.tests.test_views.TestUserBase" title="users.tests.test_views.TestUserBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestUserBase</span></code></a></p>
+<p>Testing the user’s creation of a message for the admin.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestWriteToAdmin.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestWriteToAdmin.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preparing data for tests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestWriteToAdmin.test_write_to_admin_no_grade">
+<span class="sig-name descname"><span class="pre">test_write_to_admin_no_grade</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestWriteToAdmin.test_write_to_admin_no_grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the user’s unsuccessful creation of a message for the admin: the site is not rated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.tests.test_views.TestWriteToAdmin.test_write_to_admin_ok">
+<span class="sig-name descname"><span class="pre">test_write_to_admin_ok</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.tests.test_views.TestWriteToAdmin.test_write_to_admin_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the successful creation of a user message for the admin.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-users.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-users.tests" title="Permalink to this heading">¶</a></h2>
+<p>The subpackage contains unit and integration tests for checking the forms, models
+and views of the web application.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">users</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="users.html">users package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="users.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">users</a><ul>
+  <li><a href="users.html">users package</a><ul>
+      <li>Previous: <a href="users.html" title="previous chapter">users package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/users/users.tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

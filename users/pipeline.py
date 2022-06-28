@@ -1,3 +1,6 @@
+"""Allows you to register and authorize using the VK social network profile.
+Retrieves all the necessary data for registration and the user's avatar from the profile.
+Activation of the profile on the site with this option of registration is not required."""
 from collections import OrderedDict
 from datetime import datetime
 from urllib.parse import urlunparse, urlencode
@@ -19,7 +22,20 @@ USER_FIELDS = ['username', 'email']
 
 
 def save_new_user(backend, user, response, *args, **kwargs):
-    """Authorization on site using VK-profile, if user younger than 10 y.o. authorization abort"""
+    """Authorization on site using the VK social network profile,
+    Performs parsing of profile data. If the user is already registered,
+    returns. If not, a check is performed to see if the profile email
+    has been used for another registration before. Then the age of the user
+    is calculated according to the data that he indicated in his profile
+    in the VK social network. If the user is under 10 years old, registration
+    is interrupted, access is denied.
+
+    Note:
+        This registration method is only suitable for those profiles
+        in which the email is specified. If a phone number was used to
+        register a profile in the VK, this profile cannot be used for
+        registration on the site.
+    """
 
     if backend.name != 'vk-oauth2':
         return
@@ -60,6 +76,14 @@ def save_new_user(backend, user, response, *args, **kwargs):
 
 
 def if_user_exists_pipeline(request, details, backend, **kwargs):
+    """
+    Checks the data for user authorization through the profile in the VK
+    social network. If all the data correspond to the data associated with
+    the email address used, the user is logged in.
+
+    If there is no email address in this VK profile or this address has already been used for registration,
+    a message about this is generated for the user and authorization is rejected.
+    """
     fields = {name: kwargs.get(name, details.get(name))
               for name in backend.setting('USER_FIELDS', USER_FIELDS)}
     if fields['email']:

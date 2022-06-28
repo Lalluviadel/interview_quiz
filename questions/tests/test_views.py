@@ -1,3 +1,7 @@
+"""
+Contains unit and integration tests for checking the views of the web application.
+"""
+
 import logging
 import sys
 
@@ -16,23 +20,23 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 
 
 class TestMainView(TestCase):
-    """MainView test"""
+    """MainView test."""
 
     def setUp(self):
         self.client = Client()
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'questions/index.html')
@@ -40,10 +44,10 @@ class TestMainView(TestCase):
 
 
 class TestAllCategoriesView(TestCase):
-    """AllCategoriesView test"""
+    """AllCategoriesView test."""
 
     def setUp(self):
-        """Creating 10 test categories, objects with even IDs are not available"""
+        """Creating 10 test categories, objects with even IDs are not available."""
         self.client = Client()
         for number in range(10):
             item = QuestionCategory.objects.create(name=f'category_{number}', description=f'description_{number}')
@@ -52,24 +56,24 @@ class TestAllCategoriesView(TestCase):
                 item.save()
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         response = self.client.get('/questions/categories/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         response = self.client.get(reverse('questions:categories'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         response = self.client.get(reverse('questions:categories'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'questions/categories.html')
         self.assertEqual(response.context['title'], 'Категории тестов')
 
     def test_view_queryset_only_available_categories(self):
-        """Tests that only the available categories fall into the queryset"""
+        """Tests that only the available categories fall into the queryset."""
         response = self.client.get(reverse('questions:categories'))
         for item in response.context['questioncategory_list']:
             self.assertTrue(item.available)
@@ -77,10 +81,10 @@ class TestAllCategoriesView(TestCase):
 
 
 class TestBase(TestCase):
-    """Parent test class for observing the DRY pattern"""
+    """Parent test class for observing the DRY pattern."""
 
     def setUp(self):
-        """Creating test category and user objects"""
+        """Creating test category and user objects."""
         self.client = Client()
         self.test_user = MyUser.objects.create_user(username='test_01',
                                                     first_name='Roland',
@@ -93,31 +97,31 @@ class TestBase(TestCase):
 
 
 class TestCategoryView(TestBase):
-    """CategoryView test"""
+    """CategoryView test."""
 
     def setUp(self):
         super().setUp()
 
     def test_view_authorized_users_only(self):
-        """Checks that CategoryView view and relevant site page are only available to authorized users"""
+        """Checks that CategoryView view and relevant site page are only available to authorized users."""
         response = self.client.get(f'/questions/start_test/{self.test_category.id}/')
         self.assertEqual(response.url, f'/users/login/?next=/questions/start_test/{self.test_category.id}/')
         self.assertEqual(response.status_code, 302)
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(f'/questions/start_test/{self.test_category.id}/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(reverse('questions:start_test', args=[self.test_category.id]))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(reverse('questions:start_test', args=[self.test_category.id]))
         self.assertEqual(response.status_code, 200)
@@ -126,7 +130,7 @@ class TestCategoryView(TestBase):
 
     def test_view_get_context_data_works_correctly(self):
         """Checks the correctness of receiving and transmitting data to the context:
-        the current user, the current category of questions, the numeric value of the info field of the user object"""
+        the current user, the current category of questions, the numeric value of the info field of the user object."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(reverse('questions:start_test', args=[self.test_category.id]))
         self.assertEqual(self.test_user, response.context['user'])
@@ -135,37 +139,36 @@ class TestCategoryView(TestBase):
 
 
 class TestQuestionView(TestBase):
-    """QuestionView test"""
+    """QuestionView test."""
 
     def setUp(self):
         super().setUp()
 
     def test_view_authorized_users_only(self):
-        """Checks that QuestionView view and relevant site page are only available to authorized users"""
+        """Checks that QuestionView view and relevant site page are only available to authorized users."""
         response = self.client.post(f'/questions/test_body/{self.test_category.id}/')
         self.assertEqual(response.url, f'/users/login/?next=/questions/test_body/{self.test_category.id}/')
         self.assertEqual(response.status_code, 302)
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(f'/questions/test_body/{self.test_category.id}/',
                                     {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                     {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                     {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
-        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'questions/test_body.html')
         self.assertEqual(response.context['title'], f'Тест по категории {self.test_category.name}')
 
@@ -179,12 +182,10 @@ class TestQuestionView(TestBase):
         - that the question ready for issue is also unique;
         """
         for number in range(25):
-            Question.objects.create(question=f'test_question_{number}',
-                                    subject=self.test_category, author=self.test_user,
-                                    right_answer=f'{number}', available=True,
-                                    answer_01=f'{number}', answer_02=f'{number + 1}',
-                                    answer_03=f'{number + 2}', answer_04=f'{number + 3}')
-
+            Question.objects.create(question=f'test_question_{number}', subject=self.test_category,
+                                    author=self.test_user, right_answer=f'{number}', available=True,
+                                    answer_01=f'{number}', answer_02=f'{number + 1}', answer_03=f'{number + 2}',
+                                    answer_04=f'{number + 3}')
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                     {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
@@ -218,11 +219,11 @@ class TestQuestionView(TestBase):
         response = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                     {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
 
-        question_used_now = response.context['item']
-        self.assertIsInstance(question_used_now, Question)
-
         session_question_set = self.client.session['context']['question_set']
         self.assertEqual(len(session_question_set), 5)
+
+        question_used_now = response.context['item']
+        self.assertIsInstance(question_used_now, Question)
 
         self.assertEqual(len(session_question_set), len(set(session_question_set)))
         self.assertNotIn(question_used_now.id, session_question_set)
@@ -232,14 +233,13 @@ class TestQuestionView(TestBase):
         and difficulty level is more than 20.
         Checks that the queryset of questions is different each time.
         There is still some chance of a failed test, since queryset can theoretically be repeated"""
+        self.client.login(username=self.test_user.username, password='laLA12')
         for number in range(25):
-            Question.objects.create(question=f'test_question_{number}',
-                                    subject=self.test_category, author=self.test_user,
-                                    right_answer=f'{number}', available=True,
+            Question.objects.create(question=f'test_question_{number}', subject=self.test_category,
+                                    author=self.test_user, right_answer=f'{number}', available=True,
                                     answer_01=f'{number}', answer_02=f'{number + 1}',
                                     answer_03=f'{number + 2}', answer_04=f'{number + 3}')
 
-        self.client.login(username=self.test_user.username, password='laLA12')
         self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                          {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
         session_question_set_01 = self.client.session['context']['question_set']
@@ -252,7 +252,8 @@ class TestQuestionView(TestBase):
         """The test is for the case when the number of questions of a given category
         and difficulty level is less than 20.
         Checks that the queryset of questions is different each time.
-        There is still some chance of a failed test, since queryset can theoretically be repeated"""
+        There is still some chance of a failed test, since queryset can theoretically be repeated."""
+        self.client.login(username=self.test_user.username, password='laLA12')
         for number in range(9):
             Question.objects.create(question=f'test_question_{number}',
                                     subject=self.test_category, author=self.test_user,
@@ -260,7 +261,6 @@ class TestQuestionView(TestBase):
                                     answer_01=f'{number}', answer_02=f'{number + 1}',
                                     answer_03=f'{number + 2}', answer_04=f'{number + 3}')
 
-        self.client.login(username=self.test_user.username, password='laLA12')
         self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                          {'csrf_data': 'some data', 'options_dif': 'NB', 'options_y_n': 'False'})
         session_question_set_01 = self.client.session['context']['question_set']
@@ -270,14 +270,14 @@ class TestQuestionView(TestBase):
         self.assertNotEqual(session_question_set_01, session_question_set_02)
 
     def test_view_post_request_context(self):
-        """Checks the correctness of receiving and transmitting data to the request context"""
+        """Checks the correctness of receiving and transmitting data to the request context."""
+        self.client.login(username=self.test_user.username, password='laLA12')
         for number in range(25):
             Question.objects.create(question=f'test_question_{number}',
                                     subject=self.test_category, author=self.test_user,
                                     right_answer=f'{number}', available=True,
                                     answer_01=f'{number}', answer_02=f'{number + 1}',
                                     answer_03=f'{number + 2}', answer_04=f'{number + 3}')
-        self.client.login(username=self.test_user.username, password='laLA12')
         difficulty_level, time_limit = 'NB', 'False'
         response = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                     {'csrf_data': 'some data', 'options_dif': difficulty_level,
@@ -296,7 +296,7 @@ class TestQuestionView(TestBase):
         self.assertEqual(response.context['user_points'], self.test_user.score)
 
     def test_view_post_session_context(self):
-        """Checks the correctness of receiving and transmitting data to the session context"""
+        """Checks the correctness of receiving and transmitting data to the session context."""
         for number in range(25):
             Question.objects.create(question=f'test_question_{number}',
                                     subject=self.test_category, author=self.test_user,
@@ -321,15 +321,15 @@ class TestQuestionView(TestBase):
 
     def test_continuation_of_examination(self):
         """Checks the correctness of continuing user's testing, transferring data to the context,
-        reducing the number of questions in the queryset, changing the current question"""
+        reducing the number of questions in the queryset, changing the current question."""
+        self.client.login(username=self.test_user.username, password='laLA12')
+        difficulty_level, time_limit = 'NB', 'False'
         for number in range(25):
             Question.objects.create(question=f'test_question_{number}',
                                     subject=self.test_category, author=self.test_user,
                                     right_answer=f'{number}', available=True,
                                     answer_01=f'{number}', answer_02=f'{number + 1}',
                                     answer_03=f'{number + 2}', answer_04=f'{number + 3}')
-        self.client.login(username=self.test_user.username, password='laLA12')
-        difficulty_level, time_limit = 'NB', 'False'
         response_test_01 = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                             {'csrf_data': 'some data', 'options_dif': difficulty_level,
                                              'options_y_n': time_limit})
@@ -358,10 +358,10 @@ class TestQuestionView(TestBase):
 
 
 class TestAnswerQuestion(TestBase):
-    """AnswerQuestion view test"""
+    """AnswerQuestion view test."""
 
     def setUp(self):
-        """Creating test category, questions and user objects, sending a POST request at the start of testing"""
+        """Creating test category, questions and user objects, sending a POST request at the start of testing."""
         super().setUp()
         for number in range(1, 25):
             Question.objects.create(question=f'test_question_{number}',
@@ -380,27 +380,26 @@ class TestAnswerQuestion(TestBase):
         self.right_answer = self.response.context['item'].right_answer
 
     def test_view_authorized_users_only(self):
-        """Checks that AnswerQuestion view and relevant site page are only available to authorized users"""
-        # question_id = self.client.session['context']['item'].id
+        """Checks that AnswerQuestion view and relevant site page are only available to authorized users."""
         self.client.logout()
         response = self.client.get(f'/questions/answers/{self.question_id}/')
         self.assertEqual(response.url, f'/users/login/?next=/questions/answers/{self.question_id}/')
         self.assertEqual(response.status_code, 302)
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         response = self.client.get(f'/questions/answers/{self.question_id}/',
                                    {'csrf_data': 'some data', 'answers': self.right_answer}, kwargs={self.question_id})
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         response = self.client.get(reverse('questions:answers', args=[self.test_category.id]),
                                    {'csrf_data': 'some data', 'answers': self.right_answer}, kwargs={self.question_id})
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         response = self.client.get(reverse('questions:answers', args=[self.question_id]),
                                    {'csrf_data': 'some data', 'answers': self.right_answer},
                                    kwargs={'item_id': self.question_id})
@@ -411,7 +410,7 @@ class TestAnswerQuestion(TestBase):
     def test_user_answered_correctly(self):
         """Checks that when user answered correctly, the user's score increases
         in accordance with the scores of the difficulty level of the question,
-        and the number of correct answers stored in the context of the session increases by 1"""
+        and the number of correct answers stored in the context of the session increases by 1."""
         self.client.get(reverse('questions:answers', args=[self.question_id]),
                         {'csrf_data': 'some data', 'answers': self.right_answer},
                         kwargs={'item_id': self.question_id})
@@ -425,7 +424,7 @@ class TestAnswerQuestion(TestBase):
     def test_user_answered_incorrectly_score_is_0(self):
         """Checks that if the user answered incorrectly and his score less than the points for the answer,
         it will not decrease.
-        The number of incorrect responses stored in the context of the session increases by 1"""
+        The number of incorrect responses stored in the context of the session increases by 1."""
         user = MyUser.objects.get(id=self.test_user.id)
         user.score = 1
         user.save()
@@ -443,7 +442,7 @@ class TestAnswerQuestion(TestBase):
     def test_user_answered_incorrectly_score_more_0(self):
         """Checks that if the user answered incorrectly and his score is greater than 0,
         it will decrease by the number of points according to the difficulty level of the question.
-        The number of incorrect responses stored in the context of the session increases by 1"""
+        The number of incorrect responses stored in the context of the session increases by 1."""
         user = MyUser.objects.get(id=self.test_user.id)
         user.score = 15
         user.save()
@@ -464,7 +463,7 @@ class TestAnswerQuestion(TestBase):
         self.assertEqual(session_context['wrong_ans'], 2)
 
     def test_view_get_request_context(self):
-        """Checks the correctness of receiving and transmitting data to the request context"""
+        """Checks the correctness of receiving and transmitting data to the request context."""
         for number in range(5):
             Post.objects.create(title=f'test_post_{number}',
                                 author=self.test_user,
@@ -495,11 +494,11 @@ class TestAnswerQuestion(TestBase):
 
 
 class TestQuestionAndAnswerView(TestCase):
-    """A test of the full testing process"""
+    """A test of the full testing process."""
 
     def setUp(self):
         """Creating test category, questions and user objects,
-        making requests to start testing and verify the first answer"""
+        making requests to start testing and verify the first answer."""
         self.client = Client()
         self.test_user = MyUser.objects.create_user(username='test_01',
                                                     first_name='Roland',
@@ -519,7 +518,7 @@ class TestQuestionAndAnswerView(TestCase):
                                     answer_01=f'{number}', answer_02=f'{number + 1}',
                                     answer_03=f'{number + 2}', answer_04=f'{number + 3}')
 
-        difficulty_level, time_limit = 'NB', 'False'
+        time_limit, difficulty_level = 'False', 'NB'
         response_start_test = self.client.post(reverse('questions:test_body', args=[self.test_category.id]),
                                                {'csrf_data': 'some data', 'options_dif': difficulty_level,
                                                 'options_y_n': time_limit})
@@ -532,7 +531,7 @@ class TestQuestionAndAnswerView(TestCase):
     def test_examination_process(self):
         """Performs the entire user testing process, starting with the second question,
         completes testing, checks the current number of user points, the number of correct/incorrect answers,
-        the absence of unanswered questions"""
+        the absence of unanswered questions."""
         session_context = self.client.session['context']
 
         for item in session_context['question_set'][::-1]:
@@ -554,7 +553,7 @@ class TestQuestionAndAnswerView(TestCase):
 
 
 class TestTimeIsUp(TestCase):
-    """TimeIsUp test"""
+    """TimeIsUp test."""
 
     def setUp(self):
         self.client = Client()
@@ -567,25 +566,25 @@ class TestTimeIsUp(TestCase):
         self.test_user.save()
 
     def test_view_authorized_users_only(self):
-        """Checks that TimeIsUp view and relevant site page are only available to authorized users"""
+        """Checks that TimeIsUp view and relevant site page are only available to authorized users."""
         response = self.client.get('/questions/time_is_up/')
         self.assertEqual(response.url, f'/users/login/?next=/questions/time_is_up/')
         self.assertEqual(response.status_code, 302)
 
     def test_view_url_exists_at_desired_location(self):
-        """Checks that the view URL exists in the desired location"""
+        """Checks that the view URL exists in the desired location."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get('/questions/time_is_up/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        """Checks if the view URL is available by name"""
+        """Checks if the view URL is available by name."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(reverse('questions:time_is_up'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template_and_title(self):
-        """Checks that the view uses the correct template and title"""
+        """Checks that the view uses the correct template and title."""
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.get(reverse('questions:time_is_up'))
         self.assertEqual(response.status_code, 200)
@@ -596,15 +595,15 @@ class TestTimeIsUp(TestCase):
 if settings.DEBUG:
 
     class Test404Page(TestCase):
-        """Custom handler404 test"""
+        """Custom handler404 test."""
 
         def test_view_url_exists_at_desired_location(self):
-            """Checks that the view URL exists in the desired location"""
+            """Checks that the view URL exists in the desired location."""
             response = self.client.get('/404/')
             self.assertEqual(response.status_code, 404)
 
         def test_view_uses_correct_template_and_title(self):
-            """Checks that the view uses the correct template and title"""
+            """Checks that the view uses the correct template and title."""
             response = self.client.get('/404/')
             self.assertEqual(response.status_code, 404)
             self.assertTemplateUsed(response, 'questions/page_not_found.html')

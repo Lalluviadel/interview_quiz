@@ -1,0 +1,1450 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>myadmin.tests package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="questions" href="../questions/modules.html" />
+    <link rel="prev" title="myadmin package" href="myadmin.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="myadmin-tests-package">
+<h1>myadmin.tests package<a class="headerlink" href="#myadmin-tests-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-myadmin.tests.test_forms">
+<span id="myadmin-tests-test-forms-module"></span><h2>myadmin.tests.test_forms module<a class="headerlink" href="#module-myadmin.tests.test_forms" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the forms of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestCategoryForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestCategoryForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestCategoryForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test for the CategoryForm form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestCategoryForm.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestCategoryForm.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing data for the form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestCategoryForm.test_admin_category_create">
+<span class="sig-name descname"><span class="pre">test_admin_category_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestCategoryForm.test_admin_category_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestCategoryForm.test_admin_category_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_admin_category_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestCategoryForm.test_admin_category_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the classes and the composition of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestPostForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestPostForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestPostForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test for the PostForm form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestPostForm.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestPostForm.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing data for the form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestPostForm.test_admin_post_create">
+<span class="sig-name descname"><span class="pre">test_admin_post_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestPostForm.test_admin_post_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestPostForm.test_admin_post_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_admin_post_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestPostForm.test_admin_post_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the classes and the composition of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestQuestionForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestQuestionForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestQuestionForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test for the QuestionForm form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestQuestionForm.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestQuestionForm.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing data for the form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestQuestionForm.test_admin_question_create">
+<span class="sig-name descname"><span class="pre">test_admin_question_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestQuestionForm.test_admin_question_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestQuestionForm.test_admin_question_create_no_right_answer_error">
+<span class="sig-name descname"><span class="pre">test_admin_question_create_no_right_answer_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestQuestionForm.test_admin_question_create_no_right_answer_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test to check the transmission of an error to the form that the correct answer
+does not match any of the answer options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestQuestionForm.test_admin_question_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_admin_question_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestQuestionForm.test_admin_question_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the classes and the composition of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserAdminProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleTestCase</span></code></p>
+<p>Test for the UserAdminProfileForm form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminProfileForm.test_admin_user_profile_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_admin_user_profile_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminProfileForm.test_admin_user_profile_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the classes of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminProfileForm.test_admin_user_profile_form_fields_readonly">
+<span class="sig-name descname"><span class="pre">test_admin_user_profile_form_fields_readonly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminProfileForm.test_admin_user_profile_form_fields_readonly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that individual not editable fields are editable in the admin panel.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_forms.</span></span><span class="sig-name descname"><span class="pre">TestUserAdminRegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test for the UserAdminRegisterForm form.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TestUserAdminRegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test for the UserAdminRegisterForm form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing data for the form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.test_admin_user_created">
+<span class="sig-name descname"><span class="pre">test_admin_user_created</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.test_admin_user_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.test_user_admin_register_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_user_admin_register_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.TestUserAdminRegisterForm.test_user_admin_register_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking the classes of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing data for the form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.test_admin_user_create">
+<span class="sig-name descname"><span class="pre">test_admin_user_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.test_admin_user_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form health test and verification of the creation of a new record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_forms.TestUserAdminRegisterForm.test_admin_user_register_form_fields_class">
+<span class="sig-name descname"><span class="pre">test_admin_user_register_form_fields_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_forms.TestUserAdminRegisterForm.test_admin_user_register_form_fields_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the classes and the composition of form fields for their correct display in HTML.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-myadmin.tests.test_views">
+<span id="myadmin-tests-test-views-module"></span><h2>myadmin.tests.test_views module<a class="headerlink" href="#module-myadmin.tests.test_views" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the views of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminCategoriesCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>CategoriesCreateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that CategoriesCreateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesCreateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminCategoriesDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>CategoriesDeleteView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_deactivate_category">
+<span class="sig-name descname"><span class="pre">test_view_deactivate_category</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_deactivate_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the activation of a specific category.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_delete_category">
+<span class="sig-name descname"><span class="pre">test_view_delete_category</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_delete_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the deletion of a specific category.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that CategoriesDeleteView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_uses_correct_template">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesDeleteView.test_view_uses_correct_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminCategoriesListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserSeveralCategories" title="myadmin.tests.test_views.TestAdminOneUserSeveralCategories"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserSeveralCategories</span></code></a></p>
+<p>CategoriesListView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that CategoriesListView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_context_object_name">
+<span class="sig-name descname"><span class="pre">test_view_uses_context_object_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the specified context object name is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_pagination_page_2">
+<span class="sig-name descname"><span class="pre">test_view_uses_pagination_page_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesListView.test_view_uses_pagination_page_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that pagination is used and 2 objects are displayed on the page, the second page is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminCategoriesUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>CategoriesUpdateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that CategoriesUpdateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminCategoriesUpdateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserOneCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminOneUserOneCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class with shared settings: creating one test user and one test category.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserOneCategory.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user and category objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserSeveralCategories">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminOneUserSeveralCategories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserSeveralCategories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class with shared settings: creating one test user and several test categories.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserSeveralCategories.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserSeveralCategories.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user and categories objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserTwoCategories">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminOneUserTwoCategories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserTwoCategories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class with shared settings: creating one test user and two test categories.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminOneUserTwoCategories.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminOneUserTwoCategories.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user and category objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminPanelView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>AdminPanelView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AdminPanelView view and relevant site page are only available to superusers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPanelView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPanelView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminPostCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>PostCreateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_post_new_post_create">
+<span class="sig-name descname"><span class="pre">test_post_new_post_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_post_new_post_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the creation of a new post with automatic assignment
+of the author after the user sends the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that PostCreateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostCreateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostCreateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminPostDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>PostDeleteView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, post and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_deactivate_post">
+<span class="sig-name descname"><span class="pre">test_view_deactivate_post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_deactivate_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the activation of a specific post.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_delete_post">
+<span class="sig-name descname"><span class="pre">test_view_delete_post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_delete_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the deletion of a specific post.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that PostDeleteView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostDeleteView.test_view_uses_correct_template">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostDeleteView.test_view_uses_correct_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminPostListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserTwoCategories" title="myadmin.tests.test_views.TestAdminOneUserTwoCategories"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserTwoCategories</span></code></a></p>
+<p>PostListView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, posts and categories objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_filter_queryset">
+<span class="sig-name descname"><span class="pre">test_view_filter_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_filter_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the filtering of queryset posts according to the category value
+set by the user and the placement of the filter value in the session.
+Also checks the removal of the filter from the session and the return of
+the correct queryset when the user removes the filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that PostListView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_uses_context_object_name">
+<span class="sig-name descname"><span class="pre">test_view_uses_context_object_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_uses_context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the specified context object name is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostListView.test_view_uses_pagination_page_2">
+<span class="sig-name descname"><span class="pre">test_view_uses_pagination_page_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostListView.test_view_uses_pagination_page_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that pagination is used and 3 objects are displayed on the page, the second page is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminPostUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>PostUpdateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, post and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that PostUpdateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminPostUpdateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminPostUpdateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminQuestionCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>QuestionCreateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_post_new_question_create">
+<span class="sig-name descname"><span class="pre">test_post_new_question_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_post_new_question_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the creation of a new question with automatic assignment
+of the author after the user sends the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that QuestionCreateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionCreateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminQuestionDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>QuestionDeleteView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, question and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_deactivate_question">
+<span class="sig-name descname"><span class="pre">test_view_deactivate_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_deactivate_question" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the activation of a specific question.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_delete_question">
+<span class="sig-name descname"><span class="pre">test_view_delete_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_delete_question" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the deletion of a specific question.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that QuestionDeleteView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_uses_correct_template">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionDeleteView.test_view_uses_correct_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminQuestionListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserTwoCategories" title="myadmin.tests.test_views.TestAdminOneUserTwoCategories"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserTwoCategories</span></code></a></p>
+<p>QuestionListView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, questions and categories objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_filter_queryset">
+<span class="sig-name descname"><span class="pre">test_view_filter_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_filter_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the filtering of queryset questions according to the category value
+set by the user and the placement of the filter value in the session.
+Also checks the removal of the filter from the session and the return of
+the correct queryset when the user removes the filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that QuestionListView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_context_object_name">
+<span class="sig-name descname"><span class="pre">test_view_uses_context_object_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the specified context object name is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_pagination_page_2">
+<span class="sig-name descname"><span class="pre">test_view_uses_pagination_page_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionListView.test_view_uses_pagination_page_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that pagination is used and 3 objects are displayed on the page, the second page is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminQuestionUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>QuestionUpdateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, question and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that QuestionUpdateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminQuestionUpdateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminSeveralUsers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminSeveralUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminSeveralUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class with shared settings: creating several test users.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminSeveralUsers.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminSeveralUsers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminTwoUsers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminTwoUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminTwoUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent class with shared settings: creating two test users.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminTwoUsers.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminTwoUsers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminUserCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>UserCreateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserCreateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserCreateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserCreateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminUserDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminTwoUsers" title="myadmin.tests.test_views.TestAdminTwoUsers"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminTwoUsers</span></code></a></p>
+<p>UserDeleteView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_activate_user">
+<span class="sig-name descname"><span class="pre">test_view_activate_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_activate_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the activation of a specific user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_delete_user">
+<span class="sig-name descname"><span class="pre">test_view_delete_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the deletion of a specific user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserDeleteView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserDeleteView.test_view_uses_correct_template">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserDeleteView.test_view_uses_correct_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminUserIsStaff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminTwoUsers" title="myadmin.tests.test_views.TestAdminTwoUsers"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminTwoUsers</span></code></a></p>
+<p>UserIsStaff test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_removing_user_stuff_rights">
+<span class="sig-name descname"><span class="pre">test_view_removing_user_stuff_rights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_removing_user_stuff_rights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test of removing superuser rights from a user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_set_user_stuff_rights">
+<span class="sig-name descname"><span class="pre">test_view_set_user_stuff_rights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_set_user_stuff_rights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test of granting the user the rights of a superuser.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserIsStaff view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserIsStaff.test_view_uses_correct_template">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserIsStaff.test_view_uses_correct_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminUserListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminSeveralUsers" title="myadmin.tests.test_views.TestAdminSeveralUsers"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminSeveralUsers</span></code></a></p>
+<p>UserListView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserListView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_uses_context_object_name">
+<span class="sig-name descname"><span class="pre">test_view_uses_context_object_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_uses_context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the specified context object name is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserListView.test_view_uses_pagination_page_2">
+<span class="sig-name descname"><span class="pre">test_view_uses_pagination_page_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserListView.test_view_uses_pagination_page_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that pagination is used and 3 objects are displayed on the page, the second page is used.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminUserUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminTwoUsers" title="myadmin.tests.test_views.TestAdminTwoUsers"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminTwoUsers</span></code></a></p>
+<p>UserUpdateView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserUpdateView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_uses_correct_form_class">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_uses_correct_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct form class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminUserUpdateView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminUserUpdateView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminsSearchCategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserSeveralCategories" title="myadmin.tests.test_views.TestAdminOneUserSeveralCategories"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserSeveralCategories</span></code></a></p>
+<p>AdminsSearchCategoryView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_returns_correctly_filtered_queryset">
+<span class="sig-name descname"><span class="pre">test_view_returns_correctly_filtered_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_returns_correctly_filtered_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view returns a correctly filtered queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AdminsSearchCategoryView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchCategoryView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminsSearchPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>AdminsSearchPostView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, post and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_returns_correctly_filtered_queryset">
+<span class="sig-name descname"><span class="pre">test_view_returns_correctly_filtered_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_returns_correctly_filtered_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view returns a correctly filtered queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AdminsSearchPostView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchPostView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchPostView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminsSearchQuestionView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminOneUserOneCategory" title="myadmin.tests.test_views.TestAdminOneUserOneCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminOneUserOneCategory</span></code></a></p>
+<p>AdminsSearchQuestionView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test user, question and category objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_returns_correctly_filtered_queryset">
+<span class="sig-name descname"><span class="pre">test_view_returns_correctly_filtered_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_returns_correctly_filtered_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view returns a correctly filtered queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AdminsSearchQuestionView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchQuestionView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAdminsSearchUserView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.tests.test_views.TestAdminSeveralUsers" title="myadmin.tests.test_views.TestAdminSeveralUsers"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestAdminSeveralUsers</span></code></a></p>
+<p>AdminsSearchUserView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view and relevant site page are not available to unauthorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_returns_correctly_filtered_queryset">
+<span class="sig-name descname"><span class="pre">test_view_returns_correctly_filtered_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_returns_correctly_filtered_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that view returns a correctly filtered queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_superusers_only">
+<span class="sig-name descname"><span class="pre">test_view_superusers_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_superusers_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AdminsSearchUserView view and relevant site page are only available to superusers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.tests.test_views.TestAdminsSearchUserView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.tests.test_views.TestAdminsSearchUserView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-myadmin.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-myadmin.tests" title="Permalink to this heading">¶</a></h2>
+<p>The subpackage contains unit and integration tests for checking the forms
+and views of the web application.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">myadmin</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="myadmin.html">myadmin package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="myadmin.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="myadmin.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">myadmin</a><ul>
+  <li><a href="myadmin.html">myadmin package</a><ul>
+      <li>Previous: <a href="myadmin.html" title="previous chapter">myadmin package</a></li>
+      <li>Next: <a href="../questions/modules.html" title="next chapter">questions</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/myadmin/myadmin.tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
