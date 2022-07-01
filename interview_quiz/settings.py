@@ -224,22 +224,26 @@ LOGGING = {
         }
     },
     'loggers': {
-        # '': {
-        #     'level': 'DEBUG',
-        #     'handlers': ['console', 'file'],
-        #     # 'propagate': True
-        # },
+        '': {
+            'level': 'DEBUG',
+            # 'handlers': ['console', 'file'],
+            'handlers': ['file'],
+            # 'propagate': True
+        },
         'django.request': {
             'level': 'WARNING',
-            'handlers': ['console', 'file']
+            'handlers': ['file']
+            # 'handlers': ['console', 'file']
         },
         'django.security.*': {
             'level': 'WARNING',
-            'handlers': ['console', 'file']
+            'handlers': ['file']
+            # 'handlers': ['console', 'file']
         },
         'django.security.csrf': {
             'level': 'WARNING',
-            'handlers': ['console', 'file']
+            'handlers': ['file']
+            # 'handlers': ['console', 'file']
         },
         'loggers.users': {
             'level': 'ERROR',
