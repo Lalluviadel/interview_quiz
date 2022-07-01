@@ -212,10 +212,10 @@ LOGGING = {
         "rich": {"datefmt": "[%X]"}
     },
     'handlers': {
-        'console': {
-            'class': 'rich.logging.RichHandler',
-            'formatter': 'console'
-        },
+        # 'console': {
+        #     'class': 'rich.logging.RichHandler',
+        #     'formatter': 'console'
+        # },
         'file': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
