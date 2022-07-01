@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'social_django',
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
-    'template_profiler_panel',
+    # 'template_profiler_panel',
     'django_extensions',
 ]
 
