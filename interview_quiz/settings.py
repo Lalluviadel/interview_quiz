@@ -224,11 +224,11 @@ LOGGING = {
         }
     },
     'loggers': {
-        '': {
-            'level': 'DEBUG',
-            'handlers': ['console', 'file'],
-            # 'propagate': True
-        },
+        # '': {
+        #     'level': 'DEBUG',
+        #     'handlers': ['console', 'file'],
+        #     # 'propagate': True
+        # },
         'django.request': {
             'level': 'WARNING',
             'handlers': ['console', 'file']
