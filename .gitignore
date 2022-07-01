@@ -3,9 +3,9 @@ Thumbs.db
 123.py
 .env
 *.simple
-*.png
-*.jpg
-/static/
+*/admin/
+*/vendor/img/No_Useful
+*/debug_toolbar
 *.json
 *.log
 _trial_temp
