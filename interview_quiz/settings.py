@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
     # 'template_profiler_panel',
-    'django_extensions',
+    # 'django_extensions',
 ]
 
 MIDDLEWARE = [
