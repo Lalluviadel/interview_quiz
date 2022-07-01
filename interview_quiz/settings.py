@@ -227,7 +227,7 @@ LOGGING = {
         '': {
             'level': 'DEBUG',
             'handlers': ['console', 'file'],
-            'propagate': True
+            # 'propagate': True
         },
         'django.request': {
             'level': 'WARNING',
@@ -244,7 +244,7 @@ LOGGING = {
         'loggers.users': {
             'level': 'ERROR',
             'handlers': ['file'],
-            'propagate': True
+            # 'propagate': True
         },
     }
 }
