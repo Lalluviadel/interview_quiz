@@ -15,3 +15,4 @@ htmlcov/
 coverage.xml
 *.cover
 docs/
+db.sqlite3
