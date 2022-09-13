@@ -71,7 +71,7 @@ def save_new_user(backend, user, response, *args, **kwargs):
         user.delete()
         logger.warning('VK - Попытка регистрации ребенка младше 10 лет')
         raise AuthForbidden('social_core.backends.vk.VK0Auth2')
-    user.is_active = True
+    user.is_active, user.social_network = True, True
     user.save()
 
 

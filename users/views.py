@@ -14,6 +14,7 @@ Here are the views:
 
 """
 import logging
+from smtplib import SMTPAuthenticationError
 
 from django.contrib import auth, messages
 from django.contrib.auth.views import PasswordResetConfirmView, PasswordResetCompleteView, LoginView, LogoutView, \
@@ -71,18 +72,27 @@ class RegisterView(FormView, TitleMixin):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             user = form.save()
-            if self.send_verify_link(user):
-                messages.success(request, 'Для завершения регистрации используйте ссылку из письма, отправленного '
-                                          'на email, указанный при регистрации.')
+            try:
+                if self.send_verify_link(user):
+                    messages.success(request, 'Для завершения регистрации используйте ссылку из письма, отправленного '
+                                              'на email, указанный при регистрации.')
 
-            else:
-                msg = f'К сожалению, произошел сбой, письмо для завершения регистрации не было отослано. ' \
-                      f'Для активации вашего профиля напишите письмо на адрес {EMAIL_HOST_USER}'
-                messages.error(request, msg)
-            return HttpResponseRedirect(reverse('users:register'))
+                else:
+                    msg = f'К сожалению, произошел сбой, письмо для завершения регистрации не было отослано. ' \
+                          f'Для активации вашего профиля напишите письмо на адрес {EMAIL_HOST_USER}'
+                    messages.error(request, msg)
+                return HttpResponseRedirect(reverse('users:register'))
+            except SMTPAuthenticationError:
+                messages.error(request, 'К сожалению, произошел сбой. Пользователь с указанными данными не был'
+                                        'зарегистрирован.')
+                logger.error('SMTPAuthenticationError while user registration')
+                user.delete()
+                return render(request, 'registration/register.html', context={'form': form, })
         else:
+            messages.error(request, 'Убедитесь, что вы ввели корректные данные.')
             logger.warning('Неудачная попытка регистрации пользователя')
         return render(request, 'registration/register.html', context={'form': form, })
+
 
     @staticmethod
     def send_verify_link(user):
@@ -376,9 +386,9 @@ class UserPasswordResetView(PasswordResetView, TitleMixin):
             form.save(DOMAIN_NAME, email_template_name=self.email_template_name,
                       subject_template_name=self.subject_template_name, from_email=self.from_email,
                       extra_email_context=context)
-            return render(request, 'registration/password_reset_email_sent.html')
+            return render(request, 'registration/password_reset_email_sent.html', {'title': self.title})
         else:
-            return render(request, 'registration/password_reset.html', context={'form': form, })
+            return render(request, 'registration/password_reset.html', context={'form': form, 'title': self.title})
 
 
 class MyPasswordResetConfirmView(PasswordResetConfirmView, TitleMixin):

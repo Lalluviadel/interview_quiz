@@ -1,5 +1,8 @@
-<form id="profile_form" method="POST"  enctype="multipart/form-data">
+<form id="profile_form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    {% if user.social_network %}
+        <div class="row-cols-1 border border-grey p-2">Извините, при авторизации посредством соцсети вы не можете редактировать профиль.</div>
+    {% endif %}
     <div class="form-row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -15,8 +18,14 @@
         </div>
     </div>
     <div class="form-row">
-        <button class="btn mt-4 btn-primary btn-lg gradient btn-block" type="submit" id="profile_submit">
-            Сохранить
-        </button>
+        {% if user.social_network %}
+            <input type="button" class="btn mt-4 btn-primary btn-lg gradient btn-block"
+                   onclick="window.location.href = '{% url 'users:profile' %}';"
+                   value="Отмена"/>
+        {% else %}
+            <button class="btn mt-4 btn-primary btn-lg gradient btn-block" type="submit" id="profile_submit">
+                Сохранить
+            </button>
+        {% endif %}
     </div>
 </form>

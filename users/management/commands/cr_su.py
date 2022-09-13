@@ -7,6 +7,6 @@ from django.contrib.auth.models import User
 class Command(BaseCommand):
     """A command for quickly creating a superuser."""
     def handle(self, *args, **options):
-        user = MyUser.objects.create_superuser('drf', 'd@mail.ru', '1')
+        user = MyUser.objects.create_superuser('qwerty', 'd@mail.ru', '1')
         user.is_active = True
         user.save()

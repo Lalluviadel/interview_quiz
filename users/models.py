@@ -36,6 +36,7 @@ class MyUser(AbstractUser):
     activation_key = models.CharField(max_length=128, blank=True, null=True)
     activation_key_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     info = models.BooleanField(default=True)
+    social_network = models.BooleanField(default=False)
 
     def __str__(self):
         """Forms a printable representation of the object.

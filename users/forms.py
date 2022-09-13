@@ -192,6 +192,11 @@ class UserChangeProfileForm(UserChangeForm):
         super(UserChangeProfileForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control py-4'
+            try:
+                if kwargs['instance'].social_network:
+                    field.widget.attrs.update({'disabled': 'disabled'})
+            except Exception:
+                logger.error('Ошибка дезактивации полей формы редактирования профиля для профиля из соцсетей.')
 
     def clean_first_name(self):
         """Checks the data in the firstname field (for their length and whether it contains only numbers)."""

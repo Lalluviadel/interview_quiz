@@ -143,7 +143,7 @@ class UserDeleteView(DeleteView, UserDispatchMixin):
 
             result = render_to_string('myadmin/includes/table-users.html', request=request, context=context)
             return JsonResponse({'result': result})
-        return render(request, 'myadmin/users/users-viewing.html')
+        return HttpResponseRedirect(reverse('myadmin:admins_user_update', kwargs=kwargs))
 
 
 class UserIsStaff(UpdateView, UserDispatchMixin):
@@ -249,7 +249,7 @@ class CategoriesDeleteView(DeleteView, UserDispatchMixin):
 
             result = render_to_string('myadmin/includes/table-categories.html', request=request, context=context)
             return JsonResponse({'result': result})
-        return render(request, 'myadmin/categories/category-viewing.html')
+        return HttpResponseRedirect(reverse('myadmin:admins_category_update', kwargs=kwargs))
 
 
 class QuestionListView(BaseListView):
@@ -340,7 +340,7 @@ class QuestionDeleteView(BaseDeleteView):
             context = {'page_obj': page_obj}
             result = render_to_string('myadmin/includes/table-questions.html', request=request, context=context)
             return JsonResponse({'result': result})
-        return render(request, 'myadmin/questions/question-viewing.html')
+        return HttpResponseRedirect(reverse('myadmin:admins_question_update', kwargs=kwargs))
 
 
 class PostListView(BaseListView):
@@ -426,7 +426,7 @@ class PostDeleteView(BaseDeleteView):
             context = {'page_obj': page_obj}
             result = render_to_string('myadmin/includes/table-posts.html', request=request, context=context)
             return JsonResponse({'result': result})
-        return render(request, 'myadmin/posts/post-viewing.html')
+        return HttpResponseRedirect(reverse('myadmin:admins_post_update', kwargs=kwargs))
 
 
 class AdminsSearchUserView(ListView, TitleMixin, UserDispatchMixin):
