@@ -1,0 +1,49 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center mb-1">
+                {% if object_list %}
+
+                    <h1 class="mt-4 h1-title">Все статьи по поисковому запросу:</h1>
+                    <div class="text-justify mt-4">
+
+                        {% for post in object_list %}
+                            <ul class="list-group">
+                                <li class="list-group-item text-adaptive">
+                                    <a href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+                    <h1 class="mt-4 h1-title">Статей на запрошенную тему пока нет.</h1>
+                    <h3 class="mt-4 h1-title">Возможно, вы могли бы написать такую статью?</h3>
+                    <div class="row mt-5">
+                        <div class="col-12 mt-4">
+                            <img width="100px"
+                                 src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-lg-6 mt-1">
+                            <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'posts:all' %}">
+                                К статьям</a>
+                        </div>
+                        <div class="col-lg-6 mt-1">
+                            <a class='btn btn-primary btn-block mt-3 mb-1'
+                               href="{% url 'users:user_post_create' %}">
+                                Написать статью</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

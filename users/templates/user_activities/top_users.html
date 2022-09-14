@@ -1,0 +1,45 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4 h1-title">Пятерка лучших</h1>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered wigth-100 dtBasicExample" id="example">
+                                    <thead>
+                                    <tr>
+                                        <th>Счет</th>
+                                        <th>Никнейм</th>
+                                        <th>Имя</th>
+                                        <th>Фамилия</th>
+                                        <th>Зарегистрирован</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in top_users %}
+                                        <tr>
+                                            <td class="oranged font-xl"><b>{{ user.score }}</b></td>
+                                            <td><a href="{% url 'posts:user_posts' user.id %}"
+                                                   class="oranged font-xl" data-toggle="tooltip"
+                                                   title="Все статьи {{ user.username }}">{{ user.username }}</a></td>
+                                            <td>{{ user.first_name }}</td>
+                                            <td>{{ user.last_name }}</td>
+                                            <td>{{ user.date_joined }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

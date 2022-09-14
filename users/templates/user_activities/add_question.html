@@ -1,0 +1,35 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+
+        {% include 'includes/modal.html' %}
+
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Новый вопрос</h1>
+                <div class="card-body user-activity">
+
+                    {% include 'includes/question_form.html' %}
+
+                </div>
+                <div class="mb-4">
+                    <div class="form-row mt-lg-5">
+                        <div class="col-lg-6">
+                            <input type="button" class="btn btn-dark btn-block"
+                                   onclick="window.location.href = '{% url 'users:profile' %}';"
+                                   value="Отмена"/>
+                        </div>
+                        <div class="col-lg-6">
+                            <input class="btn btn-outline-dark btn-orange btn-block confirm-action" type="submit"
+                                   value="Сохранить">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

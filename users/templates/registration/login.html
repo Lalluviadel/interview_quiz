@@ -1,0 +1,83 @@
+{% extends 'questions/base.html' %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <form action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+
+                <div class="staff">
+                    <ul class="errorlist">
+                        {% if messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                                 style="margin-top: 50px;">
+                                {% for message in messages %}
+                                    <div{% if message.tags %}
+                                        class="{{ message.tags }}"{% endif %}>{{ message|escape }}</div>
+                                {% endfor %}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endif %}
+
+                        {% if form.non_field_errors %}
+                            <li>{{ form.non_field_errors }}</li>
+                        {% endif %}
+                        {% for field in form %}
+                            {% if field.errors %}
+                                <li>
+                                    {{ field.label }}
+                                    <ul class="errorlist">
+                                        {% for error in field.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+                <div class="container-fluid text-center">
+                    <h1 class="mt-4">Авторизация</h1>
+                    <div class="row justify-content-center">
+                        <div class="card-user shadow-lg border-0 rounded-lg mt-3 form-adaptive-width">
+                            <div class="card-header-user header-h2">
+                                Введите логин и пароль
+                            </div>
+                            <div class="card-body justify-content-center">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputEmailAddress">Имя пользователя</label>
+                                    {{ form.username }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputPassword">Пароль</label>
+                                    {{ form.password }}
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                    <a class="small" href="{% url 'users:password_reset' %}">Забыли пароль?</a>
+                                    <input class="btn btn-dark" type="submit" value="Авторизоваться">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="list-group-horizontal card-footer text-center small">
+
+                <button class="btn btn-orange btn-outline-info btn-lg" onclick="window.location.href=
+                        '{% url 'social:begin' 'vk-oauth2' %}?next=/'">
+                    Войти <i class=" fab fa-vk"></i>
+                </button>
+            </div>
+            <div class="card-footer text-center">
+                <div class="small"><a href="{% url 'users:register' %}">Нужен аккаунт? Зарегистрируйся!</a>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

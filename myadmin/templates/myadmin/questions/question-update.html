@@ -77,7 +77,7 @@
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка для вопроса</p>
                                 <img width="300" height="300"
-                                     src="{% if question.image_01 %} {{ question.image_01.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     src="{% if question.image_01 %} {{ question.image_01.url }} {% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
                                      class="img-thumbnail" alt="">
                                 <div class="custom-file">
                                     {{ form.image_01 }}
@@ -86,7 +86,7 @@
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка 1 для пояснения ответа</p>
                                 <img width="300" height="300"
-                                     src="{% if question.image_02 %} {{ question.image_02.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     src="{% if question.image_02 %} {{ question.image_02.url }} {% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
                                      class="img-thumbnail" alt="">
                                 <div class="custom-file">
                                     {{ form.image_02 }}
@@ -95,7 +95,7 @@
                             <div class="col-lg-4">
                                 <p class="text-center">Картинка 2 для пояснения ответа</p>
                                 <img width="300" height="300"
-                                     src="{% if question.image_03 %} {{ question.image_03.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     src="{% if question.image_03 %} {{ question.image_03.url }} {% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
                                      class="img-thumbnail" alt="">
                                 <div class="custom-file">
                                     {{ form.image_03 }}
@@ -121,7 +121,7 @@
                                           method="post">
                                         {% csrf_token %}
                                         <input class="btn btn-dark btn-block"
-                                               value="Удалить"
+                                               value="Деактивировать"
                                                type="submit">
                                     </form>
                                     </div>

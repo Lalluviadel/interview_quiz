@@ -1,0 +1,1369 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>users package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="users.tests package" href="users.tests.html" />
+    <link rel="prev" title="users" href="modules.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="users-package">
+<h1>users package<a class="headerlink" href="#users-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="users.tests.html">users.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.tests.html#module-users.tests.test_forms">users.tests.test_forms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.tests.html#module-users.tests.test_models">users.tests.test_models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.tests.html#module-users.tests.test_views">users.tests.test_views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.tests.html#module-users.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<section id="module-users.admin">
+<span id="users-admin-module"></span><h3>users.admin module<a class="headerlink" href="#module-users.admin" title="Permalink to this heading">¶</a></h3>
+<p>Provides package integration into the admin panel.</p>
+</section>
+<section id="module-users.apps">
+<span id="users-apps-module"></span><h3>users.apps module<a class="headerlink" href="#module-users.apps" title="Permalink to this heading">¶</a></h3>
+<p>Automatically created by Django to configure the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.apps.UsersConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.apps.</span></span><span class="sig-name descname"><span class="pre">UsersConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.apps.UsersConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Users app configuration, automatically created Django class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.apps.UsersConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#users.apps.UsersConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.apps.UsersConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users'</span></em><a class="headerlink" href="#users.apps.UsersConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-users.forms">
+<span id="users-forms-module"></span><h3>users.forms module<a class="headerlink" href="#module-users.forms" title="Permalink to this heading">¶</a></h3>
+<p>Contains forms for registration and authorization of the user, recovery of his password.
+To manage the user’s profile, forms are implemented in which he can change some of his data,
+as well as change his avatar. In addition, there is a form for writing a message to the admin.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">MyPasswordResetForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.MyPasswordResetForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetForm</span></code></p>
+<p>A form for user password recovery.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.MyPasswordResetForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('email',)</span></em><a class="headerlink" href="#users.forms.MyPasswordResetForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.MyPasswordResetForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.MyPasswordResetForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.clean_email">
+<span class="sig-name descname"><span class="pre">clean_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.MyPasswordResetForm.clean_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the email address that the user specified for password recovery was used for registration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.MyPasswordResetForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.error_messages">
+<span class="sig-name descname"><span class="pre">error_messages</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'invalid_email':</span> <span class="pre">'Пожалуйста,</span> <span class="pre">введите</span> <span class="pre">верный</span> <span class="pre">email.</span> <span class="pre">Введенный</span> <span class="pre">вами</span> <span class="pre">email</span> <span class="pre">не</span> <span class="pre">связан</span> <span class="pre">с</span> <span class="pre">аккаунтом'}</span></em><a class="headerlink" href="#users.forms.MyPasswordResetForm.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.MyPasswordResetForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.MyPasswordResetForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">UserChangeProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserChangeProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeForm</span></code></p>
+<p>A form for the user to edit his profile.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.UserChangeProfileForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'img')</span></em><a class="headerlink" href="#users.forms.UserChangeProfileForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.UserChangeProfileForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserChangeProfileForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.clean_first_name">
+<span class="sig-name descname"><span class="pre">clean_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserChangeProfileForm.clean_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data in the firstname field (for their length and whether it contains only numbers).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.clean_last_name">
+<span class="sig-name descname"><span class="pre">clean_last_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserChangeProfileForm.clean_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data in the lastname field (for their length and whether it contains only numbers).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserChangeProfileForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.error_messages">
+<span class="sig-name descname"><span class="pre">error_messages</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'invalid_first_name':</span> <span class="pre">'Имя</span> <span class="pre">должно</span> <span class="pre">быть</span> <span class="pre">длиннее</span> <span class="pre">3</span> <span class="pre">символов</span> <span class="pre">-</span> <span class="pre">вы</span> <span class="pre">ввели</span> <span class="pre">%(value)s',</span> <span class="pre">'invalid_last_name':</span> <span class="pre">'Фамилия</span> <span class="pre">должна</span> <span class="pre">быть</span> <span class="pre">длиннее</span> <span class="pre">3</span> <span class="pre">символов</span> <span class="pre">-</span> <span class="pre">вы</span> <span class="pre">ввели</span> <span class="pre">%(value)s',</span> <span class="pre">'only_digits':</span> <span class="pre">'Имя,</span> <span class="pre">никнейм</span> <span class="pre">и</span> <span class="pre">фамилия</span> <span class="pre">не</span> <span class="pre">могут</span> <span class="pre">являться</span> <span class="pre">числом'}</span></em><a class="headerlink" href="#users.forms.UserChangeProfileForm.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.UserChangeProfileForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.UserChangeProfileForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">UserImgChangeProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserImgChangeProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeForm</span></code></p>
+<p>A form for the user to edit his avatar.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('img',)</span></em><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.UserImgChangeProfileForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.UserImgChangeProfileForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">UserLoginForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserLoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AuthenticationForm</span></code></p>
+<p>A form for authorization of registered users.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.UserLoginForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'password')</span></em><a class="headerlink" href="#users.forms.UserLoginForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.UserLoginForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.contrib.auth.forms.UsernameField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserLoginForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.contrib.auth.forms.UsernameField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserLoginForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.error_messages">
+<span class="sig-name descname"><span class="pre">error_messages</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'invalid_login':</span> <span class="pre">'Пожалуйста,</span> <span class="pre">введите</span> <span class="pre">верный</span> <span class="pre">логин</span> <span class="pre">и</span> <span class="pre">пароль</span> <span class="pre">с</span> <span class="pre">учетом</span> <span class="pre">регистра'}</span></em><a class="headerlink" href="#users.forms.UserLoginForm.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.UserLoginForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.UserLoginForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">UserProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeForm</span></code></p>
+<p>The form has two purposes: in the admin panel it is used to edit user data,
+and in the main part it is necessary for the user to view his profile.
+The admin panel uses a child class of this form.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.UserProfileForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'email',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'img',</span> <span class="pre">'score')</span></em><a class="headerlink" href="#users.forms.UserProfileForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.UserProfileForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;,</span> <span class="pre">'score':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserProfileForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserProfileForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.UserProfileForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.UserProfileForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">UserRegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserRegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<p>A form for registering new users.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#users.forms.UserRegisterForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'email',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'password1',</span> <span class="pre">'password2')</span></em><a class="headerlink" href="#users.forms.UserRegisterForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.forms.UserRegisterForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserRegisterForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.clean_first_name">
+<span class="sig-name descname"><span class="pre">clean_first_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserRegisterForm.clean_first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data in the firstname field (for their length and whether it contains only numbers).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.clean_last_name">
+<span class="sig-name descname"><span class="pre">clean_last_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserRegisterForm.clean_last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data in the lastname field (for their length and whether it contains only numbers).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.clean_username">
+<span class="sig-name descname"><span class="pre">clean_username</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserRegisterForm.clean_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data in the username field (for their length and whether it contains only numbers).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.UserRegisterForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.error_messages">
+<span class="sig-name descname"><span class="pre">error_messages</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'invalid_first_name':</span> <span class="pre">'Имя</span> <span class="pre">должно</span> <span class="pre">быть</span> <span class="pre">длиннее</span> <span class="pre">3</span> <span class="pre">символов</span> <span class="pre">-</span> <span class="pre">вы</span> <span class="pre">ввели</span> <span class="pre">%(value)s',</span> <span class="pre">'invalid_last_name':</span> <span class="pre">'Фамилия</span> <span class="pre">должна</span> <span class="pre">быть</span> <span class="pre">длиннее</span> <span class="pre">3</span> <span class="pre">символов</span> <span class="pre">-</span> <span class="pre">вы</span> <span class="pre">ввели</span> <span class="pre">%(value)s',</span> <span class="pre">'invalid_username':</span> <span class="pre">'Никнейм</span> <span class="pre">должен</span> <span class="pre">быть</span> <span class="pre">длиннее</span> <span class="pre">3</span> <span class="pre">символов</span> <span class="pre">-</span> <span class="pre">вы</span> <span class="pre">ввели</span> <span class="pre">%(value)s',</span> <span class="pre">'only_digits':</span> <span class="pre">'Имя,</span> <span class="pre">никнейм</span> <span class="pre">и</span> <span class="pre">фамилия</span> <span class="pre">не</span> <span class="pre">могут</span> <span class="pre">являться</span> <span class="pre">числом',</span> <span class="pre">'password_mismatch':</span> <span class="pre">'Введенные</span> <span class="pre">пароли</span> <span class="pre">не</span> <span class="pre">совпадают'}</span></em><a class="headerlink" href="#users.forms.UserRegisterForm.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.UserRegisterForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.forms.UserRegisterForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.UserRegisterForm.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>When saving the form, an activation key is generated to confirm the registration of a new user.
+The user will remain inactive until the moment of clicking on the link from the email sent to his mail.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.forms.WriteAdminForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">WriteAdminForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.WriteAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<p>A form for the user to write a message for the admin.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.WriteAdminForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'grade':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.WriteAdminForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.forms.WriteAdminForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'grade':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#users.forms.WriteAdminForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="users.forms.WriteAdminForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#users.forms.WriteAdminForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.forms.len_validation">
+<span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">len_validation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.len_validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data length of the specified field.
+If the length is less than 3 characters, it adds an error message to the form.
+Next, it runs the following field check to see if the data entered by the user contains only numbers.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>obj (<cite>RegistrationForm</cite> or <cite>UserChangeProfileForm</cite>): form instance;</p></li>
+<li><p>field (<cite>str</cite>): data of the field being checked;</p></li>
+<li><p>field_name (<cite>str</cite>): name of the field to be checked;</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>field(<cite>str</cite>): name of the field to be checked.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.forms.num_validation">
+<span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">num_validation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.forms.num_validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether only numbers have been entered in the form field.
+This allows you to prevent the registration of users who have entered numbers
+instead of a name, username or surname.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>obj (<cite>RegistrationForm</cite>): form instance;</p></li>
+<li><p>field (<cite>str</cite>): data of the field being checked;</p></li>
+<li><p>field_name (<cite>str</cite>): name of the field to be checked;</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>field(<cite>str</cite>): name of the field to be checked.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.forms.random">
+<span class="sig-prename descclassname"><span class="pre">users.forms.</span></span><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">interval</span> <span class="pre">[0,</span> <span class="pre">1).</span></span></span><a class="headerlink" href="#users.forms.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-users.models">
+<span id="users-models-module"></span><h3>users.models module<a class="headerlink" href="#module-users.models" title="Permalink to this heading">¶</a></h3>
+<p>Stores the user model that is necessary for the interaction of site visitors with its content.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.models.MyUser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.models.</span></span><span class="sig-name descname"><span class="pre">MyUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractUser</span></code></p>
+<p>The model for the user.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="users.models.MyUser.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#users.models.MyUser.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="users.models.MyUser.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#users.models.MyUser.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.activation_key">
+<span class="sig-name descname"><span class="pre">activation_key</span></span><a class="headerlink" href="#users.models.MyUser.activation_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.activation_key_created">
+<span class="sig-name descname"><span class="pre">activation_key_created</span></span><a class="headerlink" href="#users.models.MyUser.activation_key_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.models.MyUser.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>When deleting a user, it also deletes the image belonging to it, if it existed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.models.MyUser.get_next_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_next_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser.get_next_by_date_joined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.models.MyUser.get_previous_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_previous_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser.get_previous_by_date_joined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.groups">
+<span class="sig-name descname"><span class="pre">groups</span></span><a class="headerlink" href="#users.models.MyUser.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#users.models.MyUser.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.img">
+<span class="sig-name descname"><span class="pre">img</span></span><a class="headerlink" href="#users.models.MyUser.img" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.info">
+<span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#users.models.MyUser.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.models.MyUser.is_activation_key_expired">
+<span class="sig-name descname"><span class="pre">is_activation_key_expired</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser.is_activation_key_expired" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the user has not managed to activate his profile during this time,
+he will have to register again.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.logentry_set">
+<span class="sig-name descname"><span class="pre">logentry_set</span></span><a class="headerlink" href="#users.models.MyUser.logentry_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.post_set">
+<span class="sig-name descname"><span class="pre">post_set</span></span><a class="headerlink" href="#users.models.MyUser.post_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.question_set">
+<span class="sig-name descname"><span class="pre">question_set</span></span><a class="headerlink" href="#users.models.MyUser.question_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.models.MyUser.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.MyUser.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the object. If a user edits his profile and wants to set
+an avatar or change it, the selected image is reduced to a size
+of 300x300 (if it is initially larger) and saved along the generated path.</p>
+<dl class="simple">
+<dt>The following path to the image will be assigned:</dt><dd><p>user_images/{username of the profile owner}_{name of the source image file}</p>
+</dd>
+<dt>Example:</dt><dd><ul class="simple">
+<li><p>username of the profile owner - <em>Test_user</em></p></li>
+<li><p>name of the source image file - <em>my_image_file.jpg</em></p></li>
+<li><p>path - <strong>user_images/Test_user_my_image_file.jpg</strong></p></li>
+</ul>
+</dd>
+<dt>Note:</dt><dd><p>it is assumed that the images will have a horizontal orientation,
+the vertical orientation images will be processed incorrectly and should not be used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.score">
+<span class="sig-name descname"><span class="pre">score</span></span><a class="headerlink" href="#users.models.MyUser.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.social_auth">
+<span class="sig-name descname"><span class="pre">social_auth</span></span><a class="headerlink" href="#users.models.MyUser.social_auth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.models.MyUser.user_permissions">
+<span class="sig-name descname"><span class="pre">user_permissions</span></span><a class="headerlink" href="#users.models.MyUser.user_permissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.models.users_image_path">
+<span class="sig-prename descclassname"><span class="pre">users.models.</span></span><span class="sig-name descname"><span class="pre">users_image_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.models.users_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and returns the path for the saved avatar of the user.
+It is necessary for the orderly storage of images.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>instance (<cite>MyUser</cite>): an instance of a user being created or modified.</p></li>
+<li><p>filename (<cite>str</cite>): the name under which the user’s image will be stored.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>str: the path to the saved file.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-users.pipeline">
+<span id="users-pipeline-module"></span><h3>users.pipeline module<a class="headerlink" href="#module-users.pipeline" title="Permalink to this heading">¶</a></h3>
+<p>Allows you to register and authorize using the VK social network profile.
+Retrieves all the necessary data for registration and the user’s avatar from the profile.
+Activation of the profile on the site with this option of registration is not required.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="users.pipeline.if_user_exists_pipeline">
+<span class="sig-prename descclassname"><span class="pre">users.pipeline.</span></span><span class="sig-name descname"><span class="pre">if_user_exists_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.pipeline.if_user_exists_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the data for user authorization through the profile in the VK
+social network. If all the data correspond to the data associated with
+the email address used, the user is logged in.</p>
+<p>If there is no email address in this VK profile or this address has already been used for registration,
+a message about this is generated for the user and authorization is rejected.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.pipeline.save_new_user">
+<span class="sig-prename descclassname"><span class="pre">users.pipeline.</span></span><span class="sig-name descname"><span class="pre">save_new_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.pipeline.save_new_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Authorization on site using the VK social network profile,
+Performs parsing of profile data. If the user is already registered,
+returns. If not, a check is performed to see if the profile email
+has been used for another registration before. Then the age of the user
+is calculated according to the data that he indicated in his profile
+in the VK social network. If the user is under 10 years old, registration
+is interrupted, access is denied.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>This registration method is only suitable for those profiles
+in which the email is specified. If a phone number was used to
+register a profile in the VK, this profile cannot be used for
+registration on the site.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-users.urls">
+<span id="users-urls-module"></span><h3>users.urls module<a class="headerlink" href="#module-users.urls" title="Permalink to this heading">¶</a></h3>
+<p>Sets associations of questions application urls with their views.</p>
+<p>Attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>app_name (str): the name of a specific web application used in different parts of the overall structure.</p></li>
+<li><dl class="simple">
+<dt>urlpatterns(list): a list of paths that determine the behavior of a web application</dt><dd><p>when using the urls specified in the list.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="module-users.views">
+<span id="users-views-module"></span><h3>users.views module<a class="headerlink" href="#module-users.views" title="Permalink to this heading">¶</a></h3>
+<p>The submodule contains views for a full-fledged user interaction with the content of the site.</p>
+<p>Here are the views:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>to register a new user and verify a registration of a profile;</p></li>
+<li><p>to log in and log out of the profile;</p></li>
+<li><p>to view and edit the user’s profile;</p></li>
+<li><p>to create a user’s own post, question, or a message for the admin;</p></li>
+<li><p>to recover forgotten password;</p></li>
+<li><p>to view the Top-5 participants of the site;</p></li>
+<li><p>to refuse to view information about the testing procedure;</p></li>
+<li><p>for profile menu buttons;</p></li>
+</ul>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.FailedAuthenticationView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">FailedAuthenticationView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.FailedAuthenticationView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code></p>
+<p>View for failed authorization completion.
+If activation user’s profile or VK-authentication is failed,
+the user will be redirected with an error message.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.FailedAuthenticationView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.FailedAuthenticationView.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives an error message that was made during authorization and passes it to the context.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.GiveMeMyButtons">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">GiveMeMyButtons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.GiveMeMyButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code></p>
+<p>A view for displaying user menu buttons when visiting your profile. AJAX is used.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.GiveMeMyButtons.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.GiveMeMyButtons.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns json with the prepared html code of the user menu buttons.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.GiveMeMyButtons.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'includes/profile_buttons.html'</span></em><a class="headerlink" href="#users.views.GiveMeMyButtons.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetCompleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">MyPasswordResetCompleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.MyPasswordResetCompleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetCompleteView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view to inform the user about the successful change (recovery) of the password.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetCompleteView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/password_res_complete.html'</span></em><a class="headerlink" href="#users.views.MyPasswordResetCompleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetCompleteView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Пароль</span> <span class="pre">успешно</span> <span class="pre">изменен'</span></em><a class="headerlink" href="#users.views.MyPasswordResetCompleteView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetConfirmView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">MyPasswordResetConfirmView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.MyPasswordResetConfirmView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetConfirmView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for creating and saving a new password in case the previous password was lost by the user.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetConfirmView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/password_res_confirm.html'</span></em><a class="headerlink" href="#users.views.MyPasswordResetConfirmView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.MyPasswordResetConfirmView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Создание</span> <span class="pre">нового</span> <span class="pre">пароля'</span></em><a class="headerlink" href="#users.views.MyPasswordResetConfirmView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.ProfileView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">ProfileView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.ProfileView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>A view for the user to view their profile.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ProfileView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.ProfileView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.UserProfileForm" title="users.forms.UserProfileForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserProfileForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.ProfileView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.ProfileView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets data about where the user is in the rating and transmits it to the context.
+The template displays the rating only when the user’s score is greater than 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ProfileView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.ProfileView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ProfileView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/profile/'</span></em><a class="headerlink" href="#users.views.ProfileView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ProfileView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/profile.html'</span></em><a class="headerlink" href="#users.views.ProfileView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ProfileView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Мой</span> <span class="pre">профиль'</span></em><a class="headerlink" href="#users.views.ProfileView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.RegisterView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">RegisterView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FormView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for registering a new user.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.RegisterView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.RegisterView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.UserRegisterForm" title="users.forms.UserRegisterForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRegisterForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.RegisterView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs registration of a new user.
+Both in case of success and in case of failure, a message is generated
+that shows the user the result of registration.
+Starts the verification process of the new profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.RegisterView.send_verify_link">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_verify_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView.send_verify_link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send to user an email with verification link.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>user(MyUser): the user object that was created during registration;</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.RegisterView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/register.html'</span></em><a class="headerlink" href="#users.views.RegisterView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.RegisterView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Регистрация</span> <span class="pre">нового</span> <span class="pre">пользователя'</span></em><a class="headerlink" href="#users.views.RegisterView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.TopUsers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">TopUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.TopUsers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View to display users top-5.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.TopUsers.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'top_users'</span></em><a class="headerlink" href="#users.views.TopUsers.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.TopUsers.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#users.views.TopUsers.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a sorted queryset of 5 participants with the highest total score.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.TopUsers.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.TopUsers.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.TopUsers.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user_activities/top_users.html'</span></em><a class="headerlink" href="#users.views.TopUsers.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.TopUsers.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Топ-5</span> <span class="pre">участников'</span></em><a class="headerlink" href="#users.views.TopUsers.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserEdit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserEdit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>A view for the user to edit their profile.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserEdit.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.UserEdit.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.UserChangeProfileForm" title="users.forms.UserChangeProfileForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserChangeProfileForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserEdit.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserEdit.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves data from the profile editing form using AJAX.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserEdit.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.UserEdit.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserEdit.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserEdit.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves data from the profile editing form and, if valid, saves new user profile data.
+When using AJAX, it allows you to update data without completely reloading the page.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserEdit.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/profile/'</span></em><a class="headerlink" href="#users.views.UserEdit.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserEdit.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'includes/profile_edit.html'</span></em><a class="headerlink" href="#users.views.UserEdit.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserImgEdit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserImgEdit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserImgEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>A view for the user to edit their avatar.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserImgEdit.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserImgEdit.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves data from the image editing form using AJAX.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserImgEdit.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.UserImgEdit.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserImgEdit.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserImgEdit.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the new avatar selected by the user.
+When using AJAX, data is updated without reloading the entire page.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserImgEdit.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/profile/'</span></em><a class="headerlink" href="#users.views.UserImgEdit.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserImgEdit.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'includes/profile_img_edit.html'</span></em><a class="headerlink" href="#users.views.UserImgEdit.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserLoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserLoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserLoginView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoginView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for authorization.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserLoginView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.UserLoginView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.UserLoginForm" title="users.forms.UserLoginForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserLoginForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserLoginView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserLoginView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs user authorization. Authorization is performed only for active users
+(who have verified their profile with a link received by email).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserLoginView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/login.html'</span></em><a class="headerlink" href="#users.views.UserLoginView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserLoginView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Авторизация'</span></em><a class="headerlink" href="#users.views.UserLoginView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserLogoutView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserLogoutView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserLogoutView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LogoutView</span></code></p>
+<p>A view for the user to log out of the profile.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserLogoutView.next_page">
+<span class="sig-name descname"><span class="pre">next_page</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'index'</span></em><a class="headerlink" href="#users.views.UserLogoutView.next_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserNoInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserNoInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserNoInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code></p>
+<p>A view to refuse further viewing of a pop-up modal window with information
+about the order of testing at its start. If the user no longer wants to see it,
+he can tick the checkbox of this modular window. A change will be made to the
+entry in the database corresponding to his profile, and the window with information
+for him will no longer appear.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserNoInfo.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserNoInfo.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives data on the need to stop the appearance of an
+information window for this user and makes appropriate changes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserNoInfo.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'includes/no_info_success.html'</span></em><a class="headerlink" href="#users.views.UserNoInfo.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserPasswordResetView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserPasswordResetView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view to request password recovery.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.email_template_name">
+<span class="sig-name descname"><span class="pre">email_template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/pass_reset_email.html'</span></em><a class="headerlink" href="#users.views.UserPasswordResetView.email_template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.UserPasswordResetView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.MyPasswordResetForm" title="users.forms.MyPasswordResetForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyPasswordResetForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.from_email">
+<span class="sig-name descname"><span class="pre">from_email</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inspiracion&#64;yandex.ru'</span></em><a class="headerlink" href="#users.views.UserPasswordResetView.from_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserPasswordResetView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates and sends the user an email with a link to restore the password.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.subject_template_name">
+<span class="sig-name descname"><span class="pre">subject_template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/pass_reset_subject.txt'</span></em><a class="headerlink" href="#users.views.UserPasswordResetView.subject_template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration/password_reset.html'</span></em><a class="headerlink" href="#users.views.UserPasswordResetView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPasswordResetView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Восстановление</span> <span class="pre">пароля'</span></em><a class="headerlink" href="#users.views.UserPasswordResetView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserPostCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserPostCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for creating a new post by a user.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.UserPostCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../myadmin/myadmin.html#myadmin.forms.PostForm" title="myadmin.forms.PostForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.UserPostCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserPostCreateView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives data from the user’s post creation form,
+with their validity, the post is saved, but is inactive.
+If the creation of the post is successful, an email is sent notifying
+the admin about it, and the user sees a modal window with information
+about success. In case of failure, the user sees a form with the data
+filled in by him and an indication of the error. AJAX is involved in both cases.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/profile/'</span></em><a class="headerlink" href="#users.views.UserPostCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user_activities/add_post.html'</span></em><a class="headerlink" href="#users.views.UserPostCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserPostCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Написать</span> <span class="pre">свою</span> <span class="pre">статью'</span></em><a class="headerlink" href="#users.views.UserPostCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">UserQuestionCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserQuestionCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for creating a new question by a user.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.UserQuestionCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../myadmin/myadmin.html#myadmin.forms.QuestionForm" title="myadmin.forms.QuestionForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#users.views.UserQuestionCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.UserQuestionCreateView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives data from the user’s question creation form,
+with their validity, the question is saved, but is inactive.
+If the creation of the question is successful, an email is sent notifying
+the admin about it, and the user sees a modal window with information
+about success. In case of failure, the user sees a form with the data
+filled in by him and an indication of the error. AJAX is involved in both cases.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/profile/'</span></em><a class="headerlink" href="#users.views.UserQuestionCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user_activities/add_question.html'</span></em><a class="headerlink" href="#users.views.UserQuestionCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.UserQuestionCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Предложить</span> <span class="pre">свой</span> <span class="pre">вопрос'</span></em><a class="headerlink" href="#users.views.UserQuestionCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.Verify">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">Verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.Verify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a></p>
+<p>A view for activating and authorizing a new user..</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.Verify.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.Verify.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the validity period of the activation key and its
+compliance with the one that is in the activation link sent
+to the user. If successful, the user becomes active and logs in.
+In case of failure, an appropriate message is generated to inform the user
+about this and further options for action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.Verify.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Успешная</span> <span class="pre">активация</span> <span class="pre">профиля'</span></em><a class="headerlink" href="#users.views.Verify.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.WriteToAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">WriteToAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.WriteToAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FormView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.AuthorizedOnlyDispatchMixin" title="interview_quiz.mixin.AuthorizedOnlyDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthorizedOnlyDispatchMixin</span></code></a></p>
+<p>View for writing a message to the admin on his email.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.WriteToAdmin.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.WriteToAdmin.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#users.forms.WriteAdminForm" title="users.forms.WriteAdminForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">WriteAdminForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.WriteToAdmin.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.WriteToAdmin.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an email for the admin and starts form validation.
+If successful, the message is sent and the user is redirected to his profile page.
+In case of failure, the user sees a form with the data entered by him and an indication of the error.
+Additionally, a pop-up modular window informs him about the progress of sending a message.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.WriteToAdmin.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user_activities/write_to_admin.html'</span></em><a class="headerlink" href="#users.views.WriteToAdmin.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.WriteToAdmin.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Написать</span> <span class="pre">письмо'</span></em><a class="headerlink" href="#users.views.WriteToAdmin.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-users">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-users" title="Permalink to this heading">¶</a></h3>
+<p>The package <strong>users</strong> contains everything necessary to interact with the user’s site: his registration
+(including its confirmation), authorization, and management of his profile.
+Thanks to the mechanisms implemented in this package, the user can offer his question or
+article for publication on the site, as well as view the Top 5 players or
+write a message to the admin.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">users</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">users package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">users</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">users</a></li>
+      <li>Next: <a href="users.tests.html" title="next chapter">users.tests package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/users/users.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center mb-1">
+                {% if object_list %}
+
+                    <h1 class="mt-4">Все категории по поисковому запросу:</h1>
+                    <div class="text-justify mt-4">
+
+                        {% for category in object_list %}
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{% url 'myadmin:admins_category_update' category.id %}">{{ category.name }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+                    <h1 class="mt-4">Категорий с запрошенным названием еще нет.</h1>
+                    <h3 class="mt-4">Возможно, вы могли бы создать такую категорию?</h3>
+                    <div class="row mt-5">
+                        <div class="col-12 mt-4">
+                            <img width="100px"
+                                 src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'myadmin:admins_categories' %}">
+                                К категориям</a>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1'
+                               href="{% url 'myadmin:admins_category_create' %}">
+                                Создать категорию</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

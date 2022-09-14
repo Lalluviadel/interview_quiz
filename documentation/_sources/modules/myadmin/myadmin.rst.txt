@@ -1,0 +1,62 @@
+myadmin package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   myadmin.migrations
+   myadmin.tests
+
+Submodules
+----------
+
+myadmin.apps module
+~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin.apps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+myadmin.forms module
+~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin.forms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+myadmin.models module
+~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+myadmin.urls module
+~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+myadmin.views module
+~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+~~~~~~~~~~~~~~~
+
+.. automodule:: myadmin
+   :members:
+   :undoc-members:
+   :show-inheritance:

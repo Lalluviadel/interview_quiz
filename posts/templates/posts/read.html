@@ -7,7 +7,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img class="img-responsive center-block" src="" alt="">
+                    <img class="img-responsive center-block img-adaptive" src="" alt="">
                 </div>
             </div>
         </div>
@@ -17,44 +17,65 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center">
-                <h1 class="mt-4 oranged">{{ post.title }}</h1>
+                <h1 class="mt-4 oranged h1-title">{{ post.title }}</h1>
                 <div class="row text-justify mt-4">
-                    <div class="col-4 border">
-                        <div class="col-12">
-                            Категория: <b><a
-                                href="{% url 'questions:start_test' post.category.id %}">{{ post.category }}
-                        </a></b>
+                    <div class="col-lg-4 border">
+                        <div class="col-lg-12">
+                            Категория:
+                            <b>
+                                <a href="{% url 'posts:category_posts' post.category.id %}" data-toggle="tooltip"
+                                   title="Показать все статьи категории">
+                                    {{ post.category }}
+                                </a>
+                            </b>
                         </div>
-                        <div class="col-12">
-                            Автор: <b><a href="#">{{ post.author }}</a></b>
+                        <div class="col-lg-12">
+                            Автор:
+                            <b>
+                                <a href="{% url 'posts:user_posts' post.author.id %}" data-toggle="tooltip"
+                                   title="Показать все статьи автора">
+                                    {{ post.author }}
+                                </a>
+                            </b>
                         </div>
-                        <div class="col-12">
-                            Тег: <b><a href="#">{{ post.tag }}</a></b>
+                        <div class="col-lg-12">
+                            Тег:
+                            <b>
+                                <a href="{% url 'posts:tag_posts' post.tag %}" data-toggle="tooltip"
+                                   title="Показать все статьи по тегу">
+                                    {{ post.tag }}
+                                </a>
+                            </b>
                         </div>
-                        <div class="col-12">
+                        <div class="col-lg-12">
                             Дата создания: <b><a href="#">{{ post.created_on | date }}</a></b>
                         </div>
+
                         <div class="thumbnail border img-left">
                             <img class="img-fluid img-rounded img-responsive img-thumbnail "
                                  src="{{ post.image_url }}" alt="">
                         </div>
+
                     </div>
-                    <div class="col-8 d-flex border align-items-center">
-                        {{ post.body }}
+                    <div class="col-lg-8 d-flex border align-items-center text-adaptive">
+                        {{ post.body | safe }}
                     </div>
-                    <div class="col-6">
-                        <a class='btn btn-outline-dark btn-orange btn-block ml-3 mr-1 mb-1'
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-6">
+                        <a class='btn btn-outline-dark btn-orange btn-block mt-1'
                            href='{% url 'posts:all' %}'>К статьям</a>
                     </div>
-                    {% if user.is_staff %}
-                        <div class="col-6">
-                            <a class='btn btn-outline-dark btn-block btn-orange ml-3 mb-1'
+                    <div class="col-lg-6">
+                        {% if user.is_staff %}
+                            <a class='btn btn-outline-dark btn-block btn-orange mt-1'
                                href='{% url 'myadmin:admins_post_update' post.id %}'>Редактировать статью</a>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
+
             </div>
         </main>
-    {% include 'questions/includes/footer.html' %}
+        {% include 'questions/includes/footer.html' %}
     </div>
 {% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+
+        {% include 'includes/modal_letter.html' %}
+
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 text-center">Сообщение админу от <b class="oranged">{{ username }}</b></h1>
+
+                <div class="card-body user-letter">
+
+                    {% include 'includes/letter_form.html' %}
+
+                </div>
+
+                <div class="mb-4">
+                    <div class="form-row ">
+                        <div class="col-lg-6">
+                            <input type="button" class="btn btn-dark btn-block"
+                                   onclick="window.location.href = '{% url 'users:profile' %}';"
+                                   value="Отмена"/>
+                        </div>
+                        <div class="col-lg-6">
+                            <input class="btn btn-outline-dark btn-orange btn-block confirm-action-letter" type="submit"
+                                   value="Отправить">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

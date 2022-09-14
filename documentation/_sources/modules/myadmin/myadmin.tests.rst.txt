@@ -1,0 +1,29 @@
+myadmin.tests package
+=====================
+
+Submodules
+----------
+
+myadmin.tests.test\_forms module
+--------------------------------
+
+.. automodule:: myadmin.tests.test_forms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+myadmin.tests.test\_views module
+--------------------------------
+
+.. automodule:: myadmin.tests.test_views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: myadmin.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

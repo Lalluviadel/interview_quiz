@@ -7,8 +7,8 @@
         <main>
             <div class="container-fluid text-center">
                 <h1 class="mt-4">Категории тестов</h1>
-                {% for category in categories %}
-                    <div class="row main p-3 border border-grey mt-1">
+                {% for category in questioncategory_list %}
+                    <div class="row main p-1 border border-grey mt-1">
                         <div class="col-md-4">
                             <div class="text-center header-h2 all-width">
                                 <h2 class="oranged">{{ category.name }}</h2>
@@ -17,7 +17,7 @@
                                  src="{{ category.image_url }}" alt=""/>
                         </div>
                         <div class="col-md-8 mt-3">
-                            <div class="container-fluid pt-4 pb-3 text-wrap text-justify text-break">
+                            <div class="container-fluid pt-4 pb-3 text-wrap text-justify text-break text-adaptive">
                                 {{ category.description }}
                             </div>
                             <div class="row justify-content-center">

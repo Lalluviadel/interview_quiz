@@ -6,23 +6,82 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center">
-                <h1 class="mt-4">Посты</h1>
+                <h1 class="mt-4">Статьи {% if current_category %}категории {{ current_category }} {% endif %}</h1>
                 <div class="card mb-4">
                     <div class="card-header">
-                        <ul class="text-left">
-                            <li>Для редактирования клик на посте</li>
-                            <li>Для удаления (деактивации) - кнопка в графе Активен</li>
-                        </ul>
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="text-left">
+                                    <li>Для редактирования клик на статье</li>
+                                    <li>Для удаления (деактивации) - кнопка в графе Активен</li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <form method="get" action="{% url 'myadmin:admins_posts' %}">
+                                    <div class="row">
+                                        <div class="col-3"><label for="filter">Фильтр по категориям: </label></div>
+                                        <div class="col-6"><select name="filter" class="form-control" id="filter">
+                                            <option value="all" selected name="filter">Все категории</option>
+                                            {% for category in categories %}
+                                                <option value="{{ category.id }}" name="filter">{{ category }}</option>
+                                            {% endfor %}
+                                        </select></div>
+                                        <div class="col-3"><input class="btn btn-outline-dark btn-orange" type="submit"
+                                                                  value="Ок"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div id="update_post_catcher" class="card-body">
+
+                        <div class="col-md-7 float-left">
+                            <p id="text" style="display:none"><i class="fa fa-bomb oranged font-xl"></i> В режиме
+                                "Удаление" элементы будут полностью удалены</p>
+                        </div>
+                        <div class="col-md-4 float-right mb-2">
+                            <div class="btn-group btn-group-toggle btn-block" id="deact_delete"
+                                 data-toggle="buttons">
+                                <label class="btn btn-primary active mr-1">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                    Деактив
+                                </label>
+                                <label class="btn btn-primary mr-1">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> Удаление
+                                </label>
+                            </div>
+                        </div>
+
                         {% include 'myadmin/includes/table-posts.html' %}
+
                     </div>
                     <div class="card-footer">
-                        <a href="{% url 'myadmin:admins_post_create'%}">
+                        <a href="{% url 'myadmin:admins_post_create' %}">
                             <button class="btn btn-outline-dark btn-orange">Создать статью</button>
                         </a>
                     </div>
                 </div>
+
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
+                            <a class="page-link font-xl {% if page_obj.has_previous %} oranged {% endif %}"
+                               href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }}
+                               {% else %} # {% endif %}"
+                               tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        {% for page in page_obj.paginator.page_range %}
+                            <li class="page-item"><a class="page-link oranged font-xl"
+                                                     href="?page={{ page }}">{{ page }}</a></li>
+                        {% endfor %}
+                        <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
+                            <a class="page-link font-xl {% if page_obj.has_next %} oranged {% endif %}"
+                               href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }}
+                                     {% else %} # {% endif %}">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+
             </div>
         </main>
         {% include 'myadmin/includes/footer.html' %}

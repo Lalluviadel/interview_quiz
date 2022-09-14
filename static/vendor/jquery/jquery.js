@@ -1122,7 +1122,7 @@
             };
 
             /**
-             * Sets document-related variables once based on the current document
+             * Sets document-related interview_quiz once based on the current document
              * @param {Element|Object} [doc] An element or document object to use to set the document
              * @returns {Object} Returns the current document
              */
@@ -1139,7 +1139,7 @@
                     return document;
                 }
 
-                // Update global variables
+                // Update global interview_quiz
                 document = doc;
                 docElem = document.documentElement;
                 documentIsHTML = !isXML(document);
@@ -8718,7 +8718,7 @@
                     acceptData(elem)) {
 
                     // Call a native DOM method on the target with the same name as the event.
-                    // Don't do default actions on window, that's where global variables be (#6170)
+                    // Don't do default actions on window, that's where global interview_quiz be (#6170)
                     if (ontype && isFunction(elem[type]) && !isWindow(elem)) {
 
                         // Don't re-trigger an onFOO event when we call its FOO() method

@@ -3,7 +3,7 @@
 {% block content %}
     <div id="layoutSidenav_content">
         <main>
-            <div class="container-fluid">
+            <div class="container-fluid" id="update_users_catcher">
                 <h1 class="mt-4 text-center">Редактирование пользователя <b class="oranged">{{ myuser.username }}</b>
                 </h1>
                 <div class="card-body">
@@ -27,7 +27,7 @@
                         <div class="form-row text-center">
                             <div class="col-lg-6">
                                 <img width="270" height="270"
-                                     src="{% if myuser.img %} {{ myuser.img.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                     src="{% if myuser.img %} {{ myuser.img.url }} {% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
                                      class="img-thumbnail" alt="">
                                 {{ form.img }}
                             </div>
@@ -60,7 +60,7 @@
                                           method="post">
                                         {% csrf_token %}
                                         <input class="btn btn-dark btn-block"
-                                               value="Удалить"
+                                               value="Деактивировать"
                                                type="submit">
                                     </form>
                                     </div>

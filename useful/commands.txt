@@ -1,0 +1,11 @@
+python -X utf8 manage.py dumpdata questions.QuestionCategory --indent 2 -o fixtures/categories.json
+python -X utf8 manage.py dumpdata questions.Question --indent 2 -o fixtures/questions.json
+python -X utf8 manage.py dumpdata posts.Post --indent 2 -o fixtures/posts.json
+python -X utf8 manage.py dumpdata users.MyUser --indent 2 -o fixtures/users.json
+
+
+python manage.py loaddata fixtures/categories.json
+python manage.py loaddata fixtures/questions.json
+python manage.py loaddata fixtures/posts.json
+python manage.py loaddata fixtures/users.json
+

@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>posts.tests package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="users" href="../users/modules.html" />
+    <link rel="prev" title="posts.templatetags package" href="posts.templatetags.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="posts-tests-package">
+<h1>posts.tests package<a class="headerlink" href="#posts-tests-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-posts.tests.test_models">
+<span id="posts-tests-test-models-module"></span><h2>posts.tests.test_models module<a class="headerlink" href="#module-posts.tests.test_models" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the models of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_models.TestPostModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_models.</span></span><span class="sig-name descname"><span class="pre">TestPostModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_models.TestPostModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test class for the Post model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_models.TestPostModel.setUpTestData">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_models.TestPostModel.setUpTestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up non-modified MyUser, QuestionCategory and Post objects used by all test methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_models.TestPostModel.test_new_post_is_not_available_by_default">
+<span class="sig-name descname"><span class="pre">test_new_post_is_not_available_by_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_models.TestPostModel.test_new_post_is_not_available_by_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the initial inactivity of the post.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_models.TestPostModel.test_string_output_of_the_post_model">
+<span class="sig-name descname"><span class="pre">test_string_output_of_the_post_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_models.TestPostModel.test_string_output_of_the_post_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post model string output text test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_models.TestPostModel.test_title_max_length">
+<span class="sig-name descname"><span class="pre">test_title_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_models.TestPostModel.test_title_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the maximum length of the post title.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.tests.test_views">
+<span id="posts-tests-test-views-module"></span><h2>posts.tests.test_views module<a class="headerlink" href="#module-posts.tests.test_views" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the views of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestCategoryPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestCategoryPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestCategoryPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing CategoryPostView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestCategoryPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestCategoryPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestCategoryPostView.test_displays_category_posts">
+<span class="sig-name descname"><span class="pre">test_displays_category_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestCategoryPostView.test_displays_category_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks CategoryPostView view to get the correct category and a list of posts of this category.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestCategoryPostView.test_no_inactive_posts_in_queryset_category">
+<span class="sig-name descname"><span class="pre">test_no_inactive_posts_in_queryset_category</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestCategoryPostView.test_no_inactive_posts_in_queryset_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that inactive posts do not fall into the queryset
+if they belong to an inactive category or the post itself is inactive.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestPostBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Basic test class for a single setUp and keeping the DRY principle.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostBase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing a user, categories and posts test objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing PostView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostView.test_displaying_desired_post">
+<span class="sig-name descname"><span class="pre">test_displaying_desired_post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostView.test_displaying_desired_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests PostsView view to get the correct requested post.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostsCategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestPostsCategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostsCategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing PostsCategoryView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostsCategoryView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostsCategoryView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostsCategoryView.test_no_inactive_categories_in_queryset">
+<span class="sig-name descname"><span class="pre">test_no_inactive_categories_in_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostsCategoryView.test_no_inactive_categories_in_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that inactive categories do not fall into the queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestPostsCategoryView.test_queryset_only_available_categories">
+<span class="sig-name descname"><span class="pre">test_queryset_only_available_categories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestPostsCategoryView.test_queryset_only_available_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests PostsCategoryView view that only categories with the available field with the value True
+gets into the queryset.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestSearchPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestSearchPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestSearchPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing SearchPostView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestSearchPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestSearchPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestSearchPostView.test_displays_search_posts">
+<span class="sig-name descname"><span class="pre">test_displays_search_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestSearchPostView.test_displays_search_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks SearchPostView view to get the correct queryset of posts, according to the search options:
+* by tag;
+* by the title;
+* by the part of tag or of title.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestSearchPostView.test_no_inactive_posts_in_queryset_search">
+<span class="sig-name descname"><span class="pre">test_no_inactive_posts_in_queryset_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestSearchPostView.test_no_inactive_posts_in_queryset_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that inactive posts do not fall into the search queryset.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestTagPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestTagPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestTagPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing TagPostView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestTagPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestTagPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestTagPostView.test_displays_tag_posts">
+<span class="sig-name descname"><span class="pre">test_displays_tag_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestTagPostView.test_displays_tag_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks TagPostView view to get the correct tag and a list of posts with this tag.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestTagPostView.test_no_inactive_posts_in_queryset_tag">
+<span class="sig-name descname"><span class="pre">test_no_inactive_posts_in_queryset_tag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestTagPostView.test_no_inactive_posts_in_queryset_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that inactive posts do not fall into the queryset even if they belong to this tag.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestUserPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestUserPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestUserPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#posts.tests.test_views.TestPostBase" title="posts.tests.test_views.TestPostBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestPostBase</span></code></a></p>
+<p>Testing UserPostView.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestUserPostView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestUserPostView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating and preparing data for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestUserPostView.test_displays_authors_posts">
+<span class="sig-name descname"><span class="pre">test_displays_authors_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestUserPostView.test_displays_authors_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks UserPostView view to get the correct user and a list of posts where he is the author.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestUserPostView.test_displays_authors_posts_only_for_authorized_users">
+<span class="sig-name descname"><span class="pre">test_displays_authors_posts_only_for_authorized_users</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestUserPostView.test_displays_authors_posts_only_for_authorized_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that UserPostView view and relevant site page are only available to authorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.test_views.TestUserPostView.test_no_inactive_posts_in_queryset_author">
+<span class="sig-name descname"><span class="pre">test_no_inactive_posts_in_queryset_author</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#posts.tests.test_views.TestUserPostView.test_no_inactive_posts_in_queryset_author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that inactive posts do not fall into the queryset even if they belong to this author.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-posts.tests" title="Permalink to this heading">¶</a></h2>
+<p>The subpackage contains unit and integration tests for checking the models
+and views of the web application.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">posts</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="posts.html">posts package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="posts.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="posts.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">posts</a><ul>
+  <li><a href="posts.html">posts package</a><ul>
+      <li>Previous: <a href="posts.templatetags.html" title="previous chapter">posts.templatetags package</a></li>
+      <li>Next: <a href="../users/modules.html" title="next chapter">users</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/posts/posts.tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

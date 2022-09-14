@@ -6,10 +6,10 @@
     {% include 'questions/includes/modal.html' %}
     <div id="layoutSidenav_content">
         <main>
-            <div class="container-fluid text-center" id="test-catcher">
-                <h1 class="mt-4">Тема: <b class="oranged">{{ item.subject }}</b></h1>
+            <div class="container-fluid text-center text-adaptive" id="test-catcher">
+                <h1 class="mt-4 h1-title">Тема: <b class="oranged">{{ item.subject }}</b></h1>
                 <div class="row main p-1 mt-1 justify-content-center">
-                    <h2>Ответ на вопрос {{ item.id }}</h2>
+                    <h2 class="h1-title">Ответ на вопрос {{ item.id }}</h2>
                 </div>
                 <div class="row main p-1 mt-1 justify-content-center">
                     {% if guessed %}
@@ -23,13 +23,13 @@
                     {% endif %}
                     <div class="col-md-6 border border-grey">
                         <div class="text-center">Ваш ответ:</div>
-                        <div class="text-wrap text-justify text-break font-xl">
+                        <div class="text-wrap text-justify text-break font-xl text-adaptive">
                             {{ chosen_answer }}
                         </div>
                     </div>
                     <div class="col-md-6 border border-grey">
                         <div class="text-center">Правильный ответ:</div>
-                        <div class="text-wrap text-justify text-break font-xl">
+                        <div class="text-wrap text-justify text-break font-xl text-adaptive">
                             {{ item.right_answer }}
                         </div>
                     </div>

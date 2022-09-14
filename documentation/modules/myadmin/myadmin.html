@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>myadmin package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="myadmin.tests package" href="myadmin.tests.html" />
+    <link rel="prev" title="myadmin" href="modules.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="myadmin-package">
+<h1>myadmin package<a class="headerlink" href="#myadmin-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="myadmin.tests.html">myadmin.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="myadmin.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="myadmin.tests.html#module-myadmin.tests.test_forms">myadmin.tests.test_forms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="myadmin.tests.html#module-myadmin.tests.test_views">myadmin.tests.test_views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="myadmin.tests.html#module-myadmin.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<section id="module-myadmin.apps">
+<span id="myadmin-apps-module"></span><h3>myadmin.apps module<a class="headerlink" href="#module-myadmin.apps" title="Permalink to this heading">¶</a></h3>
+<p>Automatically created by Django to configure the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.apps.MyadminConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.apps.</span></span><span class="sig-name descname"><span class="pre">MyadminConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.apps.MyadminConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<p>Myadmin app configuration, automatically created Django class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.apps.MyadminConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#myadmin.apps.MyadminConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.apps.MyadminConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin'</span></em><a class="headerlink" href="#myadmin.apps.MyadminConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-myadmin.forms">
+<span id="myadmin-forms-module"></span><h3>myadmin.forms module<a class="headerlink" href="#module-myadmin.forms" title="Permalink to this heading">¶</a></h3>
+<p>Contains forms used to create or modify user, category, question, or post objects in the admin panel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.forms.</span></span><span class="sig-name descname"><span class="pre">CategoryForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.CategoryForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for creating and editing categories in the admin panel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#myadmin.forms.CategoryForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'description',</span> <span class="pre">'image']</span></em><a class="headerlink" href="#myadmin.forms.CategoryForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.forms.CategoryForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.CategoryForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.CategoryForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="myadmin.forms.CategoryForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#myadmin.forms.CategoryForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.forms.</span></span><span class="sig-name descname"><span class="pre">PostForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.PostForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for creating and editing posts in the admin panel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#myadmin.forms.PostForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title',</span> <span class="pre">'category',</span> <span class="pre">'body',</span> <span class="pre">'image',</span> <span class="pre">'available',</span> <span class="pre">'tag']</span></em><a class="headerlink" href="#myadmin.forms.PostForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.forms.PostForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'available':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'body':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'category':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'tag':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.PostForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.PostForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="myadmin.forms.PostForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#myadmin.forms.PostForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.forms.</span></span><span class="sig-name descname"><span class="pre">QuestionForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.QuestionForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for creating and editing questions in the admin panel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#myadmin.forms.QuestionForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['question',</span> <span class="pre">'subject',</span> <span class="pre">'right_answer',</span> <span class="pre">'answer_01',</span> <span class="pre">'answer_02',</span> <span class="pre">'answer_03',</span> <span class="pre">'answer_04',</span> <span class="pre">'difficulty_level',</span> <span class="pre">'tag',</span> <span class="pre">'image_01',</span> <span class="pre">'image_02',</span> <span class="pre">'image_03']</span></em><a class="headerlink" href="#myadmin.forms.QuestionForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.forms.QuestionForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'answer_01':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'answer_02':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'answer_03':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'answer_04':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'difficulty_level':</span> <span class="pre">&lt;django.forms.fields.TypedChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'image_01':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'image_02':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'image_03':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'question':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'right_answer':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'subject':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'tag':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.QuestionForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.QuestionForm.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the correct answer matches one of the 4 options
+for user responses, if not, adds in form an error message, which will
+be displayed on the page to inform the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'image_01':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'image_02':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'image_03':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'subject':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.QuestionForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.error_messages">
+<span class="sig-name descname"><span class="pre">error_messages</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'invalid_answer':</span> <span class="pre">'Вы</span> <span class="pre">указали</span> <span class="pre">%(value)s</span> <span class="pre">как</span> <span class="pre">правильный</span> <span class="pre">ответ,</span> <span class="pre">но</span> <span class="pre">он</span> <span class="pre">не</span> <span class="pre">совпадает</span> <span class="pre">ни</span> <span class="pre">с</span> <span class="pre">одним</span> <span class="pre">из</span> <span class="pre">предлагаемых</span> <span class="pre">вариантов</span> <span class="pre">ответа</span> <span class="pre">на</span> <span class="pre">вопрос'}</span></em><a class="headerlink" href="#myadmin.forms.QuestionForm.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="myadmin.forms.QuestionForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#myadmin.forms.QuestionForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminProfileForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.forms.</span></span><span class="sig-name descname"><span class="pre">UserAdminProfileForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.UserAdminProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../users/users.html#users.forms.UserProfileForm" title="users.forms.UserProfileForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserProfileForm</span></code></a></p>
+<p>Form for editing a user profile from the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminProfileForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;,</span> <span class="pre">'score':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.UserAdminProfileForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminProfileForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.contrib.auth.forms.ReadOnlyPasswordHashField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.UserAdminProfileForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminProfileForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#myadmin.forms.UserAdminProfileForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.forms.</span></span><span class="sig-name descname"><span class="pre">UserAdminRegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../users/users.html#users.forms.UserRegisterForm" title="users.forms.UserRegisterForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRegisterForm</span></code></a></p>
+<p>Form for creating a user from the admin panel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the model involved and the fields used in the form.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email',</span> <span class="pre">'password1',</span> <span class="pre">'password2',</span> <span class="pre">'img')</span></em><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="myadmin.forms.UserAdminRegisterForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#myadmin.forms.UserAdminRegisterForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="myadmin-models-module">
+<h3>myadmin.models module<a class="headerlink" href="#myadmin-models-module" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="module-myadmin.urls">
+<span id="myadmin-urls-module"></span><h3>myadmin.urls module<a class="headerlink" href="#module-myadmin.urls" title="Permalink to this heading">¶</a></h3>
+<p>Sets associations of myadmin application urls with their views.</p>
+<p>Attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>app_name (str): the name of a specific web application used in different parts of the overall structure.</p></li>
+<li><dl class="simple">
+<dt>urlpatterns(list): a list of paths that determine the behavior of a web application</dt><dd><p>when using the urls specified in the list.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="module-myadmin.views">
+<span id="myadmin-views-module"></span><h3>myadmin.views module<a class="headerlink" href="#module-myadmin.views" title="Permalink to this heading">¶</a></h3>
+<p>The submodule contains views for convenient and correct work with all the main entities of the
+project within the admin panel.</p>
+<p>There are views:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>for standard work with objects according to the CRUD principle;</p></li>
+<li><p>for searching for users, posts, categories and questions by a given mask (word or part of a word);</p></li>
+<li><p>to grant or remove administrator rights to a user;</p></li>
+</ul>
+</div></blockquote>
+<p>To reduce code duplication, two parent classes are used.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.AdminPanelView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">AdminPanelView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminPanelView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TemplateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View for the main admin page.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminPanelView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/admin.html'</span></em><a class="headerlink" href="#myadmin.views.AdminPanelView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminPanelView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Админка'</span></em><a class="headerlink" href="#myadmin.views.AdminPanelView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchCategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">AdminsSearchCategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchCategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to display the search results for categories (when using the site search bar).
+The search is performed by name of category or its part.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchCategoryView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchCategoryView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a queryset filtered for the presence of a match with the data entered by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchCategoryView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.AdminsSearchCategoryView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchCategoryView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/categories/search_results_category.html'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchCategoryView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchCategoryView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Поиск</span> <span class="pre">категории'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchCategoryView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchPostView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">AdminsSearchPostView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchPostView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to display the search results for posts (when using the site search bar).
+The search is performed by title of post, tag, or part of them.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchPostView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchPostView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a queryset filtered for the presence of a match with the data entered by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchPostView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.AdminsSearchPostView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchPostView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/posts/search_results_post.html'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchPostView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchPostView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Поиск</span> <span class="pre">статьи'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchPostView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchQuestionView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">AdminsSearchQuestionView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchQuestionView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to display the search results for questions (when using the site search bar).
+The search is performed by name of question, tag, or part of them.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchQuestionView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchQuestionView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a queryset filtered for the presence of a match with the data entered by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchQuestionView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.AdminsSearchQuestionView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchQuestionView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/questions/search_results_question.html'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchQuestionView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchQuestionView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Поиск</span> <span class="pre">вопроса'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchQuestionView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchUserView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">AdminsSearchUserView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchUserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to display the search results for users (when using the site search bar).
+The search is performed by username of user, first name, last name, or part of them.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchUserView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.AdminsSearchUserView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a queryset filtered for the presence of a match with the data entered by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchUserView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.AdminsSearchUserView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchUserView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/users/search_results_user.html'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchUserView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.AdminsSearchUserView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Поиск</span> <span class="pre">пользователя'</span></em><a class="headerlink" href="#myadmin.views.AdminsSearchUserView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.BaseDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">BaseDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.BaseDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DeleteView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>Parent class for QuestionDeleteView and PostDeleteView, required to comply with the DRY pattern.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.BaseDeleteView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'false'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.BaseDeleteView.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs complete deletion or activation/deactivation of the object
+in accordance with the specified mode of action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>request: standard parameter.</p></li>
+<li><dl class="simple">
+<dt>flag(str, optional): the default value is ‘false’. A switch parameter that allows you</dt><dd><p>to specify the mode of deleting an object: completely deleting an
+entry from the database or marking the object as inactive.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: standard parameter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: standard parameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.BaseListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">BaseListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.BaseListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>Parent class for QuestionListView and PostListView, required to comply with the DRY pattern.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.BaseListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.BaseListView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides getting and saving the current category selected by the user.
+The current category is saved in the session.
+When all categories are selected (no filter), the current category in the session is reset to zero.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">CategoriesCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to create a new category in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.CategoriesCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.CategoryForm" title="myadmin.forms.CategoryForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.CategoriesCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/categories/'</span></em><a class="headerlink" href="#myadmin.views.CategoriesCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/categories/category-creating.html'</span></em><a class="headerlink" href="#myadmin.views.CategoriesCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Добавить</span> <span class="pre">категорию'</span></em><a class="headerlink" href="#myadmin.views.CategoriesCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">CategoriesDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DeleteView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to delete or activate/deactivate a specific category in the admin panel.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'false'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesDeleteView.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs complete deletion or activation/deactivation of the category
+in accordance with the specified mode of action.
+At the same time, all posts and questions in this category also become active/inactive.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>request: standard parameter.</p></li>
+<li><dl class="simple">
+<dt>flag(str, optional): the default value is ‘false’. A switch parameter that allows you</dt><dd><p>to specify the mode of deleting an object: completely deleting an
+entry from the database or marking the object as inactive.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: standard parameter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: standard parameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.CategoriesDeleteView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesDeleteView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the process of deleting or activating/deactivating category.
+When enabled ajax, returns data for an asynchronous web request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/categories/'</span></em><a class="headerlink" href="#myadmin.views.CategoriesDeleteView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesDeleteView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/categories/category-update.html'</span></em><a class="headerlink" href="#myadmin.views.CategoriesDeleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">CategoriesListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to view list of all categories of the site in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'categories'</span></em><a class="headerlink" href="#myadmin.views.CategoriesListView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesListView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides the method of the parent class to optimize the query.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.CategoriesListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.paginate_by">
+<span class="sig-name descname"><span class="pre">paginate_by</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#myadmin.views.CategoriesListView.paginate_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/categories/category-viewing.html'</span></em><a class="headerlink" href="#myadmin.views.CategoriesListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesListView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Просмотр</span> <span class="pre">категорий'</span></em><a class="headerlink" href="#myadmin.views.CategoriesListView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">CategoriesUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.CategoriesUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to update a specific category in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.CategoriesUpdateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.CategoryForm" title="myadmin.forms.CategoryForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.CategoriesUpdateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.QuestionCategory" title="questions.models.QuestionCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionCategory</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/categories/'</span></em><a class="headerlink" href="#myadmin.views.CategoriesUpdateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/categories/category-update.html'</span></em><a class="headerlink" href="#myadmin.views.CategoriesUpdateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.CategoriesUpdateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Изменить</span> <span class="pre">категорию'</span></em><a class="headerlink" href="#myadmin.views.CategoriesUpdateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">PostCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to create a new post in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.PostCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.PostForm" title="myadmin.forms.PostForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.PostCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostCreateView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the entered data of a new post,
+adding the current user as the author and saving the question.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/posts/'</span></em><a class="headerlink" href="#myadmin.views.PostCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/posts/post-creating.html'</span></em><a class="headerlink" href="#myadmin.views.PostCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Добавить</span> <span class="pre">статью'</span></em><a class="headerlink" href="#myadmin.views.PostCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.PostDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">PostDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.views.BaseDeleteView" title="myadmin.views.BaseDeleteView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDeleteView</span></code></a></p>
+<p>View to delete or activate/deactivate a specific post in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.PostDeleteView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.PostDeleteView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostDeleteView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the process of deleting or activating/deactivating post.
+When enabled ajax, returns data for an asynchronous web request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostDeleteView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/posts/'</span></em><a class="headerlink" href="#myadmin.views.PostDeleteView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostDeleteView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/posts/post-update.html'</span></em><a class="headerlink" href="#myadmin.views.PostDeleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.PostListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">PostListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.views.BaseListView" title="myadmin.views.BaseListView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseListView</span></code></a></p>
+<p>View to view list of all posts of the site in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts'</span></em><a class="headerlink" href="#myadmin.views.PostListView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostListView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the desired queryset, depending on whether a new custom filter was passed,
+whether it existed earlier and needs to be saved (for example, page navigation during pagination),
+whether the filter cancellation was passed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>filter_val (str, optional): The filter value passed when the user selects the filter category.</dt><dd><p>Defaults to None.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>Queryset of filtered objects of the specified category or of all objects if there is no filter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.PostListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.paginate_by">
+<span class="sig-name descname"><span class="pre">paginate_by</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#myadmin.views.PostListView.paginate_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/posts/post-viewing.html'</span></em><a class="headerlink" href="#myadmin.views.PostListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostListView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Просмотр</span> <span class="pre">статей'</span></em><a class="headerlink" href="#myadmin.views.PostListView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">PostUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.PostUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to update a specific post in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.PostUpdateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.PostForm" title="myadmin.forms.PostForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.PostUpdateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../posts/posts.html#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/posts/'</span></em><a class="headerlink" href="#myadmin.views.PostUpdateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/posts/post-update.html'</span></em><a class="headerlink" href="#myadmin.views.PostUpdateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.PostUpdateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Изменить</span> <span class="pre">статью'</span></em><a class="headerlink" href="#myadmin.views.PostUpdateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">QuestionCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to create a new question in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.QuestionCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.QuestionForm" title="myadmin.forms.QuestionForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.QuestionCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionCreateView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting the entered data of a new question,
+adding the current user as the author and saving the question.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/questions/'</span></em><a class="headerlink" href="#myadmin.views.QuestionCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/questions/question-creating.html'</span></em><a class="headerlink" href="#myadmin.views.QuestionCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Добавить</span> <span class="pre">вопрос'</span></em><a class="headerlink" href="#myadmin.views.QuestionCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.QuestionDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">QuestionDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.views.BaseDeleteView" title="myadmin.views.BaseDeleteView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDeleteView</span></code></a></p>
+<p>View to delete or activate/deactivate a specific question in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.QuestionDeleteView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.QuestionDeleteView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionDeleteView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the process of deleting or activating/deactivating question.
+When enabled ajax, returns data for an asynchronous web request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionDeleteView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/questions/'</span></em><a class="headerlink" href="#myadmin.views.QuestionDeleteView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionDeleteView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/questions/question-update.html'</span></em><a class="headerlink" href="#myadmin.views.QuestionDeleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">QuestionListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#myadmin.views.BaseListView" title="myadmin.views.BaseListView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseListView</span></code></a></p>
+<p>View to view list of all questions of the site in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'questions'</span></em><a class="headerlink" href="#myadmin.views.QuestionListView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionListView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the desired queryset, depending on whether a new custom filter was passed,
+whether it existed earlier and needs to be saved (for example, page navigation during pagination),
+whether the filter cancellation was passed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>filter_val (str, optional): The filter value passed when the user selects the filter category.</dt><dd><p>Defaults to None.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>Queryset of filtered objects of the specified category or of all objects if there is no filter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.QuestionListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.paginate_by">
+<span class="sig-name descname"><span class="pre">paginate_by</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#myadmin.views.QuestionListView.paginate_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/questions/question-viewing.html'</span></em><a class="headerlink" href="#myadmin.views.QuestionListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionListView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Просмотр</span> <span class="pre">вопросов'</span></em><a class="headerlink" href="#myadmin.views.QuestionListView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">QuestionUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.QuestionUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to update a specific question in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.QuestionUpdateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.QuestionForm" title="myadmin.forms.QuestionForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuestionForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.QuestionUpdateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../questions/questions.html#questions.models.Question" title="questions.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/questions/'</span></em><a class="headerlink" href="#myadmin.views.QuestionUpdateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/questions/question-update.html'</span></em><a class="headerlink" href="#myadmin.views.QuestionUpdateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.QuestionUpdateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Изменить</span> <span class="pre">вопрос'</span></em><a class="headerlink" href="#myadmin.views.QuestionUpdateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">UserCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserCreateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to create a new user in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.UserCreateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.UserAdminRegisterForm" title="myadmin.forms.UserAdminRegisterForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserAdminRegisterForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.UserCreateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/users/'</span></em><a class="headerlink" href="#myadmin.views.UserCreateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/users/users-creating.html'</span></em><a class="headerlink" href="#myadmin.views.UserCreateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserCreateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Добавить</span> <span class="pre">пользователя'</span></em><a class="headerlink" href="#myadmin.views.UserCreateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">UserDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DeleteView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to delete or activate/deactivate a specific user in the admin panel.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'false'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserDeleteView.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs complete deletion or activation/deactivation of the user
+in accordance with the specified mode of action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>request: standard parameter.</p></li>
+<li><dl class="simple">
+<dt>flag(str, optional): the default value is ‘false’. A switch parameter that allows you</dt><dd><p>to specify the mode of deleting an object: completely deleting an
+entry from the database or marking the object as inactive.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: standard parameter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: standard parameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.UserDeleteView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserDeleteView.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the process of deleting or activating/deactivating user.
+When enabled ajax, returns data for an asynchronous web request</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/users/'</span></em><a class="headerlink" href="#myadmin.views.UserDeleteView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserDeleteView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/users/users-update.html'</span></em><a class="headerlink" href="#myadmin.views.UserDeleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.UserIsStaff">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">UserIsStaff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserIsStaff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View for granting the user rights/removing the rights of the superuser in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserIsStaff.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.UserIsStaff.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.UserAdminProfileForm" title="myadmin.forms.UserAdminProfileForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserAdminProfileForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserIsStaff.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.UserIsStaff.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="myadmin.views.UserIsStaff.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserIsStaff.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets superuser rights for the selected user or deletes them.
+When enabled ajax, returns data for an asynchronous web request.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserIsStaff.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/includes/table-users.html'</span></em><a class="headerlink" href="#myadmin.views.UserIsStaff.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.UserListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">UserListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to view lists of all registered users of the site in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users'</span></em><a class="headerlink" href="#myadmin.views.UserListView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.UserListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserListView.paginate_by">
+<span class="sig-name descname"><span class="pre">paginate_by</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#myadmin.views.UserListView.paginate_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/users/users-viewing.html'</span></em><a class="headerlink" href="#myadmin.views.UserListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserListView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Просмотр</span> <span class="pre">пользователей'</span></em><a class="headerlink" href="#myadmin.views.UserListView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">myadmin.views.</span></span><span class="sig-name descname"><span class="pre">UserUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#myadmin.views.UserUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateView</span></code>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.TitleMixin" title="interview_quiz.mixin.TitleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TitleMixin</span></code></a>, <a class="reference internal" href="../../interview_quiz.html#interview_quiz.mixin.UserDispatchMixin" title="interview_quiz.mixin.UserDispatchMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDispatchMixin</span></code></a></p>
+<p>View to update a specific user in the admin panel.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#myadmin.views.UserUpdateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#myadmin.forms.UserAdminProfileForm" title="myadmin.forms.UserAdminProfileForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserAdminProfileForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#myadmin.views.UserUpdateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../users/users.html#users.models.MyUser" title="users.models.MyUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">MyUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/myadmin/users/'</span></em><a class="headerlink" href="#myadmin.views.UserUpdateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'myadmin/users/users-update.html'</span></em><a class="headerlink" href="#myadmin.views.UserUpdateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="myadmin.views.UserUpdateView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Изменить</span> <span class="pre">пользователя'</span></em><a class="headerlink" href="#myadmin.views.UserUpdateView.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-myadmin">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-myadmin" title="Permalink to this heading">¶</a></h3>
+<p>The <strong>myadmin</strong> package is a customization of the standard Django admin panel.
+It is designed to make the work of filling the site and its administration more convenient and well organized.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">myadmin</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">myadmin package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../questions/modules.html">questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">myadmin</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">myadmin</a></li>
+      <li>Next: <a href="myadmin.tests.html" title="next chapter">myadmin.tests package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/myadmin/myadmin.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

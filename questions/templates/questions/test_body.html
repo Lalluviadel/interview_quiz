@@ -1,78 +1,163 @@
 {% extends 'questions/base.html' %}
 {% load static %}
-
+{% load question_methods %}
 
 {% block content %}
     {% include 'questions/includes/modal.html' %}
     <div id="layoutSidenav_content">
         <main>
-            <div class="container-fluid text-center" id="test-catcher">
-                <h1 class="mt-4">Тема: <b class="oranged">{{ item.subject }}</b></h1>
-                <div class="container-fluid mb-5">
-                    <div class="row flex-md-row pt-2 pb-2 justify-content-center">
-                        <h2>Вопрос № {{ item.id }}</h2>
-                    </div>
-                    <div class="row main p-3 border border-grey mt-1 ">
-                        <div class="col-md-3 thumbnail">
-                            <img class="card-img-top img-thumbnail"
-                                 src="
-                                         {% if item.image_01 %}{{ item.image_01.url }}{% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
-                                 alt="">
+            {% if item %}
+                {% if item == 'Stop' %}
+                    <div class="container-fluid text-center text-adaptive">
+                        <h1 class="mt-4 h1-title">Тестовый блок из <b class="oranged">{{ quantity }}</b> вопросов
+                            закончен</h1>
+                        <h3 class="mt-4 text-adaptive">Пройдите еще одно испытание или выберите другую тему и сложность
+                            вопросов</h3>
+
+                        <div> Правильных ответов - <b class="oranged">{{ right_ans }}</b></div>
+                        <div> Неправильных ответов - <b class="oranged">{{ wrong_ans }}</b></div>
+                        <div class="mt-4">
+                            <div class="row mt-3">
+                                <div class="col-lg-6">
+                                    <a class='btn btn-primary btn-block mt-3 mb-1'
+                                       href="{% url 'questions:categories' %}">
+                                        Выбор категорий</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class='btn btn-primary btn-block mt-3 mb-1'
+                                       href="{% url 'questions:start_test' category.id %}">
+                                        Выбор сложности {{ category }}</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-9 mt-3">
-                            <div class="container-fluid text-wrap text-justify text-break">
-                                {{ item.question }}
+                        <div class="row mt-3">
+                            <div class="col-12 mb-4">
+                                <img width="100px"
+                                     src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="row main p-3 border border-grey mt-1">
-                        <form id="listofiles" method="post" value="{{ item.id }}"
-                              action="{% url 'questions:answers' item.id %}"
-                              class="answer_catcher w-100">
-                            {% csrf_token %}
-                            <div class="row main p-3 mt-1 text-wrap text-justify text-break">
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" name="answers" type="radio" id="answer_01"
-                                               value="{{ item.answer_01 }}" checked>
-                                        <label class="form-check-label" for="answer_01">
-                                            {{ item.answer_01 }}
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="answers" id="answer_02"
-                                               value="{{ item.answer_02 }}">
-                                        <label class="form-check-label" for="answer_02">
-                                            {{ item.answer_02 }}
-                                        </label>
+                {% else %}
+                    <div class="container-fluid text-center" id="test-catcher">
+                        <div class="row">
+                            <div class="col-11">
+                                <h1 class="mt-4 h1-title">Тема: <b class="oranged">{{ current_category }}</b></h1>
+                            </div>
+                            {% if limit == 'True' %}
+                                <div class="col-1 mt-4">
+                                    <div class="row">
+                                        <p class="oranged font-xl mr-2" id="time_counter"></p>
+                                        <img width="25px" src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="answers" id="answer_03"
-                                               value="{{ item.answer_03 }}">
-                                        <label class="form-check-label" for="answer_03">
-                                            {{ item.answer_03 }}
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="answers" id="answer_04"
-                                               value="{{ item.answer_04 }}">
-                                        <label class="form-check-label" for="answer_04">
-                                            {{ item.answer_04 }}
-                                        </label>
-                                    </div>
+                            {% endif %}
+
+
+                        </div>
+                        <div class="container-fluid mb-5 text-adaptive">
+                            <div class="row flex-md-row pt-2 pb-2 justify-content-center">
+                                <div class="col-lg-2">Цена вопроса: <b class="oranged">{{ dif_points }}</b></div>
+                                <div class="col-lg-8">
+                                    <h2 class="h1-title">Вопрос № {{ item.id }}</h2>
                                 </div>
-                                <div class="col-lg-12 in-center mt-3">
-                                    <button id="mybtn" type="submit" class="btn-block btn-lg btn-orange"
-                                    >Отвечаю!
-                                    </button>
+                                <div class="col-lg-2">Ваш счет: <b class="oranged">{{ user_points }}</b></div>
+                            </div>
+                            <div class="row main p-1 border border-grey mt-1">
+                                <div class="col-lg-3 thumbnail">
+                                    <img class="card-img-top img-thumbnail"
+                                         src="
+
+
+                                                 {% if item.image_01 %}{{ item.image_01.url }}{% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
+                                         alt="">
+                                </div>
+                                <div class="col-lg-9 mt-3 form-adaptive-width">
+                                    <div class="form-adaptive-width text-wrap text-justify text-break">
+                                        {{ item.question }}
+                                    </div>
                                 </div>
                             </div>
-                        </form>
+                            <div class="row main p-1 border border-grey mt-1">
+
+                                <form method="get" value="{{ item.id }}"
+                                      action="{% url 'questions:answers' item.id %}"
+                                      class="answer_catcher w-100">
+                                    {% csrf_token %}
+                                    <div class="row main p-3 mt-1 text-wrap text-justify text-break">
+                                        <div class="col-lg-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="answers" type="radio"
+                                                       id="answer_01"
+                                                       value="{{ item.answer_01 }}" checked>
+                                                <label class="form-check-label" for="answer_01">
+                                                    {{ item.answer_01 }}
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="answers"
+                                                       id="answer_02"
+                                                       value="{{ item.answer_02 }}">
+                                                <label class="form-check-label" for="answer_02">
+                                                    {{ item.answer_02 }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="answers"
+                                                       id="answer_03"
+                                                       value="{{ item.answer_03 }}">
+                                                <label class="form-check-label" for="answer_03">
+                                                    {{ item.answer_03 }}
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="answers"
+                                                       id="answer_04"
+                                                       value="{{ item.answer_04 }}">
+                                                <label class="form-check-label" for="answer_04">
+                                                    {{ item.answer_04 }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 in-center mt-3">
+                                            <button id="mybtn" type="submit" class="btn-block btn-lg btn-orange"
+                                            >Отвечаю!
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="container-fluid text-center">
+                    <h1 class="mt-4">Вопросов пока нет</h1>
+                    <h3 class="mt-4">Извините, вопросы категории <b
+                            class="oranged">{{ category }}</b> уровня&nbsp;"<b
+                            class="oranged">{{ dif|choice_name }}</b>"
+                        еще&nbsp;не&nbsp;добавлены</h3>
+                    <div class="row mt-5">
+                        <div class="col-12 mt-4">
+                            <img width="100px"
+                                 src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'questions:categories' %}">
+                                Выбор категорий</a>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1'
+                               href="{% url 'questions:start_test' category.id %}">
+                                Выбор сложности {{ category }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
         </main>
         {% include 'questions/includes/footer.html' %}
     </div>

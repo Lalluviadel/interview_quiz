@@ -1,0 +1,7 @@
+Вы запросили восстановление пароля на сайте {{ domain }}
+
+Пожалуйста, перейдите по данной ссылке для смены пароля:
+{% block reset_link %}
+{{ domain }}{% url 'users:password_reset_confirm' uidb64=uid token=token %}
+{% endblock %}
+Ваш логин на нашем сайте: {{ user.get_username }}

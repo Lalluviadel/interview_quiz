@@ -1,0 +1,33 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'questions/includes/modal.html' %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center">
+                <h1 class="mt-4 oranged h1-title">Ой!</h1>
+                <h3 class="mt-4 h1-title">К сожалению, такая страница не существует, но когда-нибудь,
+                    возможно, мы ее создадим!</h3>
+                <div class="row mt-5">
+                    <div class="col-12 mt-4">
+                        <img width="100px"
+                             src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-6 mt-1 mb-1">
+                        <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'questions:categories' %}">
+                            Выбор категорий</a>
+                    </div>
+                    <div class="col-lg-6 mt-1 mb-1 ">
+                        <a class='btn btn-primary btn-block mt-3 mb-1'
+                           href="{% url 'index' %}">
+                            На главную </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

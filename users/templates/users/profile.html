@@ -6,55 +6,53 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center">
-                <h1 class="mt-4">Профиль <b class="oranged">{{ user.username }}</b></h1>
+                <h1 class="mt-4 h1-title">Профиль
+                    <b class="oranged">
+                        <a href="{% url 'posts:user_posts' user.id %}"
+                           data-toggle="tooltip" title="Показать все мои статьи">
+                            {{ user.username }}
+                        </a>
+                    </b>
+                </h1>
                 <div class="row justify-content-center mt-4">
-                    <div class="col-md-3">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                            <img class="rounded-circle mt-5" width="150px"
-                                 src="{% if user.img %} {{ user.img.url }} {% else %} {% static 'vendor/img/users/default.png' %} {% endif %}"
-                                 alt="">
-                            <span class="font-weight-bold font-large">{{ user.username }}</span>
+                    <div class="col-md-3" id="update_img_catcher">
+                        <div id="img_catcher">
+                            {% include "includes/profile_img.html" %}
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5" id="update_profile_catcher">
                         <div class="header-h2 card-header">
-                            <h3 class="text-right">Обо мне</h3>
+                            <h3 class="text-right h1-title">Обо мне</h3>
                         </div>
-                        <div class="profile_catcher text-left mt-4">
+                        <div class="text-left mt-4" id="profile_catcher">
                             {% include "includes/profile_data.html" %}
-                            <button class="btn mt-4 btn-primary gradient btn-block" id="profile_edit">
-                                Редактировать
-                            </button>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="header-h2 card-header">
-                            <h3 class="text-right">Мои успехи</h3>
+                            <h3 class="text-right h1-title">Мои успехи</h3>
                         </div>
                         <div class="row mt-4 text-left">
-                            <div class="col-md-auto m-2">
-                                <h5>Счет:</h5>
-                                <h5>Рейтинг:</h5>
-                            </div>
-                            <div class="col-md-auto m-2">
-                                <h5>{{ user.score }}</h5>
-                                <h5>Заполнить</h5>
-                            </div>
+                            <div class="col-5 m-2"><h5 class="text-adaptive">Счет:</h5></div>
+                            <div class="col-5 m-2 oranged"><h5 class="text-adaptive"><b>{{ user.score }}</b></h5></div>
+                            <div class="col-5 m-2"><h5 class="text-adaptive">Место в рейтинге:</h5></div>
+                            <div class="col-5 m-2 oranged"><h5 class="text-adaptive"><b>
+                                    {% if user.score > 0 %}{{ index }}{% else %} - {% endif %}</b></h5></div>
                         </div>
                         <img width="150px"
                              src="{% if user.score < 10 %}
-                                {% static 'achievements/baby.png' %}
+                                {% static 'vendor/img/achievements/baby.png' %}
                             {% elif user.score >= 10 and user.score < 50 %}
-                                {% static 'achievements/first_steps.png' %}
+                                {% static 'vendor/img/achievements/first_steps.png' %}
                             {% elif user.score >= 50 and user.score < 100 %}
-                                {% static 'achievements/book.png' %}
+                                {% static 'vendor/img/achievements/book.png' %}
                             {% else %}
-                                {% static 'achievements/smarty.png' %}
+                                {% static 'vendor/img/achievements/smarty.png' %}
                             {% endif %}" alt="">
                     </div>
                 </div>
             </div>
         </main>
-    {% include 'questions/includes/footer.html' %}
+        {% include 'questions/includes/footer.html' %}
     </div>
 {% endblock %}

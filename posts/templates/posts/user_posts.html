@@ -1,0 +1,49 @@
+{% extends 'questions/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid text-center mb-1">
+                {% if user_posts %}
+
+                    <h1 class="mt-4 h1-title">Все статьи пользователя <b class="oranged">{{ user }}</b></h1>
+                    <div class="text-justify mt-4">
+
+                        {% for post in user_posts %}
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a class="text-adaptive" href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+                    <h1 class="mt-4">Пользователь <b class="oranged">{{ user }}</b> пока не написал статей.</h1>
+                    <h3 class="mt-4">Возможно, он сделает это в будущем.</h3>
+                    <div class="row mt-5">
+                        <div class="col-12 mt-4">
+                            <img width="100px"
+                                 src="{% static 'vendor/img/other/hourglass.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1' href="{% url 'posts:all' %}">
+                                К постам</a>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <a class='btn btn-primary btn-block mt-3 mb-1'
+                               href="{% url 'index' %}">
+                                На главную</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+        {% include 'questions/includes/footer.html' %}
+    </div>
+{% endblock %}

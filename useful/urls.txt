@@ -1,0 +1,124 @@
+/	questions.views.MainView	index
+/__debug_/render_panel/	debug_toolbar.views.render_panel	djdt:render_panel
+/__debug_/sql_explain/	debug_toolbar.panels.sql.views.sql_explain	djdt:sql_explain
+/__debug_/sql_profile/	debug_toolbar.panels.sql.views.sql_profile	djdt:sql_profile
+/__debug_/sql_select/	debug_toolbar.panels.sql.views.sql_select	djdt:sql_select
+/__debug_/template_source/	debug_toolbar.panels.templates.views.template_source	djdt:template_source
+/admin/	django.contrib.admin.sites.index	admin:index
+/admin/<app_label>/	django.contrib.admin.sites.app_index	admin:app_list
+/admin/<url>	django.contrib.admin.sites.catch_all_view
+/admin/auth/group/	django.contrib.admin.options.changelist_view	admin:auth_group_changelist
+/admin/auth/group/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/auth/group/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:auth_group_change
+/admin/auth/group/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:auth_group_delete
+/admin/auth/group/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:auth_group_history
+/admin/auth/group/add/	django.contrib.admin.options.add_view	admin:auth_group_add
+/admin/autocomplete/	django.contrib.admin.sites.autocomplete_view	admin:autocomplete
+/admin/jsi18n/	django.contrib.admin.sites.i18n_javascript	admin:jsi18n
+/admin/login/	django.contrib.admin.sites.login	admin:login
+/admin/logout/	django.contrib.admin.sites.logout	admin:logout
+/admin/password_change/	django.contrib.admin.sites.password_change	admin:password_change
+/admin/password_change/done/	django.contrib.admin.sites.password_change_done	admin:password_change_done
+/admin/posts/post/	django.contrib.admin.options.changelist_view	admin:posts_post_changelist
+/admin/posts/post/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/posts/post/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:posts_post_change
+/admin/posts/post/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:posts_post_delete
+/admin/posts/post/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:posts_post_history
+/admin/posts/post/add/	django.contrib.admin.options.add_view	admin:posts_post_add
+/admin/questions/question/	django.contrib.admin.options.changelist_view	admin:questions_question_changelist
+/admin/questions/question/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/questions/question/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:questions_question_change
+/admin/questions/question/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:questions_question_delete
+/admin/questions/question/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:questions_question_history
+/admin/questions/question/add/	django.contrib.admin.options.add_view	admin:questions_question_add
+/admin/questions/questioncategory/	django.contrib.admin.options.changelist_view	admin:questions_questioncategory_changelist
+/admin/questions/questioncategory/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/questions/questioncategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:questions_questioncategory_change
+/admin/questions/questioncategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:questions_questioncategory_delete
+/admin/questions/questioncategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:questions_questioncategory_history
+/admin/questions/questioncategory/add/	django.contrib.admin.options.add_view	admin:questions_questioncategory_add
+/admin/r/<int:content_type_id>/<path:object_id>/	django.contrib.contenttypes.views.shortcut	admin:view_on_site
+/admin/sites/site/	django.contrib.admin.options.changelist_view	admin:sites_site_changelist
+/admin/sites/site/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/sites/site/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:sites_site_change
+/admin/sites/site/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:sites_site_delete
+/admin/sites/site/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:sites_site_history
+/admin/sites/site/add/	django.contrib.admin.options.add_view	admin:sites_site_add
+/admin/social_django/association/	django.contrib.admin.options.changelist_view	admin:social_django_association_changelist
+/admin/social_django/association/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/social_django/association/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_association_change
+/admin/social_django/association/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_association_delete
+/admin/social_django/association/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_association_history
+/admin/social_django/association/add/	django.contrib.admin.options.add_view	admin:social_django_association_add
+/admin/social_django/nonce/	django.contrib.admin.options.changelist_view	admin:social_django_nonce_changelist
+/admin/social_django/nonce/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/social_django/nonce/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_nonce_change
+/admin/social_django/nonce/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_nonce_delete
+/admin/social_django/nonce/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_nonce_history
+/admin/social_django/nonce/add/	django.contrib.admin.options.add_view	admin:social_django_nonce_add
+/admin/social_django/usersocialauth/	django.contrib.admin.options.changelist_view	admin:social_django_usersocialauth_changelist
+/admin/social_django/usersocialauth/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/social_django/usersocialauth/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_usersocialauth_change
+/admin/social_django/usersocialauth/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_usersocialauth_delete
+/admin/social_django/usersocialauth/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_usersocialauth_history
+/admin/social_django/usersocialauth/add/	django.contrib.admin.options.add_view	admin:social_django_usersocialauth_add
+/admin/users/myuser/	django.contrib.admin.options.changelist_view	admin:users_myuser_changelist
+/admin/users/myuser/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/users/myuser/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:users_myuser_change
+/admin/users/myuser/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:users_myuser_delete
+/admin/users/myuser/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:users_myuser_history
+/admin/users/myuser/add/	django.contrib.admin.options.add_view	admin:users_myuser_add
+/complete/<str:backend>/	social_django.views.complete	social:complete
+/disconnect/<str:backend>/	social_django.views.disconnect	social:disconnect
+/disconnect/<str:backend>/<int:association_id>/	social_django.views.disconnect	social:disconnect_individual
+/login/<str:backend>/	social_django.views.auth	social:begin
+/media/<path>	django.views.static.serve
+/myadmin/	myadmin.views.AdminPanelView	myadmin:index
+/myadmin/categories-create/	myadmin.views.CategoriesCreateView	myadmin:admins_category_create
+/myadmin/categories-delete/<int:pk>/	myadmin.views.CategoriesDeleteView	myadmin:admins_category_delete
+/myadmin/categories-update/<int:pk>/	myadmin.views.CategoriesUpdateView	myadmin:admins_category_update
+/myadmin/categories/	myadmin.views.CategoriesListView	myadmin:admins_categories
+/myadmin/posts-create/	myadmin.views.PostCreateView	myadmin:admins_post_create
+/myadmin/posts-delete/<int:pk>/	myadmin.views.PostDeleteView	myadmin:admins_post_delete
+/myadmin/posts-update/<int:pk>/	myadmin.views.PostUpdateView	myadmin:admins_post_update
+/myadmin/posts/	myadmin.views.PostListView	myadmin:admins_posts
+/myadmin/questions-create/	myadmin.views.QuestionCreateView	myadmin:admins_question_create
+/myadmin/questions-delete/<int:pk>/	myadmin.views.QuestionDeleteView	myadmin:admins_question_delete
+/myadmin/questions-update/<int:pk>/	myadmin.views.QuestionUpdateView	myadmin:admins_question_update
+/myadmin/questions/	myadmin.views.QuestionListView	myadmin:admins_questions
+/myadmin/search/cat/	myadmin.views.AdminsSearchCategoryView	myadmin:admins_search_results_category
+/myadmin/search/post/	myadmin.views.AdminsSearchPostView	myadmin:admins_search_results_post
+/myadmin/search/question/	myadmin.views.AdminsSearchQuestionView	myadmin:admins_search_results_question
+/myadmin/search/user/	myadmin.views.AdminsSearchUserView	myadmin:admins_search_results_user
+/myadmin/users-create/	myadmin.views.UserCreateView	myadmin:admins_user_create
+/myadmin/users-delete/<uuid:pk>/	myadmin.views.UserDeleteView	myadmin:admins_user_delete
+/myadmin/users-is-staff/<uuid:pk>/	myadmin.views.UserIsStaff	myadmin:admins_user_is_staff
+/myadmin/users-update/<uuid:pk>/	myadmin.views.UserUpdateView	myadmin:admins_user_update
+/myadmin/users/	myadmin.views.UserListView	myadmin:admins_users
+/posts/all/	posts.views.PostsCategoryView	posts:all
+/posts/category_posts/<int:pk>/	posts.views.CategoryPostView	posts:category_posts
+/posts/post/<int:pk>/	posts.views.PostView	posts:post
+/posts/search/	posts.views.SearchPostView	posts:search_results_post
+/posts/tag_posts/<str:tag>/	posts.views.TagPostView	posts:tag_posts
+/posts/user_posts/<uuid:pk>/	posts.views.UserPostView	posts:user_posts
+/questions/answers/<int:item_id>/	questions.views.AnswerQuestion	questions:answers
+/questions/categories/	questions.views.AllCategoriesView	questions:categories
+/questions/start_test/<int:pk>/	questions.views.CategoryView	questions:start_test
+/questions/test_body/<int:pk>/	questions.views.QuestionView	questions:test_body
+/questions/time_is_up/	questions.views.TimeIsUp	questions:time_is_up
+/users/attempt_failed/<str:error>	users.views.FailedAuthenticationView	users:failed
+/users/login/	users.views.UserLoginView	users:login
+/users/logout/	users.views.UserLogoutView	users:logout
+/users/password_reset/	users.views.UserPasswordResetView	users:password_reset
+/users/password_reset_confirm/<uidb64>/<token>/	users.views.MyPasswordResetConfirmView	users:password_reset_confirm
+/users/posts_create/	users.views.UserPostCreateView	users:user_post_create
+/users/profile/	users.views.ProfileView	users:profile
+/users/profile_buttons/	users.views.GiveMeMyButtons	users:give_me_my_buttons
+/users/profile_edit/	users.views.UserEdit	users:profile_edit
+/users/profile_img_edit/	users.views.UserImgEdit	users:profile_img_edit
+/users/question_create/	users.views.UserQuestionCreateView	users:user_question_create
+/users/register/	users.views.RegisterView	users:register
+/users/reset/done/	users.views.MyPasswordResetCompleteView	users:password_reset_complete
+/users/top_users/	users.views.TopUsers	users:top_users
+/users/verify/<str:email>/<str:activation_key>/	users.views.Verify	users:verify
+/users/write_to_admin/	users.views.WriteToAdmin	users:write_to_admin

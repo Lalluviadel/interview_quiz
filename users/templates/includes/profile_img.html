@@ -1,0 +1,11 @@
+{% load static %}
+
+<button class="btn mt-2 btn-primary btn-lg gradient btn-block" id="profile_img_edit">
+    Сменить аватар
+</button>
+<div class="d-flex flex-column align-items-center text-center p-3 py-5">
+    <img class="rounded-circle mt-5" width="150px"
+         src="{% if user.img %} {{ user.img.url }} {% else %} {% static 'vendor/img/users/default.png' %} {% endif %}"
+         alt="">
+    <span class="font-weight-bold font-large">{{ user.username }}</span>
+</div>

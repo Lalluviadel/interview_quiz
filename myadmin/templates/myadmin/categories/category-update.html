@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="text-center">
                                     <img width="400" height="400"
-                                         src="{% if questioncategory.image %} {{ questioncategory.image.url }} {% else %} {% static 'vendor/img/matrix.jpg' %} {% endif %}"
+                                         src="{% if questioncategory.image %} {{ questioncategory.image.url }} {% else %} {% static 'vendor/img/no_image.png' %} {% endif %}"
                                          class="img-thumbnail" alt="">
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                                   method="post">
                                                 {% csrf_token %}
                                                 <input class="btn btn-dark form-control btn-block"
-                                                       value="Удалить"
+                                                       value="Деактивировать"
                                                        type="submit">
                                             </form>
                                         {% else %}

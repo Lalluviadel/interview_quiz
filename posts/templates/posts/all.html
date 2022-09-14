@@ -1,4 +1,5 @@
 {% extends 'questions/base.html' %}
+{% load post_methods %}
 {% load static %}
 
 
@@ -6,18 +7,42 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid text-center mb-1">
-                <h1 class="mt-4">Все статьи</h1>
-                <div class="text-justify mt-4">
-                    {% for post in posts %}
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <a href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
-                            </li>
-                        </ul>
+                <h1 class="mt-4 h1-title">Все статьи</h1>
+
+                <div id="accordion">
+                    {% for category in posts_categories %}
+                        <div class="card">
+                            <div class="card-header-user" id="{{ category.name }}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed oranged font-xl" data-toggle="collapse"
+                                            data-target="#collapse{{ category.id }}"
+                                            aria-expanded="false" aria-controls="collapse{{ category.id }}">
+                                        {{ category.name }}
+                                        <span class="badge bg-secondary font-xl">{{ category.posts_count }}</span>
+                                    </button>
+                                </h5>
+                            </div>
+
+
+                            {% for post in category.post_set|filter_set %}
+                                <div id="collapse{{ category.id }}" class="collapse text-justify"
+                                     aria-labelledby="{{ category.name }}"
+                                     data-parent="#accordion">
+                                    <ul class="list-group">
+                                        <li class="list-group-item text-adaptive">
+                                            <a href="{% url 'posts:post' post.id %}">{{ post.title }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
                     {% endfor %}
                 </div>
             </div>
         </main>
-    {% include 'questions/includes/footer.html' %}
+        {% include 'questions/includes/footer.html' %}
     </div>
 {% endblock %}
+

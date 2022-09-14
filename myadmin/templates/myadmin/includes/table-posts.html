@@ -21,9 +21,9 @@
         </tr>
         </tfoot>
         <tbody>
-        {% for post in posts %}
+        {% for post in page_obj %}
             <tr{% if not post.available %} class="no-active" {% endif %}>
-                <td class="col-3 text-left">
+                <td class="col-3 text-left item-on-page" value="{{ post.id }}">
                     <a href="{% url 'myadmin:admins_post_update' post.id %}"
                        class="admin-link">{{ post.title }}</a>
                 </td>

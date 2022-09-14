@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>questions.tests package &#8212; Interview quiz 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="posts" href="../posts/modules.html" />
+    <link rel="prev" title="questions.templatetags package" href="questions.templatetags.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="questions-tests-package">
+<h1>questions.tests package<a class="headerlink" href="#questions-tests-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-questions.tests.test_models">
+<span id="questions-tests-test-models-module"></span><h2>questions.tests.test_models module<a class="headerlink" href="#module-questions.tests.test_models" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the models of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_models.</span></span><span class="sig-name descname"><span class="pre">TestQuestionCategoryModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test class for the QuestionCategory model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.setUpTestData">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.setUpTestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up non-modified QuestionCategory object used by all test methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.test_default_available_true">
+<span class="sig-name descname"><span class="pre">test_default_available_true</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.test_default_available_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionCategory model available field default is True test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.test_description_label">
+<span class="sig-name descname"><span class="pre">test_description_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.test_description_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionCategory model description field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.test_name_label">
+<span class="sig-name descname"><span class="pre">test_name_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.test_name_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionCategory model name field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.test_name_max_length">
+<span class="sig-name descname"><span class="pre">test_name_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.test_name_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionCategory model name field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionCategoryModel.test_string_output_of_the_model">
+<span class="sig-name descname"><span class="pre">test_string_output_of_the_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionCategoryModel.test_string_output_of_the_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>QuestionCategory model string output text test.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_models.</span></span><span class="sig-name descname"><span class="pre">TestQuestionModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test class for the Question model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.setUpTestData">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.setUpTestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up non-modified Question, MyUser and QuestionCategory objects used by all test methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_answers_default">
+<span class="sig-name descname"><span class="pre">test_answers_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_answers_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model answers fields default test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_answers_max_length">
+<span class="sig-name descname"><span class="pre">test_answers_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_answers_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model answers fields max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_available_default">
+<span class="sig-name descname"><span class="pre">test_available_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_available_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model available field default test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_difficulty_level_default">
+<span class="sig-name descname"><span class="pre">test_difficulty_level_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_difficulty_level_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model difficulty level field default test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_difficulty_level_label">
+<span class="sig-name descname"><span class="pre">test_difficulty_level_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_difficulty_level_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model difficulty level field Label test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_difficulty_level_max_length">
+<span class="sig-name descname"><span class="pre">test_difficulty_level_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_difficulty_level_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model difficulty level field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_question_author_default">
+<span class="sig-name descname"><span class="pre">test_question_author_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_question_author_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model author field default is MyUser object with nickname=drf.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_question_max_length">
+<span class="sig-name descname"><span class="pre">test_question_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_question_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model name field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_question_subject_default">
+<span class="sig-name descname"><span class="pre">test_question_subject_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_question_subject_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model subject(category) field default is QuestionCategory object with id=1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_right_answer_default">
+<span class="sig-name descname"><span class="pre">test_right_answer_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_right_answer_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model right answer field default test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_right_answer_max_length">
+<span class="sig-name descname"><span class="pre">test_right_answer_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_right_answer_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model right answer field max length test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_string_output_of_the_model">
+<span class="sig-name descname"><span class="pre">test_string_output_of_the_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_string_output_of_the_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Question model string output text test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_tag_default">
+<span class="sig-name descname"><span class="pre">test_tag_default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_tag_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model difficulty level field default test.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_models.TestQuestionModel.test_tag_max_length">
+<span class="sig-name descname"><span class="pre">test_tag_max_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_models.TestQuestionModel.test_tag_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Question model difficulty level field max length test.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-questions.tests.test_views">
+<span id="questions-tests-test-views-module"></span><h2>questions.tests.test_views module<a class="headerlink" href="#module-questions.tests.test_views" title="Permalink to this heading">¶</a></h2>
+<p>Contains unit and integration tests for checking the views of the web application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.Test404Page">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">Test404Page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.Test404Page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Custom handler404 test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.Test404Page.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.Test404Page.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.Test404Page.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.Test404Page.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAllCategoriesView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>AllCategoriesView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating 10 test categories, objects with even IDs are not available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView.test_view_queryset_only_available_categories">
+<span class="sig-name descname"><span class="pre">test_view_queryset_only_available_categories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView.test_view_queryset_only_available_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests that only the available categories fall into the queryset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAllCategoriesView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAllCategoriesView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestAnswerQuestion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#questions.tests.test_views.TestBase" title="questions.tests.test_views.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestBase</span></code></a></p>
+<p>AnswerQuestion view test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test category, questions and user objects, sending a POST request at the start of testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_user_answered_correctly">
+<span class="sig-name descname"><span class="pre">test_user_answered_correctly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_user_answered_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that when user answered correctly, the user’s score increases
+in accordance with the scores of the difficulty level of the question,
+and the number of correct answers stored in the context of the session increases by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_user_answered_incorrectly_score_is_0">
+<span class="sig-name descname"><span class="pre">test_user_answered_incorrectly_score_is_0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_user_answered_incorrectly_score_is_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that if the user answered incorrectly and his score less than the points for the answer,
+it will not decrease.
+The number of incorrect responses stored in the context of the session increases by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_user_answered_incorrectly_score_more_0">
+<span class="sig-name descname"><span class="pre">test_user_answered_incorrectly_score_more_0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_user_answered_incorrectly_score_more_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that if the user answered incorrectly and his score is greater than 0,
+it will decrease by the number of points according to the difficulty level of the question.
+The number of incorrect responses stored in the context of the session increases by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that AnswerQuestion view and relevant site page are only available to authorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_view_get_request_context">
+<span class="sig-name descname"><span class="pre">test_view_get_request_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_view_get_request_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of receiving and transmitting data to the request context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestAnswerQuestion.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestAnswerQuestion.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Parent test class for observing the DRY pattern.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestBase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestBase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test category and user objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestCategoryView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#questions.tests.test_views.TestBase" title="questions.tests.test_views.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestBase</span></code></a></p>
+<p>CategoryView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test category and user objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that CategoryView view and relevant site page are only available to authorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.test_view_get_context_data_works_correctly">
+<span class="sig-name descname"><span class="pre">test_view_get_context_data_works_correctly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.test_view_get_context_data_works_correctly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of receiving and transmitting data to the context:
+the current user, the current category of questions, the numeric value of the info field of the user object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestCategoryView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestCategoryView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestMainView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestMainView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestMainView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>MainView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestMainView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestMainView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestMainView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestMainView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestMainView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestMainView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestMainView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestMainView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionAndAnswerView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestQuestionAndAnswerView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionAndAnswerView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>A test of the full testing process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionAndAnswerView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionAndAnswerView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test category, questions and user objects,
+making requests to start testing and verify the first answer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionAndAnswerView.test_examination_process">
+<span class="sig-name descname"><span class="pre">test_examination_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionAndAnswerView.test_examination_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the entire user testing process, starting with the second question,
+completes testing, checks the current number of user points, the number of correct/incorrect answers,
+the absence of unanswered questions.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestQuestionView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#questions.tests.test_views.TestBase" title="questions.tests.test_views.TestBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestBase</span></code></a></p>
+<p>QuestionView test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating test category and user objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_continuation_of_examination">
+<span class="sig-name descname"><span class="pre">test_continuation_of_examination</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_continuation_of_examination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of continuing user’s testing, transferring data to the context,
+reducing the number of questions in the queryset, changing the current question.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_get_question_queryset_less_20">
+<span class="sig-name descname"><span class="pre">test_get_question_queryset_less_20</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_get_question_queryset_less_20" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test for the case when the questions of the selected category and difficulty level are less than 20.
+Checks:
+- that the question ready for display is in context and has a Question class;
+- that the queryset of the remaining questions is in the context of the session
+and its length by the beginning of the test is 5 (6 - 1 question ready for issue);
+- that all questions in the queryset are unique;
+- that the question ready for issue is also unique;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_get_question_queryset_more_20">
+<span class="sig-name descname"><span class="pre">test_get_question_queryset_more_20</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_get_question_queryset_more_20" title="Permalink to this definition">¶</a></dt>
+<dd><p>A test for the case when the questions of the selected category and difficulty level are more than 20.
+Checks:
+- that the question ready for display is in context and has a Question class;
+- that the queryset of the remaining questions is in the context of the session
+and its length by the beginning of the test is 19 (20 - 1 question ready for issue);
+- that all questions in the queryset are unique;
+- that the question ready for issue is also unique;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_uniqueness_question_queryset_less_20">
+<span class="sig-name descname"><span class="pre">test_uniqueness_question_queryset_less_20</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_uniqueness_question_queryset_less_20" title="Permalink to this definition">¶</a></dt>
+<dd><p>The test is for the case when the number of questions of a given category
+and difficulty level is less than 20.
+Checks that the queryset of questions is different each time.
+There is still some chance of a failed test, since queryset can theoretically be repeated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_uniqueness_question_queryset_more_20">
+<span class="sig-name descname"><span class="pre">test_uniqueness_question_queryset_more_20</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_uniqueness_question_queryset_more_20" title="Permalink to this definition">¶</a></dt>
+<dd><p>The test is for the case when the number of questions of a given category
+and difficulty level is more than 20.
+Checks that the queryset of questions is different each time.
+There is still some chance of a failed test, since queryset can theoretically be repeated</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that QuestionView view and relevant site page are only available to authorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_post_request_context">
+<span class="sig-name descname"><span class="pre">test_view_post_request_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_post_request_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of receiving and transmitting data to the request context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_post_session_context">
+<span class="sig-name descname"><span class="pre">test_view_post_session_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_post_session_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the correctness of receiving and transmitting data to the session context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestQuestionView.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestQuestionView.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">questions.tests.test_views.</span></span><span class="sig-name descname"><span class="pre">TestTimeIsUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>TimeIsUp test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp.test_view_authorized_users_only">
+<span class="sig-name descname"><span class="pre">test_view_authorized_users_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp.test_view_authorized_users_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that TimeIsUp view and relevant site page are only available to authorized users.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp.test_view_url_accessible_by_name">
+<span class="sig-name descname"><span class="pre">test_view_url_accessible_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp.test_view_url_accessible_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the view URL is available by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp.test_view_url_exists_at_desired_location">
+<span class="sig-name descname"><span class="pre">test_view_url_exists_at_desired_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp.test_view_url_exists_at_desired_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view URL exists in the desired location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="questions.tests.test_views.TestTimeIsUp.test_view_uses_correct_template_and_title">
+<span class="sig-name descname"><span class="pre">test_view_uses_correct_template_and_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#questions.tests.test_views.TestTimeIsUp.test_view_uses_correct_template_and_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the view uses the correct template and title.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-questions.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-questions.tests" title="Permalink to this heading">¶</a></h2>
+<p>The subpackage contains unit and integration tests for checking the models
+and views of the web application.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Interview quiz</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../myadmin/modules.html">myadmin</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">questions</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="questions.html">questions package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="questions.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="questions.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/modules.html">posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users/modules.html">users</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">questions</a><ul>
+  <li><a href="questions.html">questions package</a><ul>
+      <li>Previous: <a href="questions.templatetags.html" title="previous chapter">questions.templatetags package</a></li>
+      <li>Next: <a href="../posts/modules.html" title="next chapter">posts</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Marina Marmalyukova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/questions/questions.tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
