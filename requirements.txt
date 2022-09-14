@@ -30,9 +30,11 @@ patterns==0.3
 Pillow==9.0.1
 platformdirs==2.5.1
 prompt-toolkit==3.0.28
+psycopg2-binary==2.9.3
 pycparser==2.21
 PyJWT==2.3.0
 pylint==2.12.2
+pymemcache==3.5.2
 pynliner==0.8.0
 python-dotenv==0.19.2
 python3-openid==3.2.0
