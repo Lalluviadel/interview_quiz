@@ -6,11 +6,11 @@
         <main>
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header text-center">
-                    <h1 class="mt-4">Неудачная попытка активации профиля</h1>
+                    <h1 class="mt-4 h1-title">Неудачная попытка активации профиля</h1>
                 </div>
                 <div class="card-body text-center">
-                    <h5>{{ error }}</h5>
-                    <p class="mb-3">Попробуйте использовать другие данные и еще раз пройти регистрацию</p>
+                    <h5 class="h1-title">{{ error }}</h5>
+                    <p class="mb-3 text-adaptive">Попробуйте использовать другие данные и еще раз пройти регистрацию</p>
                     <br>
                     <button class="btn btn-orange btn-outline-info btn-lg"
                             onclick="window.location.href='{% url 'users:register' %}'">

@@ -125,6 +125,58 @@ div.thumbnail {
     cursor: pointer;
 }
 
-.grey-background{
+.grey-background {
     background-color: #c2aa8d;
+}
+
+.font-small {
+    font-size: 0.75rem;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+    .form-adaptive-width {
+        width: 100% !important;
+    }
+
+    .h1-title {
+        font-size: 1.3rem !important;
+    }
+
+    .text-adaptive {
+        font-size: 0.8rem !important;
+    }
+
+    .modal-adaptive {
+        height: 100vh !important;
+        width: 100vw !important;
+    }
+
+    .modal {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        background: #ddd;
+        transform: translate(-50%, -50%)
+    }
+
+    .img-adaptive {
+        width: 80vw !important;
+        height: auto;
+    }
+
+    .table-adaptive{
+        width: 100%;
+        font-size: 0.5vw; !important;
+    }
+}
+
+@media only screen
+and (min-width: 1224px) {
+    .form-adaptive-width {
+        width: 50% !important;
+    }
 }
