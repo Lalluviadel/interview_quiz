@@ -136,7 +136,7 @@ div.thumbnail {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 480px) {
+and (max-device-width: 760px) {
     .form-adaptive-width {
         width: 100% !important;
     }
@@ -146,12 +146,16 @@ and (max-device-width: 480px) {
     }
 
     .text-adaptive {
-        font-size: 0.8rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    .text-modal {
+        font-size: 15px !important;
     }
 
     .modal-adaptive {
-        height: 100vh !important;
-        width: 100vw !important;
+        height: 90vh !important;
+        width: 90vw !important;
     }
 
     .modal {

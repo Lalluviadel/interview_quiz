@@ -33,8 +33,8 @@ class PostsCategoryView(ListView, TitleMixin):
         """Displaying all active categories.
         A category is displayed only if it has at least one active post.
         At the same time, the template displays the number of active posts in this category."""
-        return QuestionCategory.objects.filter(available=True).\
-            annotate(posts_count=Count('post', distinct=True)).filter(post__available=True)
+        return QuestionCategory.objects.filter(available=True).filter(post__available=True).\
+            annotate(posts_count=Count('post', distinct=True))
 
 
 class PostView(DetailView):

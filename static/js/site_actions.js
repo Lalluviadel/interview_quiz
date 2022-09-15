@@ -169,7 +169,10 @@ window.addEventListener('load', (e) => {
     $('div.thumbnail').click(function (e) {
         e.preventDefault();
         $('#image-modal .modal-body img').attr('src', $(this).find('img').attr('src'));
-        $("#image-modal").modal('show');
+        let height = (window.innerWidth > 0) ? window.innerHeight : screen.height;
+        if (height >= 900) {
+            $("#image-modal").modal('show');
+        }
     });
 
     /**
@@ -186,8 +189,10 @@ window.addEventListener('load', (e) => {
      * with information about the order of testing before starting the test.
      */
     if (typeof user_info !== "undefined") {
-        if (user_info === 1) {
+        let height = (window.innerWidth > 0) ? window.innerHeight : screen.height;
+        if (user_info === 1 && height >= 900) {
             e.preventDefault();
+            console.log('1', height)
             $("#info-modal").modal('show');
         }
     }
