@@ -170,9 +170,9 @@ window.addEventListener('load', (e) => {
         e.preventDefault();
         $('#image-modal .modal-body img').attr('src', $(this).find('img').attr('src'));
         let height = (window.innerWidth > 0) ? window.innerHeight : screen.height;
-        if (height >= 900) {
-            $("#image-modal").modal('show');
-        }
+        // if (height >= 900) {
+        $("#image-modal").modal('show');
+        // }
     });
 
     /**
@@ -190,7 +190,8 @@ window.addEventListener('load', (e) => {
      */
     if (typeof user_info !== "undefined") {
         let height = (window.innerWidth > 0) ? window.innerHeight : screen.height;
-        if (user_info === 1 && height >= 900) {
+        // if (user_info === 1 && height >= 900) {
+        if (user_info === 1) {
             e.preventDefault();
             console.log('1', height)
             $("#info-modal").modal('show');
