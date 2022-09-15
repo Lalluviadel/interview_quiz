@@ -6,7 +6,7 @@ Thumbs.db
 */admin/
 */vendor/img/No_Useful
 */debug_toolbar
-*.json
+#*.json
 *.log
 _trial_temp
 htmlcov/
