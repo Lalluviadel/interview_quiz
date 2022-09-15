@@ -1,0 +1,74 @@
+[
+{
+  "model": "users.myuser",
+  "pk": "55231f2d-5852-4b98-985e-038cb5395200",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$7n2mYOVZ9uHjvLJXl8i2sm$fT99HfX+n81hWtlL9SahbEmGw1KVbGFFjag7929bVrQ=",
+    "last_login": "2022-09-13T21:04:41.322Z",
+    "is_superuser": false,
+    "username": "LinkedPark",
+    "first_name": "Chester",
+    "last_name": "Bennington",
+    "is_staff": false,
+    "date_joined": "2022-09-13T21:02:37.435Z",
+    "img": "",
+    "email": "lalluviadeljulio@gmail.com",
+    "score": 0,
+    "is_active": true,
+    "activation_key": "",
+    "activation_key_created": null,
+    "info": true,
+    "social_network": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.myuser",
+  "pk": "aa1358b8-ce83-4e89-b62f-26088245ea81",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$jCcFd6CJYnNHJNwr3ByqOB$L0MPS4nkl2yeeKVeDINvFbLkfT6TN3A7DPaVXSDCsAM=",
+    "last_login": "2022-09-13T20:57:14.515Z",
+    "is_superuser": true,
+    "username": "drf",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "date_joined": "2022-09-13T02:03:29.201Z",
+    "img": "",
+    "email": "d@mail.ru",
+    "score": 0,
+    "is_active": true,
+    "activation_key": null,
+    "activation_key_created": "2022-09-13T02:03:29.372Z",
+    "info": true,
+    "social_network": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.myuser",
+  "pk": "e6fefe30-8c4d-4e87-857d-965d6dd9ffa9",
+  "fields": {
+    "password": "!lR1T5tpwPvFKs5rHRHnYkfEVmRFUbLefmvKVe7qx",
+    "last_login": "2022-09-13T20:58:58.066Z",
+    "is_superuser": false,
+    "username": "id681242387",
+    "first_name": "Enamorada",
+    "last_name": "Del-Mar",
+    "is_staff": false,
+    "date_joined": "2022-09-13T20:57:28.220Z",
+    "img": "user_images/id681242387_guitar.jpg",
+    "email": "inspiracion@yandex.ru",
+    "score": 2,
+    "is_active": true,
+    "activation_key": null,
+    "activation_key_created": "2022-09-13T20:57:28.221Z",
+    "info": true,
+    "social_network": true,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
