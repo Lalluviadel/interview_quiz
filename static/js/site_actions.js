@@ -193,7 +193,7 @@ window.addEventListener('load', (e) => {
         // if (user_info === 1 && height >= 900) {
         if (user_info === 1) {
             e.preventDefault();
-            console.log('1', height)
+            // console.log('1', height)
             $("#info-modal").modal('show');
         }
     }
