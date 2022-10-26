@@ -1,4 +1,5 @@
 {% load static %}
+{% load yandex_metrica %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,7 @@
     <title>{{ title }}</title>
     <link href="{% static 'css/auth-admin.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/admin.css' %}" rel="stylesheet"/>
+    {% yandex_metrica %}
 </head>
 
 <body class="sb-nav-fixed">

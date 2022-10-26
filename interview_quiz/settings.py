@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'social_django',
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
+    'analytical',
     # 'template_profiler_panel',
     # 'django_extensions',
 ]
@@ -255,6 +256,8 @@ LOGGING = {
         },
     }
 }
+
+YANDEX_METRICA_COUNTER_ID = '90935651'
 
 # if DEBUG:
 #     def show_toolbar(request):
