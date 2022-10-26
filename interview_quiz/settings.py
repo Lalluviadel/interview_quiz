@@ -185,7 +185,7 @@ CACHES = {
 LOW_CACHE = True
 
 # DOMAIN_NAME = 'http://127.0.0.1:8000'
-DOMAIN_NAME = 'https://int-quiz.online/'
+DOMAIN_NAME = 'https://int-quiz.online'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
