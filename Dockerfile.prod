@@ -1,0 +1,55 @@
+###########
+# BUILDER #
+###########
+
+FROM python:3.8.6 as builder
+
+WORKDIR /usr/src/interview_quiz
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+RUN apt-get update && pip3 install --upgrade pip
+RUN apt-get install -y libpq-dev postgresql postgresql-contrib python3-dev gcc musl-dev
+
+
+#RUN pip install flake8
+#COPY . .
+#RUN flake8 --ignore=E501,F401 /usr/src/interview_quiz
+
+COPY ./requirements.txt .
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/interview_quiz/wheels -r requirements.txt
+
+
+#########
+# FINAL #
+#########
+
+FROM python:3.8.6
+
+RUN mkdir -p /home/interview_quiz
+
+RUN adduser --system django && adduser django sudo
+
+ENV HOME=/home/interview_quiz
+ENV DJANGO_HOME=/home/interview_quiz/web
+RUN mkdir $DJANGO_HOME
+RUN mkdir $DJANGO_HOME/static
+RUN mkdir $DJANGO_HOME/media
+WORKDIR $DJANGO_HOME
+
+RUN apt-get update && apt-get install -y libpq-dev
+COPY --from=builder /usr/src/interview_quiz/wheels /wheels
+COPY --from=builder /usr/src/interview_quiz/requirements.txt .
+RUN pip install --no-cache /wheels/*
+
+COPY ./entrypoint.prod.sh $DJANGO_HOME
+
+COPY . $DJANGO_HOME
+
+RUN chown -R django:sudo $DJANGO_HOME
+
+RUN apt install -y netcat
+USER django
+
+ENTRYPOINT ["/home/interview_quiz/web/entrypoint.prod.sh"]
