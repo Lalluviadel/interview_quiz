@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    command: bash -c "
+      python manage.py migrate
+      && python manage.py loaddata /home/interview_quiz/web/fixtures/users.json
+      && python manage.py loaddata /home/interview_quiz/web/fixtures/categories.json
+      && python manage.py loaddata /home/interview_quiz/web/fixtures/questions.json
+      && python manage.py loaddata /home/interview_quiz/web/fixtures/posts.json
+      && gunicorn interview_quiz.wsgi:application --bind 0.0.0.0:8000
+      "
+    expose:
+      - 8000
+    volumes:
+      - static_volume:/home/interview_quiz/web/static
+      - media_volume:/home/interview_quiz/web/media
+    env_file:
+      - ./interview_quiz/.env.prod
+    depends_on:
+      - db
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data/
+    env_file:
+      - ./interview_quiz/.env.prod.db
+  nginx:
+    build: ./nginx
+    ports:
+      - "1337:80"
+    volumes:
+      - static_volume:/home/interview_quiz/web/static
+      - media_volume:/home/interview_quiz/web/media
+    depends_on:
+      - web
+
+volumes:
+    postgres_volume:
+    static_volume:
+    media_volume:
