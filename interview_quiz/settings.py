@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'analytical',
     'rest_framework',
     'django_filters',
+    'drf_yasg2',
     # 'template_profiler_panel',
     # 'django_extensions',
 ]
