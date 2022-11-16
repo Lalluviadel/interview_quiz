@@ -6,7 +6,7 @@ from django.urls import path, include, re_path
 from rest_framework import routers
 from rest_framework.permissions import AllowAny
 
-from api.api import QuestionCategoryViewSet, QuestionViewSet, PostViewSet, UserViewSet
+from api_rest.api import QuestionCategoryViewSet, QuestionViewSet, PostViewSet, UserViewSet
 from questions.views import MainView, my_handler404
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
