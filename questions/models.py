@@ -1,5 +1,6 @@
 """
-Stores category and question models that are necessary for the main process of the application - user testing.
+Stores category and question models that are necessary for the main process of the application -
+user testing.
 """
 
 import logging
@@ -107,7 +108,8 @@ class Question(models.Model):
     AVERAGE = 'AV'
     SMARTYPANTS = 'SP'
 
-    #: options for the level of difficulty of the question, on which the number of points received / lost depends
+    #: options for the level of difficulty of the question, on which
+    # the number of points received / lost depends
     DIFFICULTY_LEVEL_CHOICES = (
         (NEWBIE, 'новичок'),
         (AVERAGE, 'середнячок'),
