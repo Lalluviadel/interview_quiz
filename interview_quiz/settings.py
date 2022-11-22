@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
     'analytical',
+    'rest_framework',
+    'django_filters',
+    'drf_yasg2',
     # 'template_profiler_panel',
     # 'django_extensions',
 ]
@@ -73,30 +76,31 @@ WSGI_APPLICATION = 'interview_quiz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#             'OPTIONS': {
-#                 'timeout': 20,
-#             }
-#         }
-#     }
-# else:
-DATABASES = {
-    'default': {
-        # 'NAME': 'int_quiz',
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'USER': 'postgres',
-        'ENGINE': os.environ.get('POSTGRES_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('POSTGRES_DB', 'int_quiz'),
-        'USER': os.environ.get('POSTGRES_USER', 'user'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
-        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+            'OPTIONS': {
+                'timeout': 20,
+            }
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            # 'NAME': 'int_quiz',
+            # 'ENGINE': 'django.db.backends.postgresql',
+            # 'USER': 'postgres',
+            'ENGINE': os.environ.get('POSTGRES_ENGINE', 'django.db.backends.sqlite3'),
+            'NAME': os.environ.get('POSTGRES_DB', 'int_quiz'),
+            'USER': os.environ.get('POSTGRES_USER', 'user'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
+            'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+            'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -128,7 +132,7 @@ STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = (BASE_DIR / 'static',)
 else:
-# STATIC_ROOT = BASE_DIR / 'static'
+    # STATIC_ROOT = BASE_DIR / 'static'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -258,6 +262,12 @@ LOGGING = {
 }
 
 YANDEX_METRICA_COUNTER_ID = '90935651'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
 
 # if DEBUG:
 #     def show_toolbar(request):
