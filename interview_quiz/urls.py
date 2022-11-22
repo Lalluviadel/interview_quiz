@@ -3,6 +3,7 @@ from django.conf.urls import handler404
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include, re_path
+from graphene_django.views import GraphQLView
 from rest_framework import routers
 from rest_framework.permissions import AllowAny
 
@@ -10,7 +11,7 @@ from api_rest.api import QuestionCategoryViewSet, QuestionViewSet, PostViewSet, 
 from questions.views import MainView, my_handler404
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
-# from graphene_django.views import GraphQLView
+
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -49,6 +50,8 @@ urlpatterns = [
     name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0),
     name='schema-redoc'),
+
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 ]
 
 handler404 = 'questions.views.my_handler404'
