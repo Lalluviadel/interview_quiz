@@ -1,0 +1,164 @@
+Samples of graphene queries:
+----------------------------
+
+{
+  allCategories {
+    name
+    description
+    image
+    available
+  }
+}
+
+{
+  allQuestions {
+    subject {name}
+    question
+    rightAnswer
+    answer01
+    answer02
+    answer03
+    answer04
+    available
+    tag
+    image01
+    image02
+    image03
+    difficultyLevel
+    id
+  }
+}
+
+{
+  allPosts {
+    createdOn
+    author{username}
+    available
+    body
+    id
+    category{
+      name
+    }
+  }
+}
+
+{
+  allUsers{
+    id
+    username
+    isActive
+    isStaff
+    isSuperuser
+    info
+    lastLogin
+    lastName
+    firstName
+    img
+    socialNetwork
+    password
+    score
+    questionSet {
+      id
+    }
+  }
+}
+
+{
+    getPostById(postId: 2){
+    body
+    id
+    image
+    title
+  }
+}
+
+{
+  getUserById(userUuid: "55231f2d-5852-4b98-985e-038cb5395200"){
+    id
+    username
+    lastName
+    firstName
+  }
+}
+
+{
+  getQuestionById(queId: 20){
+    id
+		question
+    subject{name}
+    rightAnswer
+    author{username}
+    available
+    tag
+  }
+}
+
+{
+  getCategoryById(catId: 3){
+    name
+    description
+    available
+  }
+}
+
+{getQuestionsByCategory(name: "Python")
+  {
+  question
+  id
+	}
+}
+
+
+Samples of graphene mutations:
+----------------------------
+
+mutation activateQuestion {
+    activateQuestion(condition: false, objId: 1) {
+    currentObject{
+      question
+      available
+    }
+    }
+}
+
+mutation activateCategory {
+    activateCategory(condition: false, objId: 1) {
+    currentObject{
+      name
+      available
+    }
+    }
+}
+
+mutation activatePost {
+    activatePost (condition: true, objId: 3) {
+    currentObject {
+        id
+        body
+        available
+        }
+    }
+}
+
+mutation activateUser {
+    activateUser (condition: true, objId: "55231f2d-5852-4b98-985e-038cb5395200") {
+    currentObject {
+      id
+      username
+      isActive
+    }
+  }
+}
+
+mutation createCategory {
+    createCategory(input: {name: "Graphene",
+      description:"Test category for graphene"}) {
+    ok
+  	category{
+      id
+      name
+      available
+      description
+    }
+  }
+}
