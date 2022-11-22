@@ -372,7 +372,7 @@ class TestAdminUserDeleteView(TestAdminTwoUsers):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_user_delete', args=[self.test_user_02.id]),
                                     {'flag': ['false'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         user = MyUser.objects.get(id=self.test_user_02.id)
         self.assertTrue(user.is_active)
 
@@ -384,7 +384,7 @@ class TestAdminUserDeleteView(TestAdminTwoUsers):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_user_delete', args=[self.test_user_02.id]),
                                     {'flag': ['true'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertFalse(MyUser.objects.filter(id=self.test_user_02.id).exists())
 
 
@@ -656,7 +656,7 @@ class TestAdminCategoriesDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_category_delete', args=[self.test_category.id]),
                                     {'flag': ['false'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         category = QuestionCategory.objects.get(id=self.test_category.id)
         self.assertFalse(category.available)
 
@@ -668,7 +668,7 @@ class TestAdminCategoriesDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_category_delete', args=[self.test_category.id]),
                                     {'flag': ['true'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertFalse(QuestionCategory.objects.filter(id=self.test_category.id).exists())
 
 
@@ -966,7 +966,7 @@ class TestAdminQuestionDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_question_delete', args=[self.test_question.id]),
                                     {'flag': ['false'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         question = Question.objects.get(id=self.test_question.id)
         self.assertFalse(question.available)
 
@@ -978,7 +978,7 @@ class TestAdminQuestionDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_question_delete', args=[self.test_question.id]),
                                     {'flag': ['true'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertFalse(Question.objects.filter(id=self.test_question.id).exists())
 
 
@@ -1250,7 +1250,7 @@ class TestAdminPostDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_post_delete', args=[self.test_post.id]),
                                     {'flag': ['false'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         post = Post.objects.get(id=self.test_post.id)
         self.assertFalse(post.available)
 
@@ -1262,7 +1262,7 @@ class TestAdminPostDeleteView(TestAdminOneUserOneCategory):
         self.client.login(username=self.test_user.username, password='laLA12')
         response = self.client.post(reverse('myadmin:admins_post_delete', args=[self.test_post.id]),
                                     {'flag': ['true'], })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertFalse(Post.objects.filter(id=self.test_post.id).exists())
 
 
