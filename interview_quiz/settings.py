@@ -196,8 +196,6 @@ if DEBUG:
 else:
     os.getenv('DOMAIN_NAME', 'http://194.58.119.60/')
 
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
@@ -277,6 +275,8 @@ REST_FRAMEWORK = {
 GRAPHENE = {
     'SCHEMA': 'interview_quiz.schema.schema'
 }
+
+KAFKA_ENABLED = os.getenv('KAFKA_ENABLED')
 
 # if DEBUG:
 #     def show_toolbar(request):

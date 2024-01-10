@@ -29,11 +29,14 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView, ListView, TemplateView
 
 from interview_quiz.mixin import AuthorizedOnlyDispatchMixin, TitleMixin
+from interview_quiz.settings import KAFKA_ENABLED
 from interview_quiz.variabls import POINTS_LEVEL
 
 from posts.models import Post
 
 from questions.models import Question, QuestionCategory
+
+from user_log.helpers import send_statistics_message
 
 from users.models import MyUser
 
@@ -142,15 +145,16 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
             current_category, difficulty_level
         )
         id_list = [item.id for item in question_set]
-        context = {'dif_points': POINTS_LEVEL[difficulty_level],
-                   'title': f'Тест по категории {current_category.name}',
-                   'current_category': current_category.name,
-                   'limit': self.request.session['limit'],
-                   'dif': difficulty_level,
-                   'quantity': len(id_list),
-                   'right_ans': 0,
-                   'wrong_ans': 0,
-                   }
+        context = {
+            'dif_points': POINTS_LEVEL[difficulty_level],
+            'title': f'Тест по категории {current_category.name}',
+            'current_category': current_category.name,
+            'limit': self.request.session['limit'],
+            'dif': difficulty_level,
+            'quantity': len(id_list),
+            'right_ans': 0,
+            'wrong_ans': 0,
+        }
         self.request.session['context'] = context
 
         context_upd = context.copy()
@@ -159,7 +163,6 @@ class QuestionView(DetailView, AuthorizedOnlyDispatchMixin):
             context_upd['item'] = Question.objects.get(id=id_list.pop())
             context['question_set'] = id_list
         context_upd['user_points'] = self.request.user.score
-
         return render(request, 'questions/test_body.html', context=context_upd)
 
     def get(self, request, *args, **kwargs):
@@ -311,6 +314,8 @@ class AnswerQuestion(DetailView, AuthorizedOnlyDispatchMixin):
                 user.score -= points
             else:
                 user.score = 0
+        if KAFKA_ENABLED:
+            send_statistics_message(user, guessed)
         request.session.modified = True
         user.save(update_fields=['score'])
         context = {

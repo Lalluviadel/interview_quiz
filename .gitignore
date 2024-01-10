@@ -17,3 +17,4 @@ coverage.xml
 *.cover
 docs/
 db.sqlite3
+local.*

@@ -37,6 +37,17 @@ services:
       - media_volume:/home/interview_quiz/web/media
     depends_on:
       - web
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    restart: on-failure
+
 
 volumes:
     postgres_volume:
