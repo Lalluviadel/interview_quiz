@@ -46,6 +46,10 @@ from posts.models import Post
 
 from questions.models import Question
 
+from user_log.helpers import (
+    auth_update_user_logging, create_user_logging
+)
+
 from users.forms import (
     MyPasswordResetForm, UserChangeProfileForm,
     UserImgChangeProfileForm, UserLoginForm,
@@ -78,6 +82,7 @@ class UserLoginView(LoginView, TitleMixin):
             )
             if user.is_active:
                 auth.login(request, user)
+                auth_update_user_logging(user)
                 return HttpResponseRedirect(reverse('index'))
         else:
             return render(
@@ -112,6 +117,7 @@ class RegisterView(FormView, TitleMixin):
                         'из письма, отправленного на email, указанный '
                         'при регистрации.'
                     )
+                    create_user_logging(user)
 
                 else:
                     msg = (
@@ -209,6 +215,7 @@ class Verify(TemplateView, TitleMixin):
                     backend='django.contrib.auth.backends.ModelBackend'
                 )
                 user.save()
+                auth_update_user_logging(user)
                 return render(request, 'registration/verification.html')
 
             else:

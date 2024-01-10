@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'users',
     'myadmin',
     'posts',
+    'user_log',
     'social_django',
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
@@ -190,8 +191,12 @@ CACHES = {
 
 LOW_CACHE = True
 
-# DOMAIN_NAME = 'http://127.0.0.1:8000'
-DOMAIN_NAME = 'https://int-quiz.online'
+if DEBUG:
+    DOMAIN_NAME = 'http://127.0.0.1:8000'
+else:
+    os.getenv('DOMAIN_NAME', 'http://194.58.119.60/')
+
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465

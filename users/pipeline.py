@@ -21,6 +21,10 @@ import requests
 
 from social_core.exceptions import AuthForbidden
 
+from user_log.helpers import (
+    auth_update_user_logging, create_user_logging
+)
+
 from users.models import MyUser
 
 logger = logging.getLogger(__name__)
@@ -86,7 +90,8 @@ def save_new_user(backend, user, response, *args, **kwargs):
         raise AuthForbidden('social_core.backends.vk.VK0Auth2')
     user.is_active, user.social_network = True, True
     user.save()
-
+    create_user_logging(user)
+    auth_update_user_logging(user)
 
 def if_user_exists_pipeline(request, details, backend, **kwargs):
     """
@@ -108,11 +113,13 @@ def if_user_exists_pipeline(request, details, backend, **kwargs):
             user = MyUser.objects.get(email=fields['email'])
             if (user.first_name == details['first_name'] and
                     user.last_name == details['last_name'] and
-                    user.username == details['username']):
+                    user.username == details['username'] and
+                    user.is_active):
                 auth.login(
                     request, user,
                     backend='django.contrib.auth.backends.ModelBackend'
                 )
+                auth_update_user_logging(user)
                 return HttpResponseRedirect(reverse('index'))
             else:
                 logger.warning(
